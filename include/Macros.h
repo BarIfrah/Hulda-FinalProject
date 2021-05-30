@@ -29,12 +29,10 @@ constexpr auto NONE_CHOSEN = 'N';
 //MovingObject pritesheets consts
 constexpr auto STAND = 0;
 constexpr auto NUM_OF_STAND_SPRITE = 1;
-constexpr auto CLIMBING = 1;
+constexpr auto JUMPING = 1;
 constexpr auto NUM_OF_CLIMB_SPRITE = 3;
 constexpr auto RUNNING = 4;
 constexpr auto NUM_OF_RUNNING_SPRITE = 8;
-constexpr auto RODDING = 3;
-constexpr auto NUM_OF_RODDING_SPRITE = 8;
 constexpr auto FALLING = 2;
 constexpr auto NUM_OF_FALLING_SPRITE = 2;
 
