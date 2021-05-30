@@ -4,12 +4,12 @@
 #include <vector>
 //========================== forward declarations ============================
 class Board;
-class Wall;
+class Road;
 /*============================================================================
 * Class: Player.
 * This class represent the player in the game. Derives from MovingObject
 * class. manage the turns,animations,movements of the player and handle on 
-* the dig action of the player.
+* the jump action of the player.
  ============================================================================*/
 class Player : public MovingObject
 {
@@ -23,8 +23,6 @@ public:
 	//========================= private section ===============================
 private:
 	//========================= members section ===============================
-	std::vector<Wall*> m_diggedWalls;
 	//====================== privete methods section ==========================
-	void updateDiggedWalls(const sf::Time& deltaTime);
-	void dig(Board&, const sf::Vector2f&, const sf::Time&);
+	void jump(Board&, const sf::Vector2f&, const sf::Time&);
 };

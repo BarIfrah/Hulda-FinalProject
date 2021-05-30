@@ -15,14 +15,10 @@ constexpr auto RAND_ENEMY_TIME = 1;
 // game objects symbols
 constexpr auto PLAYER = '@';
 constexpr auto ENEMY = '%';
-constexpr auto COIN = '*';
-constexpr auto WALL = '#';
+constexpr auto FOOD = '*';
+constexpr auto ROAD = '#';
 constexpr auto NOTHING = ' ';
-constexpr auto LADDER = 'H';
-constexpr auto ROD = '-';
-constexpr auto PLAYER_ON_LADDER = 'S';
-constexpr auto GIFT = '+';
-constexpr auto DOOR = 'D';
+constexpr auto TRASH = 'T';
 
 //menu answers
 constexpr auto QUIT_GAME = 'Q';
@@ -45,29 +41,23 @@ constexpr auto NUM_OF_FALLING_SPRITE = 2;
 constexpr auto CHARACTER_HEIGHT = 128;
 constexpr auto CHARACTER_WIDTH = 128;
 
-constexpr auto DIGG_DURATION = 3.f;
 constexpr auto ANIMATIONS_RATE = 0.1f;
 constexpr auto WALK_LEFT = 1;
 constexpr auto WALK_RIGHT = 2;
-//coin
+//food
 constexpr auto NOT_COLLECTED = 6;
 constexpr auto COLLECTED = 7;
-//wall
-//constexpr auto EXIST = 8;
-//constexpr auto DIGGED = 9;
-//ladder/rod
-constexpr auto CLIMBED = 10;
-constexpr auto NOT_CLIMBED = 11;
-//gift
+
+//special food
 constexpr auto TIME_BONUS = 0;
 constexpr auto ADD_SCORE = 1;
 constexpr auto ADD_LIFE = 2;
-constexpr auto ADD_ENEMY = 3;
+constexpr auto INVISIBLE = 3;
 //=============================== game rules =================================
 
 constexpr auto NUM_OF_LIFE = 3;
 constexpr auto NO_LEVEL_TIME = -1;
-constexpr auto NUM_OF_GIFT_TYPES = 4;
+constexpr auto NUM_OF_FOOD_TYPES = 4;
 constexpr auto NUM_OF_ENEMIES_TYPES = 3;
 
 //============================== gift bonuses ================================
@@ -90,13 +80,13 @@ constexpr auto LEVEL3_BACKGROUND_PATH = "level3.jpeg";
 constexpr auto LEVEL4_BACKGROUND_PATH = "level4.jpeg";
 
 constexpr auto PLAYER_PATH = "player.png";
-constexpr auto ENEMY_PATH = "enemy.png";
-constexpr auto COIN_PATH = "coin.png";
-constexpr auto WALL_PATH = "wall.png";
-constexpr auto LADDER_PATH = "ladder.png";
-constexpr auto ROD_PATH = "rod.png";
-constexpr auto GIFT_PATH = "gift.png";
-constexpr auto DOOR_PATH = "door.png";
+constexpr auto SCOOTER_PATH = "scooter.png";
+constexpr auto EXTERMINATOR_PATH = "exterminator.png";
+constexpr auto OLD_WOMAN_PATH = "old_woman.png";
+constexpr auto REGULAR_FOOD_PATH = "regular_food.png";
+constexpr auto TOXIC_FOOD_PATH = "toxic_food.png";
+constexpr auto SPECIAL_FOOD_PATH = "special_food.png";
+constexpr auto ROAD_PATH = "road.png";
 constexpr auto GAME_STATE_PATH = "game_state.jpg";
 //--------------------------------- musics -----------------------------------
 constexpr auto MENU_MUSIC_PATH = "menuMusic.ogg";
@@ -106,12 +96,15 @@ constexpr auto LEVEL3_MUSIC_PATH = "level3Music.ogg";
 constexpr auto LEVEL4_MUSIC_PATH = "level4Music.ogg";
 
 //--------------------------------- sounds -----------------------------------
-constexpr auto COINS_SOUND_PATH = "coinSound.wav";
-constexpr auto DIG_SOUND_PATH = "DiggingSound.wav";
+constexpr auto REGULAR_FOOD_SOUND_PATH = "regular_foodSound.wav";
+constexpr auto TOXIC_FOOD_SOUND_PATH = "toxic_foodSound.wav";
+constexpr auto SPECIAL_FOOD_SOUND_PATH = "special_foodSound.wav";
+constexpr auto JUMP_SOUND_PATH = "jumpSound.wav";
 constexpr auto FALLING_SOUND_PATH = "fallingSound.wav";
-constexpr auto DOOR_SOUND_PATH = "DoorSound.wav";
 constexpr auto STEP_SOUND_PATH = "stepSound.wav";
-constexpr auto ENEMY_SOUND_PATH = "enemySound.wav";
+constexpr auto EXTERMINATOR_SOUND_PATH = "exterminatorSound.wav";
+constexpr auto SCOOTER_SOUND_PATH = "scooterSound.wav";
+constexpr auto OLD_WOMAN_SOUND_PATH = "old_womanSound.wav";
 //---------------------------------- logos -----------------------------------
 constexpr auto GAME_LOGO_PATH = "Logo.png";
 
@@ -123,21 +116,24 @@ constexpr auto LEVEL_BACKGROUND = 2;
 constexpr auto GAME_STATE = 9;
 //------------------------------- objects -------------------------------------
 constexpr auto PLAYER_T = 10;
-constexpr auto ENEMY_T = 11;
-constexpr auto COIN_T = 12;
-constexpr auto WALL_T = 13;
-constexpr auto LADDER_T = 14;
-constexpr auto ROD_T = 15;
-constexpr auto GIFT_T = 16;
-constexpr auto DOOR_T = 17;
+constexpr auto SCOOTER_T = 11;
+constexpr auto EXTERMINATOR_T = 12;
+constexpr auto OLD_WOMAN_T = 13;
+constexpr auto REGULAR_FOOD_T = 14;
+constexpr auto TOXIC_FOOD_T = 15;
+constexpr auto SPECIAL_FOOD_T = 16;
+constexpr auto ROAD_T = 17;
 
 //--------------------------------- sounds -----------------------------------
-constexpr auto DIGGING_SOUND = 0;
-constexpr auto COIN_COLLECT_SOUND = 1;
-constexpr auto FALLING_SOUND = 2;
-constexpr auto DOOR_SOUND = 3;
-constexpr auto STEP_SOUND = 4;
-constexpr auto ENEMY_SOUND = 5;
+constexpr auto REGULAR_FOOD_SOUND = 0;
+constexpr auto TOXIC_FOOD_SOUND = 1;
+constexpr auto SPECIAL_FOOD_SOUND = 2;
+constexpr auto JUMP_SOUND = 3;
+constexpr auto FALLING_SOUND = 4;
+constexpr auto STEP_SOUND = 5;
+constexpr auto EXTERMINATOR_SOUND = 6;
+constexpr auto SCOOTER_SOUND = 7;
+constexpr auto OLD_WOMAN_SOUND = 8;
 //--------------------------------- logos ------------------------------------
 constexpr auto GAME_LOGO = 26;
 

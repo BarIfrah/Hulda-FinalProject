@@ -16,7 +16,7 @@ public:
 
 	ToxicFood(const sf::Vector2f& = sf::Vector2f(0, 0),
 		const sf::Vector2f & = sf::Vector2f(0, 0));
-	virtual ~BadGift() = default;
+	virtual ~ToxicFood() = default;
 	//=========================== method section =============================
 
 	//virtual void handleColision(Controller&) override;
