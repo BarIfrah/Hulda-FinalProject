@@ -26,11 +26,11 @@ constexpr auto PLAY_GAME = 'P';
 constexpr auto NONE_CHOSEN = 'N';
 
 //========================== game objects states ============================
-//MovingObject pritesheets consts
+//MovingObject spritesheets consts
 constexpr auto STAND = 0;
 constexpr auto NUM_OF_STAND_SPRITE = 1;
 constexpr auto JUMPING = 1;
-constexpr auto NUM_OF_CLIMB_SPRITE = 3;
+constexpr auto NUM_OF_JUMP_SPRITE = 3;
 constexpr auto RUNNING = 4;
 constexpr auto NUM_OF_RUNNING_SPRITE = 8;
 constexpr auto FALLING = 2;
