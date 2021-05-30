@@ -29,27 +29,14 @@ public:
 	sf::Vector2f getBotRight()const;
 	const sf::Vector2f& getLocation()const;
 	sf::Vector2f getSize()const;
-	int getState ()const;
 	const sf::Sprite& getSprite()const;
 	//=========================== method section ==============================
 	bool CollidesWith(const GameObject&)const;
-	void flipSprite();
 	virtual void draw(sf::RenderWindow&);
-	virtual void reset();
-	virtual void resetAnimationTime();
-	void updateAnimation(const sf::Time&);
 	//========================= protected section ==============================
 protected:
 	virtual void setLocation(const sf::Vector2f&);
-	virtual void setState(int);
 	//========================= private section ===============================
 private:
 	//========================= members section ===============================
-	sf::Sprite m_objectSprite;
-	int m_state;
-	bool m_isAnimated;
-	//here and not on moving object to give an option to static objects
-	//animation
-	sf::IntRect m_intRect;
-	sf::Time m_animationTime;
 };

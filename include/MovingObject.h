@@ -23,23 +23,38 @@ public:
 	//============================ gets section ===============================
 	int getLookState()const;
 	sf::Vector2f getInitialLoc()const;
+	int getState()const;
 	//============================ sets section ===============================
 	virtual void setLocation(const sf::Vector2f&);
 	void setLookState(int);
-	virtual void reset()override;
-	virtual void setState(int)override;
 	//=========================== method section ==============================
 	virtual void playTurn(const sf::Time&, Board&) = 0;
 	virtual bool physicsTurn(const sf::Time&, Board&);
+
 	void moveUp(const sf::Time&, Board&);
 	void moveDown(const sf::Time&, Board&);
 	void moveLeft(const sf::Time&, Board&);
 	void moveRight(const sf::Time&, Board&);
 	virtual void nullMovement(const sf::Vector2f&);
+
 	bool isFalling(const Board&);
+	virtual void resetAnimationTime();
+	void updateAnimation(const sf::Time&);
+	void flipSprite();
+	virtual void reset();
+	//========================= protected section ==============================
+protected:
+	virtual void setState(int);
 	//========================= private section ===============================
 private:
 	//========================= members section ===============================
+	sf::Sprite m_objectSprite;
 	sf::Vector2f m_initialLoc;
 	int m_lookingState;
+	int m_state;
+	bool m_isAnimated;
+
+	//animation
+	sf::IntRect m_intRect;
+	sf::Time m_animationTime;
 };
