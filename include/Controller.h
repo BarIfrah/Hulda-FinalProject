@@ -5,7 +5,7 @@
 //#include "Enemy.h"
 //#include "GameState.h"
 #include <SFML/Graphics.hpp>
-#include <vector>
+//#include <vector>
 //========================== forward declarations ============================
 //class MovingObject;
 //class Player;
@@ -29,6 +29,11 @@ public:
 private:
 	//========================= members section ==============================
 	sf::RenderWindow m_window;
+
+	//view:
+	sf::Vector2f m_CurrViewPos;
+	sf::View m_screenView;
+
 	/*Board m_board;
 	Menu m_menu;
 	GameState m_gameState;
