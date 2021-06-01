@@ -1,0 +1,9 @@
+# ninja log v5
+21	2008	644258427	CMakeFiles/Hulda.dir/src/Board.cpp.obj	30660923a03dee67
+4	2015	644258427	CMakeFiles/Hulda.dir/src/main.cpp.obj	4e7e9096494c7c65
+2	1320	644258710	CMakeFiles/Hulda.dir/src/Controller.cpp.obj	222f6b54eb904dc8
+17	1841	644259208	CMakeFiles/Hulda.dir/src/Controller.cpp.obj	222f6b54eb904dc8
+5	1857	644259208	CMakeFiles/Hulda.dir/src/main.cpp.obj	4e7e9096494c7c65
+7	1256	644259342	CMakeFiles/Hulda.dir/src/Controller.cpp.obj	222f6b54eb904dc8
+2	1258	644259342	CMakeFiles/Hulda.dir/src/main.cpp.obj	4e7e9096494c7c65
+1259	2099	644259343	Hulda.exe	eb468409987429ef

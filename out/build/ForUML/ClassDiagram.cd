@@ -1,2 +1,161 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Board" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAkCAAACBAAAAAIAIMECAACCAAAAAEAFBAACAwAIA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\Board.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Controller" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>TAAAEgCAMQACAQAAEIQEACBAAAAIAQACAAQAAIAAAIA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\Controller.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataReader" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQAiABAAAIAAAAAABAAIIAAAAAAAQAAAAABAAAAAAAA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\DataReader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enemy">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\Enemy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Exterminator">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\Exterminator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Food">
+    <Position X="11.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAGAAAAAAQAQAIAAAAAAAAAAIAAAAAAAgAAAAA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\Food.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameObject">
+    <Position X="2.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABKAAAAAgIAAAAAAABIABAAACCAAAGAAAAAAAAIRAAA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\GameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameState" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DgIAAAABIIAAAAAAAAMAAICAQAEAAQAABAEAAAgYIYA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\GameState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAIAAAABAAAAAACIMCAAAAAEIAAAACAAQAAIQAAA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\Menu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingObject">
+    <Position X="5.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAgAIAAVAAIhAAAAABAAIAAAAHAAIAABAAEACEgAEBQ=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\MovingObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OldWoman">
+    <Position X="13.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\OldWoman.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="9.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQgAAAA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RegularFood">
+    <Position X="17" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\RegularFood.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Resources" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAQgQAEIEAQggAAAQAAQAIAAABIEAAIAABAAAAAJQI=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\Resources.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Road">
+    <Position X="9.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAIAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\Road.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scooter">
+    <Position X="13.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAgAAAg=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\Scooter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpecialFood">
+    <Position X="17" Y="9" Width="1.5" />
+    <InheritanceLine Type="Food" FixedToPoint="true">
+      <Path>
+        <Point X="13.25" Y="9.432" />
+        <Point X="13.442" Y="9.432" />
+        <Point X="13.442" Y="8.808" />
+        <Point X="17.75" Y="8.808" />
+        <Point X="17.75" Y="9" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\SpecialFood.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StaticObject">
+    <Position X="5.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\StaticObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ToxicFood">
+    <Position X="17" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIEAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\ToxicFood.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trash">
+    <Position X="9.5" Y="5.75" Width="1.5" />
+    <InheritanceLine Type="StaticObject" FixedFromPoint="true">
+      <Path>
+        <Point X="6" Y="7.75" />
+        <Point X="6" Y="7.367" />
+        <Point X="10.25" Y="7.367" />
+        <Point X="10.25" Y="7.175" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\sharonlevi\source\repos\Hulda\include\Trash.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
