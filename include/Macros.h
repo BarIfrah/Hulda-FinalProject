@@ -8,7 +8,7 @@
 */
 //========================== game const parameters ===========================
 //games parameters
-constexpr auto MOVEMENT_SPEED = 20000;
+constexpr auto MOVEMENT_SPEED = 10000.f;
 constexpr auto MUSIC_VOLUME = 50;
 constexpr auto RAND_ENEMY_TIME = 1;
 
