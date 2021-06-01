@@ -13,7 +13,7 @@ public:
 	//================= constractors and destractors section =================
 	using MovingObject::MovingObject;
 	//=========================== method section =============================
-	virtual bool physicsTurn(const sf::Time&, Board&)override;
+//	virtual bool physicsTurn(const sf::Time&, Board&)override;
 	//========================= private section ==============================
 private:
 	float m_distanceLimit;

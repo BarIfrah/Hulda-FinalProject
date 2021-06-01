@@ -27,6 +27,10 @@ constexpr auto NONE_CHOSEN = 'N';
 
 //========================== game objects states ============================
 //MovingObject spritesheets consts
+//enum to define movement directions of all moving objects (Enemies will not use up/down)
+enum ANIMATION_DIRECTIONS { IDLE = 0, UP = 1, DOWN = 2, LEFT = 3, RIGHT = 4 };
+//enum ANIMATION_STATE { IDLE = 0, RUN = 1, JUMP = 2, FALL = 3 };
+/*
 constexpr auto STAND = 0;
 constexpr auto NUM_OF_STAND_SPRITE = 1;
 constexpr auto JUMPING = 1;
@@ -35,7 +39,7 @@ constexpr auto RUNNING = 4;
 constexpr auto NUM_OF_RUNNING_SPRITE = 8;
 constexpr auto FALLING = 2;
 constexpr auto NUM_OF_FALLING_SPRITE = 2;
-
+*/
 constexpr auto CHARACTER_HEIGHT = 128;
 constexpr auto CHARACTER_WIDTH = 128;
 
@@ -58,7 +62,7 @@ constexpr auto NO_LEVEL_TIME = -1;
 constexpr auto NUM_OF_FOOD_TYPES = 4;
 constexpr auto NUM_OF_ENEMIES_TYPES = 3;
 
-//============================== gift bonuses ================================
+//============================== special food bonuses ================================
 constexpr auto BONUS_TIME = 20;
 constexpr auto BONUS_SCORE = 20;
 constexpr auto BONUS_LIFE = 1;
@@ -137,3 +141,10 @@ constexpr auto GAME_LOGO = 26;
 
 //---------------------------------- fonts -----------------------------------
 constexpr auto ARIEL_FONT = 1;
+//---------------------------------- Physics ---------------------------------
+constexpr auto MAX_VELOCITY = 30.f;
+constexpr auto MIN_VELOCITY = 1.f;
+
+//player
+constexpr auto PLAYER_ACCEL = 10.f;
+constexpr auto PLAYER_DRAG = 0.9f;

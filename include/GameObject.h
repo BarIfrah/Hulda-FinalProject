@@ -9,7 +9,7 @@ class Board;
 * This is the base class of all the game objects in hte game.
 * every object in the game is derived from this class.
  ============================================================================*/
-class GameObject{
+class GameObject {
 	//========================== public section ==============================
 public:
 	//================= constractors and destractors section =================
@@ -38,5 +38,12 @@ protected:
 	virtual void setLocation(const sf::Vector2f&);
 	//========================= private section ===============================
 private:
+	sf::Sprite m_objectSprite;
+	int m_state;
+	//    bool m_isAnimated;
+		//here and not on moving object to give an option to static objects
+		//animation
+	sf::IntRect m_intRect;
+	sf::Time m_animationTime;
 	//========================= members section ===============================
 };
