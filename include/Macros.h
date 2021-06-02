@@ -28,8 +28,8 @@ constexpr auto NONE_CHOSEN = 'N';
 //========================== game objects states ============================
 //MovingObject spritesheets consts
 //enum to define movement directions of all moving objects (Enemies will not use up/down)
-enum ANIMATION_DIRECTIONS { IDLE = 0, UP = 1, DOWN = 2, LEFT = 3, RIGHT = 4 };
-//enum ANIMATION_STATE { IDLE = 0, RUN = 1, JUMP = 2, FALL = 3 };
+enum ANIMATION_DIRECTIONS { STAND = 0, UP = 1, DOWN = 2, LEFT = 3, RIGHT = 4 };
+enum ANIMATION_STATE { IDLE = 0, RUN = 1, JUMP = 2, FALL = 3 };
 /*
 constexpr auto STAND = 0;
 constexpr auto NUM_OF_STAND_SPRITE = 1;

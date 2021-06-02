@@ -105,7 +105,8 @@
 				0,
 				1,
 				2,
-				3
+				3,
+				4
 			]
 		}
 	],
@@ -208,7 +209,8 @@
 				0,
 				1,
 				2,
-				3
+				3,
+				4
 			]
 		}
 	],
@@ -236,6 +238,12 @@
 			"backtrace" : 6,
 			"compileGroupIndex" : 0,
 			"path" : "src/Resources.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 6,
+			"compileGroupIndex" : 0,
+			"path" : "src/DataReader.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -23,8 +23,8 @@ const sf::Texture& Resources::getBackground(int textureKey) {
     //    if(textureKey != this->m_backgroundLevelState){
     //        switch(textureKey){
     //            case 1:
-    this->m_texture[LEVEL_BACKGROUND]->
-        loadFromFile(LEVEL1_BACKGROUND_PATH);
+    this->m_texture[MENU_BACKGROUND]->
+        loadFromFile(MENU_BACKGROUND_PATH);
     //                break;
     //            case 2:
     //                this->m_texture[LEVEL_BACKGROUND]->
@@ -41,7 +41,7 @@ const sf::Texture& Resources::getBackground(int textureKey) {
     //        }
     //        this->m_backgroundLevelState = textureKey;
     //    }
-    return (*this->m_texture.find(LEVEL_BACKGROUND)->second);
+    return (*this->m_texture.find(MENU_BACKGROUND)->second);
 }
 //============================================================================
 const sf::Texture& Resources::getTexture(int textureKey)const {
@@ -83,4 +83,9 @@ void Resources::setObjects() {
     this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>
         (PLAYER_T, std::move(texturesCreator)));
     this->m_texture[PLAYER_T]->loadFromFile(PLAYER_PATH);
+
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>
+        (ROAD_T, std::move(texturesCreator)));
+    this->m_texture[ROAD_T]->loadFromFile(ROAD_PATH);
 }
