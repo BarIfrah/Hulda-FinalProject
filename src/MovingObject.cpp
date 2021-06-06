@@ -1,17 +1,6 @@
 #include "MovingObject.h"
-//==================== Constructors & destructors section ====================
-MovingObject::MovingObject(const sf::Vector2f& location,
-    const sf::Vector2f& size,
-    char objectType)
-    : GameObject(location, size, objectType),
-    m_initialLoc(location), m_lookingState(WALK_RIGHT), m_isAnimated(true), m_state(IDLE)
-{};
-
-void MovingObject::move(const float, const float) {
-    ;
-}
-
-void MovingObject::updatePhysics() {
-    /// taking care of acceleration
+////==================== Constructors & destructors section ====================
+MovingObject::MovingObject(const sf::Vector2f &, const sf::Vector2f &, char objectType, Physics m_Physics)
+        : m_physics(m_Physics), m_isAnimated(false) {
 
 }

@@ -145,6 +145,8 @@ constexpr auto ARIEL_FONT = 1;
 constexpr auto MAX_VELOCITY = 30.f;
 constexpr auto MIN_VELOCITY = 1.f;
 
-//player
+//Player
 constexpr auto PLAYER_ACCEL = 10.f;
 constexpr auto PLAYER_DRAG = 0.9f;
+
+//Enemies

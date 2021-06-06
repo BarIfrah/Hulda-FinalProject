@@ -18,43 +18,29 @@ class MovingObject : public GameObject
 	//========================== public section ==============================
 public:
 	//================= constructors and destructors section =================
-	MovingObject(const sf::Vector2f & = sf::Vector2f(0, 0),
-		const sf::Vector2f & = sf::Vector2f(0, 0),
-		char objectType = NOTHING);
+    MovingObject(const sf::Vector2f &, const sf::Vector2f &, char objectType, Physics m_Physics);
 	//============================ gets section ===============================
-//	int getLookState()const;
 	sf::Vector2f getInitialLoc()const;
-	//	int getState()const;
 		//============================ sets section ===============================
-	//	virtual void setLocation(const sf::Vector2f&);
-	//	void setLookState(int);
 		//=========================== method section ==============================
-	virtual void playTurn(const sf::Time&, Board&) = 0;
-	//	virtual bool physicsTurn(const sf::Time&, Board&);
-	void move(const float, const float);
-	void updatePhysics();
-	//	void moveUp(const sf::Time&, Board&);
-	//	void moveDown(const sf::Time&, Board&);
-	//	void moveLeft(const sf::Time&, Board&);
-	//	void moveRight(const sf::Time&, Board&);
-	//	virtual void nullMovement(const sf::Vector2f&);
+///	virtual void playTurn(const sf::Time&, Board&) = 0;
+	virtual void move(const float, const float) = 0;
+	virtual void updatePhysics() = 0;
 
-	//	bool isFalling(const Board&);
-	virtual void resetAnimationTime();
+	virtual void resetAnimationTime() = 0;
 	void updateAnimation(const sf::Time&);
-	//	void flipSprite();
-	//	virtual void reset();
+
 		//========================= protected section ==============================
 protected:
-	virtual void setState(int);
+//	virtual void setState(int);
 	//========================= private section ===============================
 private:
 	//========================= members section ===============================
 	//general
 	sf::Sprite m_objectSprite;
-	sf::Vector2f m_initialLoc;
-	int m_lookingState;
-	int m_state;
+///	sf::Vector2f m_initialLoc;
+///	int m_lookingState;
+///	int m_state;
 
 	//animation
 	bool m_isAnimated;

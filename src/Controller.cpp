@@ -4,8 +4,9 @@
 #include <iostream>
 
 Controller::Controller()
-        : m_window(sf::VideoMode::getDesktopMode(), "Hulda", sf::Style::Fullscreen){
+        : m_window(sf::VideoMode(1920, 1080), "Hulda", sf::Style::Titlebar){
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
+    m_window.setFramerateLimit(60); ///60fps
     m_screenView.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
     m_window.setView(m_screenView);
 }

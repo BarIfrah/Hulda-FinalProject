@@ -32,10 +32,10 @@ public:
 	const sf::Sprite& getSprite()const;
 	//=========================== method section ==============================
 	bool CollidesWith(const GameObject&)const;
-	virtual void draw(sf::RenderWindow&);
+	virtual void draw(sf::RenderWindow&) = 0;
 	//========================= protected section ==============================
 protected:
-	virtual void setLocation(const sf::Vector2f&);
+	//virtual void setLocation(const sf::Vector2f&) = 0;
 	//========================= private section ===============================
 private:
 	sf::Sprite m_objectSprite;
