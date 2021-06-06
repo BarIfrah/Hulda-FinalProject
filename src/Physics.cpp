@@ -19,9 +19,20 @@ sf::Vector2f Physics::getVelocity(const sf::Vector2f) {
 }
 
 void Physics::updatePhysics() {
+    /// Slow down on X axis
     if (std::abs(m_velocity.x) >= MIN_VELOCITY){
         m_velocity.x = 0.f; /// stop
     }
+    /// Slow down on Y axis
+    if (std::abs(m_velocity.y) >= MIN_VELOCITY) {
+        m_velocity.y = 0.f; /// stop
+    }
     m_velocity *= m_drag;
+}
 
+void Physics::move(const float x, const float y) {
+    /// max speed reached:
+
+    /// speed up
+    m_velocity.x += (x * m_acceleration);
 }

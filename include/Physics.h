@@ -20,6 +20,7 @@ public:
 
     /// may move it to "MovingObject"
     void updatePhysics();
+    void move(const float x, const float y);
 
 private:
     sf::Vector2f m_velocity;
