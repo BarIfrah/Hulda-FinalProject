@@ -20,7 +20,7 @@ configure_file ("enemySound.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 #levels file
 configure_file ("Levels.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 #menu files
-configure_file ("MenuBackground.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("MenuBackground.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("menuMusic.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 #level1 files
 configure_file ("level1Music.ogg" ${CMAKE_BINARY_DIR} COPYONLY)

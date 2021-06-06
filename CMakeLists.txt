@@ -1,4 +1,4 @@
-﻿cmake_minimum_required (VERSION 3.14)
+cmake_minimum_required (VERSION 3.14)
 
 project (Hulda)
 set (CMAKE_CXX_STANDARD 17)
@@ -14,6 +14,18 @@ add_subdirectory (include)
 add_subdirectory (src)
 add_subdirectory (resources)
 
+if( APPLE )
+    #this is for macos=======================
+    include_directories(/usr/local/Cellar)
+
+    find_package(SFML 2.5.1 COMPONENTS system window graphics network audio REQUIRED)
+    if (SFML_FOUND)
+        include_directories(${SFML_INCLUDE_DIRS})
+        target_link_libraries(Hulda sfml-window sfml-graphics sfml-audio sfml-network)
+    endif()
+    #=========================================
+else()
+    #this is for windows==============================
 set (SFML_STATIC_LIBRARIES TRUE)
 set (SFML_DIR "C:/SFML/SFML-2.5.1/lib/cmake/SFML")
 
@@ -23,3 +35,4 @@ set_target_properties (sfml-main sfml-system sfml-window sfml-graphics sfml-audi
 configure_file ("C:/SFML/SFML-2.5.1/bin/openal32.dll" ${CMAKE_BINARY_DIR} COPYONLY)
 
 target_link_libraries (Hulda sfml-graphics sfml-audio sfml-main)
+endif()

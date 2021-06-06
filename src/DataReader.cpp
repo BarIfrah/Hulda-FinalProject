@@ -9,25 +9,26 @@ using std::vector;
 //============================= public section ===============================
 //==================== Constructors & distructors section ====================
 DataReader::DataReader()
-	: m_levelSize({}), m_levelTime(NO_LEVEL_TIME) {
-	this->m_boardReader.open(BOARD_PATH);
-	if (!this->m_boardReader.is_open())
-		throw std::exception
-		("Cannot open the levels file, pls make sure the file is exist");
+        : m_levelSize({}), m_levelTime(NO_LEVEL_TIME) {
+    try {
+        this->m_boardReader.open(BOARD_PATH);
+    }
+    catch (...){
+        std::cout << "Cannot open the levels file, pls make sure the file is exist";
+    }
 }
 //========================================================================
 DataReader::~DataReader() {
-	this->m_boardReader.close();
+    this->m_boardReader.close();
 }
 /*============================ methods section ===============================
-/*
 * this function read the size of the level and the time if exist.
 */
 void DataReader::receiveLevelParameters() {
-	m_boardReader >> m_levelSize.x >> m_levelSize.y;
-	m_boardReader >> m_levelTime;
-	//eat white space
-	m_boardReader.get();
+    m_boardReader >> m_levelSize.x >> m_levelSize.y;
+    m_boardReader >> m_levelTime;
+    //eat white space
+    m_boardReader.get();
 }
 //========================================================================
 /*
@@ -35,7 +36,7 @@ void DataReader::receiveLevelParameters() {
   or false if all the levels is over.
 */
 bool DataReader::isThereNextLevel()const {
-	return (!this->m_boardReader.eof());
+    return (!this->m_boardReader.eof());
 }
 //========================================================================
 /*
@@ -43,54 +44,54 @@ bool DataReader::isThereNextLevel()const {
 * from the file.
 */
 vector<vector<char>> DataReader::readNextLevel() {
-	//1. allocate 2D vector of chars
-	vector<vector<char>> newLevel = {};
-	//2. check first if there is more level in the file
-	if (this->isThereNextLevel()) {
-		char input;
-		//3. receive size & time of the level
-		this->receiveLevelParameters();
-		//4. read the level itself from the file
-		for (int i = 0; i < m_levelSize.x; i++) {
-			std::vector<char> row = {};
-			for (int j = 0; j < m_levelSize.y; j++) {
-				m_boardReader.get(input);
-				switch (input)
-				{
-				case PLAYER: {
-					row.push_back(PLAYER);
-					break;
-				}
+    //1. allocate 2D vector of chars
+    vector<vector<char>> newLevel = {};
+    //2. check first if there is more level in the file
+    if (this->isThereNextLevel()) {
+        char input;
+        //3. receive size & time of the level
+        this->receiveLevelParameters();
+        //4. read the level itself from the file
+        for (int i = 0; i < m_levelSize.x; i++) {
+            std::vector<char> row = {};
+            for (int j = 0; j < m_levelSize.y; j++) {
+                m_boardReader.get(input);
+                switch (input)
+                {
+                    case PLAYER: {
+                        row.push_back(PLAYER);
+                        break;
+                    }
 
-				case ENEMY: {
-					row.push_back(ENEMY);
-					break;
-				}
-				case FOOD: {
-					row.push_back(FOOD);
-					break;
-				}
-				case ROAD: {
-					row.push_back(ROAD);
-					break;
-				}
-				case TRASH: {
-					row.push_back(TRASH);
-					break;
-				}
-				default: {
-					row.push_back(NOTHING); // inputed ' '
-					break;
-				}
-				}
-			}
-			if (m_boardReader.peek() != '\0')
-				m_boardReader.get(input);
-			newLevel.push_back(row);
-		}
-		m_boardReader.get(input);
-	}
-	return newLevel;
+                    case ENEMY: {
+                        row.push_back(ENEMY);
+                        break;
+                    }
+                    case FOOD: {
+                        row.push_back(FOOD);
+                        break;
+                    }
+                    case ROAD: {
+                        row.push_back(ROAD);
+                        break;
+                    }
+                    case TRASH: {
+                        row.push_back(TRASH);
+                        break;
+                    }
+                    default: {
+                        row.push_back(NOTHING); // inputed ' '
+                        break;
+                    }
+                }
+            }
+            if (m_boardReader.peek() != '\0')
+                m_boardReader.get(input);
+            newLevel.push_back(row);
+        }
+        m_boardReader.get(input);
+    }
+    return newLevel;
 }
 //========================================================================
 sf::Vector2f DataReader::getLevelSize()const { return this->m_levelSize; }
@@ -101,7 +102,7 @@ int DataReader::getLevelTime()const { return this->m_levelTime; }
 * and clear the current vector of the map.
  */
 void DataReader::resetRead() {
-	this->m_boardReader.clear();
-	this->m_boardReader.seekg(0);
-	this->m_levelSize = { 0, 0 };
+    this->m_boardReader.clear();
+    this->m_boardReader.seekg(0);
+    this->m_levelSize = { 0, 0 };
 }

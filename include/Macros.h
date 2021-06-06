@@ -75,7 +75,7 @@ constexpr auto BOARD_PATH = "Levels.txt";
 constexpr auto ARIEL_FONT_PATH = "ARIALBD.TTF";
 
 //---------------------------- picture section -------------------------------
-constexpr auto MENU_BACKGROUND_PATH = "MenuBackground.jpg";
+constexpr auto MENU_BACKGROUND_PATH = "MenuBackground.png";
 constexpr auto LEVEL1_BACKGROUND_PATH = "level1.jpeg";
 constexpr auto LEVEL2_BACKGROUND_PATH = "level2.png";
 constexpr auto LEVEL3_BACKGROUND_PATH = "level3.jpeg";
