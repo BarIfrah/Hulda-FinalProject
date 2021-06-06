@@ -1,0 +1,3 @@
+C:/Users/sharonlevi/source/repos/Hulda/out/build/ForUML/CMakeFiles/Hulda.dir
+C:/Users/sharonlevi/source/repos/Hulda/out/build/ForUML/CMakeFiles/ALL_BUILD.dir
+C:/Users/sharonlevi/source/repos/Hulda/out/build/ForUML/CMakeFiles/ZERO_CHECK.dir

@@ -1,5 +1,6 @@
 #include "Resources.h"
 #include "Macros.h"
+#include <exception>
 //==================== Constructors & destructors section ====================
 Resources::Resources()
 //m_music()
@@ -23,8 +24,7 @@ const sf::Texture& Resources::getBackground(int textureKey) {
     //    if(textureKey != this->m_backgroundLevelState){
     //        switch(textureKey){
     //            case 1:
-    this->m_texture[MENU_BACKGROUND]->
-        loadFromFile(MENU_BACKGROUND_PATH);
+    //this->m_texture[MENU_BACKGROUND]->loadFromFile(MENU_BACKGROUND_PATH);
     //                break;
     //            case 2:
     //                this->m_texture[LEVEL_BACKGROUND]->
@@ -41,7 +41,7 @@ const sf::Texture& Resources::getBackground(int textureKey) {
     //        }
     //        this->m_backgroundLevelState = textureKey;
     //    }
-    return (*this->m_texture.find(MENU_BACKGROUND)->second);
+    return (*this->m_texture.find(LEVEL_BACKGROUND)->second);
 }
 //============================================================================
 const sf::Texture& Resources::getTexture(int textureKey)const {
@@ -60,10 +60,13 @@ const sf::Texture& Resources::getTexture(int textureKey)const {
 void Resources::setBackgrounds() {
     std::unique_ptr<sf::Texture> texturesCreator;
     //adding game's backgrounds path
+    /*
     texturesCreator = std::make_unique<sf::Texture>();
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
         (MENU_BACKGROUND, std::move(texturesCreator)));
-    this->m_texture[MENU_BACKGROUND]->loadFromFile(MENU_BACKGROUND_PATH);
+    if (!this->m_texture[MENU_BACKGROUND]->loadFromFile(BACKGROUND_PATH))
+        throw std::exception("Cannot open MenuBackground.png file");
+        */
     //------------------------------------------------------------------------
     texturesCreator = std::make_unique<sf::Texture>();
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
@@ -73,6 +76,7 @@ void Resources::setBackgrounds() {
     texturesCreator = std::make_unique<sf::Texture>();
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
         (LEVEL_BACKGROUND, std::move(texturesCreator)));
+    this->m_texture[GAME_STATE]->loadFromFile(LEVEL1_BACKGROUND_PATH);
     //adding levels background path
 }
 //============================================================================

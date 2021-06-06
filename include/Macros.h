@@ -40,8 +40,8 @@ constexpr auto NUM_OF_RUNNING_SPRITE = 8;
 constexpr auto FALLING = 2;
 constexpr auto NUM_OF_FALLING_SPRITE = 2;
 */
-constexpr auto CHARACTER_HEIGHT = 128;
-constexpr auto CHARACTER_WIDTH = 128;
+constexpr auto CHARACTER_HEIGHT = 256;
+constexpr auto CHARACTER_WIDTH = 256;
 
 constexpr auto ANIMATIONS_RATE = 0.1f;
 constexpr auto WALK_LEFT = 1;

@@ -15,7 +15,7 @@ void Controller::run() {
     sf::RectangleShape background;
     background.setTexture(&Resources::instance()
             .getBackground(0));
-    background.setSize(sf::Vector2f(7185, 1920));
+    background.setSize(sf::Vector2f(7185, 1582));
     sf::RectangleShape rec;
     rec.setFillColor(sf::Color::Blue);
     rec.setSize(sf::Vector2f(100, 100));

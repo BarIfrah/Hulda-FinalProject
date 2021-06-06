@@ -31,17 +31,17 @@ public:
 	const sf::Vector2f& getlevelSize()const;
 	const sf::Vector2f& getLocation() const;
 	sf::Vector2f getObjectSize()const;
-	StaticObject* getContent(const sf::Vector2f& location);
-	const StaticObject* getContent(const sf::Vector2f&) const;
+	//StaticObject* getContent(const sf::Vector2f& location);
+	//const StaticObject* getContent(const sf::Vector2f&) const;
 	const sf::Vector2f& getPlayerLoc()const;
 
 	//=========================== method section =============================
 	void draw(sf::RenderWindow& window, const sf::Time&);
-	vector<Enemy*>loadNewLevel();
+	vector<MovingObject*>loadNewLevel();
 	bool is_next_lvl_exist()const;
-	void resetLvl();
-	void gameOver();
-	bool isMovePossible(const sf::Vector2f&)const;
+	//void resetLvl();
+	//void gameOver();
+	//bool isMovePossible(const sf::Vector2f&)const;
 	void loadLevelEffects(int);
 
 private:
@@ -53,8 +53,7 @@ private:
 	Player* m_player;
 
 	//====================== privete methods section =========================
-	void releaseMap();
 	void clearParameters();
-	Food* raffleFood(const sf::Vector2f& boxSize,const sf::Vector2i& index);
+	//Food* raffleFood(const sf::Vector2f& boxSize,const sf::Vector2i& index);
 
 };
