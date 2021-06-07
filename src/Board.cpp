@@ -88,42 +88,42 @@ void Board::draw(sf::RenderWindow& window,
  * This function update the objects of the game to the current level game.
  * the function build a vector of moving objects ptrs & return it.
  */
-//vector<MovingObject*> Board::loadNewLevel() {
-//	vector<vector<char>> map = m_levelReader.readNextLevel();
-//	vector<MovingObject*> movingsVec = {};
-//	sf::Vector2f boxSize(this->getlevelSize().x / map[0].size(),
-//		this->getlevelSize().y / map.size());
-//	this->loadLevelEffects(1);
-//
-//	//reset last load parameters:
-//	this->clearParameters();
-//	this->m_map.resize(map.size());
-//
-//	//allocating level's objects:
-//	for (int y = 0; y < map.size(); ++y) {
-//		for (int x = 0; x < map[y].size(); x++) {
-//			switch (map[y][x])
-//			{
-//			case PLAYER:
-//				this->m_map[y].push_back(std::make_unique <Player>(sf::Vector2f(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
-//
-//				movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
-//
-//				this->m_player = (Player*)this->m_map[y][x].get();
-//
-//				break;
-//			/*case ROAD:
-//				this->m_map[y].push_back(std::make_unique <Road>(sf::Vector2f
-//				(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
-//				break;*/
-//			default:
-//				this->m_map[y].push_back(nullptr); // inputed ' '
-//				break;
-//			}
-//		}
-//	}
-//	return movingsVec;
-//}
+Player* Board::loadNewLevel() {
+	vector<vector<char>> map = m_levelReader.readNextLevel();
+	vector<MovingObject*> movingsVec = {};
+	sf::Vector2f boxSize(this->getlevelSize().x / map[0].size(),
+		this->getlevelSize().y / map.size());
+	this->loadLevelEffects(1);
+
+	//reset last load parameters:
+	this->clearParameters();
+	this->m_map.resize(map.size());
+
+	//allocating level's objects:
+	for (int y = 0; y < map.size(); ++y) {
+		for (int x = 0; x < map[y].size(); x++) {
+			switch (map[y][x])
+			{
+			case PLAYER:
+				this->m_map[y].push_back(std::make_unique <Player>(sf::Vector2f(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
+
+				movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
+
+				this->m_player = (Player*)this->m_map[y][x].get();
+
+				break;
+			/*case ROAD:
+				this->m_map[y].push_back(std::make_unique <Road>(sf::Vector2f
+				(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
+				break;*/
+			default:
+				this->m_map[y].push_back(nullptr); // inputed ' '
+				break;
+			}
+		}
+	}
+	return this->m_player;
+}
 //============================================================================
 //the method isn't const because fstream's peek method isn't const
 bool Board::is_next_lvl_exist() const {

@@ -39,7 +39,7 @@ public:
 
 	//=========================== method section =============================
 	void draw(sf::RenderWindow& window, const sf::Time&);
-	//vector<MovingObject*> loadNewLevel();
+	Player* loadNewLevel();
 	bool is_next_lvl_exist()const;
 	//void resetLvl();
 	//void gameOver();

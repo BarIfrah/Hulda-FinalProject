@@ -1,12 +1,13 @@
 #include "Controller.h"
 #include "Resources.h"
 #include "Macros.h"
+#include "Player.h"
 #include <iostream>
 
 Controller::Controller()
         : m_window(sf::VideoMode::getDesktopMode(), "Hulda", sf::Style::Fullscreen),
-        m_board(sf::Vector2f(0, (float)this->m_window.getSize().y),
-            sf::Vector2f((float)m_window.getSize().x, (float)m_window.getSize().y)),
+        m_board(sf::Vector2f(0, 0),
+            sf::Vector2f((float)BACKGROUND_SIZE, (float)m_window.getSize().y)),
         m_player(nullptr){
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
     m_screenView.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
@@ -14,14 +15,8 @@ Controller::Controller()
 }
 
 void Controller::run() {
-    //this->m_board.loadNewLevel();
+    this->m_player = this->m_board.loadNewLevel();
     //--------------temporary--------------------------------
-    sf::RectangleShape background;
-    background.setTexture(&Resources::instance()
-            .getBackground(0));
-    background.setSize(sf::Vector2f(BACKGROUND_SIZE, m_window.getSize().y));
-    background.setPosition(sf::Vector2f(0, 0));
-
     sf::RectangleShape rec;
     rec.setSize(sf::Vector2f(200, 200));
     rec.setPosition(sf::Vector2f(0, m_window.getSize().y/2));
@@ -32,12 +27,11 @@ void Controller::run() {
         m_gameClock.restart();
         m_window.clear();
         //this->m_window.draw(m_background);
-        //this->draw();
-        this->m_window.draw(background);
-        this->m_window.draw(rec);
+        this->m_board.draw(m_window, m_gameClock.getElapsedTime());
+        this->drawObjects();
         m_window.display();
 
-        sf::Vector2f movement;
+        /*sf::Vector2f movement;
         if (auto event = sf::Event{}; m_window.pollEvent(event))
         {
             switch (event.key.code)
@@ -47,6 +41,7 @@ void Controller::run() {
                 case sf::Keyboard::Right:
                     movement=sf::Vector2f(1, 0);
                     movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
+                    this->m_player
                     rec.move(movement);
                     break;
                 case sf::Keyboard::Left:
@@ -80,6 +75,19 @@ void Controller::run() {
                 m_CurrViewPos.y = m_window.getSize().y;
             m_screenView.reset(sf::FloatRect(m_CurrViewPos.x, m_CurrViewPos.y, m_window.getSize().x, m_window.getSize().y));
             m_window.setView(m_screenView);
-        }
+        }*/
     }
 }
+//=========================================================================== =
+/*
+* this function draw all the dynamic objects in the game by the time clock.
+*/
+void Controller::drawObjects() {
+    this->m_player->draw(this->m_window);
+
+   /* for (int i = 0; i < this->m_enemies.size(); ++i)
+        this->m_enemies[i]->draw(this->m_window);
+    for (int i = 0; i < this->m_giftEnemies.size(); ++i)
+        this->m_giftEnemies[i]->draw(this->m_window);*/
+}
+//============================================================================

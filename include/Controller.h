@@ -46,10 +46,10 @@ private:
 	//====================== privete methods section =========================
 	//void runGame();
 	//char runMenu();
-
+	void drawObjects();
 	/*void enemiesTurns(const sf::Time&);
 	void play_turns(const sf::Time&);
-	void drawObjects();
+	
 	void checkColisions();
 	void checkEnemiesColisions();
 	void checkCoinsColisions();
