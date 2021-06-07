@@ -9,18 +9,18 @@
 //==================== Constructors & distructors section ====================
 //============================================================================
 GameObject::GameObject(const sf::Vector2f& location, const sf::Vector2f& size/*,
-	char objectType, bool isAnimated*/) : /*m_state(STAND),*/
+	char objectType*/, bool isAnimated) : /*m_state(STAND),*/
 	m_intRect(0, 0, CHARACTER_WIDTH, CHARACTER_HEIGHT),
 	m_objectSprite(Resources::instance().getTexture(/*objectType*/0),
-		this->m_intRect)/*,
-	m_isAnimated(isAnimated)*/ {
+		this->m_intRect),
+	m_isAnimated(isAnimated) {
 	this->m_objectSprite.setPosition(location);
-	//if (!isAnimated) {
+	if (!isAnimated) {
 		this->m_intRect.width =
 			this->m_objectSprite.getTexture()->getSize().x;
 		this->m_intRect.height =
 			this->m_objectSprite.getTexture()->getSize().y;
-	//}
+	}
 	this->m_objectSprite.setTextureRect(this->m_intRect);
 	this->m_objectSprite.setScale(
 		(float)size.x / this->m_intRect.width,

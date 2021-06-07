@@ -16,8 +16,8 @@ public:
 	GameObject(
 		const sf::Vector2f & = sf::Vector2f(0, 0),
 		const sf::Vector2f & = sf::Vector2f(0, 0)/*,
-		char objectType = NOTHING,
-		bool isAnimated = false*/);
+		char objectType = NOTHING*/,
+		bool isAnimated = false);
 	virtual ~GameObject() = 0;
 	//============================ gets section ===============================
 	/*sf::Vector2f getAbove()const;
@@ -40,7 +40,7 @@ protected:
 private:
 	sf::Sprite m_objectSprite;
 	//int m_state;
-	//    bool m_isAnimated;
+	bool m_isAnimated = false;
 		//here and not on moving object to give an option to static objects
 		//animation
 	sf::IntRect m_intRect;

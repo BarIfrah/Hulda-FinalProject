@@ -40,8 +40,8 @@ constexpr auto NUM_OF_RUNNING_SPRITE = 8;
 constexpr auto FALLING = 2;
 constexpr auto NUM_OF_FALLING_SPRITE = 2;
 */
-constexpr auto CHARACTER_HEIGHT = 256;
-constexpr auto CHARACTER_WIDTH = 256;
+constexpr auto CHARACTER_HEIGHT = 1024; //256
+constexpr auto CHARACTER_WIDTH = 789.4285714286; //256
 
 constexpr auto ANIMATIONS_RATE = 0.1f;
 constexpr auto WALK_LEFT = 1;
@@ -116,6 +116,7 @@ constexpr auto GAME_LOGO_PATH = "Logo.png";
 constexpr auto MENU_BACKGROUND = 1;
 constexpr auto LEVEL_BACKGROUND = 2;
 constexpr auto GAME_STATE = 9;
+constexpr auto BACKGROUND_SIZE = 7185; //pixels
 //------------------------------- objects -------------------------------------
 constexpr auto PLAYER_T = 10;
 constexpr auto SCOOTER_T = 11;

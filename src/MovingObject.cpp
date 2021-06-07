@@ -3,7 +3,7 @@
 MovingObject::MovingObject(const sf::Vector2f& location,
     const sf::Vector2f& size/*,
     char objectType*/)
-    : GameObject(location, size/*, objectType*/)/*,
+    : GameObject(location, size,/*objectType*/true) /*,
     m_initialLoc(location), m_lookingState(WALK_RIGHT), m_isAnimated(true), m_state(IDLE)*/
 {};
 

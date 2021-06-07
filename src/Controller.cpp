@@ -15,11 +15,13 @@ void Controller::run() {
     sf::RectangleShape background;
     background.setTexture(&Resources::instance()
             .getBackground(0));
-    background.setSize(sf::Vector2f(7185, 1582));
+    background.setSize(sf::Vector2f(BACKGROUND_SIZE, m_window.getSize().y));
+    background.setPosition(sf::Vector2f(0, 0));
+
     sf::RectangleShape rec;
-    rec.setFillColor(sf::Color::Blue);
-    rec.setSize(sf::Vector2f(100, 100));
-    rec.setPosition(sf::Vector2f(0, 1600));
+    rec.setSize(sf::Vector2f(200, 200));
+    rec.setPosition(sf::Vector2f(0, m_window.getSize().y/2));
+    rec.setTexture(&Resources::instance().getTexture(PLAYER_T));
     //-------------------------------------------------------
     while (m_window.isOpen())
     {
@@ -30,6 +32,7 @@ void Controller::run() {
         this->m_window.draw(background);
         this->m_window.draw(rec);
         m_window.display();
+
         sf::Vector2f movement;
         if (auto event = sf::Event{}; m_window.pollEvent(event))
         {

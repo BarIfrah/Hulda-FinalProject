@@ -6,10 +6,10 @@
 //========================== forward declarations ============================
 class MovingObject;
 class GameObject;
-class StaticObject;
-class Enemy;
+//class StaticObject;
+//class Enemy;
 class Player;
-class Food;
+//class Food;
 //============================== using section ===============================
 using std::vector;
 /*============================================================================
