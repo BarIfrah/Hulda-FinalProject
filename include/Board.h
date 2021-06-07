@@ -4,9 +4,10 @@
 #include "DataReader.h"
 #include <SFML/Graphics.hpp>
 #include <memory>
+#include "GameObject.h"
 //========================== forward declarations ============================
 class MovingObject;
-class GameObject;
+//class GameObject;
 //class StaticObject;
 //class Enemy;
 class Player;
