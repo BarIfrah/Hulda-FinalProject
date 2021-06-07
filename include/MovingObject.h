@@ -4,9 +4,9 @@
 #include <SFML/Graphics.hpp>
 #include "Physics.h"
 //========================== forward declarations ============================
-class Road;
+//class Road;
 class Board;
-class StaticObject;
+//class StaticObject;
 /*============================================================================
 * Class: MovingObject.
 * This class represent all the dynamic objects in the game: player or enemies.

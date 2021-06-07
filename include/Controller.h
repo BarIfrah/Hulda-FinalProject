@@ -1,6 +1,6 @@
 #pragma once
 //============================ include section ===============================
-//#include "Board.h"
+#include "Board.h"
 //#include "Menu.h"
 //#include "Enemy.h"
 //#include "GameState.h"
@@ -8,7 +8,7 @@
 //#include <vector>
 //========================== forward declarations ============================
 //class MovingObject;
-//class Player;
+class Player;
 /*============================================================================
 * Class: Controller. 
 * This class manage the game. handle all the cases that happen in the game.
@@ -34,12 +34,14 @@ private:
 	sf::Vector2f m_CurrViewPos;
 	sf::View m_screenView;
 
-	/*Board m_board;
+	Board m_board;
+	/*
 	Menu m_menu;
 	GameState m_gameState;
 	vector <Enemy*> m_enemies;
 	std::vector<std::unique_ptr<Enemy>> m_Enemies;
-	Player* m_player;*/
+	*/
+	Player* m_player;
 	sf::Clock m_gameClock;
 	//====================== privete methods section =========================
 	//void runGame();

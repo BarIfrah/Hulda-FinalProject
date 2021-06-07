@@ -3,6 +3,7 @@
 #include <vector>
 #include "DataReader.h"
 #include <SFML/Graphics.hpp>
+#include <memory>
 //========================== forward declarations ============================
 class MovingObject;
 class GameObject;
@@ -37,7 +38,7 @@ public:
 
 	//=========================== method section =============================
 	void draw(sf::RenderWindow& window, const sf::Time&);
-	vector<MovingObject*>loadNewLevel();
+	//vector<MovingObject*> loadNewLevel();
 	bool is_next_lvl_exist()const;
 	//void resetLvl();
 	//void gameOver();

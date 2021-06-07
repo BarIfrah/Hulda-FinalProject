@@ -4,13 +4,17 @@
 #include <iostream>
 
 Controller::Controller()
-        : m_window(sf::VideoMode::getDesktopMode(), "Hulda", sf::Style::Fullscreen){
+        : m_window(sf::VideoMode::getDesktopMode(), "Hulda", sf::Style::Fullscreen),
+        m_board(sf::Vector2f(0, (float)this->m_window.getSize().y),
+            sf::Vector2f((float)m_window.getSize().x, (float)m_window.getSize().y)),
+        m_player(nullptr){
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
     m_screenView.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
     m_window.setView(m_screenView);
 }
 
 void Controller::run() {
+    //this->m_board.loadNewLevel();
     //--------------temporary--------------------------------
     sf::RectangleShape background;
     background.setTexture(&Resources::instance()
