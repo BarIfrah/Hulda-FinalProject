@@ -16,8 +16,11 @@ class Player : public MovingObject
 	//========================== public section ==============================
 public:
 	//================= constructors and destructors section =================
-	Player(const sf::Vector2f & = sf::Vector2f(0,0),
+	explicit Player(const sf::Vector2f & = sf::Vector2f(0,0),
 		const sf::Vector2f& = sf::Vector2f(0,0));
+    void slowDown() override;
+    void speedUp(float, float) override;
+    void move() override;
 	//=========================== method section ==============================
 	//virtual void playTurn(const sf::Time&, Board&) override;
 	//========================= private section ===============================
@@ -26,5 +29,6 @@ private:
 	//====================== private methods section ==========================
 	//void jump(Board&, const sf::Vector2f&, const sf::Time&);
     //Physics
-   // Physics m_physics;
+    int m_state;
+    Physics m_physics;
 };

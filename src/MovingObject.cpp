@@ -7,11 +7,11 @@ MovingObject::MovingObject(const sf::Vector2f& location,
 m_initialLoc(location), m_lookingState(WALK_RIGHT), m_isAnimated(true), m_state(IDLE)*/
 
 
-//void MovingObject::move(const float, const float) {
+//void MovingObject::speedUp(const float, const float) {
 //    ;
 //}
 //
-//void MovingObject::updatePhysics() {
+//void MovingObject::slowDown() {
 //    /// taking care of acceleration
 //
 //}

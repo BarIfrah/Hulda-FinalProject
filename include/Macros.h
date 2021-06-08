@@ -145,10 +145,11 @@ constexpr auto ARIEL_FONT = 1;
 //---------------------------------- Physics ---------------------------------
 constexpr auto MAX_VELOCITY_X = 30.f;
 constexpr auto MAX_VELOCITY_Y = 15.f;
-constexpr auto MIN_VELOCITY = 1.f;
+constexpr auto MIN_VELOCITY = 3.f;
+constexpr auto GRAVITY = 4.f;
 
 //Player
-constexpr auto PLAYER_ACCEL = 10.f;
+constexpr auto PLAYER_ACCEL = 5.f;
 constexpr auto PLAYER_DRAG = 0.9f;
 
 //Enemies

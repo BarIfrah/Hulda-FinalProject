@@ -6,7 +6,7 @@
 class Physics {
 public:
     Physics();
-    Physics(sf::Vector2f, float, float );
+    Physics(sf::Vector2f, float, float);
     ~Physics() = default;
 
     void setVelocity(sf::Vector2f);
@@ -19,13 +19,14 @@ public:
     float getDrag(float) const;
 
 
-    /// may move it to "MovingObject"
-    void updatePhysics();
-    void move(float x, float y);
+    /// may speedUp it to "MovingObject"
+    void slowDownPhysicsObject();
+    void speedUpPhysicsObject(float x, float y);
 
 private:
     sf::Vector2f m_velocity;
     float m_acceleration;
     float m_drag;
+    float m_gravity;
 
 };

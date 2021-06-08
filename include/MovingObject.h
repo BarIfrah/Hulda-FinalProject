@@ -29,10 +29,10 @@ public:
 	//	void setLookState(int);
 		//=========================== method section ==============================
 ///	virtual void playTurn(const sf::Time&, Board&) = 0;
-//	virtual void move(const float, const float) = 0;
-//	virtual void updatePhysics() = 0;
-//
-//	virtual void resetAnimationTime() = 0;
+	virtual void speedUp(float, float) = 0;
+	virtual void slowDown() = 0;
+    virtual void move() = 0;
+    //	virtual void resetAnimationTime() = 0;
 	void updateAnimation(const sf::Time&);
 
 		//========================= protected section ==============================
