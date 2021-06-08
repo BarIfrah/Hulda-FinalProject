@@ -33,7 +33,7 @@ public:
 	virtual void slowDown() = 0;
     virtual void move() = 0;
     //	virtual void resetAnimationTime() = 0;
-	void updateAnimation(const sf::Time&);
+	void updateAnimation(sf::Vector2f);
 
 		//========================= protected section ==============================
 protected:

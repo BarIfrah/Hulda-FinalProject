@@ -25,6 +25,7 @@ void Player::move() {
 
     /// WE NEED TO MAKE ANIMATION FUNC HERE
     ///now we get direction from keyboard and send it to physics.
+    m_state = IDLE;
 
     sf::Vector2f dirFromKey = sf::Vector2f (0, 0);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){              ///Move Up
@@ -40,14 +41,18 @@ void Player::move() {
         dirFromKey = sf::Vector2f(1.f, 0.f);
         m_state = RIGHT;
     }
+    updateAnimation(dirFromKey);
     speedUp(dirFromKey.x, dirFromKey.y);
+    if (!m_state) /// IDLE
+        slowDown();
 }
 
+//===========================================================================
 void Player::slowDown() {
     m_physics.slowDownPhysicsObject();
 }
 
-
+//===========================================================================
 void Player::speedUp(const float xDir, const float yDir) {
     m_physics.speedUpPhysicsObject(xDir, yDir);
 }

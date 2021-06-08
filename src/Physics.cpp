@@ -36,12 +36,11 @@ sf::Vector2f Physics::getVelocity(const sf::Vector2f) {
 //============================================================================
 void Physics::slowDownPhysicsObject() {
 
-    ///Applies gravity:
+    ///Applies gravity: may want to put in a comment- to avoid object falling.
     m_velocity.y += 1.f * m_acceleration;
     if (std::abs(m_velocity.y) > MAX_VELOCITY_Y){
         m_velocity.y = MAX_VELOCITY_Y * ((m_velocity.y > 0.f) ? -1.f :1.f); /// going UP or DOWN
     }
-
     /// Decelerate Physics object
     m_velocity *= m_drag;
 
@@ -58,13 +57,20 @@ void Physics::slowDownPhysicsObject() {
 
 //============================================================================
 void Physics::speedUpPhysicsObject(const float x, const float y) {
-    /// speed up
+    /// speed up (side movements)
     m_velocity.x += (x * m_acceleration);
 
     /// max speed reached (X axis:
     if (std::abs(m_velocity.x) > MAX_VELOCITY_X){
         m_velocity.x = MAX_VELOCITY_X * ((m_velocity.x < 0) ? -1.f : 1.f); /// multiply by direction (-1: left, 1:right)
     }
+
+    /// Jump- will happen when user press 'SPACE BAR'
+    m_velocity.y += (y * m_acceleration);
+
+    /// to reach max jump- reset vertical accel.
+    if (m_velocity.y > MAX_VELOCITY_Y)
+        m_velocity.y = 0.f; /// gravity will apply here.
 }
 
 //============================================================================
