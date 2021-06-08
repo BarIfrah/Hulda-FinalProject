@@ -3,8 +3,8 @@
 #include "MovingObject.h"
 #include <vector>
 //========================== forward declarations ============================
-class Board;
-class Road;
+//class Board;
+//class Road;
 /*============================================================================
 * Class: Player.
 * This class represent the player in the game. Derives from MovingObject

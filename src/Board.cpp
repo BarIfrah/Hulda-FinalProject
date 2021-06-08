@@ -10,7 +10,7 @@
 #include <vector>
 #include "Utilities.h"
 #include "Player.h"
-#include "Enemy.h"
+//#include "Enemy.h"
 //#include "Road.h"
 using std::vector;
 //====================== Constructors & distructors section ==================
@@ -22,6 +22,7 @@ Board::Board(const sf::Vector2f& location,
 	m_player(nullptr){
 	this->m_background.setSize(size);
 	m_background.setPosition(m_location);
+	this->loadLevelEffects(0);
 	m_map.clear();
 }
 //================================ gets section ==============================
@@ -77,11 +78,11 @@ sf::Vector2f Board::getObjectSize()const {
 void Board::draw(sf::RenderWindow& window,
 	const sf::Time& deltaTime) {
 	window.draw(m_background);
-	for (int i = 0; i < this->m_map.size(); i++)
+	/*for (int i = 0; i < this->m_map.size(); i++)
 		for (int j = 0; j < this->m_map[i].size(); j++)
 			if (m_map[i][j].get() != nullptr) {
 				m_map[i][j]->draw(window);
-			}
+			}*/
 }
 //============================================================================
 /*
@@ -100,12 +101,13 @@ Player* Board::loadNewLevel() {
 	this->m_map.resize(map.size());
 
 	//allocating level's objects:
-	for (int y = 0; y < map.size(); ++y) {
+	for (int y = 0; y < map.size(); y++) {
 		for (int x = 0; x < map[y].size(); x++) {
 			switch (map[y][x])
 			{
 			case PLAYER:
-				this->m_map[y].push_back(std::make_unique <Player>(sf::Vector2f(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
+				this->m_map[y].push_back(std::make_unique <Player> (sf::Vector2f
+				(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
 
 				movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
 
@@ -120,6 +122,7 @@ Player* Board::loadNewLevel() {
 				this->m_map[y].push_back(nullptr); // inputed ' '
 				break;
 			}
+			
 		}
 	}
 	return this->m_player;

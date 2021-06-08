@@ -15,8 +15,7 @@ public:
 	//================= constractors and destractors section =================
 	GameObject(
 		const sf::Vector2f & = sf::Vector2f(0, 0),
-		const sf::Vector2f & = sf::Vector2f(0, 0)/*,
-		char objectType = NOTHING*/,
+		const sf::Vector2f & = sf::Vector2f(0, 0),
 		bool isAnimated = false);
 	virtual ~GameObject() = 0;
 	//============================ gets section ===============================
@@ -40,7 +39,7 @@ protected:
 private:
 	sf::Sprite m_objectSprite;
 	//int m_state;
-	bool m_isAnimated = false;
+	bool m_isAnimated;
 		//here and not on moving object to give an option to static objects
 		//animation
 	sf::IntRect m_intRect;

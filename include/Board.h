@@ -3,10 +3,10 @@
 #include <vector>
 #include "DataReader.h"
 #include <SFML/Graphics.hpp>
-#include <memory>
 #include "GameObject.h"
+#include "MovingObject.h"
 //========================== forward declarations ============================
-class MovingObject;
+//class MovingObject;
 //class GameObject;
 //class StaticObject;
 //class Enemy;
@@ -56,6 +56,5 @@ private:
 
 	//====================== privete methods section =========================
 	void clearParameters();
-	//Food* raffleFood(const sf::Vector2f& boxSize,const sf::Vector2i& index);
-
+	//Food* raffleFood(const sf::Vector2f& boxSize,const sf::Vector2i& index);	
 };

@@ -17,65 +17,75 @@ Controller::Controller()
 void Controller::run() {
     this->m_player = this->m_board.loadNewLevel();
     //--------------temporary--------------------------------
-    sf::RectangleShape rec;
-    rec.setSize(sf::Vector2f(200, 200));
-    rec.setPosition(sf::Vector2f(0, m_window.getSize().y/2));
-    rec.setTexture(&Resources::instance().getTexture(PLAYER_T));
+    /*sf::Vector2f boxSize = sf::Vector2f(128, 256);
+    sf::IntRect rect = sf::IntRect(0, 0, CHARACTER_WIDTH, CHARACTER_HEIGHT);
+    sf::Sprite playerSprite(Resources::instance().getTexture(PLAYER_T), rect);
+    playerSprite.setPosition(sf::Vector2f(0, (m_window.getSize().y / 5)*4));
+    rect.width = playerSprite.getTexture()->getSize().x;
+    rect.height = playerSprite.getTexture()->getSize().y;
+    playerSprite.setTextureRect(rect);
+    playerSprite.setScale(
+        (float)boxSize.x / rect.width,
+        (float)boxSize.y / rect.height);*/
+
+    /*sf::RectangleShape playerSprite;
+    playerSprite.setSize(sf::Vector2f(200, 200));
+    playerSprite.setPosition(sf::Vector2f(0, m_window.getSize().y/2));
+    playerSprite.setTexture(&Resources::instance().getTexture(PLAYER_T));*/
     //-------------------------------------------------------
     while (m_window.isOpen())
     {
         m_gameClock.restart();
         m_window.clear();
-        //this->m_window.draw(m_background);
         this->m_board.draw(m_window, m_gameClock.getElapsedTime());
+        //this->m_window.draw(playerSprite);
         this->drawObjects();
         m_window.display();
 
-        /*sf::Vector2f movement;
-        if (auto event = sf::Event{}; m_window.pollEvent(event))
-        {
-            switch (event.key.code)
-            {
-                case sf::Keyboard::Escape:
-                    m_window.close();
-                case sf::Keyboard::Right:
-                    movement=sf::Vector2f(1, 0);
-                    movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
-                    this->m_player
-                    rec.move(movement);
-                    break;
-                case sf::Keyboard::Left:
-                    movement = sf::Vector2f(-1, 0);
-                    movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
-                    rec.move(movement);
-                    break;
-                case sf::Keyboard::Up:
-                    movement=sf::Vector2f(0, -1);
-                    movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
-                    rec.move(movement);
-                    break;
-                case sf::Keyboard::Down:
-                    movement = sf::Vector2f(0, 1);
-                    movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
-                    rec.move(movement);
-                    break;
-                default:
-                    ;
-            }
-            m_CurrViewPos.x = rec.getPosition().x + 50 - (float(m_window.getSize().x) / 5);
-            m_CurrViewPos.y = rec.getPosition().y + 50 - (float(m_window.getSize().y) / 2);
+        //sf::Vector2f movement;
+        //if (auto event = sf::Event{}; m_window.pollEvent(event))
+        //{
+        //    switch (event.key.code)
+        //    {
+        //        case sf::Keyboard::Escape:
+        //            m_window.close();
+        //        case sf::Keyboard::Right:
+        //            movement=sf::Vector2f(1, 0);
+        //            movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
+        //            playerSprite.move(movement);
+        //            break;
+        //        case sf::Keyboard::Left:
+        //            movement = sf::Vector2f(-1, 0);
+        //            movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
+        //            playerSprite.move(movement);
+        //            break;
+        //       /* case sf::Keyboard::Up:
+        //            movement=sf::Vector2f(0, -1);
+        //            movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
+        //            player.move(movement);
+        //            break;
+        //        case sf::Keyboard::Down:
+        //            movement = sf::Vector2f(0, 1);
+        //            movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
+        //            player.move(movement);
+        //            break;*/
+        //        default:
+        //            ;
+        //    }
+        //    m_CurrViewPos.x = playerSprite.getPosition().x + 50 - (float(m_window.getSize().x) / 5);
+        //    m_CurrViewPos.y = playerSprite.getPosition().y + 50 - (float(m_window.getSize().y) / 2);
 
-            if (m_CurrViewPos.x < 0)
-                m_CurrViewPos.x = 0;
-            if (m_CurrViewPos.y < 0)
-                m_CurrViewPos.y = 0;
-            if (m_CurrViewPos.x > m_window.getSize().x)
-                m_CurrViewPos.x = m_window.getSize().x;
-            if (m_CurrViewPos.y > m_window.getSize().y)
-                m_CurrViewPos.y = m_window.getSize().y;
-            m_screenView.reset(sf::FloatRect(m_CurrViewPos.x, m_CurrViewPos.y, m_window.getSize().x, m_window.getSize().y));
-            m_window.setView(m_screenView);
-        }*/
+        //    if (m_CurrViewPos.x < 0)
+        //        m_CurrViewPos.x = 0;
+        //    if (m_CurrViewPos.y < 0)
+        //        m_CurrViewPos.y = 0;
+        //    if (m_CurrViewPos.x > m_window.getSize().x)
+        //        m_CurrViewPos.x = m_window.getSize().x;
+        //    if (m_CurrViewPos.y > m_window.getSize().y)
+        //        m_CurrViewPos.y = m_window.getSize().y;
+        //    m_screenView.reset(sf::FloatRect(m_CurrViewPos.x, m_CurrViewPos.y, m_window.getSize().x, m_window.getSize().y));
+        //    m_window.setView(m_screenView);
+        //}
     }
 }
 //=========================================================================== =

@@ -2,10 +2,10 @@
 //============================ include section ===============================
 #include "GameObject.h"
 #include <SFML/Graphics.hpp>
-#include "Physics.h"
+//#include "Physics.h"
 //========================== forward declarations ============================
 //class Road;
-class Board;
+//class Board;
 //class StaticObject;
 /*============================================================================
 * Class: MovingObject.
@@ -19,8 +19,7 @@ class MovingObject : public GameObject
 public:
 	//================= constructors and destructors section =================
 	MovingObject(const sf::Vector2f & = sf::Vector2f(0, 0),
-		const sf::Vector2f & = sf::Vector2f(0, 0)/*,
-		char objectType = NOTHING*/);
+		const sf::Vector2f & = sf::Vector2f(0, 0));
 	//============================ gets section ===============================
 //	int getLookState()const;
 	//sf::Vector2f getInitialLoc()const;
@@ -31,8 +30,10 @@ public:
 		//=========================== method section ==============================
 	//virtual void playTurn(const sf::Time&, Board&) = 0;
 	//	virtual bool physicsTurn(const sf::Time&, Board&);
-	void move(const float, const float);
-	void updatePhysics();
+	
+	/*void move(const float, const float);
+	void updatePhysics();*/
+	
 	//	void moveUp(const sf::Time&, Board&);
 	//	void moveDown(const sf::Time&, Board&);
 	//	void moveLeft(const sf::Time&, Board&);
