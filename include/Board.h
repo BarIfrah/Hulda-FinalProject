@@ -24,7 +24,7 @@ using std::vector;
 class Board
 {
 public:
-	//================= constractors and destractors section =================
+	//================= constructors and destructors section =================
 	Board(const sf::Vector2f& location = sf::Vector2f(0,0),
 		const sf::Vector2f& size = sf::Vector2f(0,0));
 	~Board() = default;

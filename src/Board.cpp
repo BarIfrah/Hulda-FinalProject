@@ -106,12 +106,14 @@ Player* Board::loadNewLevel() {
 			switch (map[y][x])
 			{
 			case PLAYER:
-				this->m_map[y].push_back(std::make_unique <Player> (sf::Vector2f
-				(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
+                m_map[y].push_back(std::make_unique <Player> (sf::Vector2f
+                (boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
+
+                    movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
 
 				movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
 
-				this->m_player = (Player*)this->m_map[y][x].get();
+				m_player = (Player*)this->m_map[y][x].get();
 
 				break;
 			/*case ROAD:

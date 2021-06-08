@@ -42,50 +42,50 @@ void Controller::run() {
         this->drawObjects();
         m_window.display();
 
-        //sf::Vector2f movement;
-        //if (auto event = sf::Event{}; m_window.pollEvent(event))
-        //{
-        //    switch (event.key.code)
-        //    {
-        //        case sf::Keyboard::Escape:
-        //            m_window.close();
-        //        case sf::Keyboard::Right:
-        //            movement=sf::Vector2f(1, 0);
-        //            movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
-        //            playerSprite.move(movement);
-        //            break;
-        //        case sf::Keyboard::Left:
-        //            movement = sf::Vector2f(-1, 0);
-        //            movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
-        //            playerSprite.move(movement);
-        //            break;
-        //       /* case sf::Keyboard::Up:
-        //            movement=sf::Vector2f(0, -1);
-        //            movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
-        //            player.move(movement);
-        //            break;
-        //        case sf::Keyboard::Down:
-        //            movement = sf::Vector2f(0, 1);
-        //            movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
-        //            player.move(movement);
-        //            break;*/
-        //        default:
-        //            ;
-        //    }
-        //    m_CurrViewPos.x = playerSprite.getPosition().x + 50 - (float(m_window.getSize().x) / 5);
-        //    m_CurrViewPos.y = playerSprite.getPosition().y + 50 - (float(m_window.getSize().y) / 2);
-
-        //    if (m_CurrViewPos.x < 0)
-        //        m_CurrViewPos.x = 0;
-        //    if (m_CurrViewPos.y < 0)
-        //        m_CurrViewPos.y = 0;
-        //    if (m_CurrViewPos.x > m_window.getSize().x)
-        //        m_CurrViewPos.x = m_window.getSize().x;
-        //    if (m_CurrViewPos.y > m_window.getSize().y)
-        //        m_CurrViewPos.y = m_window.getSize().y;
-        //    m_screenView.reset(sf::FloatRect(m_CurrViewPos.x, m_CurrViewPos.y, m_window.getSize().x, m_window.getSize().y));
-        //    m_window.setView(m_screenView);
-        //}
+//        sf::Vector2f movement;
+//        if (auto event = sf::Event{}; m_window.pollEvent(event))
+//        {
+//            switch (event.key.code)
+//            {
+//                case sf::Keyboard::Escape:
+//                    m_window.close();
+//                case sf::Keyboard::Right:
+//                    movement=sf::Vector2f(1, 0);
+//                    movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
+//                    playerSprite.move(movement);
+//                    break;
+//                case sf::Keyboard::Left:
+//                    movement = sf::Vector2f(-1, 0);
+//                    movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
+//                    playerSprite.move(movement);
+//                    break;
+//               /* case sf::Keyboard::Up:
+//                    movement=sf::Vector2f(0, -1);
+//                    movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
+//                    player.move(movement);
+//                    break;
+//                case sf::Keyboard::Down:
+//                    movement = sf::Vector2f(0, 1);
+//                    movement *= MOVEMENT_SPEED * m_gameClock.getElapsedTime().asSeconds();
+//                    player.move(movement);
+//                    break;*/
+//                default:
+//                    ;
+//            }
+//            m_CurrViewPos.x = playerSprite.getPosition().x + 50 - (float(m_window.getSize().x) / 5);
+//            m_CurrViewPos.y = playerSprite.getPosition().y + 50 - (float(m_window.getSize().y) / 2);
+//
+//            if (m_CurrViewPos.x < 0)
+//                m_CurrViewPos.x = 0;
+//            if (m_CurrViewPos.y < 0)
+//                m_CurrViewPos.y = 0;
+//            if (m_CurrViewPos.x > m_window.getSize().x)
+//                m_CurrViewPos.x = m_window.getSize().x;
+//            if (m_CurrViewPos.y > m_window.getSize().y)
+//                m_CurrViewPos.y = m_window.getSize().y;
+//            m_screenView.reset(sf::FloatRect(m_CurrViewPos.x, m_CurrViewPos.y, m_window.getSize().x, m_window.getSize().y));
+//            m_window.setView(m_screenView);
+//        }
     }
 }
 //=========================================================================== =

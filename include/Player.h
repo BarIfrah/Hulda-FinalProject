@@ -15,7 +15,7 @@ class Player : public MovingObject
 {
 	//========================== public section ==============================
 public:
-	//================= constractors and destractors section =================
+	//================= constructors and destructors section =================
 	Player(const sf::Vector2f & = sf::Vector2f(0,0),
 		const sf::Vector2f& = sf::Vector2f(0,0));
 	//=========================== method section ==============================
@@ -23,6 +23,8 @@ public:
 	//========================= private section ===============================
 private:
 	//========================= members section ===============================
-	//====================== privete methods section ==========================
+	//====================== private methods section ==========================
 	//void jump(Board&, const sf::Vector2f&, const sf::Time&);
+    //Physics
+   // Physics m_physics;
 };

@@ -5,4 +5,5 @@ target_sources (Hulda PRIVATE "main.cpp"
 "GameObject.cpp"
 "MovingObject.cpp"
 "Player.cpp"
-"Board.cpp")
+"Board.cpp"
+        "Physics.cpp")

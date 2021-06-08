@@ -36,3 +36,7 @@ void Physics::move(const float x, const float y) {
     /// speed up
     m_velocity.x += (x * m_acceleration);
 }
+
+void Physics::setVelocity(sf::Vector2f) {
+
+}
