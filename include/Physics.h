@@ -5,7 +5,7 @@
 // Physics engine to our game:
 class Physics {
 public:
-    Physics();
+    Physics(sf::Vector2f, float, float );
     ~Physics() = default;
 
     void setVelocity(const sf::Vector2f);
@@ -13,11 +13,14 @@ public:
     void setDrag(const float);
 
 
-    const sf::Vector2f getVelocity(const sf::Vector2f);
-    const float getAccel(const float);
-    const float getDrag(const float);
+    sf::Vector2f getVelocity(const sf::Vector2f);
+    float getAccel(const float) const;
+    float getDrag(const float) const;
 
 
+    /// may move it to "MovingObject"
+    void updatePhysics();
+    void move(const float x, const float y);
 
 private:
     sf::Vector2f m_velocity;

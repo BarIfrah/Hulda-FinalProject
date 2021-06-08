@@ -1,4 +1,4 @@
-﻿target_sources (Hulda PRIVATE "main.cpp" 
+target_sources (Hulda PRIVATE "main.cpp" 
 "Controller.cpp"
 "Resources.cpp"
 "DataReader.cpp"

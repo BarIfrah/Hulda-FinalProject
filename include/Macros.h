@@ -143,9 +143,12 @@ constexpr auto GAME_LOGO = 26;
 //---------------------------------- fonts -----------------------------------
 constexpr auto ARIEL_FONT = 1;
 //---------------------------------- Physics ---------------------------------
-constexpr auto MAX_VELOCITY = 30.f;
+constexpr auto MAX_VELOCITY_X = 30.f;
+constexpr auto MAX_VELOCITY_Y = 15.f;
 constexpr auto MIN_VELOCITY = 1.f;
 
-//player
+//Player
 constexpr auto PLAYER_ACCEL = 10.f;
 constexpr auto PLAYER_DRAG = 0.9f;
+
+//Enemies

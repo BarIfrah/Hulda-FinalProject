@@ -2,11 +2,11 @@
 //============================ include section ===============================
 #include "GameObject.h"
 #include <SFML/Graphics.hpp>
-//#include "Physics.h"
+#include "Physics.h"
 //========================== forward declarations ============================
-//class Road;
-//class Board;
-//class StaticObject;
+class Road;
+class Board;
+class StaticObject;
 /*============================================================================
 * Class: MovingObject.
 * This class represent all the dynamic objects in the game: player or enemies.
@@ -28,40 +28,30 @@ public:
 	//	virtual void setLocation(const sf::Vector2f&);
 	//	void setLookState(int);
 		//=========================== method section ==============================
-	//virtual void playTurn(const sf::Time&, Board&) = 0;
-	//	virtual bool physicsTurn(const sf::Time&, Board&);
-	
-	/*void move(const float, const float);
-	void updatePhysics();*/
-	
-	//	void moveUp(const sf::Time&, Board&);
-	//	void moveDown(const sf::Time&, Board&);
-	//	void moveLeft(const sf::Time&, Board&);
-	//	void moveRight(const sf::Time&, Board&);
-	//	virtual void nullMovement(const sf::Vector2f&);
+///	virtual void playTurn(const sf::Time&, Board&) = 0;
+	virtual void move(const float, const float) = 0;
+	virtual void updatePhysics() = 0;
 
-	//	bool isFalling(const Board&);
-	//virtual void resetAnimationTime();
-	//void updateAnimation(const sf::Time&);
-	//	void flipSprite();
-	//	virtual void reset();
+	virtual void resetAnimationTime() = 0;
+	void updateAnimation(const sf::Time&);
+
 		//========================= protected section ==============================
 protected:
-	//virtual void setState(int);
+//	virtual void setState(int);
 	//========================= private section ===============================
 private:
 	//========================= members section ===============================
 	//general
-	//sf::Sprite m_objectSprite;
-	//sf::Vector2f m_initialLoc;
-	//int m_lookingState;
-	//int m_state;
+	sf::Sprite m_objectSprite;
+///	sf::Vector2f m_initialLoc;
+///	int m_lookingState;
+///	int m_state;
 
 	//animation
-	//bool m_isAnimated;
-	//sf::IntRect m_intRect;
-	//sf::Time m_animationTime;
+	bool m_isAnimated;
+	sf::IntRect m_intRect;
+	sf::Time m_animationTime;
 
 	//Physics
-	//Physics m_physics;
+	Physics m_physics;
 };
