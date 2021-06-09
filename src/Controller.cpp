@@ -9,6 +9,7 @@ Controller::Controller()
         m_board(sf::Vector2f(0, 0),
             sf::Vector2f((float)BACKGROUND_SIZE, (float)m_window.getSize().y)),
         m_player(nullptr){
+    m_window.setFramerateLimit(60);
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
     m_screenView.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
     m_window.setView(m_screenView);
@@ -49,14 +50,11 @@ void Controller::handleGameEvents() {
         switch (event.key.code) {
             case sf::Keyboard::Escape:
                 m_window.close();
-            default:
-                ;
+            default:;
         }
-
-        m_player->move(m_gameClock.getElapsedTime());
-        sideScroll();
-
     }
+    m_player->move(m_gameClock.getElapsedTime());
+    sideScroll();
 }
 //============================================================================
 void Controller::sideScroll() {

@@ -45,7 +45,10 @@ void Player::move(const sf::Time& deltaTime) {
     updateAnimation(m_physics.getVelocity());
     speedUp(dirFromKey.x, dirFromKey.y);
     if (!m_state) /// IDLE
+    //while (abs(m_physics.getVelocity().x > 0)) {
         slowDown();
+        updateAnimation(dirFromKey);
+    //}
 }
 
 //===========================================================================

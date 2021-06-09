@@ -37,19 +37,19 @@ sf::Vector2f Physics::getVelocity() {
 void Physics::slowDownPhysicsObject() {
 
     ///Applies gravity: may want to put in a comment- to avoid object falling.
-    m_velocity.y += 1.f * m_acceleration;
-    if (std::abs(m_velocity.y) > MAX_VELOCITY_Y){
-        m_velocity.y = MAX_VELOCITY_Y * ((m_velocity.y > 0.f) ? -1.f :1.f); /// going UP or DOWN
-    }
+//    m_velocity.y += 1.f * m_acceleration;
+//    if (std::abs(m_velocity.y) > MAX_VELOCITY_Y){
+//        m_velocity.y = MAX_VELOCITY_Y * ((m_velocity.y > 0.f) ? -1.f :1.f); /// going UP or DOWN
+//    }
     /// Decelerate Physics object
     m_velocity *= m_drag;
 
     /// Slow down on X axis
-    if (std::abs(m_velocity.x) >= MIN_VELOCITY){
+    if (std::abs(m_velocity.x) < MIN_VELOCITY){
         m_velocity.x = 0.f; /// stop
     }
     /// Slow down on Y axis
-    if (std::abs(m_velocity.y) >= MIN_VELOCITY) {
+    if (std::abs(m_velocity.y) < MIN_VELOCITY) {
         m_velocity.y = 0.f; /// stop
     }
 
@@ -60,7 +60,7 @@ void Physics::speedUpPhysicsObject(const float x, const float y) {
     /// speed up (side movements)
     m_velocity.x += (x * m_acceleration);
 
-    /// max speed reached (X axis:
+    /// max speed reached (X axis):
     if (std::abs(m_velocity.x) > MAX_VELOCITY_X){
         m_velocity.x = MAX_VELOCITY_X * ((m_velocity.x < 0) ? -1.f : 1.f); /// multiply by direction (-1: left, 1:right)
     }
