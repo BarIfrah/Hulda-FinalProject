@@ -19,17 +19,17 @@ Physics::Physics(sf::Vector2f velo, float drag, float accel): m_velocity(velo),
 
 //============================================================================
 
-float Physics::getAccel(const float) const {
+float Physics::getAccel() const {
     return m_acceleration;
 }
 
 //============================================================================
-float Physics::getDrag(const float) const {
+float Physics::getDrag() const {
     return m_drag;
 }
 
 //============================================================================
-sf::Vector2f Physics::getVelocity(const sf::Vector2f) {
+sf::Vector2f Physics::getVelocity() {
     return m_velocity;
 }
 

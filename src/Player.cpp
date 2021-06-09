@@ -28,7 +28,7 @@ void Player::move(const sf::Time& deltaTime) {
     m_state = IDLE;
 
     sf::Vector2f dirFromKey = sf::Vector2f (0, 0);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){              ///Move Up
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){              ///Move Up
         /// will disappear when we add 'Jump' feature
         dirFromKey = sf::Vector2f(0.f, -1.f);
     } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){     ///Move Down
@@ -41,7 +41,8 @@ void Player::move(const sf::Time& deltaTime) {
         dirFromKey = sf::Vector2f(1.f, 0.f);
         m_state = RIGHT;
     }
-    updateAnimation(dirFromKey*MOVEMENT_SPEED*deltaTime.asSeconds());
+    //updateAnimation(dirFromKey*MOVEMENT_SPEED*deltaTime.asSeconds());
+    updateAnimation(m_physics.getVelocity());
     speedUp(dirFromKey.x, dirFromKey.y);
     if (!m_state) /// IDLE
         slowDown();

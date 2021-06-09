@@ -14,9 +14,9 @@ public:
     void setDrag(float);
 
 
-    sf::Vector2f getVelocity(sf::Vector2f);
-    float getAccel(float) const;
-    float getDrag(float) const;
+    sf::Vector2f getVelocity();
+    float getAccel() const;
+    float getDrag() const;
 
 
     /// may speedUp it to "MovingObject"
