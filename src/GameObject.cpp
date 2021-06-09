@@ -8,9 +8,12 @@
 //============================= public section ===============================
 //==================== Constructors & distructors section ====================
 //============================================================================
-GameObject::GameObject(const sf::Vector2f& location, const sf::Vector2f& size, bool isAnimated) 
+GameObject::GameObject(const sf::Vector2f& location,
+	const sf::Vector2f& size,
+	char objectType,
+	bool isAnimated) 
 	: m_intRect(0, 0, CHARACTER_WIDTH, CHARACTER_HEIGHT),
-	m_objectSprite(Resources::instance().getTexture(PLAYER_T),this->m_intRect),
+	m_objectSprite(Resources::instance().getTexture(objectType),this->m_intRect),
 	m_isAnimated(isAnimated) {
 	this->m_objectSprite.setPosition(location);
 	if (!isAnimated) {
@@ -23,6 +26,10 @@ GameObject::GameObject(const sf::Vector2f& location, const sf::Vector2f& size, b
 	this->m_objectSprite.setScale(
 		(float)size.x / this->m_intRect.width,
 		(float)size.y / this->m_intRect.height);
+	if (isAnimated)
+	{
+		this->m_objectSprite.scale(sf::Vector2f(2.0f, 2.0f));
+	}
 }
 //============================================================================
 GameObject::~GameObject() {}

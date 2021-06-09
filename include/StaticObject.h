@@ -12,7 +12,7 @@ public:
 	//================= constractors and destractors section =================
 	using GameObject::GameObject;
 	//=========================== method section ==============================
-	virtual void handleCollision(MovingObject&, const sf::Vector2f&) = 0;
+	//virtual void handleCollision(MovingObject&, const sf::Vector2f&) = 0;
 	//========================= private section ===============================
 private:
 };

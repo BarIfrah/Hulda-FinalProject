@@ -11,7 +11,8 @@
 #include "Utilities.h"
 #include "Player.h"
 //#include "Enemy.h"
-//#include "Road.h"
+#include "Road.h"
+#include "Trash.h"
 using std::vector;
 //====================== Constructors & distructors section ==================
 Board::Board(const sf::Vector2f& location,
@@ -78,11 +79,11 @@ sf::Vector2f Board::getObjectSize()const {
 void Board::draw(sf::RenderWindow& window,
 	const sf::Time& deltaTime) {
 	window.draw(m_background);
-	/*for (int i = 0; i < this->m_map.size(); i++)
+	for (int i = 0; i < this->m_map.size(); i++)
 		for (int j = 0; j < this->m_map[i].size(); j++)
 			if (m_map[i][j].get() != nullptr) {
 				m_map[i][j]->draw(window);
-			}*/
+			}
 }
 //============================================================================
 /*
@@ -116,15 +117,18 @@ Player* Board::loadNewLevel() {
 				m_player = (Player*)this->m_map[y][x].get();
 
 				break;
-			/*case ROAD:
-				this->m_map[y].push_back(std::make_unique <Road>(sf::Vector2f
+			case ROAD:
+				m_map[y].push_back(std::make_unique <Road>(sf::Vector2f
 				(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
-				break;*/
+				break;
+			case TRASH:
+				m_map[y].push_back(std::make_unique <Trash>(sf::Vector2f
+				(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
+				break;
 			default:
 				this->m_map[y].push_back(nullptr); // inputed ' '
 				break;
 			}
-			
 		}
 	}
 	return this->m_player;

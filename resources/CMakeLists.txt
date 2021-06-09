@@ -3,6 +3,8 @@ configure_file ("ARIALBD.TTF" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("player.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("enemy.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("road.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("specialfood.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("trash.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Logo.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("game_state.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 

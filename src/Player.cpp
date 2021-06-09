@@ -8,7 +8,7 @@
 //==================== Constructors & distructors section ====================
 Player::Player(const sf::Vector2f& location,
 	const sf::Vector2f& size)
-	: MovingObject(location, size){
+	: MovingObject(location, size, PLAYER_T){
     m_physics = Physics(sf::Vector2f(0, 0), PLAYER_DRAG, PLAYER_ACCEL);
 }
 
@@ -20,10 +20,6 @@ speedUp is possible.*/
 //	
 //}
 void Player::move(const sf::Time& deltaTime) {
-    /// this is the move function in our project.
-
-    /// WE NEED TO MAKE ANIMATION FUNC HERE
-    ///now we get direction from keyboard and send it to physics.
     this->setState(IDLE);
 
     sf::Vector2f dirFromKey = sf::Vector2f(0, 0);

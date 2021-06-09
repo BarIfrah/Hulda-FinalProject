@@ -80,11 +80,12 @@ constexpr auto PLAYER_PATH = "player.png";
 constexpr auto SCOOTER_PATH = "scooter.png";
 constexpr auto EXTERMINATOR_PATH = "exterminator.png";
 constexpr auto OLD_WOMAN_PATH = "old_woman.png";
-constexpr auto REGULAR_FOOD_PATH = "regular_food.png";
-constexpr auto TOXIC_FOOD_PATH = "toxic_food.png";
-constexpr auto SPECIAL_FOOD_PATH = "special_food.png";
+constexpr auto REGULAR_FOOD_PATH = "regularfood.png";
+constexpr auto TOXIC_FOOD_PATH = "toxicfood.png";
+constexpr auto SPECIAL_FOOD_PATH = "specialfood.png";
 constexpr auto ROAD_PATH = "road.png";
 constexpr auto GAME_STATE_PATH = "game_state.jpg";
+constexpr auto TRASH_PATH = "trash.png";
 //--------------------------------- musics -----------------------------------
 constexpr auto MENU_MUSIC_PATH = "menuMusic.ogg";
 constexpr auto LEVEL1_MUSIC_PATH = "level1Music.ogg";
@@ -121,6 +122,7 @@ constexpr auto REGULAR_FOOD_T = 14;
 constexpr auto TOXIC_FOOD_T = 15;
 constexpr auto SPECIAL_FOOD_T = 16;
 constexpr auto ROAD_T = 17;
+constexpr auto TRASH_T = 18;
 
 //--------------------------------- sounds -----------------------------------
 constexpr auto REGULAR_FOOD_SOUND = 0;

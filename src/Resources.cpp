@@ -92,4 +92,14 @@ void Resources::setObjects() {
     this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>
         (ROAD_T, std::move(texturesCreator)));
     this->m_texture[ROAD_T]->loadFromFile(ROAD_PATH);
+
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>
+        (TRASH_T, std::move(texturesCreator)));
+    this->m_texture[TRASH_T]->loadFromFile(TRASH_PATH);
+
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>
+        (SPECIAL_FOOD_T, std::move(texturesCreator)));
+    this->m_texture[SPECIAL_FOOD_T]->loadFromFile(SPECIAL_FOOD_PATH);
 }

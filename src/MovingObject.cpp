@@ -1,8 +1,8 @@
 #include "MovingObject.h"
 //==================== Constructors & destructors section ====================
 MovingObject::MovingObject(const sf::Vector2f& location,
-    const sf::Vector2f& size)
-    : GameObject(location, size, true),
+    const sf::Vector2f& size, char objectType)
+    : GameObject(location, size, objectType, true),
 m_direction(RIGHT),
 m_state(IDLE){}
 

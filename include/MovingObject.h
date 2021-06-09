@@ -19,7 +19,7 @@ class MovingObject : public GameObject
 public:
 	//================= constructors and destructors section =================
 	MovingObject(const sf::Vector2f & = sf::Vector2f(0, 0),
-		const sf::Vector2f & = sf::Vector2f(0, 0));
+		const sf::Vector2f & = sf::Vector2f(0, 0),char objectType = NOTHING);
 	//============================ gets section ===============================
 //	int getLookState()const;
 	//sf::Vector2f getInitialLoc()const;
@@ -45,14 +45,9 @@ protected:
 private:
 	//========================= members section ===============================
 	//general
-	sf::Sprite m_objectSprite;
+	//sf::Sprite m_objectSprite;
 ///	sf::Vector2f m_initialLoc;
 ///	int m_lookingState;
 	int m_state;
 	int m_direction;
-
-	//animation
-	bool m_isAnimated;
-	sf::IntRect m_intRect;
-	sf::Time m_animationTime;
 };
