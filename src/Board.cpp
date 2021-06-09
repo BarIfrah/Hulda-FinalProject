@@ -13,6 +13,7 @@
 //#include "Enemy.h"
 #include "Road.h"
 #include "Trash.h"
+#include "SpecialFood.h"
 using std::vector;
 //====================== Constructors & distructors section ==================
 Board::Board(const sf::Vector2f& location,
@@ -92,7 +93,7 @@ void Board::draw(sf::RenderWindow& window,
  */
 Player* Board::loadNewLevel() {
 	vector<vector<char>> map = m_levelReader.readNextLevel();
-	vector<MovingObject*> movingsVec = {};
+	//vector<MovingObject*> movingsVec = {};
 	sf::Vector2f boxSize(this->getlevelSize().x / map[0].size(),
 		this->getlevelSize().y / map.size());
 	this->loadLevelEffects(1);
@@ -109,13 +110,8 @@ Player* Board::loadNewLevel() {
 			case PLAYER:
                 m_map[y].push_back(std::make_unique <Player> (sf::Vector2f
                 (boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
-
-                    movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
-
-				movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
-
+                //movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
 				m_player = (Player*)this->m_map[y][x].get();
-
 				break;
 			case ROAD:
 				m_map[y].push_back(std::make_unique <Road>(sf::Vector2f
@@ -123,6 +119,10 @@ Player* Board::loadNewLevel() {
 				break;
 			case TRASH:
 				m_map[y].push_back(std::make_unique <Trash>(sf::Vector2f
+				(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
+				break;
+			case FOOD:
+				m_map[y].push_back(std::make_unique <SpecialFood>(sf::Vector2f
 				(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
 				break;
 			default:

@@ -112,7 +112,9 @@
 				7,
 				8,
 				9,
-				10
+				10,
+				11,
+				12
 			]
 		}
 	],
@@ -222,7 +224,9 @@
 				7,
 				8,
 				9,
-				10
+				10,
+				11,
+				12
 			]
 		}
 	],
@@ -292,6 +296,18 @@
 			"backtrace" : 6,
 			"compileGroupIndex" : 0,
 			"path" : "src/Trash.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 6,
+			"compileGroupIndex" : 0,
+			"path" : "src/Food.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 6,
+			"compileGroupIndex" : 0,
+			"path" : "src/SpecialFood.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

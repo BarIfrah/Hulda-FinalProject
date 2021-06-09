@@ -8,4 +8,6 @@ target_sources (Hulda PRIVATE "main.cpp"
 "Board.cpp"
 "Physics.cpp"
 "Road.cpp"
-"Trash.cpp")
+"Trash.cpp"
+"Food.cpp"
+"SpecialFood.cpp")

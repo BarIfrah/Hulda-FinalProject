@@ -18,7 +18,7 @@ public:
 	virtual ~Food() = default;
 	//=========================== method section =============================
 	/*virtual bool is_collected()const;*/
-	virtual void draw(sf::RenderWindow&)override;
+	//virtual void draw(sf::RenderWindow&)override;
 	/*virtual void reset();
 	virtual void collect();
 	virtual void handleColision(Controller&)=0;*/

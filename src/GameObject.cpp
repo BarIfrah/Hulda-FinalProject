@@ -29,6 +29,7 @@ GameObject::GameObject(const sf::Vector2f& location,
 	if (isAnimated)
 	{
 		this->m_objectSprite.scale(sf::Vector2f(2.0f, 2.0f));
+		this->m_objectSprite.move(0, -40);
 	}
 }
 //============================================================================
