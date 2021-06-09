@@ -2,6 +2,7 @@
 #pragma once
 #include "MovingObject.h"
 #include <vector>
+#include "Physics.h"
 //========================== forward declarations ============================
 //class Board;
 //class Road;
@@ -18,9 +19,9 @@ public:
 	//================= constructors and destructors section =================
 	explicit Player(const sf::Vector2f & = sf::Vector2f(0,0),
 		const sf::Vector2f& = sf::Vector2f(0,0));
-    void slowDown() override;
-    void speedUp(float, float) override;
-    void move() override;
+	virtual void slowDown() override;
+	virtual void speedUp(float, float) override;
+	virtual void move(const sf::Time&) override;
 	//=========================== method section ==============================
 	//virtual void playTurn(const sf::Time&, Board&) override;
 	//========================= private section ===============================

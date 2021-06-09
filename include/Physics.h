@@ -21,7 +21,7 @@ public:
 
     /// may speedUp it to "MovingObject"
     void slowDownPhysicsObject();
-    void speedUpPhysicsObject(float x, float y);
+    void speedUpPhysicsObject(const float x,const float y);
 
 private:
     sf::Vector2f m_velocity;

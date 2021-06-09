@@ -20,7 +20,7 @@ speedUp is possible.*/
 //void Player::playTurn(const sf::Time& deltaTime, Board& board) {
 //	
 //}
-void Player::move() {
+void Player::move(const sf::Time& deltaTime) {
     /// this is the move function in our project.
 
     /// WE NEED TO MAKE ANIMATION FUNC HERE
@@ -41,7 +41,7 @@ void Player::move() {
         dirFromKey = sf::Vector2f(1.f, 0.f);
         m_state = RIGHT;
     }
-    updateAnimation(dirFromKey);
+    updateAnimation(dirFromKey*MOVEMENT_SPEED*deltaTime.asSeconds());
     speedUp(dirFromKey.x, dirFromKey.y);
     if (!m_state) /// IDLE
         slowDown();

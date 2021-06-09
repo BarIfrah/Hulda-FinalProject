@@ -31,7 +31,7 @@ public:
 ///	virtual void playTurn(const sf::Time&, Board&) = 0;
 	virtual void speedUp(float, float) = 0;
 	virtual void slowDown() = 0;
-    virtual void move() = 0;
+    virtual void move(const sf::Time&) = 0;
     //	virtual void resetAnimationTime() = 0;
 	void updateAnimation(sf::Vector2f);
 

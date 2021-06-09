@@ -7,7 +7,8 @@ MovingObject::MovingObject(const sf::Vector2f& location,
 //===========================================================================
 
 void MovingObject::updateAnimation(sf::Vector2f whereToMove) {
-    m_objectSprite.move(whereToMove);
+    //m_objectSprite.move(whereToMove);
+    this->setLocation(whereToMove);
 }
 /*,
 m_initialLoc(location), m_lookingState(WALK_RIGHT), m_isAnimated(true), m_state(IDLE)*/
