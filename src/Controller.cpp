@@ -5,7 +5,7 @@
 #include <iostream>
 
 Controller::Controller()
-        : m_window(sf::VideoMode::getDesktopMode(), "Hulda", sf::Style::Fullscreen),
+        : m_window(sf::VideoMode(1920, 1080), "Hulda", sf::Style::Titlebar | sf::Style::Close),
         m_board(sf::Vector2f(0, 0),
             sf::Vector2f((float)BACKGROUND_SIZE, (float)m_window.getSize().y)),
         m_player(nullptr){
@@ -13,7 +13,7 @@ Controller::Controller()
     m_screenView.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
     m_window.setView(m_screenView);
 }
-
+//============================================================================
 void Controller::run() {
     this->m_player = this->m_board.loadNewLevel();
 
@@ -24,34 +24,11 @@ void Controller::run() {
         this->drawObjects();
         m_window.display();
 
-        if (auto event = sf::Event{}; m_window.pollEvent(event)) {
-            switch (event.key.code) {
-                case sf::Keyboard::Escape:
-                    m_window.close();
-                default:
-                    ;           
-            }
+        handleGameEvents();
 
-            m_player->move(m_gameClock.getElapsedTime());
-
-            m_CurrViewPos.x = m_player->getSprite().getPosition().x + m_player->getSize().x / 2 - (float(m_window.getSize().x) / 2);
-            m_CurrViewPos.y = m_player->getSprite().getPosition().y + m_player->getSize().y / 2 - (float(m_window.getSize().y) / 2);
-
-            if (m_CurrViewPos.x < 0)
-               m_CurrViewPos.x = 0;
-            if (m_CurrViewPos.y < 0)
-               m_CurrViewPos.y = 0;
-            if (m_CurrViewPos.x > m_window.getSize().x)
-               m_CurrViewPos.x = m_window.getSize().x;
-            if (m_CurrViewPos.y > m_window.getSize().y)
-               m_CurrViewPos.y = m_window.getSize().y;
-            m_screenView.reset(sf::FloatRect(m_CurrViewPos.x, m_CurrViewPos.y, m_window.getSize().x,
-                              m_window.getSize().y));
-            m_window.setView(m_screenView);
-        }
     }
 }
-//=========================================================================== =
+//============================================================================
 /*
 * this function draw all the dynamic objects in the game by the time clock.
 */
@@ -62,5 +39,41 @@ void Controller::drawObjects() {
         this->m_enemies[i]->draw(this->m_window);
     for (int i = 0; i < this->m_giftEnemies.size(); ++i)
         this->m_giftEnemies[i]->draw(this->m_window);*/
+}
+
+
+//============================================================================
+
+void Controller::handleGameEvents() {
+    if (auto event = sf::Event{}; m_window.pollEvent(event)) {
+        switch (event.key.code) {
+            case sf::Keyboard::Escape:
+                m_window.close();
+            default:
+                ;
+        }
+
+        m_player->move(m_gameClock.getElapsedTime());
+        sideScroll();
+
+    }
+}
+//============================================================================
+void Controller::sideScroll() {
+    m_CurrViewPos.x = m_player->getSprite().getPosition().x + m_player->getSize().x / 2 - (float(m_window.getSize().x) / 2);
+    //m_CurrViewPos.y = m_player->getSprite().getPosition().y + m_player->getSize().y / 2 - (float(m_window.getSize().y) / 2);
+    //m_CurrViewPos.y = m_window.getSize().y;
+
+    if (m_CurrViewPos.x < 0)
+        m_CurrViewPos.x = 0;
+    if (m_CurrViewPos.y < 0)
+        m_CurrViewPos.y = 0;
+    if (m_CurrViewPos.x > m_window.getSize().x)
+        m_CurrViewPos.x = m_window.getSize().x;
+    if (m_CurrViewPos.y > m_window.getSize().y)
+        m_CurrViewPos.y = m_window.getSize().y;
+    m_screenView.reset(sf::FloatRect(m_CurrViewPos.x, m_CurrViewPos.y, m_window.getSize().x,
+                                     m_window.getSize().y));
+    m_window.setView(m_screenView);
 }
 //============================================================================

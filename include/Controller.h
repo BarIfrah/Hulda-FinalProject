@@ -24,7 +24,8 @@ public:
 	Controller();
 	//=========================== method section =============================
 	void run();
-
+	void handleGameEvents();
+	void sideScroll();
 	//========================= private section ==============================
 private:
 	//========================= members section ==============================
