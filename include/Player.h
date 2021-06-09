@@ -30,6 +30,5 @@ private:
 	//====================== private methods section ==========================
 	//void jump(Board&, const sf::Vector2f&, const sf::Time&);
     //Physics
-    int m_state;
     Physics m_physics;
 };

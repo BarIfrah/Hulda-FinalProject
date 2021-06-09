@@ -8,7 +8,7 @@
 */
 //========================== game const parameters ===========================
 //games parameters
-constexpr auto MOVEMENT_SPEED = 10000.f;
+constexpr auto MOVEMENT_SPEED = 10.f;
 constexpr auto MUSIC_VOLUME = 50;
 constexpr auto RAND_ENEMY_TIME = 1;
 
@@ -28,20 +28,15 @@ constexpr auto NONE_CHOSEN = 'N';
 //========================== game objects states ============================
 //MovingObject spritesheets consts
 //enum to define movement directions of all moving objects (Enemies will not use up/down)
-enum ANIMATION_DIRECTIONS { STAND = 0, UP = 1, DOWN = 2, LEFT = 3, RIGHT = 4 };
-enum ANIMATION_STATE { IDLE = 0, RUN = 1, JUMP = 2, FALL = 3 };
-/*
-constexpr auto STAND = 0;
-constexpr auto NUM_OF_STAND_SPRITE = 1;
-constexpr auto JUMPING = 1;
-constexpr auto NUM_OF_JUMP_SPRITE = 3;
-constexpr auto RUNNING = 4;
-constexpr auto NUM_OF_RUNNING_SPRITE = 8;
-constexpr auto FALLING = 2;
-constexpr auto NUM_OF_FALLING_SPRITE = 2;
-*/
-constexpr auto CHARACTER_HEIGHT = 1024; //256
-constexpr auto CHARACTER_WIDTH = 789.4285714286; //256
+enum ANIMATION_DIRECTIONS { LEFT = 0, RIGHT = 1 };
+enum ANIMATION_STATE { IDLE = 0, RUN = 1, JUMP = 2, DIE = 3 };
+constexpr auto NUM_OF_IDLE_SPRITE = 11;
+constexpr auto NUM_OF_JUMP_SPRITE = 12;
+constexpr auto NUM_OF_RUNNING_SPRITE = 13;
+constexpr auto NUM_OF_DIE_SPRITE = 5;
+
+constexpr auto CHARACTER_HEIGHT = 632; //256
+constexpr auto CHARACTER_WIDTH = 722; //256
 
 constexpr auto ANIMATIONS_RATE = 0.1f;
 constexpr auto WALK_LEFT = 1;
@@ -143,7 +138,7 @@ constexpr auto GAME_LOGO = 26;
 //---------------------------------- fonts -----------------------------------
 constexpr auto ARIEL_FONT = 1;
 //---------------------------------- Physics ---------------------------------
-constexpr auto MAX_VELOCITY_X = 5.f;
+constexpr auto MAX_VELOCITY_X = 10.f;
 constexpr auto MAX_VELOCITY_Y = 5.f;
 constexpr auto MIN_VELOCITY = 1.f;
 constexpr auto GRAVITY = 2.f;

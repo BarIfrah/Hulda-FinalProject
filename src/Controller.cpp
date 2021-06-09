@@ -17,7 +17,7 @@ Controller::Controller()
 //============================================================================
 void Controller::run() {
     this->m_player = this->m_board.loadNewLevel();
-
+    
     while (m_window.isOpen()) {
         m_gameClock.restart();
         m_window.clear();

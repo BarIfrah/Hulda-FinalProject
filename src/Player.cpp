@@ -10,7 +10,6 @@ Player::Player(const sf::Vector2f& location,
 	const sf::Vector2f& size)
 	: MovingObject(location, size){
     m_physics = Physics(sf::Vector2f(0, 0), PLAYER_DRAG, PLAYER_ACCEL);
-    m_state = IDLE;
 }
 
 //============================ methods section ===============================
@@ -25,37 +24,41 @@ void Player::move(const sf::Time& deltaTime) {
 
     /// WE NEED TO MAKE ANIMATION FUNC HERE
     ///now we get direction from keyboard and send it to physics.
-    m_state = IDLE;
+    this->setState(IDLE);
 
-    sf::Vector2f dirFromKey = sf::Vector2f (0, 0);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){              ///Move Up
+    sf::Vector2f dirFromKey = sf::Vector2f(0, 0);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {         ///Move Up
         /// will disappear when we add 'Jump' feature
         dirFromKey = sf::Vector2f(0.f, -1.f);
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){     ///Move Down
-        ///supposed to disappear with 'Gravity' feature
-        dirFromKey = sf::Vector2f(0.f, 1.f);
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){     ///Move Left
-        dirFromKey = sf::Vector2f(-1.f, 0.f);
-        m_state = LEFT;
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){    ///Move Right
-        dirFromKey = sf::Vector2f(1.f, 0.f);
-        m_state = RIGHT;
+        this->setState(JUMP);
     }
-    //updateAnimation(dirFromKey*MOVEMENT_SPEED*deltaTime.asSeconds());
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {     ///Move Down
+     ///supposed to disappear with 'Gravity' feature
+        dirFromKey = sf::Vector2f(0.f, 1.f);
+    }
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {     ///Move Left
+        dirFromKey = sf::Vector2f(-1.f, 0.f);
+        this->setState(RUN);
+        this->setDirection(LEFT);
+    }
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {    ///Move Right
+        dirFromKey = sf::Vector2f(1.f, 0.f);
+        this->setState(RUN);
+        this->setDirection(RIGHT);
+    }
+
     updateAnimation(m_physics.getVelocity());
     speedUp(dirFromKey.x, dirFromKey.y);
-    if (!m_state) /// IDLE
-    //while (abs(m_physics.getVelocity().x > 0)) {
+    if (this->getState()==IDLE) { /// IDLE
         slowDown();
         updateAnimation(dirFromKey);
-    //}
+    }
 }
 
 //===========================================================================
 void Player::slowDown() {
     m_physics.slowDownPhysicsObject();
 }
-
 //===========================================================================
 void Player::speedUp(const float xDir, const float yDir) {
     m_physics.speedUpPhysicsObject(xDir, yDir);

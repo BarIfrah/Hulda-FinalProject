@@ -34,7 +34,10 @@ public:
     virtual void move(const sf::Time&) = 0;
     //	virtual void resetAnimationTime() = 0;
 	void updateAnimation(sf::Vector2f);
-
+	void setState(int);
+	int getState()const;
+	void setDirection(int);
+	int getDirection()const;
 		//========================= protected section ==============================
 protected:
 //	virtual void setState(int);
@@ -45,12 +48,11 @@ private:
 	sf::Sprite m_objectSprite;
 ///	sf::Vector2f m_initialLoc;
 ///	int m_lookingState;
-///	int m_state;
+	int m_state;
+	int m_direction;
 
 	//animation
 	bool m_isAnimated;
 	sf::IntRect m_intRect;
 	sf::Time m_animationTime;
-
-
 };
