@@ -30,6 +30,10 @@ public:
 	const sf::Vector2f& getLocation()const;
 	sf::Vector2f getSize()const;
 	const sf::Sprite& getSprite()const;
+	sf::Sprite* getSpritePtr();
+	const sf::IntRect& getIntRect()const;
+	void setIntRect(const sf::IntRect&);
+	void flipSprite(const sf::Vector2f&);
 	//=========================== method section ==============================
 	//bool CollidesWith(const GameObject&)const;
 	virtual void draw(sf::RenderWindow&);
@@ -39,11 +43,7 @@ protected:
 	//========================= private section ===============================
 private:
 	sf::Sprite m_objectSprite;
-	//int m_state;
 	bool m_isAnimated;
-		//here and not on moving object to give an option to static objects
-		//animation
 	sf::IntRect m_intRect;
-	//sf::Time m_animationTime;
 	//========================= members section ===============================
 };

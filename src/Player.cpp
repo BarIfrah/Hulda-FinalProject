@@ -21,7 +21,6 @@ speedUp is possible.*/
 //}
 void Player::move(const sf::Time& deltaTime) {
     this->setState(IDLE);
-
     sf::Vector2f dirFromKey = sf::Vector2f(0, 0);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {         ///Move Up
         /// will disappear when we add 'Jump' feature
@@ -35,14 +34,19 @@ void Player::move(const sf::Time& deltaTime) {
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {     ///Move Left
         dirFromKey = sf::Vector2f(-1.f, 0.f);
         this->setState(RUN);
-        this->setDirection(LEFT);
+        if (this->getDirection() == RIGHT) {
+            this->setDirection(LEFT);
+            this->flipSprite(sf::Vector2f(-1.f, 1.f));
+        }
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {    ///Move Right
         dirFromKey = sf::Vector2f(1.f, 0.f);
         this->setState(RUN);
-        this->setDirection(RIGHT);
+        if (this->getDirection() == LEFT) {
+            this->setDirection(RIGHT);
+            this->flipSprite(sf::Vector2f(-1.f, 1.f));
+        }
     }
-
     updateAnimation(m_physics.getVelocity());
     speedUp(dirFromKey.x, dirFromKey.y);
     if (this->getState()==IDLE) { /// IDLE

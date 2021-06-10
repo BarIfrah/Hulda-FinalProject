@@ -28,8 +28,8 @@ GameObject::GameObject(const sf::Vector2f& location,
 		(float)size.y / this->m_intRect.height);
 	if (isAnimated)
 	{
-		this->m_objectSprite.scale(sf::Vector2f(2.0f, 2.0f));
-		this->m_objectSprite.move(0, -40);
+		this->m_objectSprite.scale(sf::Vector2f(3.0f, 3.0f));
+		this->m_objectSprite.move(0, -85);
 	}
 }
 //============================================================================
@@ -50,6 +50,10 @@ sf::Vector2f GameObject::getSize()const {
 //============================================================================
 const sf::Sprite& GameObject::getSprite() const {
 	return (this->m_objectSprite);
+}
+//============================================================================
+sf::Sprite* GameObject::getSpritePtr() {
+	return &m_objectSprite;
 }
 //============================================================================
 //sf::Vector2f GameObject::getCenter() const {
@@ -107,18 +111,21 @@ of sprites this method run on this line.*/
 //	}
 //}
 //============================================================================
-/*This method change the direction of the sprite.*/
-//void GameObject::flipSprite() {
-//	if (this->m_intRect.width > 0)
-//		this->m_intRect.left -= CHARACTER_WIDTH;
-//	else
-//		this->m_intRect.left += CHARACTER_WIDTH;
-//	this->m_intRect.width *= -1;
-//}
-//============================================================================
 void GameObject::draw(sf::RenderWindow& window) {
 	this->m_objectSprite.setTextureRect(this->m_intRect);
 	window.draw(this->m_objectSprite);
+}
+//============================================================================
+const sf::IntRect& GameObject::getIntRect()const { return this->m_intRect; }
+//============================================================================
+void GameObject::setIntRect(const sf::IntRect& rect){
+	m_intRect = rect;
+}
+//============================================================================
+/*This method change the direction of the sprite.*/
+void GameObject::flipSprite(const sf::Vector2f& scale) {
+	m_objectSprite.scale(scale);
+	m_objectSprite.setOrigin(sf::Vector2f(m_intRect.width/2, m_intRect.height/2));
 }
 //============================================================================
 /*This method get an another game object and return true if the object

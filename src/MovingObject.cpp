@@ -4,7 +4,9 @@ MovingObject::MovingObject(const sf::Vector2f& location,
     const sf::Vector2f& size, char objectType)
     : GameObject(location, size, objectType, true),
 m_direction(RIGHT),
-m_state(IDLE){}
+m_state(IDLE) {
+    m_objectSprite = this->getSpritePtr();
+}
 
 //===========================================================================
 
@@ -29,3 +31,8 @@ void MovingObject::setDirection(int direction) {
 int MovingObject::getDirection()const {
     return this->m_direction;
 }
+//===========================================================================
+void MovingObject::resetAnimationTime() {
+    this->m_animationTime = sf::seconds(0);
+}
+//===========================================================================
