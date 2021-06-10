@@ -35,7 +35,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/sharonlevi/source/repos/Hulda/out/build/x64-Debug (default)"
+			"value" : "c:/Users/holtz/source/repos/Hulda-FinalProjec/out/build/x64-Debug (default)"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -511,7 +511,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/sharonlevi/source/repos/Hulda"
+			"value" : "C:/Users/holtz/source/repos/Hulda-FinalProjec"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -523,7 +523,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Users/sharonlevi/source/repos/Hulda/out/install/x64-Debug (default)"
+			"value" : "C:/Users/holtz/Source/Repos/Hulda-FinalProjec/out/install/x64-Debug (default)"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -551,7 +551,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/PROGRA~2/MICROS~1/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe"
+			"value" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -659,7 +659,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "4"
+			"value" : "6"
 		},
 		{
 			"name" : "CMAKE_PLATFORM_INFO_INITIALIZED",
@@ -1079,7 +1079,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/sharonlevi/source/repos/Hulda/out/build/x64-Debug (default)"
+			"value" : "C:/Users/holtz/source/repos/Hulda-FinalProjec/out/build/x64-Debug (default)"
 		},
 		{
 			"name" : "Hulda_SOURCE_DIR",
@@ -1091,7 +1091,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/sharonlevi/source/repos/Hulda"
+			"value" : "C:/Users/holtz/source/repos/Hulda-FinalProjec"
 		},
 		{
 			"name" : "Ogg_LIB",

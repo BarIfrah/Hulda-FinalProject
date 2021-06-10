@@ -10,7 +10,9 @@
 					[
 						1,
 						2,
-						3
+						3,
+						4,
+						5
 					],
 					"minimumCMakeVersion" : 
 					{
@@ -52,6 +54,30 @@
 					"parentIndex" : 0,
 					"projectIndex" : 0,
 					"source" : "resources"
+				},
+				{
+					"build" : "Box2D/include",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Box2D/include"
+				},
+				{
+					"build" : "Box2D/src",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Box2D/src",
+					"targetIndexes" : 
+					[
+						1
+					]
 				}
 			],
 			"name" : "Debug",
@@ -63,12 +89,15 @@
 						0,
 						1,
 						2,
-						3
+						3,
+						4,
+						5
 					],
 					"name" : "Hulda",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -77,8 +106,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Hulda::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Hulda-Debug-01adf4f5f1fc0e6b3183.json",
+					"jsonFile" : "target-Hulda-Debug-a46b5cbab41cc766c6fb.json",
 					"name" : "Hulda",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "box2d::@82727e46c0bf5d16ecb6",
+					"jsonFile" : "target-box2d-Debug-b9796cbdd5848620c20b.json",
+					"name" : "box2d",
 					"projectIndex" : 0
 				}
 			]
@@ -87,8 +123,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/sharonlevi/source/repos/Hulda/out/build/x64-Debug (default)",
-		"source" : "C:/Users/sharonlevi/source/repos/Hulda"
+		"build" : "C:/Users/holtz/source/repos/Hulda-FinalProjec/out/build/x64-Debug (default)",
+		"source" : "C:/Users/holtz/source/repos/Hulda-FinalProjec"
 	},
 	"version" : 
 	{

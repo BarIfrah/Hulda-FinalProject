@@ -222,13 +222,19 @@
 		},
 		{
 			"path" : "resources/level4.jpeg"
+		},
+		{
+			"path" : "Box2D/include/CMakeLists.txt"
+		},
+		{
+			"path" : "Box2D/src/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "C:/Users/sharonlevi/source/repos/Hulda/out/build/x64-Debug (default)",
-		"source" : "C:/Users/sharonlevi/source/repos/Hulda"
+		"build" : "C:/Users/holtz/source/repos/Hulda-FinalProjec/out/build/x64-Debug (default)",
+		"source" : "C:/Users/holtz/source/repos/Hulda-FinalProjec"
 	},
 	"version" : 
 	{

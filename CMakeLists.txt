@@ -13,6 +13,8 @@ add_executable (Hulda "")
 add_subdirectory (include)
 add_subdirectory (src)
 add_subdirectory (resources)
+add_subdirectory (Box2D/include)
+add_subdirectory (Box2D/src)
 
 if( APPLE )
     #this is for macos=======================
@@ -22,6 +24,7 @@ if( APPLE )
     if (SFML_FOUND)
         include_directories(${SFML_INCLUDE_DIRS})
         target_link_libraries(Hulda sfml-window sfml-graphics sfml-audio sfml-network)
+        target_link_libraries (Hulda box2d)
     endif()
     #=========================================
 else()
@@ -35,4 +38,5 @@ set_target_properties (sfml-main sfml-system sfml-window sfml-graphics sfml-audi
 configure_file ("C:/SFML/SFML-2.5.1/bin/openal32.dll" ${CMAKE_BINARY_DIR} COPYONLY)
 
 target_link_libraries (Hulda sfml-graphics sfml-audio sfml-main)
+target_link_libraries (Hulda box2d)
 endif()
