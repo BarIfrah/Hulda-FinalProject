@@ -2,6 +2,7 @@
 //============================ include section ===============================
 #include <SFML/Graphics.hpp>
 #include "Macros.h"
+#include "PhysicsObject.h"
 //========================== forward declarations ============================
 class Board;
 /*============================================================================
@@ -14,8 +15,9 @@ class GameObject {
 public:
 	//================= constractors and destractors section =================
 	GameObject(
-		const sf::Vector2f & = sf::Vector2f(0, 0),
-		const sf::Vector2f & = sf::Vector2f(0, 0),
+		const bool, b2World&,
+		const sf::Vector2f & = { 0, 0 },
+		const sf::Vector2f & = { 0, 0 },
 		char objectType = NOTHING,
 		bool isAnimated = false);
 	virtual ~GameObject() = 0;
@@ -34,6 +36,8 @@ public:
 	const sf::IntRect& getIntRect()const;
 	void setIntRect(const sf::IntRect&);
 	void flipSprite(const sf::Vector2f&);
+	void updateLoc();
+
 	//=========================== method section ==============================
 	//bool CollidesWith(const GameObject&)const;
 	virtual void draw(sf::RenderWindow&);
@@ -45,5 +49,6 @@ private:
 	sf::Sprite m_objectSprite;
 	bool m_isAnimated;
 	sf::IntRect m_intRect;
+	PhysicsObject m_physicsObject;
 	//========================= members section ===============================
 };

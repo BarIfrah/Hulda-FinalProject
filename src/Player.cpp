@@ -6,9 +6,9 @@
 #include "Resources.h"
 //============================= public section ===============================
 //==================== Constructors & distructors section ====================
-Player::Player(const sf::Vector2f& location,
+Player::Player(b2World& world ,const sf::Vector2f& location,
 	const sf::Vector2f& size)
-	: MovingObject(location, size, PLAYER_T){
+	: MovingObject(world, location, size, PLAYER_T){
     m_physics = Physics(sf::Vector2f(0, 0), PLAYER_DRAG, PLAYER_ACCEL);
 }
 
@@ -20,8 +20,8 @@ speedUp is possible.*/
 //	
 //}
 void Player::move(const sf::Time& deltaTime) {
-    
-    sf::Vector2f dirFromKey = sf::Vector2f(0, 0);
+    updateLoc();
+   /* sf::Vector2f dirFromKey = sf::Vector2f(0, 0);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {         ///Move Up
         /// will disappear when we add 'Jump' feature
         dirFromKey = sf::Vector2f(0.f, -1.f);
@@ -62,7 +62,8 @@ void Player::move(const sf::Time& deltaTime) {
             slowDown();
         }
     }
-    this->setLocation(m_physics.getVelocity());
+
+    this->setLocation(m_physics.getVelocity());*/
 }
 
 //===========================================================================

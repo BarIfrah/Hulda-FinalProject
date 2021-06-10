@@ -8,13 +8,12 @@
 //============================= public section ===============================
 //==================== Constructors & distructors section ====================
 //============================================================================
-GameObject::GameObject(const sf::Vector2f& location,
-	const sf::Vector2f& size,
-	char objectType,
-	bool isAnimated) 
+GameObject::GameObject(const bool isDynamic,b2World& world ,const sf::Vector2f& location,const sf::Vector2f& size,
+	char objectType, bool isAnimated) 
 	: m_intRect(0, 0, CHARACTER_WIDTH, CHARACTER_HEIGHT),
 	m_objectSprite(Resources::instance().getTexture(objectType),this->m_intRect),
-	m_isAnimated(isAnimated) {
+	m_isAnimated(isAnimated),
+	m_physicsObject(world, location, isDynamic, size){
 	this->m_objectSprite.setPosition(location);
 	if (!isAnimated) {
 		this->m_intRect.width =
@@ -55,6 +54,14 @@ const sf::Sprite& GameObject::getSprite() const {
 sf::Sprite* GameObject::getSpritePtr() {
 	return &m_objectSprite;
 }
+
+void GameObject::updateLoc()
+{
+	auto pos = m_physicsObject.getPosition();
+	setLocation(sf::Vector2f(pos.x * PPM, pos.y * PPM));
+	//setRotation(m_physicsObject.getAngle());
+}
+
 //============================================================================
 //sf::Vector2f GameObject::getCenter() const {
 //	return sf::Vector2f(this->getLocation().x + (this->getSize().x / 2),
@@ -150,5 +157,6 @@ itself collide with the object it got.*/
 /*this method get the direction movement and set it to the sprite of the
 object.*/
 void GameObject::setLocation(const sf::Vector2f& movment) {
-	this->m_objectSprite.move(movment);
+	//this->m_objectSprite.move(movment);
+	m_objectSprite.setPosition(movment);
 }

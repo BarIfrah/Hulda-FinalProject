@@ -3,7 +3,7 @@
 #include "Macros.h"
 //============================= public section ===============================
 //==================== Constructors & distructors section ====================
-SpecialFood::SpecialFood(const sf::Vector2f& location,
+SpecialFood::SpecialFood(b2World& world, const sf::Vector2f& location,
 	const sf::Vector2f& size)
-	:Food(location, size, SPECIAL_FOOD_T) {}
+	:Food(world, location, size, SPECIAL_FOOD_T) {}
 //============================================================================

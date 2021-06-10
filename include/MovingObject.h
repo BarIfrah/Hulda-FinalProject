@@ -18,7 +18,7 @@ class MovingObject : public GameObject
 	//========================== public section ==============================
 public:
 	//================= constructors and destructors section =================
-	MovingObject(const sf::Vector2f & = sf::Vector2f(0, 0),
+	MovingObject(b2World&, const sf::Vector2f & = sf::Vector2f(0, 0),
 		const sf::Vector2f & = sf::Vector2f(0, 0),char objectType = NOTHING);
 	//============================ gets section ===============================
 //	int getLookState()const;

@@ -91,7 +91,7 @@ void Board::draw(sf::RenderWindow& window,
  * This function update the objects of the game to the current level game.
  * the function build a vector of moving objects ptrs & return it.
  */
-Player* Board::loadNewLevel() {
+Player* Board::loadNewLevel(b2World& world) {
 	vector<vector<char>> map = m_levelReader.readNextLevel();
 	//vector<MovingObject*> movingsVec = {};
 	sf::Vector2f boxSize(this->getlevelSize().x / map[0].size(),
@@ -108,21 +108,21 @@ Player* Board::loadNewLevel() {
 			switch (map[y][x])
 			{
 			case PLAYER:
-                m_map[y].push_back(std::make_unique <Player> (sf::Vector2f
-                (boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
+                m_map[y].push_back(std::make_unique <Player> (world, sf::Vector2f
+                (/*boxSize.x * x, boxSize.y * y*/100, 100) + this->m_location, boxSize));
                 //movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
 				m_player = (Player*)this->m_map[y][x].get();
 				break;
 			case ROAD:
-				m_map[y].push_back(std::make_unique <Road>(sf::Vector2f
+				m_map[y].push_back(std::make_unique <Road>(world, sf::Vector2f
 				(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
 				break;
 			case TRASH:
-				m_map[y].push_back(std::make_unique <Trash>(sf::Vector2f
+				m_map[y].push_back(std::make_unique <Trash>(world, sf::Vector2f
 				(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
 				break;
 			case FOOD:
-				m_map[y].push_back(std::make_unique <SpecialFood>(sf::Vector2f
+				m_map[y].push_back(std::make_unique <SpecialFood>(world, sf::Vector2f
 				(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
 				break;
 			default:

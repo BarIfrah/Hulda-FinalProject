@@ -12,7 +12,7 @@ class Controller;
 class Food : public StaticObject{
 public:
 	//================= constractors and destractors section =================
-	Food(const sf::Vector2f& = sf::Vector2f(0,0),
+	Food(b2World& ,const sf::Vector2f& = sf::Vector2f(0,0),
 		const sf::Vector2f& = sf::Vector2f(0,0),
 		char objectType = NOTHING);
 	virtual ~Food() = default;

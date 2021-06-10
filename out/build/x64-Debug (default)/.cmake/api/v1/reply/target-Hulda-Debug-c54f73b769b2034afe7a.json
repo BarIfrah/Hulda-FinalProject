@@ -138,7 +138,9 @@
 				9,
 				10,
 				11,
-				12
+				12,
+				13,
+				14
 			]
 		}
 	],
@@ -262,7 +264,9 @@
 				9,
 				10,
 				11,
-				12
+				12,
+				13,
+				14
 			]
 		}
 	],
@@ -307,6 +311,12 @@
 		{
 			"backtrace" : 9,
 			"compileGroupIndex" : 0,
+			"path" : "src/StaticObject.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 9,
+			"compileGroupIndex" : 0,
 			"path" : "src/Player.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -344,6 +354,12 @@
 			"backtrace" : 9,
 			"compileGroupIndex" : 0,
 			"path" : "src/SpecialFood.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 9,
+			"compileGroupIndex" : 0,
+			"path" : "src/PhysicsObject.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

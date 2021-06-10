@@ -4,10 +4,10 @@
 #include "Macros.h"
 //============================= public section ===============================
 //==================== Constructors & distructors section ====================
-Food::Food(const sf::Vector2f& location,
+Food::Food(b2World& world, const sf::Vector2f& location,
 	const sf::Vector2f& size,
 	char objectType)
-	: StaticObject(location, size, objectType),
+	: StaticObject(world, location, size, objectType),
 	m_is_collected(false) {}
 //============================== gets section ================================
 //============================ methods section ===============================

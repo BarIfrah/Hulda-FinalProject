@@ -17,8 +17,8 @@ class Player : public MovingObject
 	//========================== public section ==============================
 public:
 	//================= constructors and destructors section =================
-	explicit Player(const sf::Vector2f & = sf::Vector2f(0,0),
-		const sf::Vector2f& = sf::Vector2f(0,0));
+	explicit Player(b2World&, const sf::Vector2f & = { 0,0 },
+		const sf::Vector2f & = { 0,0 });
 	virtual void slowDown() override;
 	virtual void speedUp(float, float) override;
 	virtual void move(const sf::Time&) override;

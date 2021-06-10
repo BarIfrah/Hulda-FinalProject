@@ -34,7 +34,7 @@ private:
 	//view:
 	sf::Vector2f m_CurrViewPos;
 	sf::View m_screenView;
-
+	std::unique_ptr<b2World> m_world;
 	Board m_board;
 	/*
 	Menu m_menu;

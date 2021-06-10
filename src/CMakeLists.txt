@@ -4,10 +4,12 @@ target_sources (Hulda PRIVATE "main.cpp"
 "DataReader.cpp"
 "GameObject.cpp"
 "MovingObject.cpp"
+"StaticObject.cpp"
 "Player.cpp"
 "Board.cpp"
 "Physics.cpp"
 "Road.cpp"
 "Trash.cpp"
 "Food.cpp"
-"SpecialFood.cpp")
+"SpecialFood.cpp"
+"PhysicsObject.cpp")

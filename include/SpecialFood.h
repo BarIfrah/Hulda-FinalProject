@@ -13,7 +13,7 @@ class SpecialFood : public Food
 	//========================== public section ==============================
 public:
 	//================= constractors and destractors section =================
-	SpecialFood(const sf::Vector2f & = sf::Vector2f(0, 0),
+	SpecialFood(b2World& ,const sf::Vector2f & = sf::Vector2f(0, 0),
 		const sf::Vector2f & = sf::Vector2f(0, 0));
 	//=========================== method section ==============================
 	//virtual void handleColision(Controller&) override;

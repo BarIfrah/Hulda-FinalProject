@@ -149,3 +149,17 @@ constexpr auto PLAYER_ACCEL = 5.f;
 constexpr auto PLAYER_DRAG = 0.9f;
 
 //Enemies
+
+//Ariel
+const float PPM = 64.f;
+const float MPP = 0.015625f;
+const float TIMESTEP = 1.0f / 60.0f;
+const int VELITER = 10;
+const int POSITER = 10;
+const bool STATIC = false;
+const bool DYNAMIC = true;
+
+
+
+
+
