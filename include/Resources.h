@@ -14,7 +14,7 @@ public:
 	const sf::Texture& getBackground(int);
 	const sf::Texture& getTexture(int)const;
 	//	const sf::Font& getFont(int)const;
-	//	const int getNumOfSprites(int)const;
+	const int getNumOfSprites(int)const;
 		//=========================== method section ==============================
 	//	void playSound(int key);
 	//	void playMusic(int);
@@ -23,7 +23,7 @@ public:
 private:
 	//========================= members section ===============================
 	std::unordered_map<int, std::unique_ptr <sf::Texture>> m_texture;
-	//	std::unordered_map<int, int> m_NumOfSprites;
+	std::unordered_map<int, int> m_NumOfSprites;
 	//	std::unordered_map<int, std::unique_ptr<sf::SoundBuffer>> m_soundBuffers;
 	//	std::unordered_map<int, std::unique_ptr <sf::Font>> m_font;
 	//	sf::Music m_music;
@@ -36,5 +36,5 @@ private:
 	//	void setLogos();
 	//	void setFonts();
 	void setObjects();
-	//	void setNumOfSprites();
+	void setNumOfSprites();
 };

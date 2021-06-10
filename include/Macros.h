@@ -35,12 +35,11 @@ constexpr auto NUM_OF_JUMP_SPRITE = 12;
 constexpr auto NUM_OF_RUNNING_SPRITE = 13;
 constexpr auto NUM_OF_DIE_SPRITE = 5;
 
-constexpr auto CHARACTER_HEIGHT = 632; //256
-constexpr auto CHARACTER_WIDTH = 722; //256
+constexpr auto CHARACTER_HEIGHT = 732;
+constexpr auto CHARACTER_WIDTH = 648.6153846154;
 
 constexpr auto ANIMATIONS_RATE = 0.1f;
-constexpr auto WALK_LEFT = 1;
-constexpr auto WALK_RIGHT = 2;
+
 //food
 constexpr auto NOT_COLLECTED = 6;
 constexpr auto COLLECTED = 7;

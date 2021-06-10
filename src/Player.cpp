@@ -20,20 +20,24 @@ speedUp is possible.*/
 //	
 //}
 void Player::move(const sf::Time& deltaTime) {
-    this->setState(IDLE);
+    
     sf::Vector2f dirFromKey = sf::Vector2f(0, 0);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {         ///Move Up
         /// will disappear when we add 'Jump' feature
         dirFromKey = sf::Vector2f(0.f, -1.f);
+        speedUp(dirFromKey.x, dirFromKey.y);
         this->setState(JUMP);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {     ///Move Down
      ///supposed to disappear with 'Gravity' feature
         dirFromKey = sf::Vector2f(0.f, 1.f);
+        speedUp(dirFromKey.x, dirFromKey.y);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {     ///Move Left
         dirFromKey = sf::Vector2f(-1.f, 0.f);
         this->setState(RUN);
+        updateAnimation(deltaTime);
+        speedUp(dirFromKey.x, dirFromKey.y);
         if (this->getDirection() == RIGHT) {
             this->setDirection(LEFT);
             this->flipSprite(sf::Vector2f(-1.f, 1.f));
@@ -42,17 +46,23 @@ void Player::move(const sf::Time& deltaTime) {
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {    ///Move Right
         dirFromKey = sf::Vector2f(1.f, 0.f);
         this->setState(RUN);
+        updateAnimation(deltaTime);
+        speedUp(dirFromKey.x, dirFromKey.y);
         if (this->getDirection() == LEFT) {
             this->setDirection(RIGHT);
             this->flipSprite(sf::Vector2f(-1.f, 1.f));
         }
     }
-    updateAnimation(m_physics.getVelocity());
-    speedUp(dirFromKey.x, dirFromKey.y);
-    if (this->getState()==IDLE) { /// IDLE
-        slowDown();
-        updateAnimation(dirFromKey);
+    else {
+        if(this->getState()==RUN)
+            this->setState(IDLE);
+        else {
+            this->resetAnimationTime();
+            updateAnimation(sf::seconds(0));
+            slowDown();
+        }
     }
+    this->setLocation(m_physics.getVelocity());
 }
 
 //===========================================================================

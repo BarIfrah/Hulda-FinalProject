@@ -33,7 +33,7 @@ public:
 	virtual void slowDown() = 0;
     virtual void move(const sf::Time&) = 0;
     void resetAnimationTime();
-	void updateAnimation(sf::Vector2f);
+	void updateAnimation(const sf::Time&);
 	void setState(int);
 	int getState()const;
 	void setDirection(int);
@@ -46,8 +46,6 @@ private:
 	//========================= members section ===============================
 	//general
 	sf::Sprite* m_objectSprite =nullptr;
-///	sf::Vector2f m_initialLoc;
-///	int m_lookingState;
 	int m_state;
 	int m_direction;
 	sf::Time m_animationTime;

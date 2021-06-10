@@ -12,6 +12,7 @@ Resources::Resources()
     //    this->setLogos();
     this->setObjects();
     //this->setSounds();
+    this->setNumOfSprites();
 }
 //============================================================================
 Resources& Resources::instance() {
@@ -55,7 +56,10 @@ const sf::Texture& Resources::getTexture(int textureKey)const {
 //const sf::Font& Resources::getFont(int fontKey) const{
 //    return(*this->m_font.find(fontKey)->second);
 //}
-
+//============================================================================
+const int Resources::getNumOfSprites(int key)const {
+    return (this->m_NumOfSprites.find(key)->second);
+}
 //============================== sets section ================================
 void Resources::setBackgrounds() {
     std::unique_ptr<sf::Texture> texturesCreator;
@@ -102,4 +106,10 @@ void Resources::setObjects() {
     this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>
         (SPECIAL_FOOD_T, std::move(texturesCreator)));
     this->m_texture[SPECIAL_FOOD_T]->loadFromFile(SPECIAL_FOOD_PATH);
+}
+void Resources::setNumOfSprites() {
+    this->m_NumOfSprites.insert(std::pair<int, int>(IDLE, NUM_OF_IDLE_SPRITE));
+    this->m_NumOfSprites.insert(std::pair<int, int>(RUN, NUM_OF_RUNNING_SPRITE));
+    this->m_NumOfSprites.insert(std::pair<int, int>(JUMP, NUM_OF_JUMP_SPRITE));
+    this->m_NumOfSprites.insert(std::pair<int, int>(DIE, NUM_OF_DIE_SPRITE));
 }

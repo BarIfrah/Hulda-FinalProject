@@ -1,4 +1,5 @@
 #include "MovingObject.h"
+#include "Resources.h"
 //==================== Constructors & destructors section ====================
 MovingObject::MovingObject(const sf::Vector2f& location,
     const sf::Vector2f& size, char objectType)
@@ -7,17 +8,33 @@ m_direction(RIGHT),
 m_state(IDLE) {
     m_objectSprite = this->getSpritePtr();
 }
-
 //===========================================================================
 
-void MovingObject::updateAnimation(sf::Vector2f whereToMove) {
-    this->setLocation(whereToMove);
+void MovingObject::updateAnimation(const sf::Time& deltaTime) {
+	this->m_animationTime += deltaTime;
+	int spritesNum = (int)(this->m_animationTime.asSeconds() / ANIMATIONS_RATE);
+	if (Resources::instance().getNumOfSprites(this->m_state) <=
+		spritesNum)
+		this->resetAnimationTime();
+	else {
+		sf::IntRect updatedRect = this->getIntRect();
+		updatedRect.left = spritesNum * CHARACTER_WIDTH;
+		if (updatedRect.width < 0)
+			updatedRect.left += CHARACTER_WIDTH;
+		this->setIntRect(updatedRect);
+	}
 }
-/*,
-m_initialLoc(location), m_lookingState(WALK_RIGHT), m_isAnimated(true), m_state(IDLE)*/
 //===========================================================================
 void MovingObject::setState(int state) {
-    this->m_state = state;
+	if (m_state != state) {
+		sf::IntRect updatedRect = this->getIntRect();
+		updatedRect.top = state * CHARACTER_HEIGHT;
+		updatedRect.left = 0;
+		if (updatedRect.width < 0)
+			updatedRect.left += CHARACTER_WIDTH;
+		this->setIntRect(updatedRect);
+	}
+	this->m_state = state;
 }
 //===========================================================================
 int MovingObject::getState()const {
