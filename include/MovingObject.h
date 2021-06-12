@@ -2,7 +2,6 @@
 //============================ include section ===============================
 #include "GameObject.h"
 #include <SFML/Graphics.hpp>
-#include "Physics.h"
 //========================== forward declarations ============================
 class Road;
 class Board;
@@ -28,9 +27,6 @@ public:
 	//	virtual void setLocation(const sf::Vector2f&);
 	//	void setLookState(int);
 		//=========================== method section ==============================
-///	virtual void playTurn(const sf::Time&, Board&) = 0;
-	virtual void speedUp(float, float) = 0;
-	virtual void slowDown() = 0;
     virtual void move(const sf::Time&) = 0;
     void resetAnimationTime();
 	void updateAnimation(const sf::Time&);
