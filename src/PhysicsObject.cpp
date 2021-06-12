@@ -46,14 +46,14 @@ PhysicsObject::~PhysicsObject()
 //    m_body->SetUserData((void*)ID);
 //}
 //
-void PhysicsObject::setPosition(const sf::Vector2f pos)
+void PhysicsObject::setPosition(const sf::Vector2f pos, const b2Vec2 velocity)
 {
     /*auto angle = m_body->GetAngle();
     if (m_body->GetType() == b2BodyType::b2_dynamicBody)
         angle = 0;*/
     m_body->SetTransform(b2Vec2(pos.x * MPP, pos.y * MPP), 0);
     //m_body->SetTransform(b2Vec2(pos.x * MPP, pos.y * MPP), angle);
-    m_body->SetLinearVelocity(b2Vec2(0, 0));
+    m_body->SetLinearVelocity(velocity);
     m_body->SetAngularVelocity(0);
     m_body->SetAwake(true);
 }

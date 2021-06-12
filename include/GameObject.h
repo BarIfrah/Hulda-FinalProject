@@ -27,7 +27,7 @@ public:
 	const sf::Sprite& getSprite()const;
 	sf::Sprite* getSpritePtr();
 	const sf::IntRect& getIntRect()const;
-	void setPhysicsObjectPos(sf::Vector2f);
+	void setPhysicsObjectPos(sf::Vector2f, b2Vec2);
 	void setIntRect(const sf::IntRect&);
 	void flipSprite(const sf::Vector2f&);
 	void updateLoc();

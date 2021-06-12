@@ -13,14 +13,14 @@ Controller::Controller()
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
     m_screenView.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
     m_window.setView(m_screenView);
-    m_world = std::make_unique<b2World>(b2Vec2(0, 9.81));
+    m_world = new b2World(b2Vec2(0, 9.81));
 }
 //============================================================================
 void Controller::run() {
-    m_player = m_board.loadNewLevel(*(m_world.get()));
+    m_player = m_board.loadNewLevel(*m_world);
     
     while (m_window.isOpen()) {
-        m_world.get()->Step(TIMESTEP, VELITER, POSITER);
+        m_world->Step(TIMESTEP, VELITER, POSITER);
         m_gameClock.restart();
         m_window.clear();
         drawObjects();

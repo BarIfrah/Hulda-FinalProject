@@ -60,7 +60,7 @@ sf::Sprite* GameObject::getSpritePtr() {
 void GameObject::updateLoc()
 {
 	auto pos = m_physicsObject.getPosition();
-	setLocation(sf::Vector2f(pos.x * PPM, pos.y * PPM));
+	setLocation(sf::Vector2f(pos.x * PPM, pos.y *PPM));
 	//setRotation(m_physicsObject.getAngle());
 }
 //============================ methods section ===============================
@@ -71,9 +71,9 @@ void GameObject::draw(sf::RenderWindow& window) {
 //============================================================================
 const sf::IntRect& GameObject::getIntRect()const { return this->m_intRect; }
 //============================================================================
-void GameObject::setPhysicsObjectPos(sf::Vector2f newPos)
+void GameObject::setPhysicsObjectPos(sf::Vector2f newPos, b2Vec2 velocity)
 {
-	m_physicsObject.setPosition(newPos);
+	m_physicsObject.setPosition(newPos, velocity);
 }
 //============================================================================
 void GameObject::setIntRect(const sf::IntRect& rect){

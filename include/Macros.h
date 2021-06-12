@@ -29,9 +29,10 @@ constexpr auto NONE_CHOSEN = 'N';
 //MovingObject spritesheets consts
 //enum to define movement directions of all moving objects (Enemies will not use up/down)
 enum ANIMATION_DIRECTIONS { LEFT = 0, RIGHT = 1 };
-enum ANIMATION_STATE { IDLE = 0, RUN = 1, JUMP = 2, DIE = 3 };
+enum ANIMATION_STATE { IDLE = 0, RUN = 1, JUMP = 2, FALL = 3, DIE = 4 };
 constexpr auto NUM_OF_IDLE_SPRITE = 11;
-constexpr auto NUM_OF_JUMP_SPRITE = 12;
+constexpr auto NUM_OF_JUMP_SPRITE = 4;
+constexpr auto NUM_OF_FALL_SPRITE = 8;
 constexpr auto NUM_OF_RUNNING_SPRITE = 13;
 constexpr auto NUM_OF_DIE_SPRITE = 5;
 
@@ -139,17 +140,6 @@ constexpr auto GAME_LOGO = 26;
 //---------------------------------- fonts -----------------------------------
 constexpr auto ARIEL_FONT = 1;
 //---------------------------------- Physics ---------------------------------
-constexpr auto MAX_VELOCITY_X = 10.f;
-constexpr auto MAX_VELOCITY_Y = 5.f;
-constexpr auto MIN_VELOCITY = 1.f;
-constexpr auto GRAVITY = 2.f;
-
-//Player
-constexpr auto PLAYER_ACCEL = 5.f;
-constexpr auto PLAYER_DRAG = 0.9f;
-
-//Enemies
-
 //Box2D Parameters:
 const float PPM = 64.f;
 const float MPP = 0.015625f;
