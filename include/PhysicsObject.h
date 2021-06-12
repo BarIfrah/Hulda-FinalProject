@@ -19,7 +19,7 @@ public:
     b2Vec2 getPosition() const { return  m_body->GetPosition(); }
     //float getAngle() const { return m_body->GetAngle(); }
     //void setAngle(const int);
-    //void setPosition(const sf::Vector2f);
+    void setPosition(const sf::Vector2f);
     //void setGravityScale(const float);
     //void setSize(const sf::Vector2f);
     //void applyForce(const b2Vec2&);

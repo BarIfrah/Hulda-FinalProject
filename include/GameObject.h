@@ -22,18 +22,12 @@ public:
 		bool isAnimated = false);
 	virtual ~GameObject() = 0;
 	//============================ gets section ===============================
-	/*sf::Vector2f getAbove()const;
-	sf::Vector2f getLeft()const;
-	sf::Vector2f getBelow()const;
-	sf::Vector2f getRight()const;
-	sf::Vector2f getCenter()const;
-	sf::Vector2f getBotLeft()const;
-	sf::Vector2f getBotRight()const;*/
 	const sf::Vector2f& getLocation()const;
 	sf::Vector2f getSize()const;
 	const sf::Sprite& getSprite()const;
 	sf::Sprite* getSpritePtr();
 	const sf::IntRect& getIntRect()const;
+	void setPhysicsObjectPos(sf::Vector2f);
 	void setIntRect(const sf::IntRect&);
 	void flipSprite(const sf::Vector2f&);
 	void updateLoc();

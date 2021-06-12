@@ -71,6 +71,11 @@ void GameObject::draw(sf::RenderWindow& window) {
 //============================================================================
 const sf::IntRect& GameObject::getIntRect()const { return this->m_intRect; }
 //============================================================================
+void GameObject::setPhysicsObjectPos(sf::Vector2f newPos)
+{
+	m_physicsObject.setPosition(newPos);
+}
+//============================================================================
 void GameObject::setIntRect(const sf::IntRect& rect){
 	m_intRect = rect;
 }

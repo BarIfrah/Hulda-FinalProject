@@ -20,7 +20,7 @@ speedUp is possible.*/
 //	
 //}
 void Player::move(const sf::Time& deltaTime) {
-    updateLoc();
+
     sf::Vector2f dirFromKey = sf::Vector2f(0, 0);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {         ///Move Up
         /// will disappear when we add 'Jump' feature
@@ -63,7 +63,8 @@ void Player::move(const sf::Time& deltaTime) {
             slowDown();
         }
     }
-
+    setPhysicsObjectPos(this->getLocation()+dirFromKey);
+    updateLoc();
    // this->setLocation(m_physics.getVelocity());
 }
 
