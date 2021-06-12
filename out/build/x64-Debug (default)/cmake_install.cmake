@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/holtz/source/repos/Hulda-FinalProjec
+# Install script for directory: C:/Users/sharonlevi/source/repos/Hulda-FinalProject
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Users/holtz/Source/Repos/Hulda-FinalProjec/out/install/x64-Debug (default)")
+  set(CMAKE_INSTALL_PREFIX "C:/Users/sharonlevi/Source/Repos/Hulda-FinalProject/out/install/x64-Debug (default)")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,27 +34,27 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/holtz/source/repos/Hulda-FinalProjec/out/build/x64-Debug (default)/include/cmake_install.cmake")
+  include("C:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/build/x64-Debug (default)/include/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/holtz/source/repos/Hulda-FinalProjec/out/build/x64-Debug (default)/src/cmake_install.cmake")
+  include("C:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/build/x64-Debug (default)/src/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/holtz/source/repos/Hulda-FinalProjec/out/build/x64-Debug (default)/resources/cmake_install.cmake")
+  include("C:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/build/x64-Debug (default)/resources/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/holtz/source/repos/Hulda-FinalProjec/out/build/x64-Debug (default)/Box2D/include/cmake_install.cmake")
+  include("C:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/build/x64-Debug (default)/Box2D/include/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/holtz/source/repos/Hulda-FinalProjec/out/build/x64-Debug (default)/Box2D/src/cmake_install.cmake")
+  include("C:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/build/x64-Debug (default)/Box2D/src/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -65,5 +65,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/holtz/source/repos/Hulda-FinalProjec/out/build/x64-Debug (default)/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/build/x64-Debug (default)/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -37,7 +37,7 @@ public:
 	void setIntRect(const sf::IntRect&);
 	void flipSprite(const sf::Vector2f&);
 	void updateLoc();
-
+	void setSize(const sf::Vector2u);
 	//=========================== method section ==============================
 	//bool CollidesWith(const GameObject&)const;
 	virtual void draw(sf::RenderWindow&);

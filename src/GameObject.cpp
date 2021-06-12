@@ -8,28 +8,30 @@
 //============================= public section ===============================
 //==================== Constructors & distructors section ====================
 //============================================================================
-GameObject::GameObject(const bool isDynamic,b2World& world ,const sf::Vector2f& location,const sf::Vector2f& size,
-	char objectType, bool isAnimated) 
+GameObject::GameObject(const bool isDynamic,b2World& world ,const sf::Vector2f& location,
+	const sf::Vector2f& size, char objectType, bool isAnimated) 
 	: m_intRect(0, 0, CHARACTER_WIDTH, CHARACTER_HEIGHT),
 	m_objectSprite(Resources::instance().getTexture(objectType),this->m_intRect),
-	m_isAnimated(isAnimated),
-	m_physicsObject(world, location, isDynamic, size){
+	m_isAnimated(isAnimated), m_physicsObject(world, location, isDynamic, size)
+{
 	this->m_objectSprite.setPosition(location);
+
 	if (!isAnimated) {
-		this->m_intRect.width =
-			this->m_objectSprite.getTexture()->getSize().x;
-		this->m_intRect.height =
-			this->m_objectSprite.getTexture()->getSize().y;
+		m_intRect.width =m_objectSprite.getTexture()->getSize().x;
+		m_intRect.height =m_objectSprite.getTexture()->getSize().y;
 	}
-	this->m_objectSprite.setTextureRect(this->m_intRect);
-	this->m_objectSprite.setScale(
+
+	m_objectSprite.setTextureRect(m_intRect);
+	setSize(sf::Vector2u(size));
+	
+	/*this->m_objectSprite.setScale(
 		(float)size.x / this->m_intRect.width,
 		(float)size.y / this->m_intRect.height);
 	if (isAnimated)
 	{
 		this->m_objectSprite.scale(sf::Vector2f(3.0f, 3.0f));
 		this->m_objectSprite.move(0, -85);
-	}
+	}*/
 }
 //============================================================================
 GameObject::~GameObject() {}
@@ -54,70 +56,14 @@ const sf::Sprite& GameObject::getSprite() const {
 sf::Sprite* GameObject::getSpritePtr() {
 	return &m_objectSprite;
 }
-
+//============================================================================
 void GameObject::updateLoc()
 {
 	auto pos = m_physicsObject.getPosition();
 	setLocation(sf::Vector2f(pos.x * PPM, pos.y * PPM));
 	//setRotation(m_physicsObject.getAngle());
 }
-
-//============================================================================
-//sf::Vector2f GameObject::getCenter() const {
-//	return sf::Vector2f(this->getLocation().x + (this->getSize().x / 2),
-//		this->getLocation().y + (this->getSize().y / 2));
-//}
-////============================================================================
-//sf::Vector2f GameObject::getAbove()const {
-//	return sf::Vector2f(this->getCenter().x, this->getLocation().y - 1);
-//}
-////============================================================================
-//sf::Vector2f GameObject::getLeft()const {
-//	return sf::Vector2f(this->getLocation().x - 1, this->getCenter().y);
-//}
-////============================================================================
-//sf::Vector2f GameObject::getBelow()const {
-//	return sf::Vector2f(this->getCenter().x,
-//		this->getLocation().y + this->getSize().y + 1);
-//}
-////============================================================================
-//sf::Vector2f GameObject::getRight()const {
-//	return sf::Vector2f(this->getLocation().x + this->getSize().x + 1,
-//		this->getCenter().y);
-//}
-////============================================================================
-//sf::Vector2f GameObject::getBotLeft()const {
-//	return sf::Vector2f(this->getCenter().x - this->getSize().x,
-//		this->getCenter().y + this->getSize().y);
-//}
-////============================================================================
-//sf::Vector2f GameObject::getBotRight()const {
-//	return this->getCenter() + this->getSize();
-//}
 //============================ methods section ===============================
-/*This method return the state og the object to the initial state.*/
-//void GameObject::reset() { this->m_state = STAND; }
-//============================================================================
-//void GameObject::resetAnimationTime() {
-//	this->m_animationTime = sf::seconds(0);
-//}
-//============================================================================
-/*This method get a time. by this time the method update the sprites of the
-object to create the animation. in other words, this method there is a line
-of sprites this method run on this line.*/
-//void GameObject::updateAnimation(const sf::Time& deltaTime) {
-//	this->m_animationTime += deltaTime;
-//	int spritesNum = (int)(this->m_animationTime.asSeconds() / ANIMATIONS_RATE);
-//	if (Resources::instance().getNumOfSprites(this->m_state) <=
-//		spritesNum)
-//		this->resetAnimationTime();
-//	else {
-//		this->m_intRect.left = spritesNum * CHARACTER_WIDTH;
-//		if (this->m_intRect.width < 0)
-//			this->m_intRect.left += CHARACTER_WIDTH;
-//	}
-//}
-//============================================================================
 void GameObject::draw(sf::RenderWindow& window) {
 	this->m_objectSprite.setTextureRect(this->m_intRect);
 	window.draw(this->m_objectSprite);
@@ -141,17 +87,6 @@ itself collide with the object it got.*/
 //	return m_objectSprite.getGlobalBounds().intersects
 //	(obj.getSprite().getGlobalBounds());
 //}
-////============================================================================
-/*this method update the state of the object according to his action.*/
-//void GameObject::setState(int state) {
-//	if (this->m_isAnimated && this->m_state != state) {
-//		this->m_intRect.top = state * CHARACTER_HEIGHT;
-//		this->m_intRect.left = 0;
-//		if (this->m_intRect.width < 0)
-//			this->m_intRect.left += CHARACTER_WIDTH;
-//	}
-//	this->m_state = state;
-//}
 //=========================== protected section ==============================
 //============================== sets section ================================
 /*this method get the direction movement and set it to the sprite of the
@@ -159,4 +94,12 @@ object.*/
 void GameObject::setLocation(const sf::Vector2f& movment) {
 	//this->m_objectSprite.move(movment);
 	m_objectSprite.setPosition(movment);
+}
+//============================================================================
+void GameObject::setSize(const sf::Vector2u size)
+{
+	m_objectSprite.scale((size.x / m_objectSprite.getGlobalBounds().width),
+		(size.y / m_objectSprite.getGlobalBounds().height));
+
+	//m_objectSprite.setOrigin(float(m_objectSprite.getTexture()->getSize().x / 2), float(m_objectSprite.getTexture()->getSize().y / 2));
 }

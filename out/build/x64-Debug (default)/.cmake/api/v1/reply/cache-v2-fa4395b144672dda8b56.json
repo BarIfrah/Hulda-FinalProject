@@ -35,7 +35,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/holtz/source/repos/Hulda-FinalProjec/out/build/x64-Debug (default)"
+			"value" : "c:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/build/x64-Debug (default)"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -511,7 +511,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/holtz/source/repos/Hulda-FinalProjec"
+			"value" : "C:/Users/sharonlevi/source/repos/Hulda-FinalProject"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -523,7 +523,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Users/holtz/Source/Repos/Hulda-FinalProjec/out/install/x64-Debug (default)"
+			"value" : "C:/Users/sharonlevi/Source/Repos/Hulda-FinalProject/out/install/x64-Debug (default)"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -1079,7 +1079,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/holtz/source/repos/Hulda-FinalProjec/out/build/x64-Debug (default)"
+			"value" : "C:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/build/x64-Debug (default)"
 		},
 		{
 			"name" : "Hulda_SOURCE_DIR",
@@ -1091,7 +1091,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/holtz/source/repos/Hulda-FinalProjec"
+			"value" : "C:/Users/sharonlevi/source/repos/Hulda-FinalProject"
 		},
 		{
 			"name" : "Ogg_LIB",

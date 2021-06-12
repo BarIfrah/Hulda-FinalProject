@@ -45,33 +45,6 @@ const sf::Vector2f& Board::getPlayerLoc()const {
 	return this->m_player->getLocation();
 }
 //============================================================================
-/* this method is not const because it gives its user ability to change
- * game objects statuses.
- */
-//StaticObject* Board::getContent(const sf::Vector2f& location) {
-//	if (!this->m_background.getGlobalBounds().contains(location))
-//		return nullptr;
-//	int x = (int)((location.x - this->m_location.x) /
-//		(this->getlevelSize().x / this->m_map[0].size())),
-//		y = (int)((location.y - this->m_location.y) /
-//			(this->getlevelSize().y / this->m_map.size()));
-//	if (dynamic_cast <StaticObject*> (this->m_map[y][x].get()))
-//		return ((StaticObject*)this->m_map[y][x].get());
-//	return nullptr;
-//}
-////============================================================================
-//const StaticObject* Board::getContent(const sf::Vector2f& location) const {
-//	if (!this->m_background.getGlobalBounds().contains(location))
-//		return nullptr;
-//	int x = (int)((location.x - this->m_location.x) /
-//		(this->getlevelSize().x / this->m_map[0].size())),
-//		y = (int)((location.y - this->m_location.y) /
-//			(this->getlevelSize().y / this->m_map.size()));
-//	if (dynamic_cast <StaticObject*> (this->m_map[y][x].get()))
-//		return ((StaticObject*)this->m_map[y][x].get());
-//	return nullptr;
-//}
-//============================================================================
 sf::Vector2f Board::getObjectSize()const {
 	return sf::Vector2f{ this->getlevelSize().x / this->m_map[0].size(),
 		this->getlevelSize().y / this->m_map.size() };
@@ -109,13 +82,13 @@ Player* Board::loadNewLevel(b2World& world) {
 			{
 			case PLAYER:
                 m_map[y].push_back(std::make_unique <Player> (world, sf::Vector2f
-                (/*boxSize.x * x, boxSize.y * y*/100, 100) + this->m_location, boxSize));
+                (boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
                 //movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
 				m_player = (Player*)this->m_map[y][x].get();
 				break;
 			case ROAD:
 				m_map[y].push_back(std::make_unique <Road>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
+				(boxSize.x * x, boxSize.y * y) + this->m_location, sf::Vector2f(boxSize.x, boxSize.y)));
 				break;
 			case TRASH:
 				m_map[y].push_back(std::make_unique <Trash>(world, sf::Vector2f
