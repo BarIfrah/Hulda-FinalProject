@@ -85,7 +85,9 @@ void GameObject::setIntRect(const sf::IntRect& rect){
 /*This method change the direction of the sprite.*/
 void GameObject::flipSprite(const sf::Vector2f& scale) {
 	m_objectSprite.scale(scale);
-	m_objectSprite.setOrigin(sf::Vector2f(m_intRect.width/2, m_intRect.height/2));
+	//m_objectSprite.setOrigin(sf::Vector2f(m_intRect.width/2, m_intRect.height/2));
+	m_objectSprite.setOrigin(m_objectSprite.getGlobalBounds().width / 2,
+		m_objectSprite.getGlobalBounds().height / 2);
 }
 //============================================================================
 /*This method get an another game object and return true if the object

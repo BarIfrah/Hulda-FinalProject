@@ -47,8 +47,7 @@ void PhysicsObject::setPosition(const sf::Vector2f pos, const b2Vec2 velocity)
     m_body->ApplyForceToCenter(velocity, true);
     m_body->SetTransform(b2Vec2(pos.x * MPP, pos.y * MPP), 0);
     //m_body->SetTransform(b2Vec2(pos.x * MPP, pos.y * MPP), angle);
-    m_body->SetLinearVelocity(velocity);
-//    m_body->SetAngularVelocity(0);
+        m_body->SetLinearVelocity(velocity);
 //    m_body->SetAwake(true);
 }
 //
