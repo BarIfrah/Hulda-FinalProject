@@ -63,7 +63,7 @@ void Controller::sideScroll() {
         m_CurrViewPos.x = 0;
     if (m_CurrViewPos.y < 0)
         m_CurrViewPos.y = 0;
-    if (m_CurrViewPos.x > BACKGROUND_SIZE-m_window.getSize().x)
+    if (m_CurrViewPos.x > BACKGROUND_SIZE - m_window.getSize().x)
         m_CurrViewPos.x = BACKGROUND_SIZE - m_window.getSize().x;
     m_screenView.reset(sf::FloatRect(m_CurrViewPos.x, m_CurrViewPos.y, m_window.getSize().x,
                                      m_window.getSize().y));

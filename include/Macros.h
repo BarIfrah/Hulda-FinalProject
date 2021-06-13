@@ -1,4 +1,5 @@
 #pragma once
+#include <box2d/box2d.h>
 /*
   This file contains :
   #1. Symbols of the game objects.
@@ -148,6 +149,11 @@ const int VELITER = 10;
 const int POSITER = 10;
 const bool STATIC = false;
 const bool DYNAMIC = true;
+
+const b2Vec2 MUP (0, -10);
+const b2Vec2 MRIGHT (5, 0);
+const b2Vec2 MLEFT (-5, 0);
+const b2Vec2 MDOWN (0, 10);
 
 
 

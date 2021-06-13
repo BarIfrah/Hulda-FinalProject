@@ -8,7 +8,7 @@
 //============================= public section ===============================
 //==================== Constructors & distructors section ====================
 //============================================================================
-GameObject::GameObject(const bool isDynamic,b2World& world ,const sf::Vector2f& location,
+GameObject::GameObject(const bool isDynamic, b2World& world ,const sf::Vector2f& location,
 	const sf::Vector2f& size, char objectType, bool isAnimated) 
 	: m_intRect(0, 0, CHARACTER_WIDTH, CHARACTER_HEIGHT),
 	m_objectSprite(Resources::instance().getTexture(objectType),this->m_intRect),
@@ -73,7 +73,9 @@ const sf::IntRect& GameObject::getIntRect()const { return this->m_intRect; }
 //============================================================================
 void GameObject::setPhysicsObjectPos(sf::Vector2f newPos, b2Vec2 velocity)
 {
+    updateLoc();
 	m_physicsObject.setPosition(newPos, velocity);
+
 }
 //============================================================================
 void GameObject::setIntRect(const sf::IntRect& rect){
