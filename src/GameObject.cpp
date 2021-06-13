@@ -14,12 +14,19 @@ GameObject::GameObject(const bool isDynamic, b2World& world ,const sf::Vector2f&
 	m_objectSprite(Resources::instance().getTexture(objectType),this->m_intRect),
 	m_isAnimated(isAnimated), m_physicsObject(world, location, isDynamic, size)
 {
-	this->m_objectSprite.setPosition(location);
+
+    float x = m_objectSprite.getTexture()->getSize().x;
+    float  y = m_objectSprite.getTexture()->getSize().y;
+
 
 	if (!isAnimated) {
-		m_intRect.width =m_objectSprite.getTexture()->getSize().x;
-		m_intRect.height =m_objectSprite.getTexture()->getSize().y;
+
+		m_intRect.width = x;
+		m_intRect.height = y;
 	}
+    m_objectSprite.setScale(size.x / x, size.y / y);
+    m_objectSprite.setOrigin(x / 2, y / 2);
+    m_objectSprite.setPosition(location);
 
 	m_objectSprite.setTextureRect(m_intRect);
 	setSize(sf::Vector2u(size));
@@ -61,7 +68,6 @@ void GameObject::updateLoc()
 {
 	auto pos = m_physicsObject.getPosition();
 	setLocation(sf::Vector2f(pos.x * PPM, pos.y *PPM));
-	//setRotation(m_physicsObject.getAngle());
 }
 //============================ methods section ===============================
 void GameObject::draw(sf::RenderWindow& window) {

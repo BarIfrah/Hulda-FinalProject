@@ -15,23 +15,24 @@ user pressed on key and speedUpPhysicsObject the player by the key that user pre
 speedUp is possible.*/
 void Player::move(const sf::Time& deltaTime) {
         b2Vec2 dirFromKey = b2Vec2(0, 0);
+
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {         ///Move Up
             dirFromKey = MUP;
             setState(JUMP);
             updateLoc();
-            updateAnimation(deltaTime);
+            updateAnimation(deltaTime, CHARACTER_HEIGHT, CHARACTER_WIDTH);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {     ///Move Down
             dirFromKey = MDOWN;
             setState(JUMP);
             updateLoc();
-            updateAnimation(deltaTime);
+            updateAnimation(deltaTime, CHARACTER_HEIGHT, CHARACTER_WIDTH);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {     ///Move Left
                 dirFromKey = MLEFT;
                 setState(RUN);
                 updateLoc();
-                updateAnimation(deltaTime);
+                updateAnimation(deltaTime, CHARACTER_HEIGHT, CHARACTER_WIDTH);
                 if (this->getDirection() == RIGHT) {
                     this->setDirection(LEFT);
                     this->flipSprite(sf::Vector2f(-1.f, 1.f));
@@ -41,7 +42,7 @@ void Player::move(const sf::Time& deltaTime) {
                 dirFromKey = MRIGHT;
                 setState(RUN);
                 updateLoc();
-                updateAnimation(deltaTime);
+                updateAnimation(deltaTime, CHARACTER_HEIGHT, CHARACTER_WIDTH);
                 if (this->getDirection() == LEFT) {
                     this->setDirection(RIGHT);
                     this->flipSprite(sf::Vector2f(-1.f, 1.f));

@@ -67,13 +67,13 @@ void Board::draw(sf::RenderWindow& window,
 Player* Board::loadNewLevel(b2World& world) {
 	vector<vector<char>> map = m_levelReader.readNextLevel();
 	//vector<MovingObject*> movingsVec = {};
-	sf::Vector2f boxSize(this->getlevelSize().x / map[0].size(),
-		this->getlevelSize().y / map.size());
-	this->loadLevelEffects(1);
+	sf::Vector2f boxSize(getlevelSize().x / map[0].size(),
+		getlevelSize().y / map.size());
+	loadLevelEffects(1);
 
 	//reset last load parameters:
-	this->clearParameters();
-	this->m_map.resize(map.size());
+	clearParameters();
+	m_map.resize(map.size());
 
 	//allocating level's objects:
 	for (int y = 0; y < map.size(); y++) {

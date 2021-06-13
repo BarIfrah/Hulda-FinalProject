@@ -38,7 +38,7 @@ constexpr auto NUM_OF_RUNNING_SPRITE = 13;
 constexpr auto NUM_OF_DIE_SPRITE = 5;
 
 constexpr auto CHARACTER_HEIGHT = 732;
-constexpr auto CHARACTER_WIDTH = 648.6153846154;
+constexpr auto CHARACTER_WIDTH = 622;
 
 constexpr auto ANIMATIONS_RATE = 0.1f;
 
@@ -145,8 +145,8 @@ constexpr auto ARIEL_FONT = 1;
 const float PPM = 64.f;
 const float MPP = 0.015625f;
 const float TIMESTEP = 1.0f / 60.0f;
-const int VELITER = 10;
-const int POSITER = 10;
+const int VELITER = 6;
+const int POSITER = 2;
 const bool STATIC = false;
 const bool DYNAMIC = true;
 

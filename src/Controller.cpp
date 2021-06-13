@@ -23,9 +23,9 @@ void Controller::run() {
         m_world->Step(TIMESTEP, VELITER, POSITER);
         m_gameClock.restart();
         m_window.clear();
+        handleGameEvents();
         drawObjects();
         m_window.display();
-        handleGameEvents();
     }
 
 }

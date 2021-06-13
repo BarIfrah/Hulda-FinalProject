@@ -29,7 +29,7 @@ public:
 		//=========================== method section ==============================
     virtual void move(const sf::Time&) = 0;
     void resetAnimationTime();
-	void updateAnimation(const sf::Time&);
+	void updateAnimation(const sf::Time&, int, int);
 	void setState(int);
 	int getState()const;
 	void setDirection(int);
