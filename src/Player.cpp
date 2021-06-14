@@ -23,19 +23,19 @@ void Player::move(const sf::Time& deltaTime) {
                 dirFromKey = MUP_LEFT;
             setState(JUMP);
             updateLoc();
-            updateAnimation(deltaTime);
+            updateAnimation(deltaTime, CHARACTER_HEIGHT, CHARACTER_WIDTH);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {     ///Move Down
             dirFromKey = MDOWN;
             setState(JUMP);
             updateLoc();
-            updateAnimation(deltaTime);
+            updateAnimation(deltaTime, CHARACTER_HEIGHT, CHARACTER_WIDTH);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {     ///Move Left
                 dirFromKey = MLEFT;
                 setState(RUN);
                 updateLoc();
-                updateAnimation(deltaTime);
+                updateAnimation(deltaTime, CHARACTER_HEIGHT, CHARACTER_WIDTH);
                 if (this->getDirection() == RIGHT) {
                     this->setDirection(LEFT);
                     this->flipSprite(sf::Vector2f(-1.f, 1.f));
@@ -45,7 +45,7 @@ void Player::move(const sf::Time& deltaTime) {
                 dirFromKey = MRIGHT;
                 setState(RUN);
                 updateLoc();
-                updateAnimation(deltaTime);
+                updateAnimation(deltaTime, CHARACTER_HEIGHT, CHARACTER_WIDTH);
                 if (this->getDirection() == LEFT) {
                     this->setDirection(RIGHT);
                     this->flipSprite(sf::Vector2f(-1.f, 1.f));

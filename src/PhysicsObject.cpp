@@ -25,7 +25,7 @@ PhysicsObject::PhysicsObject(b2World& world, const sf::Vector2f& position, const
     m_fixtureDef.restitution = 0; // objPhysicsInfo._restitution;
     m_fixtureDef.density = 1; // objPhysicsInfo._density;
     m_fixture = m_body->CreateFixture(&m_fixtureDef);  // to update all parameters defined above in Physicsobj.
-
+    m_body->SetFixedRotation(true);  /// this object will not rotate.
     //m_body->SetUserData();
 }
 
@@ -44,10 +44,10 @@ void PhysicsObject::setPosition(const sf::Vector2f pos, const b2Vec2 velocity)
     /*auto angle = m_body->GetAngle();
     if (m_body->GetType() == b2BodyType::b2_dynamicBody)
         angle = 0;*/
-    m_body->ApplyForceToCenter(velocity, true);
-    m_body->SetTransform(b2Vec2(pos.x * MPP, pos.y * MPP), 0);
+//    m_body->ApplyForceToCenter(velocity, true);
+   // m_body->SetTransform(b2Vec2(pos.x * MPP, pos.y * MPP), 0);
     //m_body->SetTransform(b2Vec2(pos.x * MPP, pos.y * MPP), angle);
-        m_body->SetLinearVelocity(velocity);
+    m_body->SetLinearVelocity(velocity);
 //    m_body->SetAwake(true);
 }
 //
