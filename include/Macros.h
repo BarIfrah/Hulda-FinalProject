@@ -150,6 +150,7 @@ const int POSITER = 2;
 const bool STATIC = false;
 const bool DYNAMIC = true;
 
+const b2Vec2 MUP(0, -8);
 const b2Vec2 MUP_RIGHT (2, -8);
 const b2Vec2 MUP_LEFT(-2, -8);
 const b2Vec2 MRIGHT (2, 0);
