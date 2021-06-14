@@ -1,6 +1,6 @@
 #include "PhysicsObject.h"
 #include "Macros.h"
-
+//===========================================================================
 PhysicsObject::PhysicsObject(b2World& world, const sf::Vector2f& position, const bool dynamic, 
    const sf::Vector2f &size)
 {
@@ -28,34 +28,29 @@ PhysicsObject::PhysicsObject(b2World& world, const sf::Vector2f& position, const
     m_body->SetFixedRotation(true);  /// this object will not rotate.
     //m_body->SetUserData();
 }
-
+//===========================================================================
 PhysicsObject::~PhysicsObject()
 {
     m_body->GetWorld()->DestroyBody(m_body);
 }
-
+//===========================================================================
 //void PhysicsObj::setID(const int ID)
 //{
 //    m_body->SetUserData((void*)ID);
 //}
-
+//===========================================================================
 void PhysicsObject::setPosition(const sf::Vector2f pos, const b2Vec2 velocity)
 {
-    /*auto angle = m_body->GetAngle();
-    if (m_body->GetType() == b2BodyType::b2_dynamicBody)
-        angle = 0;*/
-//    m_body->ApplyForceToCenter(velocity, true);
-   // m_body->SetTransform(b2Vec2(pos.x * MPP, pos.y * MPP), 0);
-    //m_body->SetTransform(b2Vec2(pos.x * MPP, pos.y * MPP), angle);
+    m_body->ApplyForceToCenter(velocity, true);
+    m_body->SetTransform(b2Vec2(pos.x * MPP, pos.y * MPP), 0);
     m_body->SetLinearVelocity(velocity);
-//    m_body->SetAwake(true);
 }
-//
+//===========================================================================
 //void PhysicsObj::setGravityScale(const float scale)
 //{
 //    m_body->SetGravityScale(scale);
 //}
-//
+//===========================================================================
 //void PhysicsObj::setSize(const sf::Vector2f size)
 //{
 //
@@ -81,13 +76,13 @@ void PhysicsObject::setPosition(const sf::Vector2f pos, const b2Vec2 velocity)
 //    m_fixture = m_body->CreateFixture(&m_fixtureDef);
 //
 //}
-//
+//===========================================================================
 //void PhysicsObj::setAngle(const int whichAngle)
 //{
 //    m_body->SetTransform(m_body->GetPosition(), whichAngle * 45 * DEG_TO_RAD);
 //}
 //
-//
+//===========================================================================
 //void PhysicsObj::applyForce(const b2Vec2& force)
 //{
 //    m_body->ApplyLinearImpulse(force, m_body->GetWorldCenter(), true);
