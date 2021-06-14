@@ -23,9 +23,9 @@ void Controller::run() {
         m_world->Step(TIMESTEP, VELITER, POSITER);
         m_gameClock.restart();
         m_window.clear();
-        handleGameEvents();
         drawObjects();
         m_window.display();
+        handleGameEvents();
     }
 
 }
@@ -34,8 +34,8 @@ void Controller::run() {
 * this function draw all the dynamic objects in the game by the time clock.
 */
 void Controller::drawObjects() {
-    this->m_board.draw(m_window, m_gameClock.getElapsedTime());
-    this->m_player->draw(this->m_window);
+    m_board.draw(m_window, m_gameClock.getElapsedTime());
+    m_player->draw(m_window);
    /* for (int i = 0; i < this->m_enemies.size(); ++i)
         this->m_enemies[i]->draw(this->m_window);
     for (int i = 0; i < this->m_giftEnemies.size(); ++i)

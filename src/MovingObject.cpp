@@ -10,7 +10,7 @@ m_state(IDLE) {
 }
 //===========================================================================
 
-void MovingObject::updateAnimation(const sf::Time& deltaTime, int x, int y) {
+void MovingObject::updateAnimation(const sf::Time& deltaTime) {
 	this->m_animationTime += deltaTime;
 	int spritesNum = (int)(this->m_animationTime.asSeconds() / ANIMATIONS_RATE);
 	if (Resources::instance().getNumOfSprites(this->m_state) <=
@@ -21,7 +21,7 @@ void MovingObject::updateAnimation(const sf::Time& deltaTime, int x, int y) {
 		updatedRect.left = spritesNum * CHARACTER_WIDTH;
 		if (updatedRect.width < 0)
 			updatedRect.left += CHARACTER_WIDTH;
-		m_objectSprite->setOrigin(CHARACTER_HEIGHT / 2, CHARACTER_WIDTH / 2);
+		//m_objectSprite->setOrigin(float(x) / 2, float(y) / 2);
 		setIntRect(updatedRect);
 	}
 }

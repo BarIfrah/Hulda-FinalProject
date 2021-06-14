@@ -14,31 +14,21 @@ GameObject::GameObject(const bool isDynamic, b2World& world ,const sf::Vector2f&
 	m_objectSprite(Resources::instance().getTexture(objectType),this->m_intRect),
 	m_isAnimated(isAnimated), m_physicsObject(world, location, isDynamic, size)
 {
-
-    float x = m_objectSprite.getTexture()->getSize().x;
-    float  y = m_objectSprite.getTexture()->getSize().y;
-
+	this->m_objectSprite.setPosition(location);
+    /*float x = m_objectSprite.getTexture()->getSize().x;
+    float  y = m_objectSprite.getTexture()->getSize().y;*/
 
 	if (!isAnimated) {
-
-		m_intRect.width = x;
-		m_intRect.height = y;
+		m_intRect.width = m_objectSprite.getTexture()->getSize().x;
+		m_intRect.height = m_objectSprite.getTexture()->getSize().y;
+		/*m_intRect.width = x;
+		m_intRect.height = y;*/
 	}
-    m_objectSprite.setScale(size.x / x, size.y / y);
+   /* m_objectSprite.setScale(size.x / x, size.y / y);
     m_objectSprite.setOrigin(x / 2, y / 2);
-    m_objectSprite.setPosition(location);
-
+    m_objectSprite.setPosition(location);*/
 	m_objectSprite.setTextureRect(m_intRect);
 	setSize(sf::Vector2u(size));
-	
-	/*this->m_objectSprite.setScale(
-		(float)size.x / this->m_intRect.width,
-		(float)size.y / this->m_intRect.height);
-	if (isAnimated)
-	{
-		this->m_objectSprite.scale(sf::Vector2f(3.0f, 3.0f));
-		this->m_objectSprite.move(0, -85);
-	}*/
 }
 //============================================================================
 GameObject::~GameObject() {}
@@ -91,7 +81,6 @@ void GameObject::setIntRect(const sf::IntRect& rect){
 /*This method change the direction of the sprite.*/
 void GameObject::flipSprite(const sf::Vector2f& scale) {
 	m_objectSprite.scale(scale);
-	//m_objectSprite.setOrigin(sf::Vector2f(m_intRect.width/2, m_intRect.height/2));
 	m_objectSprite.setOrigin(m_objectSprite.getGlobalBounds().width / 2,
 		m_objectSprite.getGlobalBounds().height / 2);
 }

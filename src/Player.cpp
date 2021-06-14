@@ -23,32 +23,32 @@ void Player::move(const sf::Time& deltaTime) {
                 dirFromKey = MUP_LEFT;
             setState(JUMP);
             updateLoc();
-            updateAnimation(deltaTime, CHARACTER_HEIGHT, CHARACTER_WIDTH);
+            updateAnimation(deltaTime);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {     ///Move Down
             dirFromKey = MDOWN;
             setState(JUMP);
             updateLoc();
-            updateAnimation(deltaTime, CHARACTER_HEIGHT, CHARACTER_WIDTH);
+            updateAnimation(deltaTime);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {     ///Move Left
                 dirFromKey = MLEFT;
                 setState(RUN);
                 updateLoc();
-                updateAnimation(deltaTime, CHARACTER_HEIGHT, CHARACTER_WIDTH);
-                if (this->getDirection() == RIGHT) {
-                    this->setDirection(LEFT);
-                    this->flipSprite(sf::Vector2f(-1.f, 1.f));
+                updateAnimation(deltaTime);
+                if (getDirection() == RIGHT) {
+                    setDirection(LEFT);
+                    flipSprite(sf::Vector2f(-1.f, 1.f));
                 }
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) { ///Move Right
                 dirFromKey = MRIGHT;
                 setState(RUN);
                 updateLoc();
-                updateAnimation(deltaTime, CHARACTER_HEIGHT, CHARACTER_WIDTH);
-                if (this->getDirection() == LEFT) {
-                    this->setDirection(RIGHT);
-                    this->flipSprite(sf::Vector2f(-1.f, 1.f));
+                updateAnimation(deltaTime);
+                if (getDirection() == LEFT) {
+                    setDirection(RIGHT);
+                    flipSprite(sf::Vector2f(-1.f, 1.f));
                 }
         }
         else

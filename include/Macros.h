@@ -38,7 +38,7 @@ constexpr auto NUM_OF_RUNNING_SPRITE = 13;
 constexpr auto NUM_OF_DIE_SPRITE = 5;
 
 constexpr auto CHARACTER_HEIGHT = 732;
-constexpr auto CHARACTER_WIDTH = 622;
+constexpr auto CHARACTER_WIDTH = 648.6153846154;
 
 constexpr auto ANIMATIONS_RATE = 0.1f;
 
