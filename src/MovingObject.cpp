@@ -6,18 +6,17 @@ MovingObject::MovingObject(b2World& world, const sf::Vector2f& location,
     : GameObject(DYNAMIC, world, location, size, objectType, true),
 m_direction(RIGHT),
 m_state(IDLE) {
-    m_objectSprite = this->getSpritePtr();
+    m_objectSprite = getSpritePtr();
 }
 //===========================================================================
 
 void MovingObject::updateAnimation(const sf::Time& deltaTime) {
-	this->m_animationTime += deltaTime;
+	m_animationTime += deltaTime;
 	int spritesNum = (int)(this->m_animationTime.asSeconds() / ANIMATIONS_RATE);
-	if (Resources::instance().getNumOfSprites(this->m_state) <=
-		spritesNum)
-		this->resetAnimationTime();
+	if (Resources::instance().getNumOfSprites(this->m_state) <= spritesNum)
+		resetAnimationTime();
 	else {
-		sf::IntRect updatedRect = this->getIntRect();
+		sf::IntRect updatedRect = getIntRect();
 		updatedRect.left = spritesNum * CHARACTER_WIDTH;
 		if (updatedRect.width < 0)
 			updatedRect.left += CHARACTER_WIDTH;
@@ -28,14 +27,14 @@ void MovingObject::updateAnimation(const sf::Time& deltaTime) {
 //===========================================================================
 void MovingObject::setState(int state) {
 	if (m_state != state) {
-		sf::IntRect updatedRect = this->getIntRect();
+		sf::IntRect updatedRect = getIntRect();
 		updatedRect.top = state * CHARACTER_HEIGHT;
 		updatedRect.left = 0;
 		if (updatedRect.width < 0)
 			updatedRect.left += CHARACTER_WIDTH;
-		this->setIntRect(updatedRect);
+		setIntRect(updatedRect);
 	}
-	this->m_state = state;
+	m_state = state;
 }
 //===========================================================================
 int MovingObject::getState()const {
@@ -43,14 +42,14 @@ int MovingObject::getState()const {
 }
 //===========================================================================
 void MovingObject::setDirection(int direction) {
-    this->m_direction = direction;
+    m_direction = direction;
 }
 //===========================================================================
 int MovingObject::getDirection()const {
-    return this->m_direction;
+    return m_direction;
 }
 //===========================================================================
 void MovingObject::resetAnimationTime() {
-    this->m_animationTime = sf::seconds(0);
+    m_animationTime = sf::seconds(0);
 }
 //===========================================================================

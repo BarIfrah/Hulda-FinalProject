@@ -16,6 +16,7 @@ constexpr auto RAND_ENEMY_TIME = 1;
 // game objects symbols
 constexpr auto PLAYER = '@';
 constexpr auto ENEMY = '%';
+constexpr auto EXTERMINATOR = '?';
 constexpr auto FOOD = '*';
 constexpr auto ROAD = '#';
 constexpr auto NOTHING = ' ';

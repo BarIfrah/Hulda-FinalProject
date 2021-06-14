@@ -106,6 +106,11 @@ void Resources::setObjects() {
     this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>
         (SPECIAL_FOOD_T, std::move(texturesCreator)));
     this->m_texture[SPECIAL_FOOD_T]->loadFromFile(SPECIAL_FOOD_PATH);
+
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>
+                                   (EXTERMINATOR_T, std::move(texturesCreator)));
+    this->m_texture[EXTERMINATOR_T]->loadFromFile(EXTERMINATOR_PATH);
 }
 void Resources::setNumOfSprites() {
     this->m_NumOfSprites.insert(std::pair<int, int>(IDLE, NUM_OF_IDLE_SPRITE));

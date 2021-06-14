@@ -34,7 +34,7 @@ GameObject::GameObject(const bool isDynamic, b2World& world ,const sf::Vector2f&
 GameObject::~GameObject() {}
 //============================== gets section ================================
 const sf::Vector2f& GameObject::getLocation()const {
-	return this->m_objectSprite.getPosition();
+	return m_objectSprite.getPosition();
 }
 //============================================================================
 //int GameObject::getState()const {
@@ -81,8 +81,8 @@ void GameObject::setIntRect(const sf::IntRect& rect){
 /*This method change the direction of the sprite.*/
 void GameObject::flipSprite(const sf::Vector2f& scale) {
 	m_objectSprite.scale(scale);
-	m_objectSprite.setOrigin(m_objectSprite.getGlobalBounds().width / 2,
-		m_objectSprite.getGlobalBounds().height / 2);
+	m_objectSprite.setOrigin(m_objectSprite.getGlobalBounds().width,
+		m_objectSprite.getGlobalBounds().height);
 }
 //============================================================================
 /*This method get an another game object and return true if the object
@@ -106,4 +106,13 @@ void GameObject::setSize(const sf::Vector2u size)
 		(size.y / m_objectSprite.getGlobalBounds().height));
 
 	//m_objectSprite.setOrigin(float(m_objectSprite.getTexture()->getSize().x / 2), float(m_objectSprite.getTexture()->getSize().y / 2));
+}
+
+
+void GameObject::applyForce(b2Vec2 force) {
+    m_physicsObject.applyForce(force);
+}
+
+b2Vec2 GameObject::getLinearVelocity() {
+    return m_physicsObject.getLinearVelocity();
 }

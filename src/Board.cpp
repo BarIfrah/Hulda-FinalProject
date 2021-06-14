@@ -10,10 +10,11 @@
 #include <vector>
 #include "Utilities.h"
 #include "Player.h"
-//#include "Enemy.h"
+#include "Enemy.h"
 #include "Road.h"
 #include "Trash.h"
 #include "SpecialFood.h"
+#include "Exterminator.h"
 using std::vector;
 //====================== Constructors & distructors section ==================
 Board::Board(const sf::Vector2f& location,
@@ -80,12 +81,19 @@ Player* Board::loadNewLevel(b2World& world) {
 		for (int x = 0; x < map[y].size(); x++) {
 			switch (map[y][x])
 			{
-			case PLAYER:
-                m_map[y].push_back(std::make_unique <Player> (world, sf::Vector2f
-                (boxSize.x * x, boxSize.y * y) + this->m_location, sf::Vector2f(2 * boxSize.x,2 * boxSize.y)));
+			case PLAYER: {
+                m_map[y].push_back(std::make_unique<Player>(world, sf::Vector2f
+                (boxSize.x * x, boxSize.y * y) + m_location + sf::Vector2f (0, -200), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y)));
                 //movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
-				m_player = (Player*)this->m_map[y][x].get();
-				break;
+                m_player = (Player *) this->m_map[y][x].get();
+                break;
+            }
+            case EXTERMINATOR: {
+                m_map[y].push_back(std::make_unique<Exterminator>(world, sf::Vector2f
+                (boxSize.x * x, boxSize.y * y) + m_location + sf::Vector2f (0, -200), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y)));
+                //movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
+                break;
+            }
 			case ROAD:
 				m_map[y].push_back(std::make_unique <Road>(world, sf::Vector2f
 				(boxSize.x * x, boxSize.y * y) + this->m_location, sf::Vector2f(boxSize.x, boxSize.y)));

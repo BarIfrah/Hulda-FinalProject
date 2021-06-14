@@ -83,7 +83,11 @@ void PhysicsObject::setPosition(const sf::Vector2f pos, const b2Vec2 velocity)
 //}
 //
 //===========================================================================
-//void PhysicsObj::applyForce(const b2Vec2& force)
-//{
-//    m_body->ApplyLinearImpulse(force, m_body->GetWorldCenter(), true);
-//}
+void PhysicsObject::applyForce(const b2Vec2& force)
+{
+    m_body->ApplyLinearImpulse(force, m_body->GetWorldCenter(), true);
+}
+
+b2Vec2 PhysicsObject::getLinearVelocity() {
+    return m_body->GetLinearVelocity();
+}

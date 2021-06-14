@@ -54,6 +54,7 @@ void Controller::handleGameEvents() {
         }
     }
     m_player->move(m_gameClock.getElapsedTime());
+
     sideScroll();
 }
 //============================================================================

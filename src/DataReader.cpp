@@ -63,8 +63,8 @@ vector<vector<char>> DataReader::readNextLevel() {
                         break;
                     }
 
-                    case ENEMY: {
-                        row.push_back(ENEMY);
+                    case EXTERMINATOR: {
+                        row.push_back(EXTERMINATOR);
                         break;
                     }
                     case FOOD: {

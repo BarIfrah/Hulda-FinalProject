@@ -32,6 +32,11 @@ public:
 	void flipSprite(const sf::Vector2f&);
 	void updateLoc();
 	void setSize(const sf::Vector2u);
+
+    b2Vec2 getLinearVelocity();
+    b2Vec2 getForceApplied();
+    void setForceApplied();
+    void applyForce(b2Vec2);
 	//=========================== method section ==============================
 	//bool CollidesWith(const GameObject&)const;
 	virtual void draw(sf::RenderWindow&);
