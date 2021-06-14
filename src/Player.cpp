@@ -15,8 +15,12 @@ user pressed on key and speedUpPhysicsObject the player by the key that user pre
 speedUp is possible.*/
 void Player::move(const sf::Time& deltaTime) {
         b2Vec2 dirFromKey = b2Vec2(0, 0);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {         ///Move Up
-            dirFromKey = MUP;
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {        ///Move Up
+            if (getDirection() == RIGHT)
+                dirFromKey = MUP_RIGHT;
+            else
+                dirFromKey = MUP_LEFT;
             setState(JUMP);
             updateLoc();
             updateAnimation(deltaTime);

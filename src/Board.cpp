@@ -82,7 +82,7 @@ Player* Board::loadNewLevel(b2World& world) {
 			{
 			case PLAYER:
                 m_map[y].push_back(std::make_unique <Player> (world, sf::Vector2f
-                (/*boxSize.x * x, boxSize.y * y*/100,100) + this->m_location, sf::Vector2f(2 * boxSize.x,2 * boxSize.y)));
+                (boxSize.x * x, boxSize.y * y) + this->m_location, sf::Vector2f(2 * boxSize.x,2 * boxSize.y)));
                 //movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
 				m_player = (Player*)this->m_map[y][x].get();
 				break;

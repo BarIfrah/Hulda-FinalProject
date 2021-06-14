@@ -145,15 +145,16 @@ constexpr auto ARIEL_FONT = 1;
 const float PPM = 64.f;
 const float MPP = 0.015625f;
 const float TIMESTEP = 1.0f / 60.0f;
-const int VELITER = 10;
-const int POSITER = 10;
+const int VELITER = 6;
+const int POSITER = 2;
 const bool STATIC = false;
 const bool DYNAMIC = true;
 
-const b2Vec2 MUP (0, -10);
-const b2Vec2 MRIGHT (5, 0);
-const b2Vec2 MLEFT (-5, 0);
-const b2Vec2 MDOWN (0, 10);
+const b2Vec2 MUP_RIGHT (2, -8);
+const b2Vec2 MUP_LEFT(-2, -8);
+const b2Vec2 MRIGHT (2, 0);
+const b2Vec2 MLEFT (-2, 0);
+const b2Vec2 MDOWN (0, 8);
 
 
 

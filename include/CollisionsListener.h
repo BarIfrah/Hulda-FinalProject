@@ -1,7 +1,8 @@
-#pragma once
+ #pragma once
 #include <box2d/box2d.h>
 
 class CollisionsListener : public b2ContactListener {
 public:
-	void BeginContact(const b2Contact* contact);
+	CollisionsListener()=default;
+	//void BeginContact(const b2Contact* contact);
 };
