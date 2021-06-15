@@ -7,8 +7,8 @@
 //============================= public section ===============================
 //==================== Constructors & distructors section ====================
 Player::Player(b2World& world ,const sf::Vector2f& location,
-	const sf::Vector2f& size)
-	: MovingObject(world, location, size, PLAYER_T){}
+	const sf::Vector2f& size,int ID)
+	: MovingObject(world, location, size, PLAYER_T, ID){}
 //============================ methods section ===============================
 /*this method manage the movements of the player. the method realize if the
 user pressed on key and speedUpPhysicsObject the player by the key that user pressed if the

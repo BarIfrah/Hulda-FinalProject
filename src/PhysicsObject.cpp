@@ -26,7 +26,6 @@ PhysicsObject::PhysicsObject(b2World& world, const sf::Vector2f& position, const
     m_fixtureDef.density = 1; // objPhysicsInfo._density;
     m_fixture = m_body->CreateFixture(&m_fixtureDef);  // to update all parameters defined above in Physicsobj.
     m_body->SetFixedRotation(true);  /// this object will not rotate.
-    //m_body->SetUserData();
 }
 //===========================================================================
 PhysicsObject::~PhysicsObject()
@@ -34,10 +33,10 @@ PhysicsObject::~PhysicsObject()
     m_body->GetWorld()->DestroyBody(m_body);
 }
 //===========================================================================
-//void PhysicsObj::setID(const int ID)
-//{
-//    m_body->SetUserData((void*)ID);
-//}
+void PhysicsObject::setID(const int ID)
+{
+    m_body->SetUserData((void*)ID);
+}
 //===========================================================================
 void PhysicsObject::setPosition(const sf::Vector2f pos, const b2Vec2 velocity)
 {
@@ -45,6 +44,8 @@ void PhysicsObject::setPosition(const sf::Vector2f pos, const b2Vec2 velocity)
     m_body->SetTransform(b2Vec2(pos.x * MPP, pos.y * MPP), 0);
     m_body->SetLinearVelocity(velocity);
 }
+//===========================================================================
+b2Body* PhysicsObject::getBody()const { return m_body; }
 //===========================================================================
 //void PhysicsObj::setGravityScale(const float scale)
 //{

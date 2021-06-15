@@ -5,15 +5,18 @@
 #include <iostream>
 
 Controller::Controller()
-        : m_window(sf::VideoMode(1920, 1080), "Hulda", sf::Style::Titlebar | sf::Style::Close),
+        : m_window(sf::VideoMode(1000, 700), "Hulda", sf::Style::Titlebar | sf::Style::Close),
         m_board(sf::Vector2f(0, 0),
             sf::Vector2f((float)BACKGROUND_SIZE, (float)m_window.getSize().y)),
-        m_player(nullptr){
+        m_player(nullptr),
+        m_listener(CollisionsListener()){
     m_window.setFramerateLimit(60);
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
     m_screenView.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
     m_window.setView(m_screenView);
     m_world = new b2World(b2Vec2(0, 9.81));
+    m_world->SetContactListener(&m_listener);
+    m_listener.setCurrentBoard(m_board);
 }
 //============================================================================
 void Controller::run() {
@@ -26,6 +29,7 @@ void Controller::run() {
         drawObjects();
         m_window.display();
         handleGameEvents();
+        //m_listener.BeginContact(m_world->GetContactList());
     }
 
 }

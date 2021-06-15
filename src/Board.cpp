@@ -10,7 +10,7 @@
 #include <vector>
 #include "Utilities.h"
 #include "Player.h"
-#include "Enemy.h"
+//#include "Enemy.h"
 #include "Road.h"
 #include "Trash.h"
 #include "SpecialFood.h"
@@ -51,8 +51,7 @@ sf::Vector2f Board::getObjectSize()const {
 		this->getlevelSize().y / this->m_map.size() };
 }
 //============================ methods section ===============================
-void Board::draw(sf::RenderWindow& window,
-	const sf::Time& deltaTime) {
+void Board::draw(sf::RenderWindow& window, const sf::Time& deltaTime) {
 	window.draw(m_background);
 	for (int i = 0; i < this->m_map.size(); i++)
 		for (int j = 0; j < this->m_map[i].size(); j++)
@@ -76,6 +75,8 @@ Player* Board::loadNewLevel(b2World& world) {
 	clearParameters();
 	m_map.resize(map.size());
 
+	int ID = 0;
+
 	//allocating level's objects:
 	for (int y = 0; y < map.size(); y++) {
 		for (int x = 0; x < map[y].size(); x++) {
@@ -83,36 +84,47 @@ Player* Board::loadNewLevel(b2World& world) {
 			{
 			case PLAYER: {
                 m_map[y].push_back(std::make_unique<Player>(world, sf::Vector2f
-                (boxSize.x * x, boxSize.y * y) + m_location + sf::Vector2f (0, -200), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y)));
+                                                                           (boxSize.x * x, boxSize.y * y) + m_location,
+                                                            sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
                 //movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
-                m_player = (Player *) this->m_map[y][x].get();
+                m_player = (Player *) m_map[y][x].get();
+                m_ObjWithID.insert(std::pair<int, GameObject *>(ID, m_map[y][x].get()));
+                ID++;
                 break;
             }
             case EXTERMINATOR: {
                 m_map[y].push_back(std::make_unique<Exterminator>(world, sf::Vector2f
-                (boxSize.x * x, boxSize.y * y) + m_location + sf::Vector2f (0, -200), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y)));
+                                                                                 (boxSize.x * x, boxSize.y * y) +
+                                                                         m_location + sf::Vector2f(0, -200),
+                                                                  sf::Vector2f(2 * boxSize.x, 2 * boxSize.y)));
                 //movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
                 break;
             }
 			case ROAD:
 				m_map[y].push_back(std::make_unique <Road>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y) + this->m_location, sf::Vector2f(boxSize.x, boxSize.y)));
+				(boxSize.x * x, boxSize.y * y) + m_location, sf::Vector2f(boxSize.x, boxSize.y),ID));
+				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
+				ID++;
 				break;
 			case TRASH:
 				m_map[y].push_back(std::make_unique <Trash>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
+				(boxSize.x * x, boxSize.y * y) + m_location, boxSize,ID));
+				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
+				ID++;
 				break;
 			case FOOD:
 				m_map[y].push_back(std::make_unique <SpecialFood>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y) + this->m_location, boxSize));
+				(boxSize.x * x, boxSize.y * y) + m_location, boxSize,ID));
+				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
+				ID++;
 				break;
 			default:
-				this->m_map[y].push_back(nullptr); // inputed ' '
+				m_map[y].push_back(nullptr); // inputed ' '
 				break;
 			}
 		}
 	}
-	return this->m_player;
+	return m_player;
 }
 //============================================================================
 //the method isn't const because fstream's peek method isn't const
@@ -169,3 +181,6 @@ void Board::clearParameters() {
 //
 //}
 //============================================================================
+GameObject* Board::getObjWithId(const int id) {
+	return m_ObjWithID.find(id)->second;
+}

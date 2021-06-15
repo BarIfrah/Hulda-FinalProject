@@ -2,8 +2,8 @@
 #include "Trash.h"
 //============================= public section ===============================
 //==================== Constructors & distructors section ====================
-Trash::Trash(b2World& world,const sf::Vector2f& location, const sf::Vector2f& size)
-	: StaticObject(world, location, size, TRASH_T) {}
+Trash::Trash(b2World& world,const sf::Vector2f& location, const sf::Vector2f& size, int ID)
+	: StaticObject(world, location, size, TRASH_T, ID) {}
 //============================== gets section ================================
 //============================ methods section ===============================
 /*this method return the object itself to the dynamic object that collided with

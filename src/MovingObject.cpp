@@ -2,8 +2,8 @@
 #include "Resources.h"
 //==================== Constructors & destructors section ====================
 MovingObject::MovingObject(b2World& world, const sf::Vector2f& location,
-    const sf::Vector2f& size, char objectType)
-    : GameObject(DYNAMIC, world, location, size, objectType, true),
+    const sf::Vector2f& size, char objectType,int ID)
+    : GameObject(DYNAMIC, world, location, size, objectType, true,ID),
 m_direction(RIGHT),
 m_state(IDLE) {
     m_objectSprite = getSpritePtr();

@@ -1,6 +1,7 @@
 #pragma once
 //============================ include section ===============================
 #include "Board.h"
+#include "CollisionsListener.h"
 //#include "Menu.h"
 //#include "Enemy.h"
 //#include "GameState.h"
@@ -36,6 +37,7 @@ private:
 	sf::View m_screenView;
 	b2World* m_world = nullptr;
 	Board m_board;
+	CollisionsListener m_listener;
 	/*
 	Menu m_menu;
 	GameState m_gameState;

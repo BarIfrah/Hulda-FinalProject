@@ -66,8 +66,10 @@ void Resources::setBackgrounds() {
     //adding game's backgrounds path
     
     texturesCreator = std::make_unique<sf::Texture>();
+
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
         (MENU_BACKGROUND, std::move(texturesCreator)));
+
     if (!this->m_texture[MENU_BACKGROUND]->loadFromFile(MENU_BACKGROUND_PATH))
         throw std::exception();
         
