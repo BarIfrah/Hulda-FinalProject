@@ -9,10 +9,10 @@
 //==================== Constructors & distructors section ====================
 //============================================================================
 GameObject::GameObject(const bool isDynamic, b2World& world ,const sf::Vector2f& location,
-	const sf::Vector2f& size, char objectType, bool isAnimated) 
+	const sf::Vector2f& size, char objectType, bool isAnimated, int ID) 
 	: m_intRect(0, 0, CHARACTER_WIDTH, CHARACTER_HEIGHT),
 	m_objectSprite(Resources::instance().getTexture(objectType),this->m_intRect),
-	m_isAnimated(isAnimated), m_physicsObject(world, location, isDynamic, size)
+	m_isAnimated(isAnimated), m_physicsObject(world, location, isDynamic, size),m_ID(ID)
 {
 	this->m_objectSprite.setPosition(location);
     /*float x = m_objectSprite.getTexture()->getSize().x;
@@ -29,6 +29,8 @@ GameObject::GameObject(const bool isDynamic, b2World& world ,const sf::Vector2f&
     m_objectSprite.setPosition(location);*/
 	m_objectSprite.setTextureRect(m_intRect);
 	setSize(sf::Vector2u(size));
+	updateLoc();
+	m_physicsObject.setID(m_ID);
 }
 //============================================================================
 GameObject::~GameObject() {}
@@ -107,3 +109,4 @@ void GameObject::setSize(const sf::Vector2u size)
 
 	//m_objectSprite.setOrigin(float(m_objectSprite.getTexture()->getSize().x / 2), float(m_objectSprite.getTexture()->getSize().y / 2));
 }
+PhysicsObject GameObject::getPhysicsObj()const { return m_physicsObject; }

@@ -1,17 +1,20 @@
 #include "CollisionsListener.h"
-#include "GameObject.h"
 #include <vector>
-void CollisionsListener::BeginContact(const b2Contact* contact) {
-	Fixture f1 = cp.FixtureA();
-	Fixture f2 = cp.FixtureB();
+#include <iostream>
+void CollisionsListener::BeginContact(b2Contact* contact) {
+	b2Fixture* f1 = contact->GetFixtureA();
+	b2Fixture* f2 = contact->GetFixtureB();
 
-	Body b1 = f1.getBody();
-	Body b2 = f2.getBody();
+	b2Body* b1 = f1->GetBody();
+	b2Body* b2 = f2->GetBody();
 
-	GameObject o1 = b1.getUserData();
-	GameObject o2 = b2.getUserData();
+	auto obj1 = m_board->getObjWithId(int(b1->GetUserData()));
+	auto obj2 = m_board->getObjWithId(int(b2->GetUserData()));
 
-	std::vector<GameObject*> objCollided;
-	objCollided.push_back(&o1);
-	objCollided.push_back(&o2);
+	m_board->getCollisionObj().HandleCollision(*obj1, *obj2);
+}
+
+void CollisionsListener::setCurrentBoard(Board& board)
+{
+	m_board = &board;
 }
