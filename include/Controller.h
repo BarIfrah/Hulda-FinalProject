@@ -1,7 +1,7 @@
 #pragma once
 //============================ include section ===============================
 #include "Board.h"
-//#include "Menu.h"
+#include "Menu.h"
 //#include "Enemy.h"
 //#include "GameState.h"
 #include <SFML/Graphics.hpp>
@@ -24,7 +24,7 @@ public:
 	Controller();
 	//=========================== method section =============================
 	void run();
-	void handleGameEvents();
+	bool handleGameEvents(); // changed to boolean func
 	void sideScroll();
 	//========================= private section ==============================
 private:
@@ -36,8 +36,9 @@ private:
 	sf::View m_screenView;
 	std::unique_ptr<b2World> m_world;
 	Board m_board;
-	/*
+	
 	Menu m_menu;
+	/*
 	GameState m_gameState;
 	vector <Enemy*> m_enemies;
 	std::vector<std::unique_ptr<Enemy>> m_Enemies;

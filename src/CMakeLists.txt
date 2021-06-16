@@ -12,4 +12,5 @@ target_sources (Hulda PRIVATE "main.cpp"
 "Trash.cpp"
 "Food.cpp"
 "SpecialFood.cpp"
-"PhysicsObject.cpp")
+"PhysicsObject.cpp"
+"Menu.cpp")

@@ -13,6 +13,7 @@ Resources::Resources()
     this->setObjects();
     //this->setSounds();
     this->setNumOfSprites();
+    m_font.loadFromFile("CheeseAndMouse-g8P5.ttf");
 }
 //============================================================================
 Resources& Resources::instance() {
@@ -53,9 +54,9 @@ const sf::Texture& Resources::getTexture(int textureKey)const {
 //    return(*this->m_soundBuffers.find(soundKey)->second);
 //}
 ////============================================================================
-//const sf::Font& Resources::getFont(int fontKey) const{
-//    return(*this->m_font.find(fontKey)->second);
-//}
+const sf::Font& Resources::getFont() const{
+    return m_font;
+}
 //============================================================================
 const int Resources::getNumOfSprites(int key)const {
     return (this->m_NumOfSprites.find(key)->second);
@@ -81,6 +82,22 @@ void Resources::setBackgrounds() {
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
         (LEVEL_BACKGROUND, std::move(texturesCreator)));
     this->m_texture[LEVEL_BACKGROUND]->loadFromFile(LEVEL1_BACKGROUND_PATH);
+    //-----------------------------------------------------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (MENU, std::move(texturesCreator)));
+    this->m_texture[MENU]->loadFromFile(MENU_PATH);
+    //------------------------------------------------------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (HIGHMENU, std::move(texturesCreator)));
+    this->m_texture[HIGHMENU]->loadFromFile(HIGHMENU_PATH);
+    //--------------------------------------------------------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (HIGHMENU, std::move(texturesCreator)));
+    this->m_texture[HIGHMENU]->loadFromFile(HELPMENU_PATH);
+    
     //adding levels background path
 }
 //============================================================================
@@ -113,3 +130,14 @@ void Resources::setNumOfSprites() {
     this->m_NumOfSprites.insert(std::pair<int, int>(JUMP, NUM_OF_JUMP_SPRITE));
     this->m_NumOfSprites.insert(std::pair<int, int>(DIE, NUM_OF_DIE_SPRITE));
 }
+
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,5 @@
 ﻿#game texturs
-configure_file ("ARIALBD.TTF" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("CheeseAndMouse-g8P5.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("player.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("enemy.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("road.png" ${CMAKE_BINARY_DIR} COPYONLY)
@@ -30,3 +30,6 @@ configure_file ("level3.jpeg" ${CMAKE_BINARY_DIR} COPYONLY)
 #configure_file ("level4Music.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("level4Music.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("level4.jpeg" ${CMAKE_BINARY_DIR} COPYONLY)
+
+configure_file ("backgrounds.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("RATBlack.jpg" ${CMAKE_BINARY_DIR} COPYONLY)

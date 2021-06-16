@@ -13,7 +13,7 @@ public:
 //	const sf::SoundBuffer& getSound(int) const;
 	const sf::Texture& getBackground(int);
 	const sf::Texture& getTexture(int)const;
-	//	const sf::Font& getFont(int)const;
+	const sf::Font& getFont() const;
 	const int getNumOfSprites(int)const;
 		//=========================== method section ==============================
 	//	void playSound(int key);
@@ -29,6 +29,7 @@ private:
 	//	sf::Music m_music;
 	//	sf::Sound m_sound;
 	//	int m_backgroundLevelState;
+	sf::Font m_font;
 		//================= constructors and destructors section =================
 	Resources();
 	//============================ sets section ===============================
@@ -37,4 +38,5 @@ private:
 	//	void setFonts();
 	void setObjects();
 	void setNumOfSprites();
+
 };

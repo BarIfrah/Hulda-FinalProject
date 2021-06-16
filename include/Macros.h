@@ -70,6 +70,9 @@ constexpr auto ARIEL_FONT_PATH = "ARIALBD.TTF";
 
 //---------------------------- picture section -------------------------------
 constexpr auto MENU_BACKGROUND_PATH = "MenuBackground.png";
+constexpr auto MENU_PATH = "RATBlack.jpg";
+constexpr auto HIGHMENU_PATH = "RATBlack.jpg";
+constexpr auto HELPMENU_PATH = "RATBlack.jpg";
 constexpr auto LEVEL1_BACKGROUND_PATH = "level1.jpeg";
 constexpr auto LEVEL2_BACKGROUND_PATH = "level2.png";
 constexpr auto LEVEL3_BACKGROUND_PATH = "level3.jpeg";
@@ -110,6 +113,9 @@ constexpr auto GAME_LOGO_PATH = "Logo.png";
 //------------------------------- backgrounds --------------------------------
 constexpr auto MENU_BACKGROUND = 1;
 constexpr auto LEVEL_BACKGROUND = 2;
+constexpr auto MENU = 3;
+constexpr auto HIGHMENU = 4;
+constexpr auto HELPMENU = 5;
 constexpr auto GAME_STATE = 9;
 constexpr auto BACKGROUND_SIZE = 7185; //pixels
 //------------------------------- objects -------------------------------------
@@ -160,6 +166,9 @@ const bool STATIC = false;
 const bool DYNAMIC = true;
 
 
+const int WIN_WIDTH = 1920;
+const int WIN_HEIGHT = 1080;
 
-
+const int MSG_WIDTH = 100;
+const int MSG_HEIGHT = 200;
 

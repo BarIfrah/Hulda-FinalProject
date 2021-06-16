@@ -5,7 +5,7 @@
 #include <iostream>
 
 Controller::Controller()
-        : m_window(sf::VideoMode(1920, 1080), "Hulda", sf::Style::Titlebar | sf::Style::Close),
+        : m_window(sf::VideoMode(WIN_WIDTH, WIN_HEIGHT), "Hulda", sf::Style::Titlebar | sf::Style::Close),
         m_board(sf::Vector2f(0, 0),
             sf::Vector2f((float)BACKGROUND_SIZE, (float)m_window.getSize().y)),
         m_player(nullptr){
@@ -17,17 +17,26 @@ Controller::Controller()
 }
 //============================================================================
 void Controller::run() {
-    m_player = m_board.loadNewLevel(*(m_world.get()));
-    
-    while (m_window.isOpen()) {
-        m_world.get()->Step(TIMESTEP, VELITER, POSITER);
-        m_gameClock.restart();
-        m_window.clear();
-        drawObjects();
-        m_window.display();
-        handleGameEvents();
-    }
+    while (m_window.isOpen()) 
+    {
+        if (m_menu.runMenu(m_window, false, false))
+        {
+            m_player = m_board.loadNewLevel(*(m_world.get()));
 
+            while (m_window.isOpen()) {
+                m_world.get()->Step(TIMESTEP, VELITER, POSITER);
+                m_gameClock.restart();
+                m_window.clear();
+                drawObjects();
+                m_window.display();
+                if (!handleGameEvents())
+                    break;
+            }
+        }
+        else 
+            m_window.close();
+    }
+   
 }
 //============================================================================
 /*
@@ -45,16 +54,23 @@ void Controller::drawObjects() {
 
 //============================================================================
 
-void Controller::handleGameEvents() {
+
+bool Controller::handleGameEvents() {
     if (auto event = sf::Event{}; m_window.pollEvent(event)) {
-        switch (event.key.code) {
-            case sf::Keyboard::Escape:
+        switch (event.type) { //changed to type
+            case sf::Event::KeyPressed:
+                if (event.key.code == sf::Keyboard::Escape)
+                    return false;
+                break;
+            case sf::Event::Closed:
                 m_window.close();
+                return false;
             default:;
         }
     }
     m_player->move(m_gameClock.getElapsedTime());
     sideScroll();
+    return true;
 }
 //============================================================================
 void Controller::sideScroll() {
