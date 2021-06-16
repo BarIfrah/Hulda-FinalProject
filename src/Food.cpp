@@ -6,22 +6,24 @@
 //==================== Constructors & distructors section ====================
 Food::Food(b2World& world, const sf::Vector2f& location,
 	const sf::Vector2f& size,
-	char objectType)
-	: StaticObject(world, location, size, objectType),
+	char objectType,int ID)
+	: StaticObject(world, location, size, objectType,ID),
 	m_is_collected(false) {}
 //============================== gets section ================================
 //============================ methods section ===============================
-//bool Food::is_collected()const { return (this->m_is_collected); }
+bool Food::is_collected()const { return (m_is_collected); }
 ////============================================================================
-//void Food::draw(sf::RenderWindow& window) {
-//	if (!this->m_is_collected)
-//		this->GameObject::draw(window);
-//}
+void Food::draw(sf::RenderWindow& window) {
+	if (!m_is_collected)
+		GameObject::draw(window);
+}
 ////============================================================================
 //void Food::reset() {
 //	this->GameObject::reset();
 //	this->m_is_collected = false;
 //}
 ////============================================================================
-///*this method change the state of the coin after the player collected it.*/
-//void Foodt::collect() { this->m_is_collected = true; }
+///*this method change the state of the food after the player collected it.*/
+void Food::collect() { 
+	m_is_collected = true;
+}

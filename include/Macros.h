@@ -1,4 +1,5 @@
 #pragma once
+#include <box2d/box2d.h>
 /*
   This file contains :
   #1. Symbols of the game objects.
@@ -15,6 +16,7 @@ constexpr auto RAND_ENEMY_TIME = 1;
 // game objects symbols
 constexpr auto PLAYER = '@';
 constexpr auto ENEMY = '%';
+constexpr auto EXTERMINATOR = '?';
 constexpr auto FOOD = '*';
 constexpr auto ROAD = '#';
 constexpr auto NOTHING = ' ';
@@ -29,9 +31,10 @@ constexpr auto NONE_CHOSEN = 'N';
 //MovingObject spritesheets consts
 //enum to define movement directions of all moving objects (Enemies will not use up/down)
 enum ANIMATION_DIRECTIONS { LEFT = 0, RIGHT = 1 };
-enum ANIMATION_STATE { IDLE = 0, RUN = 1, JUMP = 2, DIE = 3 };
+enum ANIMATION_STATE { IDLE = 0, RUN = 1, JUMP = 2, FALL = 3, DIE = 4 };
 constexpr auto NUM_OF_IDLE_SPRITE = 11;
-constexpr auto NUM_OF_JUMP_SPRITE = 12;
+constexpr auto NUM_OF_JUMP_SPRITE = 4;
+constexpr auto NUM_OF_FALL_SPRITE = 8;
 constexpr auto NUM_OF_RUNNING_SPRITE = 13;
 constexpr auto NUM_OF_DIE_SPRITE = 5;
 
@@ -145,29 +148,25 @@ constexpr auto GAME_LOGO = 26;
 //---------------------------------- fonts -----------------------------------
 constexpr auto ARIEL_FONT = 1;
 //---------------------------------- Physics ---------------------------------
-constexpr auto MAX_VELOCITY_X = 10.f;
-constexpr auto MAX_VELOCITY_Y = 5.f;
-constexpr auto MIN_VELOCITY = 1.f;
-constexpr auto GRAVITY = 2.f;
-
-//Player
-constexpr auto PLAYER_ACCEL = 5.f;
-constexpr auto PLAYER_DRAG = 0.9f;
-
-//Enemies
-
 //Box2D Parameters:
 const float PPM = 64.f;
 const float MPP = 0.015625f;
 const float TIMESTEP = 1.0f / 60.0f;
-const int VELITER = 10;
-const int POSITER = 10;
+const int VELITER = 6;
+const int POSITER = 2;
 const bool STATIC = false;
 const bool DYNAMIC = true;
 
+const b2Vec2 MUP(0, -8);
+const b2Vec2 MUP_RIGHT (2, -8);
+const b2Vec2 MUP_LEFT(-2, -8);
+const b2Vec2 MRIGHT (2, 0);
+const b2Vec2 MLEFT (-2, 0);
+const b2Vec2 MDOWN (0, 8);
 
-const int WIN_WIDTH = 1920;
-const int WIN_HEIGHT = 1080;
+
+const int WIN_WIDTH = 1000;
+const int WIN_HEIGHT = 700;
 
 const int MSG_WIDTH = 100;
 const int MSG_HEIGHT = 200;

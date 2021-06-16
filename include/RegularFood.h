@@ -10,11 +10,11 @@ class RegularFood : public Food
 	//========================== public section ==============================
 public:
 	//================= constractors and destractors section =================
-	RegularFood(const sf::Vector2f & = sf::Vector2f(0, 0),
-		const sf::Vector2f & = sf::Vector2f(0, 0));
+	RegularFood(b2World&, const sf::Vector2f & = sf::Vector2f(0, 0),
+		const sf::Vector2f & = sf::Vector2f(0, 0), int ID = 0);
 	//=========================== method section ==============================
 	//void handleColision(Controller&)override;
-	virtual void handleCollision(MovingObject&, const sf::Vector2f&)override;
+	//virtual void handleCollision(MovingObject&, const sf::Vector2f&)override;
 	//========================= private section ===============================
 private:
 };

@@ -5,6 +5,8 @@
 #include <SFML/Graphics.hpp>
 #include "GameObject.h"
 #include "MovingObject.h"
+#include <unordered_map>
+#include "Collisions.h"
 //========================== forward declarations ============================
 //class MovingObject;
 //class GameObject;
@@ -33,27 +35,26 @@ public:
 	const sf::Vector2f& getlevelSize()const;
 	const sf::Vector2f& getLocation() const;
 	sf::Vector2f getObjectSize()const;
-	//StaticObject* getContent(const sf::Vector2f& location);
-	//const StaticObject* getContent(const sf::Vector2f&) const;
+	GameObject* getObjWithId(const int);
+	Collisions getCollisionObj() const { return m_collision; }
 	const sf::Vector2f& getPlayerLoc()const;
-
 	//=========================== method section =============================
 	void draw(sf::RenderWindow& window, const sf::Time&);
 	Player* loadNewLevel(b2World&);
 	bool is_next_lvl_exist()const;
 	//void resetLvl();
 	//void gameOver();
-	//bool isMovePossible(const sf::Vector2f&)const;
 	void loadLevelEffects(int);
-
 private:
 	//========================= members section ==============================
 	vector<vector<std::unique_ptr<GameObject>>> m_map;
+	std::unordered_map<int, GameObject*> m_ObjWithID;
 	sf::Vector2f m_location;
 	DataReader m_levelReader;
 	sf::RectangleShape m_background;
 	Player* m_player;
-
+	Collisions m_collision;
+	//std::vector<std::unique_ptr<Food>> m_CollectedFood = {};
 	//====================== privete methods section =========================
 	void clearParameters();
 	//Food* raffleFood(const sf::Vector2f& boxSize,const sf::Vector2i& index);	

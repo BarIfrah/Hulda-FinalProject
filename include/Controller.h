@@ -2,6 +2,8 @@
 //============================ include section ===============================
 #include "Board.h"
 #include "Menu.h"
+#include "CollisionsListener.h"
+//#include "Menu.h"
 //#include "Enemy.h"
 //#include "GameState.h"
 #include <SFML/Graphics.hpp>
@@ -26,18 +28,19 @@ public:
 	void run();
 	bool handleGameEvents(); // changed to boolean func
 	void sideScroll();
+	void HandleWindowCollision();
 	//========================= private section ==============================
 private:
 	//========================= members section ==============================
 	sf::RenderWindow m_window;
-
 	//view:
 	sf::Vector2f m_CurrViewPos;
 	sf::View m_screenView;
-	std::unique_ptr<b2World> m_world;
+	std::unique_ptr<b2World> m_world = nullptr;
 	Board m_board;
-	
+	CollisionsListener m_listener;
 	Menu m_menu;
+
 	/*
 	GameState m_gameState;
 	vector <Enemy*> m_enemies;
@@ -51,11 +54,6 @@ private:
 	void drawObjects();
 	/*void enemiesTurns(const sf::Time&);
 	void play_turns(const sf::Time&);
-	
-	void checkColisions();
-	void checkEnemiesColisions();
-	void checkCoinsColisions();
-	void checkCollectableColisions();
 
 	void seperateGameObjects(const vector<MovingObject*>&);
 

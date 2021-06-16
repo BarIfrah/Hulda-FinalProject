@@ -17,12 +17,13 @@ public:
     ~PhysicsObject();
 
     b2Vec2 getPosition() const { return  m_body->GetPosition(); }
-    //float getAngle() const { return m_body->GetAngle(); }
-    //void setAngle(const int);
-    void setPosition(const sf::Vector2f);
-    //void setGravityScale(const float);
+    void setPosition(const sf::Vector2f, const b2Vec2);
+    b2Body* getBody()const;
+    b2Vec2 getLinearVelocity();
+    b2Vec2 getForceApplied();
+    void setForceApplied();
     //void setSize(const sf::Vector2f);
-    //void applyForce(const b2Vec2&);
+    void applyForce(const b2Vec2&);
     //int randomNumber(const int min, const int max);
-    //void setID(const int);
+    void setID(const int);
 };

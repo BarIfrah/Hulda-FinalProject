@@ -1,6 +1,7 @@
 ﻿#game texturs
 configure_file ("CheeseAndMouse-g8P5.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("player.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("exterminator.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("enemy.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("road.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("specialfood.png" ${CMAKE_BINARY_DIR} COPYONLY)

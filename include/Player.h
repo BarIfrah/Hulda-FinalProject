@@ -2,7 +2,6 @@
 #pragma once
 #include "MovingObject.h"
 #include <vector>
-#include "Physics.h"
 //========================== forward declarations ============================
 //class Board;
 //class Road;
@@ -18,10 +17,9 @@ class Player : public MovingObject
 public:
 	//================= constructors and destructors section =================
 	explicit Player(b2World&, const sf::Vector2f & = { 0,0 },
-		const sf::Vector2f & = { 0,0 });
-	virtual void slowDown() override;
-	virtual void speedUp(float, float) override;
+		const sf::Vector2f & = { 0,0 },int ID=0);
 	virtual void move(const sf::Time&) override;
+	sf::FloatRect getGlobalBounds()const;
 	//=========================== method section ==============================
 	//virtual void playTurn(const sf::Time&, Board&) override;
 	//========================= private section ===============================
@@ -29,6 +27,4 @@ private:
 	//========================= members section ===============================
 	//====================== private methods section ==========================
 	//void jump(Board&, const sf::Vector2f&, const sf::Time&);
-    //Physics
-    Physics m_physics;
 };

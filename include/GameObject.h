@@ -15,11 +15,9 @@ class GameObject {
 public:
 	//================= constractors and destractors section =================
 	GameObject(
-		const bool, b2World&,
-		const sf::Vector2f & = { 0, 0 },
-		const sf::Vector2f & = { 0, 0 },
-		char objectType = NOTHING,
-		bool isAnimated = false);
+		const bool, b2World&,const sf::Vector2f & = { 0, 0 },
+		const sf::Vector2f & = { 0, 0 },char objectType = NOTHING,
+		bool isAnimated = false, int ID=0);
 	virtual ~GameObject() = 0;
 	//============================ gets section ===============================
 	const sf::Vector2f& getLocation()const;
@@ -27,11 +25,18 @@ public:
 	const sf::Sprite& getSprite()const;
 	sf::Sprite* getSpritePtr();
 	const sf::IntRect& getIntRect()const;
-	void setPhysicsObjectPos(sf::Vector2f);
+	PhysicsObject getPhysicsObj()const;
+	int getID()const { return m_ID; }
+	void setPhysicsObjectPos(sf::Vector2f, b2Vec2);
 	void setIntRect(const sf::IntRect&);
 	void flipSprite(const sf::Vector2f&);
 	void updateLoc();
 	void setSize(const sf::Vector2u);
+
+    b2Vec2 getLinearVelocity();
+    b2Vec2 getForceApplied();
+    void setForceApplied();
+    void applyForce(b2Vec2);
 	//=========================== method section ==============================
 	//bool CollidesWith(const GameObject&)const;
 	virtual void draw(sf::RenderWindow&);
@@ -44,5 +49,6 @@ private:
 	bool m_isAnimated;
 	sf::IntRect m_intRect;
 	PhysicsObject m_physicsObject;
+	int m_ID;
 	//========================= members section ===============================
 };
