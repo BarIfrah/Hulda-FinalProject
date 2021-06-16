@@ -20,7 +20,6 @@ PhysicsObject::PhysicsObject(b2World& world, const sf::Vector2f& position, const
 
     polygonShape.SetAsBox(size.x / 2 * MPP, size.y / 2 * MPP);
     m_fixtureDef.shape = &polygonShape;
-
     m_fixtureDef.friction = 1; // objPhysicsInfo._friction;
     m_fixtureDef.restitution = 0; // objPhysicsInfo._restitution;
     m_fixtureDef.density = 1; // objPhysicsInfo._density;
@@ -92,3 +91,6 @@ void PhysicsObject::applyForce(const b2Vec2& force)
 b2Vec2 PhysicsObject::getLinearVelocity() {
     return m_body->GetLinearVelocity();
 }
+//void PhysicsObject::setBodyType(const b2BodyType& type) {
+//    m_body->SetType(type);
+//}

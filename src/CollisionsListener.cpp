@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 void CollisionsListener::BeginContact(b2Contact* contact) {
+	
 	b2Fixture* f1 = contact->GetFixtureA();
 	b2Fixture* f2 = contact->GetFixtureB();
 

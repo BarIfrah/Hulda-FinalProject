@@ -19,12 +19,9 @@ public:
     b2Vec2 getPosition() const { return  m_body->GetPosition(); }
     void setPosition(const sf::Vector2f, const b2Vec2);
     b2Body* getBody()const;
-    //float getAngle() const { return m_body->GetAngle(); }
-    //void setAngle(const int);
     b2Vec2 getLinearVelocity();
     b2Vec2 getForceApplied();
     void setForceApplied();
-    //void setGravityScale(const float);
     //void setSize(const sf::Vector2f);
     void applyForce(const b2Vec2&);
     //int randomNumber(const int min, const int max);

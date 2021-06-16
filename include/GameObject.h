@@ -26,6 +26,7 @@ public:
 	sf::Sprite* getSpritePtr();
 	const sf::IntRect& getIntRect()const;
 	PhysicsObject getPhysicsObj()const;
+	int getID()const { return m_ID; }
 	void setPhysicsObjectPos(sf::Vector2f, b2Vec2);
 	void setIntRect(const sf::IntRect&);
 	void flipSprite(const sf::Vector2f&);

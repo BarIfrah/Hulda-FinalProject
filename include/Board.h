@@ -45,7 +45,6 @@ public:
 	//void resetLvl();
 	//void gameOver();
 	void loadLevelEffects(int);
-
 private:
 	//========================= members section ==============================
 	vector<vector<std::unique_ptr<GameObject>>> m_map;
@@ -55,6 +54,7 @@ private:
 	sf::RectangleShape m_background;
 	Player* m_player;
 	Collisions m_collision;
+	//std::vector<std::unique_ptr<Food>> m_CollectedFood = {};
 	//====================== privete methods section =========================
 	void clearParameters();
 	//Food* raffleFood(const sf::Vector2f& boxSize,const sf::Vector2i& index);	

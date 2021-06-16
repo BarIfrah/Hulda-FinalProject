@@ -54,10 +54,11 @@ sf::Vector2f Board::getObjectSize()const {
 void Board::draw(sf::RenderWindow& window, const sf::Time& deltaTime) {
 	window.draw(m_background);
 	for (int i = 0; i < this->m_map.size(); i++)
-		for (int j = 0; j < this->m_map[i].size(); j++)
+		for (int j = 0; j < this->m_map[i].size(); j++) {
 			if (m_map[i][j].get() != nullptr) {
 				m_map[i][j]->draw(window);
 			}
+		}
 }
 //============================================================================
 /*
@@ -84,8 +85,7 @@ Player* Board::loadNewLevel(b2World& world) {
 			{
 			case PLAYER: {
                 m_map[y].push_back(std::make_unique<Player>(world, sf::Vector2f
-                                                                           (boxSize.x * x, boxSize.y * y) + m_location,
-                                                            sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
+				(boxSize.x * x, boxSize.y * y) + m_location,sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
                 //movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
                 m_player = (Player *) m_map[y][x].get();
                 m_ObjWithID.insert(std::pair<int, GameObject *>(ID, m_map[y][x].get()));
@@ -94,9 +94,7 @@ Player* Board::loadNewLevel(b2World& world) {
             }
             case EXTERMINATOR: {
                 m_map[y].push_back(std::make_unique<Exterminator>(world, sf::Vector2f
-                                                                                 (boxSize.x * x, boxSize.y * y) +
-                                                                         m_location + sf::Vector2f(0, -200),
-                                                                  sf::Vector2f(2 * boxSize.x, 2 * boxSize.y)));
+				(boxSize.x * x, boxSize.y * y) +m_location + sf::Vector2f(0, -200),sf::Vector2f(2 * boxSize.x, 2 * boxSize.y)));
                 //movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
                 break;
             }
@@ -132,12 +130,6 @@ bool Board::is_next_lvl_exist() const {
 	return m_levelReader.isThereNextLevel();
 }
 //============================================================================
-//bool Board::isMovePossible(const sf::Vector2f& location) const {
-//	if (this->m_background.getGlobalBounds().contains(location))
-//		return true;
-//	return false;
-//}
-//============================================================================
 /*
 * This function pass all the map and reset every object to the initial location
 * and state.
@@ -169,8 +161,8 @@ void Board::loadLevelEffects(int level) {
 /*this function all the details of the current level, release ptrs and
 unique ptrs.*/
 void Board::clearParameters() {
-	this->m_map.clear();
-	this->m_player = nullptr;
+	m_map.clear();
+	m_player = nullptr;
 }
 //============================================================================
 /*

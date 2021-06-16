@@ -26,5 +26,4 @@ void Food::draw(sf::RenderWindow& window) {
 ///*this method change the state of the food after the player collected it.*/
 void Food::collect() { 
 	m_is_collected = true;
-	
 }

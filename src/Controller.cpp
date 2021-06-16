@@ -57,8 +57,9 @@ void Controller::handleGameEvents() {
             default:;
         }
     }
+    
     m_player->move(m_gameClock.getElapsedTime());
-
+    HandleWindowCollision();
     sideScroll();
 }
 //============================================================================
@@ -74,4 +75,18 @@ void Controller::sideScroll() {
                                      m_window.getSize().y));
     m_window.setView(m_screenView);
 }
-//============================================================================
+
+void Controller::HandleWindowCollision()
+{
+    if (m_player->getGlobalBounds().top < 0) {
+        m_player->setPhysicsObjectPos
+        (sf::Vector2f(m_player->getLocation().x, 0), MDOWN);
+    }
+    if (m_player->getGlobalBounds().left < 0) {
+        std::cout << m_player->getGlobalBounds().left << "(" << m_player->getLocation().x << "," << m_player->getLocation().y << ")\n";
+        m_player->setPhysicsObjectPos
+        (sf::Vector2f( 0, m_player->getLocation().y),(MDOWN + MRIGHT));
+        
+    }
+    m_player->updateLoc();
+}

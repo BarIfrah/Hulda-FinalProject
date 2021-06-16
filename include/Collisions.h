@@ -3,7 +3,6 @@
 #include <map>
 #include <typeinfo>
 #include <typeindex>
-
 #include "GameObject.h"
 #include "Player.h"
 //#include "Exterminator.h"

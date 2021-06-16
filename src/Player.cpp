@@ -58,4 +58,10 @@ void Player::move(const sf::Time& deltaTime) {
     }
 }
 
+sf::FloatRect Player::getGlobalBounds() const
+{
+    
+    return getSprite().getGlobalBounds();
+}
+
 //===========================================================================

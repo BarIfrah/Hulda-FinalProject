@@ -27,11 +27,11 @@ public:
 	void run();
 	void handleGameEvents();
 	void sideScroll();
+	void HandleWindowCollision();
 	//========================= private section ==============================
 private:
 	//========================= members section ==============================
 	sf::RenderWindow m_window;
-
 	//view:
 	sf::Vector2f m_CurrViewPos;
 	sf::View m_screenView;
@@ -52,11 +52,6 @@ private:
 	void drawObjects();
 	/*void enemiesTurns(const sf::Time&);
 	void play_turns(const sf::Time&);
-	
-	void checkColisions();
-	void checkEnemiesColisions();
-	void checkCoinsColisions();
-	void checkCollectableColisions();
 
 	void seperateGameObjects(const vector<MovingObject*>&);
 
