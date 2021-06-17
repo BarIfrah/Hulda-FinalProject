@@ -58,10 +58,11 @@ void Player::move(const sf::Time& deltaTime,Board& CurrentLevel) {
 
     if (state != IDLE){ ///not IDLE
         setState(state, PLAYER_BOX_HEIGHT, PLAYER_BOX_WIDTH);
+        updateLoc();
         setPhysicsObjectPos(sf::Vector2f(getLocation().x + dirFromKey.x,
                                          getLocation().y + dirFromKey.y), dirFromKey);
 
-        updateLoc();
+
         updateAnimation(deltaTime);
     } else {
         updateLoc();
