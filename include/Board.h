@@ -40,7 +40,7 @@ public:
 	const sf::Vector2f& getPlayerLoc()const;
 	//=========================== method section =============================
 	void draw(sf::RenderWindow& window, const sf::Time&);
-	Player* loadNewLevel(b2World&);
+	std::vector<MovingObject*> loadNewLevel(b2World&);
 	bool is_next_lvl_exist()const;
 	//void resetLvl();
 	//void gameOver();

@@ -3,6 +3,7 @@
 #include "Macros.h"
 #include "Player.h"
 #include <iostream>
+//============================================================================
 
 Controller::Controller()
         : m_window(sf::VideoMode(1920, 1080), "Hulda", sf::Style::Titlebar | sf::Style::Close),
@@ -18,10 +19,11 @@ Controller::Controller()
     m_world->SetContactListener(&m_listener);
     m_listener.setCurrentBoard(m_board);
 }
+
 //============================================================================
+
 void Controller::run() {
-    m_player = m_board.loadNewLevel(*m_world);
-    
+    seperateGameObjects(m_board.loadNewLevel(*m_world));
     while (m_window.isOpen()) {
         m_world->Step(TIMESTEP, VELITER, POSITER);
         m_gameClock.restart();
@@ -38,14 +40,33 @@ void Controller::run() {
 * this function draw all the dynamic objects in the game by the time clock.
 */
 void Controller::drawObjects() {
-    m_board.draw(m_window, m_gameClock.getElapsedTime());
     m_player->draw(m_window);
-   /* for (int i = 0; i < this->m_enemies.size(); ++i)
-        this->m_enemies[i]->draw(this->m_window);
-    for (int i = 0; i < this->m_giftEnemies.size(); ++i)
-        this->m_giftEnemies[i]->draw(this->m_window);*/
+    m_board.draw(m_window, m_gameClock.getElapsedTime());
+    for (auto& enemy : m_enemies)
+        enemy->draw(m_window);
 }
 
+//============================================================================
+
+void Controller::seperateGameObjects(const vector<MovingObject*>& list)
+{
+    this->m_enemies.clear();
+    for (int i = 0; i < list.size(); ++i) {
+        if (dynamic_cast <Player*> (list[i]))
+            this->m_player = (Player*)list[i];
+        else
+            this->m_enemies.push_back(list[i]);
+    }
+}
+
+//============================================================================
+
+void Controller::moveCharacters()
+{
+    m_player->move(m_gameClock.getElapsedTime(), m_board);
+    for (auto& enemy : m_enemies)
+        enemy->move(m_gameClock.getElapsedTime(), m_board);
+}
 
 //============================================================================
 
@@ -55,14 +76,19 @@ void Controller::handleGameEvents() {
             case sf::Keyboard::Escape:
                 m_window.close();
             default:;
-        }
+              }
     }
     
-    m_player->move(m_gameClock.getElapsedTime());
-    HandleWindowCollision();
+    moveCharacters();
+
+    HandleCharacterCollisionWithWindow(m_player);
+    for (auto& enemy : m_enemies)
+        HandleCharacterCollisionWithWindow(enemy);
     sideScroll();
 }
+
 //============================================================================
+
 void Controller::sideScroll() {
     m_CurrViewPos.x = m_player->getSprite().getPosition().x + m_player->getSize().x / 2 - (float(m_window.getSize().x) / 2);
     if (m_CurrViewPos.x < 0)
@@ -76,17 +102,21 @@ void Controller::sideScroll() {
     m_window.setView(m_screenView);
 }
 
-void Controller::HandleWindowCollision()
+//============================================================================
+
+void Controller::HandleCharacterCollisionWithWindow(MovingObject* character)
 {
-    if (m_player->getGlobalBounds().top + (m_player->getGlobalBounds().height/2) < 0) {
-        m_player->setPhysicsObjectPos
-        (sf::Vector2f(m_player->getLocation().x, 0), MDOWN);
+    if (character->getGlobalBounds().top < 0) {
+        character->setPhysicsObjectPos
+        (sf::Vector2f(character->getLocation().x, 0), MDOWN);
     }
-    if (m_player->getGlobalBounds().left < 0) {
-//        std::cout << m_player->getGlobalBounds().left << "(" << m_player->getLocation().x << "," << m_player->getLocation().y << ")\n";
-        m_player->setPhysicsObjectPos
-        (sf::Vector2f( 65, m_player->getLocation().y),(MDOWN + MRIGHT));
-        
+    if (character->getGlobalBounds().left < 0) {
+        character->setPhysicsObjectPos
+        (sf::Vector2f( 70, character->getLocation().y),MDOWN+MRIGHT);
     }
-    m_player->updateLoc();
+    if (character->getGlobalBounds().left+ character->getGlobalBounds().width > m_board.getlevelSize().x) {
+        character->setPhysicsObjectPos
+        (sf::Vector2f(m_board.getLevelSize().x- character->getGlobalBounds().width, character->getLocation().y), MDOWN + MLEFT);
+    }
+    character->updateLoc();
 }

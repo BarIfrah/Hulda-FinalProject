@@ -8,9 +8,10 @@
 #include "Macros.h"
 #include "Resources.h"
 #include <vector>
+#include "Utilities.h"
 #include "Player.h"
-//#include "Enemy.h"
 #include "Road.h"
+#include "Adanit.h"
 #include "Trash.h"
 #include "SpecialFood.h"
 #include "Exterminator.h"
@@ -30,7 +31,7 @@ Board::Board(const sf::Vector2f& location,
 //================================ gets section ==============================
 //============================================================================
 const sf::Vector2f& Board::getLevelSize()const {
-    return this->m_background.getSize();
+    return m_background.getSize();
 }
 //============================================================================
 const sf::Vector2f& Board::getLocation() const {
@@ -46,8 +47,8 @@ const sf::Vector2f& Board::getPlayerLoc()const {
 }
 //============================================================================
 sf::Vector2f Board::getObjectSize()const {
-	return sf::Vector2f{this->getLevelSize().x / this->m_map[0].size(),
-                         this->getLevelSize().y / this->m_map.size() };
+	return sf::Vector2f{getLevelSize().x / m_map[0].size(),
+                         getLevelSize().y / m_map.size() };
 }
 //============================ methods section ===============================
 void Board::draw(sf::RenderWindow& window, const sf::Time& deltaTime) {
@@ -64,11 +65,12 @@ void Board::draw(sf::RenderWindow& window, const sf::Time& deltaTime) {
  * This function update the objects of the game to the current level game.
  * the function build a vector of moving objects ptrs & return it.
  */
-Player* Board::loadNewLevel(b2World& world) {
+std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 	vector<vector<char>> map = m_levelReader.readNextLevel();
 	//vector<MovingObject*> movingsVec = {};
 	sf::Vector2f boxSize(getLevelSize().x / map[0].size(),
                          getLevelSize().y / map.size());
+	vector<MovingObject*> movingsVec = {};
 	loadLevelEffects(1);
 
 	//reset last load parameters:
@@ -76,8 +78,7 @@ Player* Board::loadNewLevel(b2World& world) {
 	m_map.resize(map.size());
 
 	int ID = 0;
-///    std::cout << "BOXSIZE  " << boxSize.x << " " << boxSize.y << "\n";
-///    std::cout << "LEVEL SIZE " << getLevelSize().x << " map 0  size " << map[0].size() << "  y: " << getLevelSize().y << " map size" << map.size() << '\n';
+
 	//allocating level's objects:
 	for (int y = 0; y < map.size(); y++) {
 		for (int x = 0; x < map[y].size(); x++) {
@@ -85,34 +86,40 @@ Player* Board::loadNewLevel(b2World& world) {
 			{
 			case PLAYER: {
                 m_map[y].push_back(std::make_unique<Player>(world, sf::Vector2f
-				(int(boxSize.x) * x, int(boxSize.y) * y - 200) ,sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
-                //movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
+				(boxSize.x * x, boxSize.y * y),sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
+                movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
                 m_player = (Player *) m_map[y][x].get();
                 m_ObjWithID.insert(std::pair<int, GameObject *>(ID, m_map[y][x].get()));
                 ID++;
                 break;
             }
             case EXTERMINATOR: {
-                m_map[y].push_back(std::make_unique<Exterminator>(world, sf::Vector2f
-				(int(boxSize.x) * x, int(boxSize.y) * y)+ sf::Vector2f(0, -200),sf::Vector2f(2 * boxSize.x, 2 * boxSize.y)));
-                //movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
+                m_map[y].push_back(std::make_unique<Exterminator>(ENEMY_DISTANCE_LIMIT ,world, sf::Vector2f
+				(boxSize.x * x, boxSize.y * y) ,sf::Vector2f(2 * boxSize.x, 2 * boxSize.y)));
+                movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
                 break;
             }
 			case ROAD:
 				m_map[y].push_back(std::make_unique <Road>(world, sf::Vector2f
-				(int(boxSize.x) * x, int(boxSize.y) * y) , sf::Vector2f(boxSize.x, boxSize.y),ID));
+				(boxSize.x * x, boxSize.y * y) , sf::Vector2f(boxSize.x, boxSize.y),ID));
+				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
+				ID++;
+				break;
+			case ADANIT:
+				m_map[y].push_back(std::make_unique <Adanit>(world, sf::Vector2f
+				(boxSize.x * x, boxSize.y * y) , sf::Vector2f(boxSize.x, boxSize.y), ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
 			case TRASH:
 				m_map[y].push_back(std::make_unique <Trash>(world, sf::Vector2f
-				(int(boxSize.x) * x, int(boxSize.y) * y) , boxSize,ID));
+				(boxSize.x * x, boxSize.y * y), boxSize,ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
-			case FOOD:
+			case SPECIAL_FOOD:
 				m_map[y].push_back(std::make_unique <SpecialFood>(world, sf::Vector2f
-				(int(boxSize.x) * x, int(boxSize.y) * y), boxSize,ID));
+				(boxSize.x * x, boxSize.y * y) , boxSize,ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
@@ -122,7 +129,7 @@ Player* Board::loadNewLevel(b2World& world) {
 			}
 		}
 	}
-	return m_player;
+	return movingsVec;
 }
 //============================================================================
 //the method isn't const because fstream's peek method isn't const

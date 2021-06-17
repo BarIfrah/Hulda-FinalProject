@@ -3,10 +3,8 @@
 #include "Board.h"
 #include "CollisionsListener.h"
 //#include "Menu.h"
-//#include "Enemy.h"
 //#include "GameState.h"
 #include <SFML/Graphics.hpp>
-//#include <vector>
 //========================== forward declarations ============================
 //class MovingObject;
 class Player;
@@ -27,7 +25,7 @@ public:
 	void run();
 	void handleGameEvents();
 	void sideScroll();
-	void HandleWindowCollision();
+	void HandleCharacterCollisionWithWindow(MovingObject*);
 	//========================= private section ==============================
 private:
 	//========================= members section ==============================
@@ -38,23 +36,21 @@ private:
 	b2World* m_world = nullptr;
 	Board m_board;
 	CollisionsListener m_listener;
+	std::vector <MovingObject*> m_enemies;
 	/*
 	Menu m_menu;
 	GameState m_gameState;
-	vector <Enemy*> m_enemies;
-	std::vector<std::unique_ptr<Enemy>> m_Enemies;
 	*/
 	Player* m_player;
 	sf::Clock m_gameClock;
 	//====================== privete methods section =========================
 	//void runGame();
 	//char runMenu();
+	void seperateGameObjects(const vector<MovingObject*>&);
+	void moveCharacters();
 	void drawObjects();
 	/*void enemiesTurns(const sf::Time&);
 	void play_turns(const sf::Time&);
-
-	void seperateGameObjects(const vector<MovingObject*>&);
-
 	void playerDied();
 	void levelup();
 	void resetLvl();

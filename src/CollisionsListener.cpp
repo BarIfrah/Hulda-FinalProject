@@ -1,7 +1,7 @@
 #include "CollisionsListener.h"
 #include <vector>
 #include <iostream>
-void CollisionsListener::BeginContact(b2Contact* contact) {
+void CollisionsListener::PreSolve(b2Contact* contact, const b2Manifold* oldManifold) {
 	
 	b2Fixture* f1 = contact->GetFixtureA();
 	b2Fixture* f2 = contact->GetFixtureB();

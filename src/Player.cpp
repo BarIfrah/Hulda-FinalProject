@@ -18,10 +18,14 @@ Player::Player(b2World& world ,const sf::Vector2f& location,
 /*this method manage the movements of the player. the method realize if the
 user pressed on key and speedUpPhysicsObject the player by the key that user pressed if the
 speedUp is possible.*/
-void Player::move(const sf::Time& deltaTime) {
+void Player::move(const sf::Time& deltaTime,Board& CurrentLevel) {
     b2Vec2 dirFromKey = b2Vec2(0, 0);
     int state = IDLE;
 
+    if (getState() == DIE) {
+        updateAnimation(deltaTime);
+        //return;
+    }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {        ///Move Up
         dirFromKey = b2Vec2(getLinearVelocity().x, MUP.y);
         state = JUMP;
@@ -64,12 +68,12 @@ void Player::move(const sf::Time& deltaTime) {
         updateAnimation(deltaTime);
     }
 }
-
-sf::FloatRect Player::getGlobalBounds() const
-{
-    
-    return getSprite().getGlobalBounds();
-}
+//
+//sf::FloatRect Player::getGlobalBounds() const
+//{
+//
+//    return getSprite().getGlobalBounds();
+//}
 
 //===========================================================================
 void Player::updateAnimation(const sf::Time &deltaTime ) {

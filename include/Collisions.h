@@ -3,9 +3,10 @@
 #include <map>
 #include <typeinfo>
 #include <typeindex>
+
 #include "GameObject.h"
 #include "Player.h"
-//#include "Exterminator.h"
+#include "Exterminator.h"
 //#include "OldWoman.h"
 //#include "Scooter.h"
 #include "Road.h"
@@ -13,7 +14,7 @@
 #include "SpecialFood.h"
 //#include "ToxicFood.h"
 //#include "RegularFood.h"
-
+#include <iostream> //for debug
 //============================== using section ===============================
 using HitFunctionPtr = void (*)(GameObject&, GameObject&);
 using Key = std::pair<std::type_index, std::type_index>;
@@ -32,15 +33,16 @@ public:
 //===========================================================================
 namespace
 {
-    //void playerExterminator(GameObject& object1, GameObject& object2)
-    //{
-
-    //}
-    //void exterminatorPlayer(GameObject& object1, GameObject& object2)
-    //{
-    //    playerExterminator(object2, object1);
-    //}
-
+    void playerExterminator(GameObject& object1, GameObject& object2)
+    {
+        std::cout << "player & exterminator collided!\n";
+        Player& player = static_cast<Player&>(object1);
+        player.setState(DIE);
+    }
+    void exterminatorPlayer(GameObject& object1, GameObject& object2)
+    {
+        playerExterminator(object2, object1);
+    }
     ////-------------------------------------------------------------------------
 
     //void playerScooter(GameObject& object1, GameObject& object2)
@@ -65,14 +67,26 @@ namespace
 
     //-------------------------------------------------------------------------
 
-    void playerSpecialFood(GameObject& object1, GameObject& object2)
+    void exterminatorTrash(GameObject& object1, GameObject& object2)
     {
-        SpecialFood& food = static_cast<SpecialFood&>(object2);
-        food.collect();
+        Exterminator& enemy = static_cast<Exterminator&>(object1);
+        b2Vec2 dirFromKey = b2Vec2(0, 0);
+        std::cout << "enemy & trash were collided!\n";
+        if (enemy.getDirection() == LEFT) {
+            dirFromKey = b2Vec2(EMLEFT.x, EMUP.y);
+            enemy.setPhysicsObjectPos(sf::Vector2f(enemy.getLocation().x+dirFromKey.x,
+                enemy.getLocation().y+dirFromKey.y), dirFromKey );
+        }
+        else {
+            dirFromKey = b2Vec2(EMRIGHT.x, EMUP.y);
+            enemy.setPhysicsObjectPos(sf::Vector2f(enemy.getLocation().x+dirFromKey.x,
+                enemy.getLocation().y+dirFromKey.y),dirFromKey );
+        }
+        enemy.updateLoc();
     }
-    void specialFoodPlayer(GameObject& object1, GameObject& object2)
+    void trashExterminator(GameObject& object1, GameObject& object2)
     {
-        playerSpecialFood(object2, object1);
+        exterminatorTrash(object2, object1);
     }
 
     //-------------------------------------------------------------------------
@@ -96,4 +110,16 @@ namespace
     //{
     //    playerRegulerFood(object2, object1);
     //}
+
+     ////-------------------------------------------------------------------------
+
+    void playerSpecialFood(GameObject& object1, GameObject& object2)
+    {
+        Food& food = static_cast<Food&>(object2);
+        food.collect();
+    }
+    void specialFoodPlayer(GameObject& object1, GameObject& object2)
+    {
+        playerSpecialFood(object2, object1);
+    }
 }

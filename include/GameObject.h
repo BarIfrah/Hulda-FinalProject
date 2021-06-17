@@ -27,6 +27,8 @@ public:
 	const sf::IntRect& getIntRect()const;
 	PhysicsObject getPhysicsObj()const;
 	int getID()const { return m_ID; }
+	int getType()const { return m_objType; }
+	sf::FloatRect getGlobalBounds()const;
 	void setPhysicsObjectPos(sf::Vector2f, b2Vec2);
 	void setIntRect(const sf::IntRect&);
 	void flipSprite(const sf::Vector2f&);
@@ -50,5 +52,6 @@ private:
 	sf::IntRect m_intRect;
 	PhysicsObject m_physicsObject;
 	int m_ID;
+	int m_objType;
 	//========================= members section ===============================
 };

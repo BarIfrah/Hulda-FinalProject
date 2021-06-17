@@ -1,17 +1,19 @@
 //============================ include section ===============================
 #pragma once
 #include "Enemy.h"
+#include "Player.h"
 /*============================================================================*/
 class Exterminator: public Enemy
 {
 	//========================== public section ==============================
 public:
 	//================= constractors and destractors section =================
-	Exterminator(b2World&, const sf::Vector2f & = { 0,0 },
-                 const sf::Vector2f & = { 0,0 },  float speed = 6.f);
+	Exterminator(float distanceLim, b2World&, const sf::Vector2f & = { 0,0 },
+		const sf::Vector2f & = { 0,0 }, int ID = 0);
 	//=========================== method section ==============================
     void updateAnimation(const sf::Time&) override;
 //    void resetAnimationTime() override;
+	virtual void move(const sf::Time&,Board&) override;
 	//========================= private section ===============================
 private:
 };

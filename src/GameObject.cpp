@@ -2,6 +2,8 @@
 #include "GameObject.h"
 #include <SFML/Graphics.hpp>
 #include "Resources.h"
+#include "Board.h"
+#include "Utilities.h"
 #include <iostream>
 //============================= public section ===============================
 //==================== Constructors & distructors section ====================
@@ -80,8 +82,8 @@ PhysicsObject GameObject::getPhysicsObj() const
 //============================================================================
 void GameObject::setPhysicsObjectPos(sf::Vector2f newPos, b2Vec2 velocity)
 {
-    updateLoc();
 	m_physicsObject.setPosition(newPos, velocity);
+	updateLoc();
 }
 //============================================================================
 void GameObject::setIntRect(const sf::IntRect& rect){
@@ -107,6 +109,8 @@ void GameObject::setSize(const sf::Vector2u size)
 		(size.y / m_objectSprite.getGlobalBounds().height));
 }
 //============================================================================
+
+//============================================================================
 void GameObject::applyForce(b2Vec2 force) {
     m_physicsObject.applyForce(force);
 }
@@ -115,3 +119,8 @@ b2Vec2 GameObject::getLinearVelocity() {
     return m_physicsObject.getLinearVelocity();
 }
 //============================================================================
+//============================================================================
+sf::FloatRect GameObject::getGlobalBounds() const
+{
+	return getSprite().getGlobalBounds();
+}

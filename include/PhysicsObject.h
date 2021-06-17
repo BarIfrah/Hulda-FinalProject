@@ -12,7 +12,7 @@ private:
   //  Type_t          m_type;
 
 public:
-
+    PhysicsObject() = default;
     PhysicsObject(b2World&, const sf::Vector2f&, const bool, const sf::Vector2f&/*, const Type_t*/);
     ~PhysicsObject();
 

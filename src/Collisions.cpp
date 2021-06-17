@@ -6,10 +6,10 @@ HitMap Collisions::initializeCollisionMap()
 {
     HitMap map;
 
-   /* map[Key(typeid(Player), typeid(Exterminator))] = &playerExterminator;
+    map[Key(typeid(Player), typeid(Exterminator))] = &playerExterminator;
     map[Key(typeid(Exterminator), typeid(Player))] = &exterminatorPlayer;
 
-    map[Key(typeid(Player), typeid(Scooter))] = &playerScooter;
+    /*map[Key(typeid(Player), typeid(Scooter))] = &playerScooter;
     map[Key(typeid(Scooter), typeid(Player))] = &scooterPlayer;
 
     map[Key(typeid(Player), typeid(OldWoman))] = &playerOldWoman;
@@ -17,6 +17,9 @@ HitMap Collisions::initializeCollisionMap()
 
     map[Key(typeid(Player), typeid(SpecialFood))] = &playerSpecialFood;
     map[Key(typeid(SpecialFood), typeid(Player))] = &specialFoodPlayer;
+
+    map[Key(typeid(Exterminator), typeid(Trash))] = &exterminatorTrash;
+    map[Key(typeid(Trash), typeid(Exterminator))] = &trashExterminator;
 
     /*map[Key(typeid(Player), typeid(RegularFood))] = &playerRegulerFood;
     map[Key(typeid(RegularFood), typeid(Player))] = &regulerFoodPlayer;
@@ -53,7 +56,6 @@ void Collisions::HandleCollision(GameObject& object1, GameObject& object2)
     {
         return;
     }
-
     //handle the collision for these objects 
     phf(object1, object2);
 }
