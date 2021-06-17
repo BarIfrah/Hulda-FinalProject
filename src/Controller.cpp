@@ -114,7 +114,7 @@ void Controller::HandleCharacterCollisionWithWindow(MovingObject* character)
         character->setPhysicsObjectPos
         (sf::Vector2f( 70, character->getLocation().y),MDOWN+MRIGHT);
     }
-    if (character->getGlobalBounds().left+ character->getGlobalBounds().width > m_board.getlevelSize().x) {
+    if (character->getGlobalBounds().left+ character->getGlobalBounds().width > m_board.getLevelSize().x) {
         character->setPhysicsObjectPos
         (sf::Vector2f(m_board.getLevelSize().x- character->getGlobalBounds().width, character->getLocation().y), MDOWN + MLEFT);
     }

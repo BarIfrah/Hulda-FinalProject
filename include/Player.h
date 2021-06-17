@@ -21,7 +21,7 @@ public:
 	virtual void move(const sf::Time&,Board&) override;
 	void updateAnimation(const sf::Time&) override;
 //	void resetAnimationTime() override;
-	sf::FloatRect getGlobalBounds()const;
+//	sf::FloatRect getGlobalBounds()const;
 	//=========================== method section ==============================
 	//virtual void playTurn(const sf::Time&, Board&) override;
 	//========================= private section ===============================

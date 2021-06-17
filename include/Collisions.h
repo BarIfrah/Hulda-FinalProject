@@ -37,7 +37,7 @@ namespace
     {
         std::cout << "player & exterminator collided!\n";
         Player& player = static_cast<Player&>(object1);
-        player.setState(DIE);
+        player.setState(DIE, PLAYER_BOX_HEIGHT, PLAYER_BOX_WIDTH);
     }
     void exterminatorPlayer(GameObject& object1, GameObject& object2)
     {
