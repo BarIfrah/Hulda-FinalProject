@@ -18,7 +18,7 @@ PhysicsObject::PhysicsObject(b2World& world, const sf::Vector2f& position, const
 
     m_body = world.CreateBody(&bodyDef);
 
-    polygonShape.SetAsBox(size.x / 2 * MPP, size.y / 2 * MPP);
+    polygonShape.SetAsBox(size.x / 4 * MPP, size.y / 2 * MPP);
     m_fixtureDef.shape = &polygonShape;
     m_fixtureDef.friction = 1; // objPhysicsInfo._friction;
     m_fixtureDef.restitution = 0; // objPhysicsInfo._restitution;

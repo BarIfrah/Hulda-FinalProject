@@ -18,8 +18,8 @@ public:
 	//================= constructors and destructors section =================
 	explicit Player(b2World&, const sf::Vector2f & = { 0,0 },
 		const sf::Vector2f & = { 0,0 },int ID=0);
-	virtual void move(const sf::Time&) override;
-	sf::FloatRect getGlobalBounds()const;
+	virtual void move(const sf::Time&,Board&) override;
+	
 	//=========================== method section ==============================
 	//virtual void playTurn(const sf::Time&, Board&) override;
 	//========================= private section ===============================

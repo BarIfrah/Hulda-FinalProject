@@ -18,7 +18,7 @@ class MovingObject : public GameObject
 public:
 	//================= constructors and destructors section =================
 	MovingObject(b2World&, const sf::Vector2f & = sf::Vector2f(0, 0),
-		const sf::Vector2f & = sf::Vector2f(0, 0),char objectType = NOTHING,int ID=0);
+		const sf::Vector2f & = sf::Vector2f(0, 0),int objectType = NOTHING,int ID=0);
 	//============================ gets section ===============================
 //	int getLookState()const;
 	//sf::Vector2f getInitialLoc()const;
@@ -27,13 +27,14 @@ public:
 	//	virtual void setLocation(const sf::Vector2f&);
 	//	void setLookState(int);
 		//=========================== method section ==============================
-    virtual void move(const sf::Time&) = 0;
+    virtual void move(const sf::Time&, Board&) = 0;
     void resetAnimationTime();
 	void updateAnimation(const sf::Time&);
 	void setState(int);
 	int getState()const;
 	void setDirection(int);
 	int getDirection()const;
+	sf::Vector2f getInitialLocation()const;
 		//========================= protected section ==============================
 protected:
 //	virtual void setState(int);
@@ -45,4 +46,5 @@ private:
 	int m_state;
 	int m_direction;
 	sf::Time m_animationTime;
+	sf::Vector2f m_initialLocation;
 };

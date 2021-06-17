@@ -10,9 +10,11 @@ target_sources (Hulda PRIVATE "main.cpp"
 "Exterminator.cpp"
 "Board.cpp"
 "Road.cpp"
+"Adanit.cpp"
 "Trash.cpp"
 "Food.cpp"
 "SpecialFood.cpp"
 "PhysicsObject.cpp"
 "CollisionsListener.cpp"
-"Collisions.cpp")
+"Collisions.cpp"
+"Utilities.cpp")

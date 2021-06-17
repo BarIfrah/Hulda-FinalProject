@@ -62,17 +62,36 @@ vector<vector<char>> DataReader::readNextLevel() {
                         row.push_back(PLAYER);
                         break;
                     }
-
                     case EXTERMINATOR: {
                         row.push_back(EXTERMINATOR);
                         break;
                     }
-                    case FOOD: {
-                        row.push_back(FOOD);
+                    case OLD_WOMAN: {
+                        row.push_back(OLD_WOMAN);
+                        break;
+                    }
+                    case SCOOTER: {
+                        row.push_back(SCOOTER);
+                        break;
+                    }
+                    case SPECIAL_FOOD: {
+                        row.push_back(SPECIAL_FOOD);
+                        break;
+                    }
+                    case REGULAR_FOOD: {
+                        row.push_back(REGULAR_FOOD);
+                        break;
+                    }
+                    case TOXIC_FOOD: {
+                        row.push_back(TOXIC_FOOD);
                         break;
                     }
                     case ROAD: {
                         row.push_back(ROAD);
+                        break;
+                    }
+                    case ADANIT: {
+                        row.push_back(ADANIT);
                         break;
                     }
                     case TRASH: {

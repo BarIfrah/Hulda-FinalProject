@@ -14,8 +14,7 @@ public:
 	OldWoman(const sf::Vector2f & = sf::Vector2f(0, 0),
 		const sf::Vector2f & = sf::Vector2f(0, 0));
 	//=========================== methods section ============================
-	virtual void playTurn(const sf::Time&, Board&)override;
-	virtual void handleCollision(Road&, const sf::Vector2f&)override;
+	//virtual void move(const sf::Time&, Board&)override;
 	//========================= private section ==============================
 private:
 	bool m_turn;

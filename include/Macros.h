@@ -15,10 +15,14 @@ constexpr auto RAND_ENEMY_TIME = 1;
 
 // game objects symbols
 constexpr auto PLAYER = '@';
-constexpr auto ENEMY = '%';
-constexpr auto EXTERMINATOR = '?';
-constexpr auto FOOD = '*';
+constexpr auto EXTERMINATOR = 'E';
+constexpr auto OLD_WOMAN = 'W';
+constexpr auto SCOOTER = 'S';
+constexpr auto SPECIAL_FOOD = 'O';
+constexpr auto REGULAR_FOOD = 'o';
+constexpr auto TOXIC_FOOD = '*';
 constexpr auto ROAD = '#';
+constexpr auto ADANIT = '-';
 constexpr auto NOTHING = ' ';
 constexpr auto TRASH = 'T';
 
@@ -86,6 +90,7 @@ constexpr auto REGULAR_FOOD_PATH = "regularfood.png";
 constexpr auto TOXIC_FOOD_PATH = "toxicfood.png";
 constexpr auto SPECIAL_FOOD_PATH = "specialfood.png";
 constexpr auto ROAD_PATH = "road.png";
+constexpr auto ADANIT_PATH = "adanitKahol.png";
 constexpr auto GAME_STATE_PATH = "game_state.jpg";
 constexpr auto TRASH_PATH = "trash.png";
 //--------------------------------- musics -----------------------------------
@@ -125,6 +130,7 @@ constexpr auto TOXIC_FOOD_T = 15;
 constexpr auto SPECIAL_FOOD_T = 16;
 constexpr auto ROAD_T = 17;
 constexpr auto TRASH_T = 18;
+constexpr auto ADANIT_T = 19;
 
 //--------------------------------- sounds -----------------------------------
 constexpr auto REGULAR_FOOD_SOUND = 0;
@@ -150,14 +156,18 @@ const int VELITER = 6;
 const int POSITER = 2;
 const bool STATIC = false;
 const bool DYNAMIC = true;
-
-const b2Vec2 MUP(0, -8);
-const b2Vec2 MUP_RIGHT (2, -8);
-const b2Vec2 MUP_LEFT(-2, -8);
+//player velocity
+const b2Vec2 MUP(0, -6);
 const b2Vec2 MRIGHT (2, 0);
 const b2Vec2 MLEFT (-2, 0);
 const b2Vec2 MDOWN (0, 8);
+//enemy velocity
+const b2Vec2 EMUP(0, -3);
+const b2Vec2 EMRIGHT(1, 0);
+const b2Vec2 EMLEFT(-1, 0);
+const b2Vec2 EMDOWN(0, 4);
 
+const float ENEMY_DISTANCE_LIMIT = 20.f;
 
 
 

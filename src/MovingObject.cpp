@@ -2,10 +2,10 @@
 #include "Resources.h"
 //==================== Constructors & destructors section ====================
 MovingObject::MovingObject(b2World& world, const sf::Vector2f& location,
-    const sf::Vector2f& size, char objectType,int ID)
+    const sf::Vector2f& size, int objectType,int ID)
     : GameObject(DYNAMIC, world, location, size, objectType, true,ID),
-m_direction(RIGHT),
-m_state(IDLE) {
+	m_direction(RIGHT), m_state(IDLE), m_initialLocation(location)
+{
     m_objectSprite = getSpritePtr();
 }
 //===========================================================================
@@ -47,6 +47,11 @@ void MovingObject::setDirection(int direction) {
 //===========================================================================
 int MovingObject::getDirection()const {
     return m_direction;
+}
+//===========================================================================
+sf::Vector2f MovingObject::getInitialLocation() const
+{
+	return m_initialLocation;
 }
 //===========================================================================
 void MovingObject::resetAnimationTime() {

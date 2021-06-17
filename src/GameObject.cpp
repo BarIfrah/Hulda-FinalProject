@@ -8,10 +8,10 @@
 //============================= public section ===============================
 //==================== Constructors & distructors section ====================
 GameObject::GameObject(const bool isDynamic, b2World& world ,const sf::Vector2f& location,
-                       const sf::Vector2f& size, char objectType, bool isAnimated, int ID)
+                       const sf::Vector2f& size, int objectType, bool isAnimated, int ID)
         : m_intRect(0, 0, CHARACTER_WIDTH, CHARACTER_HEIGHT),
           m_objectSprite(Resources::instance().getTexture(objectType),this->m_intRect),
-          m_isAnimated(isAnimated), m_physicsObject(world, location, isDynamic, size),m_ID(ID)
+          m_isAnimated(isAnimated), m_physicsObject(world, location, isDynamic, size),m_ID(ID),m_objType(objectType)
 {
     this->m_objectSprite.setPosition(location);
 
@@ -19,6 +19,7 @@ GameObject::GameObject(const bool isDynamic, b2World& world ,const sf::Vector2f&
         m_intRect.width = m_objectSprite.getTexture()->getSize().x;
         m_intRect.height = m_objectSprite.getTexture()->getSize().y;
     }
+
     m_objectSprite.setTextureRect(m_intRect);
     setSize(sf::Vector2u(size));
     updateLoc();
@@ -63,8 +64,8 @@ PhysicsObject GameObject::getPhysicsObj() const
 //============================================================================
 void GameObject::setPhysicsObjectPos(sf::Vector2f newPos, b2Vec2 velocity)
 {
-    updateLoc();
 	m_physicsObject.setPosition(newPos, velocity);
+	updateLoc();
 }
 //============================================================================
 void GameObject::setIntRect(const sf::IntRect& rect){
@@ -91,11 +92,16 @@ void GameObject::setSize(const sf::Vector2u size)
 		(size.y / m_objectSprite.getGlobalBounds().height));
 }
 
-
+//============================================================================
 void GameObject::applyForce(b2Vec2 force) {
     m_physicsObject.applyForce(force);
 }
-
+//============================================================================
 b2Vec2 GameObject::getLinearVelocity() {
     return m_physicsObject.getLinearVelocity();
+}
+//============================================================================
+sf::FloatRect GameObject::getGlobalBounds() const
+{
+	return getSprite().getGlobalBounds();
 }
