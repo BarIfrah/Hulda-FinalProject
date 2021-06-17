@@ -32,10 +32,10 @@ public:
 	~Board() = default;
 	//============================ gets section ==============================
 	int getLevelTime()const;
-	const sf::Vector2f& getlevelSize()const;
+	const sf::Vector2f& getLevelSize() const;
 	const sf::Vector2f& getLocation() const;
 	sf::Vector2f getObjectSize()const;
-	GameObject* getObjWithId(const int);
+	GameObject* getObjWithId(int);
 	Collisions getCollisionObj() const { return m_collision; }
 	const sf::Vector2f& getPlayerLoc()const;
 	//=========================== method section =============================

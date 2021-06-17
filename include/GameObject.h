@@ -15,7 +15,7 @@ class GameObject {
 public:
 	//================= constractors and destractors section =================
 	GameObject(
-		const bool, b2World&,const sf::Vector2f & = { 0, 0 },
+		const bool, b2World&, const sf::Vector2f & = { 0, 0 },
 		const sf::Vector2f & = { 0, 0 },char objectType = NOTHING,
 		bool isAnimated = false, int ID=0);
 	virtual ~GameObject() = 0;

@@ -10,6 +10,8 @@ public:
 	Exterminator(b2World&, const sf::Vector2f & = { 0,0 },
                  const sf::Vector2f & = { 0,0 },  float speed = 6.f);
 	//=========================== method section ==============================
+    void updateAnimation(const sf::Time&) override;
+//    void resetAnimationTime() override;
 	//========================= private section ===============================
 private:
 };

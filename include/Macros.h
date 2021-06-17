@@ -109,12 +109,20 @@ constexpr auto OLD_WOMAN_SOUND_PATH = "old_womanSound.wav";
 constexpr auto GAME_LOGO_PATH = "Logo.png";
 
 //============================ game files consts =============================
+//---------------------------- sprite sheet control --------------------------
+//player:
+constexpr auto PLAYER_BOX_WIDTH = 626;
+constexpr auto PLAYER_BOX_HEIGHT = 534;
+constexpr auto PLAYER_OFFSET = 230;
+constexpr auto PLAYER_SPECIAL_OFFSET = 320;
+
 //-------------------------------- textures ----------------------------------
 //------------------------------- backgrounds --------------------------------
 constexpr auto MENU_BACKGROUND = 1;
 constexpr auto LEVEL_BACKGROUND = 2;
 constexpr auto GAME_STATE = 9;
-constexpr auto BACKGROUND_SIZE = 7185; //pixels
+constexpr auto BACKGROUND_WIDTH = 7185; //pixels
+constexpr auto BACKGROUND_HEIGHT = 1582;
 //------------------------------- objects -------------------------------------
 constexpr auto PLAYER_T = 10;
 constexpr auto SCOOTER_T = 11;

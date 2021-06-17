@@ -8,7 +8,6 @@
 #include "Macros.h"
 #include "Resources.h"
 #include <vector>
-#include "Utilities.h"
 #include "Player.h"
 //#include "Enemy.h"
 #include "Road.h"
@@ -30,8 +29,8 @@ Board::Board(const sf::Vector2f& location,
 }
 //================================ gets section ==============================
 //============================================================================
-const sf::Vector2f& Board::getlevelSize()const {
-	return this->m_background.getSize();
+const sf::Vector2f& Board::getLevelSize()const {
+    return this->m_background.getSize();
 }
 //============================================================================
 const sf::Vector2f& Board::getLocation() const {
@@ -47,8 +46,8 @@ const sf::Vector2f& Board::getPlayerLoc()const {
 }
 //============================================================================
 sf::Vector2f Board::getObjectSize()const {
-	return sf::Vector2f{ this->getlevelSize().x / this->m_map[0].size(),
-		this->getlevelSize().y / this->m_map.size() };
+	return sf::Vector2f{this->getLevelSize().x / this->m_map[0].size(),
+                         this->getLevelSize().y / this->m_map.size() };
 }
 //============================ methods section ===============================
 void Board::draw(sf::RenderWindow& window, const sf::Time& deltaTime) {
@@ -68,8 +67,8 @@ void Board::draw(sf::RenderWindow& window, const sf::Time& deltaTime) {
 Player* Board::loadNewLevel(b2World& world) {
 	vector<vector<char>> map = m_levelReader.readNextLevel();
 	//vector<MovingObject*> movingsVec = {};
-	sf::Vector2f boxSize(getlevelSize().x / map[0].size(),
-		getlevelSize().y / map.size());
+	sf::Vector2f boxSize(getLevelSize().x / map[0].size(),
+                         getLevelSize().y / map.size());
 	loadLevelEffects(1);
 
 	//reset last load parameters:
@@ -77,7 +76,8 @@ Player* Board::loadNewLevel(b2World& world) {
 	m_map.resize(map.size());
 
 	int ID = 0;
-
+///    std::cout << "BOXSIZE  " << boxSize.x << " " << boxSize.y << "\n";
+///    std::cout << "LEVEL SIZE " << getLevelSize().x << " map 0  size " << map[0].size() << "  y: " << getLevelSize().y << " map size" << map.size() << '\n';
 	//allocating level's objects:
 	for (int y = 0; y < map.size(); y++) {
 		for (int x = 0; x < map[y].size(); x++) {
@@ -85,7 +85,7 @@ Player* Board::loadNewLevel(b2World& world) {
 			{
 			case PLAYER: {
                 m_map[y].push_back(std::make_unique<Player>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y) + m_location,sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
+				(int(boxSize.x) * x, int(boxSize.y) * y - 200) ,sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
                 //movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
                 m_player = (Player *) m_map[y][x].get();
                 m_ObjWithID.insert(std::pair<int, GameObject *>(ID, m_map[y][x].get()));
@@ -94,25 +94,25 @@ Player* Board::loadNewLevel(b2World& world) {
             }
             case EXTERMINATOR: {
                 m_map[y].push_back(std::make_unique<Exterminator>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y) +m_location + sf::Vector2f(0, -200),sf::Vector2f(2 * boxSize.x, 2 * boxSize.y)));
+				(int(boxSize.x) * x, int(boxSize.y) * y)+ sf::Vector2f(0, -200),sf::Vector2f(2 * boxSize.x, 2 * boxSize.y)));
                 //movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
                 break;
             }
 			case ROAD:
 				m_map[y].push_back(std::make_unique <Road>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y) + m_location, sf::Vector2f(boxSize.x, boxSize.y),ID));
+				(int(boxSize.x) * x, int(boxSize.y) * y) , sf::Vector2f(boxSize.x, boxSize.y),ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
 			case TRASH:
 				m_map[y].push_back(std::make_unique <Trash>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y) + m_location, boxSize,ID));
+				(int(boxSize.x) * x, int(boxSize.y) * y) , boxSize,ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
 			case FOOD:
 				m_map[y].push_back(std::make_unique <SpecialFood>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y) + m_location, boxSize,ID));
+				(int(boxSize.x) * x, int(boxSize.y) * y), boxSize,ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;

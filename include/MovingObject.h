@@ -29,11 +29,15 @@ public:
 		//=========================== method section ==============================
     virtual void move(const sf::Time&) = 0;
     void resetAnimationTime();
-	void updateAnimation(const sf::Time&);
-	void setState(int);
+    void setAnimationTime(const sf::Time&);
+    sf::Time getAnimationTime() const;
+	virtual void updateAnimation(const sf::Time&) = 0;
+	void setState(int state, int height, int width);
 	int getState()const;
 	void setDirection(int);
 	int getDirection()const;
+	void setObjectSpriteOrigin(const sf::Vector2f &);
+	sf::Sprite getObjectSprite();
 		//========================= protected section ==============================
 protected:
 //	virtual void setState(int);
