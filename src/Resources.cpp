@@ -97,8 +97,8 @@ void Resources::setBackgrounds() {
     //--------------------------------------------------------
     texturesCreator = std::make_unique<sf::Texture>();
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
-        (HIGHMENU, std::move(texturesCreator)));
-    this->m_texture[HIGHMENU]->loadFromFile(HELPMENU_PATH);
+        (HELPMENU, std::move(texturesCreator)));
+    this->m_texture[HELPMENU]->loadFromFile(HELPMENU_PATH);
     
     //adding levels background path
 }

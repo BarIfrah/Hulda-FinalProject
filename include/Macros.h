@@ -74,8 +74,8 @@ constexpr auto ARIEL_FONT_PATH = "ARIALBD.TTF";
 //---------------------------- picture section -------------------------------
 constexpr auto MENU_BACKGROUND_PATH = "MenuBackground.png";
 constexpr auto MENU_PATH = "RATBlack.jpg";
-constexpr auto HIGHMENU_PATH = "RATBlack.jpg";
-constexpr auto HELPMENU_PATH = "RATBlack.jpg";
+constexpr auto HIGHMENU_PATH = "backgrounds.jpg";
+constexpr auto HELPMENU_PATH = "backgrounds.jpg";
 constexpr auto LEVEL1_BACKGROUND_PATH = "level1.jpeg";
 constexpr auto LEVEL2_BACKGROUND_PATH = "level2.png";
 constexpr auto LEVEL3_BACKGROUND_PATH = "level3.jpeg";
@@ -165,8 +165,8 @@ const b2Vec2 MLEFT (-2, 0);
 const b2Vec2 MDOWN (0, 8);
 
 
-const int WIN_WIDTH = 1000;
-const int WIN_HEIGHT = 700;
+const int WIN_WIDTH = 1800;
+const int WIN_HEIGHT = 1080;
 
 const int MSG_WIDTH = 100;
 const int MSG_HEIGHT = 200;
