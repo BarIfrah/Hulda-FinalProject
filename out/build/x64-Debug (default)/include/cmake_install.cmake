@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/holtz/OneDrive/Desktop/NEWarielSHARONBAR/include
+# Install script for directory: C:/Users/sharonlevi/source/repos/Hulda-FinalProject/include
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Users/holtz/OneDrive/Desktop/NEWarielSHARONBAR/out/install/x64-Debug (default)")
+  set(CMAKE_INSTALL_PREFIX "C:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/install/x64-Debug (default)")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

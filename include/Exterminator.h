@@ -11,7 +11,7 @@ public:
 	Exterminator(float distanceLim, b2World&, const sf::Vector2f & = { 0,0 },
 		const sf::Vector2f & = { 0,0 }, int ID = 0);
 	//=========================== method section ==============================
-    void updateAnimation(const sf::Time&) override;
+   
 //    void resetAnimationTime() override;
 	virtual void move(const sf::Time&,Board&) override;
 	//========================= private section ===============================

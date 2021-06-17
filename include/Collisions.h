@@ -6,14 +6,12 @@
 
 #include "GameObject.h"
 #include "Player.h"
+#include "Enemy.h"
 #include "Exterminator.h"
-//#include "OldWoman.h"
-//#include "Scooter.h"
+#include "Scooter.h"
 #include "Road.h"
 #include "Trash.h"
-#include "SpecialFood.h"
-//#include "ToxicFood.h"
-//#include "RegularFood.h"
+#include "Food.h"
 #include <iostream> //for debug
 //============================== using section ===============================
 using HitFunctionPtr = void (*)(GameObject&, GameObject&);
@@ -33,55 +31,22 @@ public:
 //===========================================================================
 namespace
 {
-    void playerExterminator(GameObject& object1, GameObject& object2)
+    void playerEnemy(GameObject& object1, GameObject& object2)
     {
-        std::cout << "player & exterminator collided!\n";
         Player& player = static_cast<Player&>(object1);
         player.setState(DIE, PLAYER_BOX_HEIGHT, PLAYER_BOX_WIDTH);
     }
-    void exterminatorPlayer(GameObject& object1, GameObject& object2)
+    void enemyPlayer(GameObject& object1, GameObject& object2)
     {
-        playerExterminator(object2, object1);
+        playerEnemy(object2, object1);
     }
-    ////-------------------------------------------------------------------------
-
-    //void playerScooter(GameObject& object1, GameObject& object2)
-    //{
-
-    //}
-    //void scooterPlayer(GameObject& object1, GameObject& object2)
-    //{
-    //    playerScooter(object2, object1);
-    //}
-
-    ////-------------------------------------------------------------------------
-
-    //void playerOldWoman(GameObject& object1, GameObject& object2)
-    //{
-
-    //}
-    //void oldWomanPlayer(GameObject& object1, GameObject& object2)
-    //{
-    //    playerOldWoman(object2, object1);
-    //}
-
     //-------------------------------------------------------------------------
 
     void exterminatorTrash(GameObject& object1, GameObject& object2)
     {
         Exterminator& enemy = static_cast<Exterminator&>(object1);
-        b2Vec2 dirFromKey = b2Vec2(0, 0);
-        std::cout << "enemy & trash were collided!\n";
-        if (enemy.getDirection() == LEFT) {
-            dirFromKey = b2Vec2(EMLEFT.x, EMUP.y);
-            enemy.setPhysicsObjectPos(sf::Vector2f(enemy.getLocation().x+dirFromKey.x,
-                enemy.getLocation().y+dirFromKey.y), dirFromKey );
-        }
-        else {
-            dirFromKey = b2Vec2(EMRIGHT.x, EMUP.y);
-            enemy.setPhysicsObjectPos(sf::Vector2f(enemy.getLocation().x+dirFromKey.x,
-                enemy.getLocation().y+dirFromKey.y),dirFromKey );
-        }
+        enemy.setPhysicsObjectPos(sf::Vector2f(enemy.getPhysicsObj().getPosition().x+MUP.x,
+            enemy.getPhysicsObj().getPosition().y + MUP.y), b2Vec2(MUP));
         enemy.updateLoc();
     }
     void trashExterminator(GameObject& object1, GameObject& object2)
@@ -91,35 +56,37 @@ namespace
 
     //-------------------------------------------------------------------------
 
-    //void playerToxicFood(GameObject& object1, GameObject& object2)
-    //{
-
-    //}
-    //void toxicFoodPlayer(GameObject& object1, GameObject& object2)
-    //{
-    //    playerToxicFood(object2, object1);
-    //}
-
-    ////-------------------------------------------------------------------------
-
-    //void playerRegulerFood(GameObject& object1, GameObject& object2)
-    //{
-    //    
-    //}
-    //void regulerFoodPlayer(GameObject& object1, GameObject& object2)
-    //{
-    //    playerRegulerFood(object2, object1);
-    //}
+    void scooterTrash(GameObject& object1, GameObject& object2)
+    {
+        b2Vec2 dirFromKey = b2Vec2(0, 0);
+        Scooter& enemy = static_cast<Scooter&>(object1);
+        if (enemy.getDirection() == RIGHT) {
+            dirFromKey = MLEFT;
+            enemy.setDirection(LEFT);
+        }
+        else {
+            dirFromKey = MLEFT;
+            enemy.setDirection(RIGHT);
+        }
+        enemy.flipSprite(sf::Vector2f(-1.f, 1.f));
+        enemy.setPhysicsObjectPos(sf::Vector2f(enemy.getPhysicsObj().getPosition().x + dirFromKey.x,
+            enemy.getPhysicsObj().getPosition().y + dirFromKey.y), dirFromKey);
+        enemy.updateLoc();
+    }
+    void trashScooter(GameObject& object1, GameObject& object2)
+    {
+        scooterTrash(object2, object1);
+    }
 
      ////-------------------------------------------------------------------------
 
-    void playerSpecialFood(GameObject& object1, GameObject& object2)
+    void playerFood(GameObject& object1, GameObject& object2)
     {
         Food& food = static_cast<Food&>(object2);
         food.collect();
     }
-    void specialFoodPlayer(GameObject& object1, GameObject& object2)
+    void foodPlayer(GameObject& object1, GameObject& object2)
     {
-        playerSpecialFood(object2, object1);
+        playerFood(object2, object1);
     }
 }

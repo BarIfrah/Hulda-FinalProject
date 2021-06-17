@@ -6,7 +6,7 @@
 //============================================================================
 
 Controller::Controller()
-        : m_window(sf::VideoMode(1920, 1080), "Hulda", sf::Style::Titlebar | sf::Style::Close),
+        : m_window(sf::VideoMode(1000, 700), "Hulda", sf::Style::Titlebar | sf::Style::Close),
         m_board(sf::Vector2f(0, 0),
             sf::Vector2f((float)BACKGROUND_WIDTH, (float)m_window.getSize().y)),
         m_player(nullptr),

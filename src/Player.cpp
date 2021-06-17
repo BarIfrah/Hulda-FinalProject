@@ -19,10 +19,8 @@ speedUp is possible.*/
 void Player::move(const sf::Time& deltaTime,Board& CurrentLevel) {
     b2Vec2 dirFromKey = b2Vec2(0, 0);
     int state = IDLE;
-
     if (getState() == DIE) {
         updateAnimation(deltaTime);
-        //return;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {        ///Move Up
         dirFromKey = b2Vec2(getLinearVelocity().x, MUP.y);
@@ -59,20 +57,12 @@ void Player::move(const sf::Time& deltaTime,Board& CurrentLevel) {
         updateLoc();
         setPhysicsObjectPos(sf::Vector2f(getLocation().x + dirFromKey.x,
                                          getLocation().y + dirFromKey.y), dirFromKey);
-
-
         updateAnimation(deltaTime);
     } else {
         updateLoc();
-        updateAnimation(deltaTime);
+        //updateAnimation(deltaTime);
     }
 }
-//
-//sf::FloatRect Player::getGlobalBounds() const
-//{
-//
-//    return getSprite().getGlobalBounds();
-//}
 
 //===========================================================================
 void Player::updateAnimation(const sf::Time &deltaTime ) {
@@ -87,9 +77,7 @@ void Player::updateAnimation(const sf::Time &deltaTime ) {
             updatedRect.left += PLAYER_BOX_WIDTH;
 
         }
-
-        //	std::cout << m_objectSprite->getGlobalBounds().width << " " << m_objectSprite->getTextureRect().height << '\n';
-        setObjectSpriteOrigin(sf::Vector2f (getObjectSprite().getGlobalBounds().width / 2.f, getObjectSprite().getGlobalBounds().height / 2.f));
+        setOrigin();
         setIntRect(updatedRect);
     }
 }

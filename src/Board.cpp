@@ -15,6 +15,7 @@
 #include "Trash.h"
 #include "SpecialFood.h"
 #include "Exterminator.h"
+#include "Scooter.h"
 using std::vector;
 //====================== Constructors & distructors section ==================
 Board::Board(const sf::Vector2f& location,
@@ -101,6 +102,14 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 				ID++;
                 break;
             }
+			case SCOOTER: {
+				m_map[y].push_back(std::make_unique<Scooter>(ENEMY_DISTANCE_LIMIT, world, sf::Vector2f
+				(boxSize.x * x, boxSize.y * y), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
+				movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
+				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
+				ID++;
+				break;
+			}
 			case ROAD:
 				m_map[y].push_back(std::make_unique <Road>(world, sf::Vector2f
 				(boxSize.x * x, boxSize.y * y) , sf::Vector2f(boxSize.x, boxSize.y),ID));

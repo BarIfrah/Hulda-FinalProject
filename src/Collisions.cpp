@@ -6,26 +6,17 @@ HitMap Collisions::initializeCollisionMap()
 {
     HitMap map;
 
-    map[Key(typeid(Player), typeid(Exterminator))] = &playerExterminator;
-    map[Key(typeid(Exterminator), typeid(Player))] = &exterminatorPlayer;
+    map[Key(typeid(Player), typeid(Enemy))] = &playerEnemy;
+    map[Key(typeid(Enemy), typeid(Player))] = &enemyPlayer;
 
-    /*map[Key(typeid(Player), typeid(Scooter))] = &playerScooter;
-    map[Key(typeid(Scooter), typeid(Player))] = &scooterPlayer;
-
-    map[Key(typeid(Player), typeid(OldWoman))] = &playerOldWoman;
-    map[Key(typeid(OldWoman), typeid(Player))] = &oldWomanPlayer;*/
-
-    map[Key(typeid(Player), typeid(SpecialFood))] = &playerSpecialFood;
-    map[Key(typeid(SpecialFood), typeid(Player))] = &specialFoodPlayer;
+    map[Key(typeid(Player), typeid(Food))] = &playerFood;
+    map[Key(typeid(Food), typeid(Player))] = &foodPlayer;
 
     map[Key(typeid(Exterminator), typeid(Trash))] = &exterminatorTrash;
     map[Key(typeid(Trash), typeid(Exterminator))] = &trashExterminator;
 
-    /*map[Key(typeid(Player), typeid(RegularFood))] = &playerRegulerFood;
-    map[Key(typeid(RegularFood), typeid(Player))] = &regulerFoodPlayer;
-
-    map[Key(typeid(Player), typeid(ToxicFood))] = &playerToxicFood;
-    map[Key(typeid(ToxicFood), typeid(Player))] = &toxicFoodPlayer;*/
+    map[Key(typeid(Scooter), typeid(Trash))] = &scooterTrash;
+    map[Key(typeid(Trash), typeid(Scooter))] = &trashScooter;
 
     return map;
 }
