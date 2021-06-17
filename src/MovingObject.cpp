@@ -84,7 +84,7 @@ sf::Sprite MovingObject::getObjectSprite() {
 }
 
 void MovingObject::setObjectSpriteOrigin(const sf::Vector2f & origin) {
-    m_objectSprite->setOrigin(origin);
+    //m_objectSprite->setOrigin(origin);
 }
 
 void MovingObject::setAnimationTime(const sf::Time & deltaTime) {

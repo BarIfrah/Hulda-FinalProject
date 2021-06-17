@@ -34,6 +34,7 @@ public:
 	void flipSprite(const sf::Vector2f&);
 	void updateLoc();
 	void setSize(const sf::Vector2u);
+	void setOrigin();
 
     b2Vec2 getLinearVelocity();
     b2Vec2 getForceApplied();

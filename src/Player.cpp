@@ -9,10 +9,8 @@
 Player::Player(b2World& world ,const sf::Vector2f& location,
 	const sf::Vector2f& size,int ID)
 	: MovingObject(world, location, size, PLAYER_T, ID){
-    setIntRect(sf::IntRect (0,0,PLAYER_BOX_WIDTH, PLAYER_BOX_HEIGHT)),
-    setObjectSpriteOrigin({ getGlobalBounds().width , 0.f});
-
-
+    setIntRect(sf::IntRect(0, 0, PLAYER_BOX_WIDTH, PLAYER_BOX_HEIGHT));
+   // setObjectSpriteOrigin({ getGlobalBounds().width , 0.f});
 }
 //============================ methods section ===============================
 /*this method manage the movements of the player. the method realize if the
@@ -91,7 +89,7 @@ void Player::updateAnimation(const sf::Time &deltaTime ) {
         }
 
         //	std::cout << m_objectSprite->getGlobalBounds().width << " " << m_objectSprite->getTextureRect().height << '\n';
-        setObjectSpriteOrigin(sf::Vector2f (getObjectSprite().getGlobalBounds().width / 2.f, 0.f));
+        setObjectSpriteOrigin(sf::Vector2f (getObjectSprite().getGlobalBounds().width / 2.f, getObjectSprite().getGlobalBounds().height / 2.f));
         setIntRect(updatedRect);
     }
 }

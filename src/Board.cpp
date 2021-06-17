@@ -95,8 +95,10 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
             }
             case EXTERMINATOR: {
                 m_map[y].push_back(std::make_unique<Exterminator>(ENEMY_DISTANCE_LIMIT ,world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y) ,sf::Vector2f(2 * boxSize.x, 2 * boxSize.y)));
+				(boxSize.x * x, boxSize.y * y) ,sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
                 movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
+				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
+				ID++;
                 break;
             }
 			case ROAD:
