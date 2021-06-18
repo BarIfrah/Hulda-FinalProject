@@ -58,22 +58,17 @@ void GameObject::updateLoc()
 //============================ methods section ===============================
 void GameObject::draw(sf::RenderWindow& window) {
 	m_objectSprite.setTextureRect(m_intRect);
-
+//-------------------------------------
 /// for origin debugging purposes:
 	sf::CircleShape circ;
-
-//	circ.setSize(sf::Vector2f(m_intRect.height, m_intRect.width));
 	circ.setOutlineColor(sf::Color::Red);
 	circ.setFillColor(sf::Color::Red);
 	circ.setRadius(4.f);
 	circ.setPosition(m_objectSprite.getPosition());
-	//circ.setFillColor(sf::Color::Red);
-    ///drawrec
     window.draw(circ);
-
+//-------------------------------------
     ///draw
     window.draw(m_objectSprite);
-    /// till here
 }
 //============================================================================
 const sf::IntRect& GameObject::getIntRect()const { return m_intRect; }

@@ -6,7 +6,7 @@
 //============================================================================
 
 Controller::Controller()
-        : m_window(sf::VideoMode(1000, 700), "Hulda", sf::Style::Titlebar | sf::Style::Close),
+        : m_window(sf::VideoMode(1500, 1000), "Hulda", sf::Style::Titlebar | sf::Style::Close),
         m_board(sf::Vector2f(0, 0),
             sf::Vector2f((float)BACKGROUND_WIDTH, (float)m_window.getSize().y)),
         m_player(nullptr),
@@ -18,6 +18,7 @@ Controller::Controller()
     m_world = new b2World(b2Vec2(0, 9.81));
     m_world->SetContactListener(&m_listener);
     m_listener.setCurrentBoard(m_board);
+    srand((unsigned int)time(NULL));
 }
 
 //============================================================================
@@ -31,9 +32,7 @@ void Controller::run() {
         drawObjects();
         m_window.display();
         handleGameEvents();
-        //m_listener.BeginContact(m_world->GetContactList());
     }
-
 }
 //============================================================================
 /*

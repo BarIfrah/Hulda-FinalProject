@@ -9,8 +9,14 @@ HitMap Collisions::initializeCollisionMap()
     map[Key(typeid(Player), typeid(Enemy))] = &playerEnemy;
     map[Key(typeid(Enemy), typeid(Player))] = &enemyPlayer;
 
-    map[Key(typeid(Player), typeid(Food))] = &playerFood;
-    map[Key(typeid(Food), typeid(Player))] = &foodPlayer;
+    map[Key(typeid(Player), typeid(SpecialFood))] = &playerFood;
+    map[Key(typeid(SpecialFood), typeid(Player))] = &foodPlayer;
+
+    map[Key(typeid(Player), typeid(ToxicFood))] = &playerFood;
+    map[Key(typeid(ToxicFood), typeid(Player))] = &foodPlayer;
+
+    map[Key(typeid(Player), typeid(RegularFood))] = &playerFood;
+    map[Key(typeid(RegularFood), typeid(Player))] = &foodPlayer;
 
     map[Key(typeid(Exterminator), typeid(Trash))] = &exterminatorTrash;
     map[Key(typeid(Trash), typeid(Exterminator))] = &trashExterminator;

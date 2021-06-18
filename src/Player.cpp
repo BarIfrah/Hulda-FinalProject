@@ -19,9 +19,6 @@ speedUp is possible.*/
 void Player::move(const sf::Time& deltaTime,Board& CurrentLevel) {
     b2Vec2 dirFromKey = b2Vec2(0, 0);
     int state = IDLE;
-    if (getState() == DIE) {
-        updateAnimation(deltaTime);
-    }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {        ///Move Up
         dirFromKey = b2Vec2(getLinearVelocity().x, MUP.y);
         state = JUMP;

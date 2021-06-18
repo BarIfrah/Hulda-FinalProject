@@ -19,8 +19,7 @@ public:
 	//=========================== method section =============================
 	virtual bool is_collected()const;
 	virtual void draw(sf::RenderWindow&)override;
-	/*virtual void reset();
-	virtual void handleColision(Controller&)=0;*/
+	//virtual void reset();
 	virtual void collect();
 	//====================== privete methods section =========================
 private:

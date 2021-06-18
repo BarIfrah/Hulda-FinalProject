@@ -2,13 +2,16 @@
 configure_file ("ARIALBD.TTF" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("player.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("exterminator.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("enemy.png" ${CMAKE_BINARY_DIR} COPYONLY)
+#configure_file ("scooter.png" ${CMAKE_BINARY_DIR} COPYONLY)
+#configure_file ("oldwoman.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("road.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("adanitKahol.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("adanitSagol.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("specialfood.png" ${CMAKE_BINARY_DIR} COPYONLY)
+#configure_file ("regularfood.png" ${CMAKE_BINARY_DIR} COPYONLY)
+#configure_file ("toxicfood.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("trash.png" ${CMAKE_BINARY_DIR} COPYONLY)
-
+configure_file ("life.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
 #game sounds

@@ -23,11 +23,9 @@ public:
 //	void resetAnimationTime() override;
 //	sf::FloatRect getGlobalBounds()const;
 	//=========================== method section ==============================
-	//virtual void playTurn(const sf::Time&, Board&) override;
+
 	//========================= private section ===============================
 private:
- //   sf::Time m_animationTime;
 	//========================= members section ===============================
 	//====================== private methods section ==========================
-	//void jump(Board&, const sf::Vector2f&, const sf::Time&);
 };

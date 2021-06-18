@@ -12,6 +12,9 @@
 #include "Road.h"
 #include "Trash.h"
 #include "Food.h"
+#include "SpecialFood.h"
+#include "ToxicFood.h"
+#include "RegularFood.h"
 #include <iostream> //for debug
 //============================== using section ===============================
 using HitFunctionPtr = void (*)(GameObject&, GameObject&);
@@ -45,8 +48,8 @@ namespace
     void exterminatorTrash(GameObject& object1, GameObject& object2)
     {
         Exterminator& enemy = static_cast<Exterminator&>(object1);
-        enemy.setPhysicsObjectPos(sf::Vector2f(enemy.getPhysicsObj().getPosition().x+MUP.x,
-            enemy.getPhysicsObj().getPosition().y + MUP.y), b2Vec2(MUP));
+        /*enemy.setPhysicsObjectPos(sf::Vector2f(enemy.getPhysicsObj().getPosition().x+MUP.x,
+            enemy.getPhysicsObj().getPosition().y + MUP.y), b2Vec2(MUP));*/
         enemy.updateLoc();
     }
     void trashExterminator(GameObject& object1, GameObject& object2)

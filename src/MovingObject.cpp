@@ -45,7 +45,7 @@ void MovingObject::setState(int state, int height, int width) {
             offset = 0;
             break;
     }
-    std:: cout << offset << " state: " << state << " mstate  " << m_state << '\n';
+    //std:: cout << offset << " state: " << state << " mstate  " << m_state << '\n';
 
 	if (m_state != state) {
 		sf::IntRect updatedRect = getIntRect();
