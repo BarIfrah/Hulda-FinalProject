@@ -6,8 +6,11 @@ HitMap Collisions::initializeCollisionMap()
 {
     HitMap map;
 
-    map[Key(typeid(Player), typeid(Enemy))] = &playerEnemy;
-    map[Key(typeid(Enemy), typeid(Player))] = &enemyPlayer;
+    map[Key(typeid(Player), typeid(Exterminator))] = &playerEnemy;
+    map[Key(typeid(Exterminator), typeid(Player))] = &enemyPlayer;
+
+    map[Key(typeid(Player), typeid(Scooter))] = &playerEnemy;
+    map[Key(typeid(Scooter), typeid(Player))] = &enemyPlayer;
 
     map[Key(typeid(Player), typeid(SpecialFood))] = &playerFood;
     map[Key(typeid(SpecialFood), typeid(Player))] = &foodPlayer;

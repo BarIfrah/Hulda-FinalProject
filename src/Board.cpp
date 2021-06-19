@@ -14,6 +14,8 @@
 #include "Adanit.h"
 #include "Trash.h"
 #include "SpecialFood.h"
+#include "RegularFood.h"
+#include "ToxicFood.h"
 #include "Exterminator.h"
 #include "Scooter.h"
 using std::vector;
@@ -132,6 +134,18 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 			case SPECIAL_FOOD:
 				m_map[y].push_back(std::make_unique <SpecialFood>(world, sf::Vector2f
 				(boxSize.x * x, boxSize.y * y) , boxSize,ID));
+				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
+				ID++;
+				break;
+			case REGULAR_FOOD:
+				m_map[y].push_back(std::make_unique <RegularFood>(world, sf::Vector2f
+				(boxSize.x * x, boxSize.y * y), boxSize, ID));
+				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
+				ID++;
+				break;
+			case TOXIC_FOOD:
+				m_map[y].push_back(std::make_unique <ToxicFood>(world, sf::Vector2f
+				(boxSize.x * x, boxSize.y * y), boxSize, ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;

@@ -51,14 +51,7 @@ void Resources::setBackgrounds() {
         (MENU_BACKGROUND, std::move(texturesCreator)));
 
     if (!this->m_texture[MENU_BACKGROUND]->loadFromFile(MENU_BACKGROUND_PATH))
-        throw std::exception();
-        
-    //------------------------------------------------------------------------
-    texturesCreator = std::make_unique<sf::Texture>();
-    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
-        (GAME_STATE, std::move(texturesCreator)));
-    this->m_texture[GAME_STATE]->loadFromFile(GAME_STATE_PATH);
-    //adding levels background path
+        throw std::exception("Can't load background");
 }
 //============================================================================
 void Resources::setObjects() {
