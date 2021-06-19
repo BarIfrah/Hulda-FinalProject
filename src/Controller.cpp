@@ -47,15 +47,14 @@ void Controller::drawObjects() {
 
 //============================================================================
 
-void Controller::seperateGameObjects(const vector<MovingObject*>& list)
+void Controller::seperateGameObjects(const vector<MovingObject*>& movingObjects)
 {
     this->m_enemies.clear();
-    for (int i = 0; i < list.size(); ++i) {
-        if (dynamic_cast <Player*> (list[i]))
-            this->m_player = (Player*)list[i];
+    for (auto& obj : movingObjects)
+        if (dynamic_cast<Player*>(obj))
+            m_player = (Player*)obj;
         else
-            this->m_enemies.push_back(list[i]);
-    }
+            m_enemies.push_back(obj);
 }
 
 //============================================================================

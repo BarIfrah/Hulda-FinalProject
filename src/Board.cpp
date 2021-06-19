@@ -54,12 +54,10 @@ sf::Vector2f Board::getObjectSize()const {
 //============================ methods section ===============================
 void Board::draw(sf::RenderWindow& window, const sf::Time& deltaTime) {
 	window.draw(m_background);
-	for (int i = 0; i < this->m_map.size(); i++)
-		for (int j = 0; j < this->m_map[i].size(); j++) {
-			if (m_map[i][j].get() != nullptr) {
-				m_map[i][j]->draw(window);
-			}
-		}
+	for (auto& objects : m_map)
+		for (auto& obj : objects)
+			if (obj.get() != nullptr)
+				obj->draw(window);
 }
 //============================================================================
 /*
@@ -67,11 +65,14 @@ void Board::draw(sf::RenderWindow& window, const sf::Time& deltaTime) {
  * the function build a vector of moving objects ptrs & return it.
  */
 std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
+	//read new level from file:
 	vector<vector<char>> map = m_levelReader.readNextLevel();
-	//vector<MovingObject*> movingsVec = {};
+	//calculate the the size for each character in the board:
 	sf::Vector2f boxSize(getLevelSize().x / map[0].size(),
                          getLevelSize().y / map.size());
+	//initialiaze DS for the dynamic objects:
 	vector<MovingObject*> movingsVec = {};
+
 	loadLevelEffects(1);
 
 	//reset last load parameters:

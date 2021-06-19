@@ -38,9 +38,9 @@ void MovingObject::setState(int state, int height, int width) {
         case JUMP: /// Also applies to 'FALL' state
             offset = 2 * height + PLAYER_OFFSET + PLAYER_SPECIAL_OFFSET;
             break;
-        case FALL: /// same operation but cant avoid this.
+        /*case FALL: /// same operation but cant avoid this.
             offset = 2 * height + PLAYER_OFFSET + PLAYER_SPECIAL_OFFSET;
-            break;
+            break;*/
         default:
             offset = 0;
             break;

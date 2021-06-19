@@ -11,8 +11,10 @@
 GameObject::GameObject(const bool isDynamic, b2World& world ,const sf::Vector2f& location,
                        const sf::Vector2f& size, char objectType, bool isAnimated, int ID)
         : m_intRect(0, 0, 768, 768),
-          m_objectSprite(Resources::instance().getTexture(objectType),this->m_intRect),
-          m_isAnimated(isAnimated), m_physicsObject(world, location, isDynamic, size), m_ID(ID)
+          m_objectSprite(Resources::instance().getTexture(objectType),m_intRect),
+          m_isAnimated(isAnimated), 
+		  m_physicsObject(world, location, isDynamic, size),
+		  m_ID(ID)
 {
     this->m_objectSprite.setPosition(location);
 
@@ -27,8 +29,6 @@ GameObject::GameObject(const bool isDynamic, b2World& world ,const sf::Vector2f&
     updateLoc();
     m_physicsObject.setID(m_ID);
 	setOrigin();
-	//m_objectSprite.setOrigin(float(m_intRect.width / 2), float(m_intRect.height / 2));
-
 }
 //============================================================================
 GameObject::~GameObject() = default;
@@ -39,11 +39,11 @@ const sf::Vector2f& GameObject::getLocation()const {
 //============================================================================
 sf::Vector2f GameObject::getSize()const {
 	return sf::Vector2f(this->getSprite().getGlobalBounds().width,
-		this->getSprite().getGlobalBounds().height);
+		getSprite().getGlobalBounds().height);
 }
 //============================================================================
 const sf::Sprite& GameObject::getSprite() const {
-	return (this->m_objectSprite);
+	return m_objectSprite;
 }
 //============================================================================
 sf::Sprite* GameObject::getSpritePtr() {
@@ -91,7 +91,6 @@ void GameObject::setIntRect(const sf::IntRect& rect){
 /*This method change the direction of the sprite.*/
 void GameObject::flipSprite(const sf::Vector2f& scale) {
 	m_objectSprite.scale(scale);
-	//m_objectSprite.setOrigin(m_objectSprite.getGlobalBounds().width, 0);
 }
 //=========================== protected section ==============================
 //============================== sets section ================================

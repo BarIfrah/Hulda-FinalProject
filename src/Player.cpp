@@ -24,7 +24,7 @@ void Player::move(const sf::Time& deltaTime,Board& CurrentLevel) {
         state = JUMP;
     } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {     ///Move Down
         dirFromKey = b2Vec2(getLinearVelocity().x, MDOWN.y);
-        state = FALL;
+        state = JUMP;
     } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {     ///Move Left
         dirFromKey = b2Vec2(MLEFT.x, getLinearVelocity().y);
         state = RUN;

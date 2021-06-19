@@ -35,7 +35,7 @@ constexpr auto NONE_CHOSEN = 'N';
 //MovingObject spritesheets consts
 //enum to define movement directions of all moving objects (Enemies will not use up/down)
 enum ANIMATION_DIRECTIONS { LEFT = 0, RIGHT = 1 };
-enum ANIMATION_STATE { IDLE = 0, RUN = 1, JUMP = 2, FALL = 3, DIE = 4 };
+enum ANIMATION_STATE { IDLE = 0, RUN = 1, JUMP = 2, DIE = 3 };
 constexpr auto NUM_OF_IDLE_SPRITE = 11;
 constexpr auto NUM_OF_JUMP_SPRITE = 4;
 constexpr auto NUM_OF_FALL_SPRITE = 8;
@@ -60,7 +60,7 @@ constexpr auto INVISIBLE = 3;
 
 constexpr auto NUM_OF_LIFE = 3;
 constexpr auto NO_LEVEL_TIME = -1;
-constexpr auto NUM_OF_FOOD_TYPES = 4;
+constexpr auto NUM_OF_FOOD_TYPES = 3;
 constexpr auto NUM_OF_ENEMIES_TYPES = 3;
 
 //============================== special food bonuses ================================
@@ -77,18 +77,16 @@ constexpr auto ARIEL_FONT_PATH = "ARIALBD.TTF";
 
 //---------------------------- picture section -------------------------------
 constexpr auto MENU_BACKGROUND_PATH = "MenuBackground.png";
-constexpr auto LEVEL1_BACKGROUND_PATH = "level1.jpeg";
-constexpr auto LEVEL2_BACKGROUND_PATH = "level2.png";
-constexpr auto LEVEL3_BACKGROUND_PATH = "level3.jpeg";
-constexpr auto LEVEL4_BACKGROUND_PATH = "level4.jpeg";
 
 constexpr auto PLAYER_PATH = "player.png";
 constexpr auto SCOOTER_PATH = "scooter.png";
 constexpr auto EXTERMINATOR_PATH = "exterminator.png";
 constexpr auto OLD_WOMAN_PATH = "old_woman.png";
-constexpr auto REGULAR_FOOD_PATH = "regularfood.png";
-constexpr auto TOXIC_FOOD_PATH = "toxicfood.png";
-constexpr auto SPECIAL_FOOD_PATH = "specialfood.png";
+constexpr auto BANANA_PATH = "banana.png";
+constexpr auto PIZZA_PATH = "pizza.png";
+constexpr auto WATERMELON_PATH = "watermelon.png";
+constexpr auto APPLE_PATH = "apple.png";
+constexpr auto BURGER_PATH = "burger.png";
 constexpr auto ROAD_PATH = "road.png";
 constexpr auto ADANIT_KAHOL_PATH = "adanitKahol.png";
 constexpr auto ADANIT_SAGOL_PATH = "adanitSagol.png";
@@ -130,18 +128,22 @@ constexpr auto GAME_STATE = 9;
 constexpr auto BACKGROUND_WIDTH = 7185; //pixels
 constexpr auto BACKGROUND_HEIGHT = 1582;
 //------------------------------- objects -------------------------------------
+//characters
 constexpr auto PLAYER_T = 10;
 constexpr auto SCOOTER_T = 11;
 constexpr auto EXTERMINATOR_T = 12;
 constexpr auto OLD_WOMAN_T = 13;
-constexpr auto REGULAR_FOOD_T = 14;
-constexpr auto TOXIC_FOOD_T = 15;
-constexpr auto SPECIAL_FOOD_T = 16;
+//food
+constexpr auto APPLE_T = 15;
+constexpr auto BURGER_T = 16;
+constexpr auto WATERMELON_T = 21;
+constexpr auto BANANA_T = 22;
+constexpr auto PIZZA_T = 23;
+//statics
 constexpr auto ROAD_T = 17;
 constexpr auto TRASH_T = 18;
 constexpr auto ADANIT_KAHOL_T = 19;
 constexpr auto ADANIT_SAGOL_T = 20;
-
 //--------------------------------- sounds -----------------------------------
 constexpr auto REGULAR_FOOD_SOUND = 0;
 constexpr auto TOXIC_FOOD_SOUND = 1;
