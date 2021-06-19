@@ -79,8 +79,18 @@ void Resources::setObjects() {
 
     texturesCreator = std::make_unique<sf::Texture>();
     this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>
-        (TRASH_T, std::move(texturesCreator)));
-    this->m_texture[TRASH_T]->loadFromFile(TRASH_PATH);
+        (ADANIT_KATOM_T, std::move(texturesCreator)));
+    this->m_texture[ADANIT_KATOM_T]->loadFromFile(ADANIT_KATOM_PATH);
+
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>
+        (TRASH_BLUE_T, std::move(texturesCreator)));
+    this->m_texture[TRASH_BLUE_T]->loadFromFile(TRASH_BLUE_PATH);
+
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>
+        (TRASH_RED_T, std::move(texturesCreator)));
+    this->m_texture[TRASH_RED_T]->loadFromFile(TRASH_RED_PATH);
 
     texturesCreator = std::make_unique<sf::Texture>();
     this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>

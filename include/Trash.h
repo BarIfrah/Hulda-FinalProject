@@ -19,4 +19,5 @@ public:
 	//virtual void handleCollision(MovingObject&, const sf::Vector2f&)override;
 	//========================= private section ===============================
 private:
+	int raffleTrash();
 };

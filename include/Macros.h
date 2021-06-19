@@ -37,8 +37,7 @@ constexpr auto NONE_CHOSEN = 'N';
 enum ANIMATION_DIRECTIONS { LEFT = 0, RIGHT = 1 };
 enum ANIMATION_STATE { IDLE = 0, RUN = 1, JUMP = 2, DIE = 3 };
 constexpr auto NUM_OF_IDLE_SPRITE = 11;
-constexpr auto NUM_OF_JUMP_SPRITE = 4;
-constexpr auto NUM_OF_FALL_SPRITE = 8;
+constexpr auto NUM_OF_JUMP_SPRITE = 12;
 constexpr auto NUM_OF_RUNNING_SPRITE = 13;
 constexpr auto NUM_OF_DIE_SPRITE = 5;
 
@@ -90,8 +89,10 @@ constexpr auto BURGER_PATH = "burger.png";
 constexpr auto ROAD_PATH = "road.png";
 constexpr auto ADANIT_KAHOL_PATH = "adanitKahol.png";
 constexpr auto ADANIT_SAGOL_PATH = "adanitSagol.png";
+constexpr auto ADANIT_KATOM_PATH = "adanitKatom.png";
 constexpr auto GAME_STATE_PATH = "game_state.jpg";
-constexpr auto TRASH_PATH = "trash.png";
+constexpr auto TRASH_BLUE_PATH = "trashBlue.png";
+constexpr auto TRASH_RED_PATH = "trashRed.png";
 //--------------------------------- musics -----------------------------------
 constexpr auto MENU_MUSIC_PATH = "menuMusic.ogg";
 constexpr auto LEVEL1_MUSIC_PATH = "level1Music.ogg";
@@ -136,14 +137,16 @@ constexpr auto OLD_WOMAN_T = 13;
 //food
 constexpr auto APPLE_T = 15;
 constexpr auto BURGER_T = 16;
-constexpr auto WATERMELON_T = 21;
-constexpr auto BANANA_T = 22;
-constexpr auto PIZZA_T = 23;
+constexpr auto WATERMELON_T = 23;
+constexpr auto BANANA_T = 24;
+constexpr auto PIZZA_T = 25;
 //statics
 constexpr auto ROAD_T = 17;
-constexpr auto TRASH_T = 18;
-constexpr auto ADANIT_KAHOL_T = 19;
-constexpr auto ADANIT_SAGOL_T = 20;
+constexpr auto TRASH_RED_T = 18;
+constexpr auto TRASH_BLUE_T = 19;
+constexpr auto ADANIT_KAHOL_T = 20;
+constexpr auto ADANIT_SAGOL_T = 21;
+constexpr auto ADANIT_KATOM_T = 22;
 //--------------------------------- sounds -----------------------------------
 constexpr auto REGULAR_FOOD_SOUND = 0;
 constexpr auto TOXIC_FOOD_SOUND = 1;

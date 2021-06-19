@@ -7,4 +7,4 @@ Adanit::Adanit(b2World& world, const sf::Vector2f& location, const sf::Vector2f&
 
 //============================== gets section ================================
 //============================ methods section ===============================
-int Adanit::raffleTexture() { return (rand() % 2) + ADANIT_KAHOL_T; }
+int Adanit::raffleTexture() { return (rand() % 3) + ADANIT_KAHOL_T; }
