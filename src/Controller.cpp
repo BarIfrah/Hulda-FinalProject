@@ -78,7 +78,10 @@ void Controller::handleGameEvents() {
     }
     
     moveCharacters();
-
+    if (m_player->getState() == DIE) {
+        playerDied();
+        return;
+    }
     HandleCharacterCollisionWithWindow(m_player);
     for (auto& enemy : m_enemies)
         HandleCharacterCollisionWithWindow(enemy);
@@ -124,6 +127,9 @@ void Controller::HandleCharacterCollisionWithWindow(MovingObject* character)
 void Controller::playerDied()
 {
     //Resources::instance().playSound(ENEMY_SOUND);
-    m_board.resetLevel();
+    delete m_world;
+    m_world = new b2World(b2Vec2(0, 9.81));
+    m_world->SetContactListener(&m_listener);
+  //  seperateGameObjects(m_board.resetLevel(*m_world));
     //m_gameState.died();
 }

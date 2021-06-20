@@ -80,7 +80,7 @@ sf::Vector2f MovingObject::getInitialLocation() const
 //===========================================================================
 void MovingObject::reset()
 {
-    setState(IDLE, PLAYER_BOX_HEIGHT, PLAYER_BOX_WIDTH);
+   // setState(IDLE, PLAYER_BOX_HEIGHT, PLAYER_BOX_WIDTH);
     setPhysicsObjectPos(getInitialLocation(), b2Vec2(0, 0));
 }
 //===========================================================================

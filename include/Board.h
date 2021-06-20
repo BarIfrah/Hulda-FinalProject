@@ -41,13 +41,13 @@ public:
 	void draw(sf::RenderWindow& window, const sf::Time&);
 	std::vector<MovingObject*> loadNewLevel(b2World&);
 	bool is_next_lvl_exist()const;
-	//void resetLvl();
 	//void gameOver();
 	void loadLevelEffects(int);
-	void resetLevel();
+	std::vector<MovingObject*> resetLevel(b2World&);
 private:
 	//========================= members section ==============================
 	vector<vector<std::unique_ptr<GameObject>>> m_map;
+	vector<vector<char>> m_charactersMap;
 	std::unordered_map<int, GameObject*> m_ObjWithID;
 	sf::Vector2f m_location;
 	DataReader m_levelReader;

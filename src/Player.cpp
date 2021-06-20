@@ -18,7 +18,7 @@ speedUp is possible.*/
 void Player::move(const sf::Time& deltaTime,Board& CurrentLevel) {
     b2Vec2 dirFromKey = b2Vec2(0, 0);
     if (getState() == DIE) {
-        updateAnimation(deltaTime);
+        //updateAnimation(deltaTime);
         //TODO: resetLevel or gameOver
     }
     else {

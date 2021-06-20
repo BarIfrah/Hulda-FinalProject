@@ -29,6 +29,7 @@ Board::Board(const sf::Vector2f& location,
 	m_background.setPosition(m_location);
 	this->loadLevelEffects(0);
 	m_map.clear();
+	m_charactersMap.clear();
 }
 //================================ gets section ==============================
 //============================================================================
@@ -67,10 +68,37 @@ void Board::draw(sf::RenderWindow& window, const sf::Time& deltaTime) {
  */
 std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 	//read new level from file:
-	vector<vector<char>> map = m_levelReader.readNextLevel();
+	m_charactersMap = m_levelReader.readNextLevel();
+	//vector<vector<char>> map = m_levelReader.readNextLevel();
+	return resetLevel(world);
+}
+//============================================================================
+//the method isn't const because fstream's peek method isn't const
+bool Board::is_next_lvl_exist() const {
+	return m_levelReader.isThereNextLevel();
+}
+//============================================================================
+//void Board::gameOver() {
+//	this->m_levelReader.resetRead();
+//	this->releaseMap();
+//	//this->m_door.release();
+//	this->m_player = nullptr;
+//}
+//============================================================================
+/*
+* This function load the background and the music of the current level.
+*/
+void Board::loadLevelEffects(int level) {
+	this->m_background.setTexture(&Resources::instance()
+		.getBackground(level));
+	//Resources::instance().playMusic(level);
+}
+//============================================================================
+std::vector<MovingObject*> Board::resetLevel(b2World& world)
+{
 	//calculate the the size for each character in the board:
-	sf::Vector2f boxSize(getLevelSize().x / map[0].size(),
-                         getLevelSize().y / map.size());
+	sf::Vector2f boxSize(getLevelSize().x / m_charactersMap[0].size(),
+		getLevelSize().y / m_charactersMap.size());
 	//initialiaze DS for the dynamic objects:
 	vector<MovingObject*> movingsVec = {};
 
@@ -78,32 +106,32 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 
 	//reset last load parameters:
 	clearParameters();
-	m_map.resize(map.size());
+	m_map.resize(m_charactersMap.size());
 
 	int ID = 0;
 
 	//allocating level's objects:
-	for (int y = 0; y < map.size(); y++) {
-		for (int x = 0; x < map[y].size(); x++) {
-			switch (map[y][x])
+	for (int y = 0; y < m_charactersMap.size(); y++) {
+		for (int x = 0; x < m_charactersMap[y].size(); x++) {
+			switch (m_charactersMap[y][x])
 			{
 			case PLAYER: {
-                m_map[y].push_back(std::make_unique<Player>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y),sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
-                movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
-                m_player = (Player *) m_map[y][x].get();
-                m_ObjWithID.insert(std::pair<int, GameObject *>(ID, m_map[y][x].get()));
-                ID++;
-                break;
-            }
-            case EXTERMINATOR: {
-                m_map[y].push_back(std::make_unique<Exterminator>(ENEMY_DISTANCE_LIMIT ,world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y) ,sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
-                movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
+				m_map[y].push_back(std::make_unique<Player>(world, sf::Vector2f
+				(boxSize.x * x, boxSize.y * y), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
+				movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
+				m_player = (Player*)m_map[y][x].get();
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
-                break;
-            }
+				break;
+			}
+			case EXTERMINATOR: {
+				m_map[y].push_back(std::make_unique<Exterminator>(ENEMY_DISTANCE_LIMIT, world, sf::Vector2f
+				(boxSize.x * x, boxSize.y * y), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
+				movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
+				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
+				ID++;
+				break;
+			}
 			case SCOOTER: {
 				m_map[y].push_back(std::make_unique<Scooter>(ENEMY_DISTANCE_LIMIT, world, sf::Vector2f
 				(boxSize.x * x, boxSize.y * y), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
@@ -114,25 +142,25 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 			}
 			case ROAD:
 				m_map[y].push_back(std::make_unique <Road>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y) , sf::Vector2f(boxSize.x, boxSize.y),ID));
+				(boxSize.x * x, boxSize.y * y), sf::Vector2f(boxSize.x, boxSize.y), ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
 			case ADANIT:
 				m_map[y].push_back(std::make_unique <Adanit>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y) , sf::Vector2f(boxSize.x, boxSize.y), ID));
+				(boxSize.x * x, boxSize.y * y), sf::Vector2f(boxSize.x, boxSize.y), ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
 			case TRASH:
 				m_map[y].push_back(std::make_unique <Trash>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y), boxSize,ID));
+				(boxSize.x * x, boxSize.y * y), boxSize, ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
 			case SPECIAL_FOOD:
 				m_map[y].push_back(std::make_unique <SpecialFood>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y) , boxSize,ID));
+				(boxSize.x * x, boxSize.y * y), boxSize, ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
@@ -155,47 +183,6 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 		}
 	}
 	return movingsVec;
-}
-//============================================================================
-//the method isn't const because fstream's peek method isn't const
-bool Board::is_next_lvl_exist() const {
-	return m_levelReader.isThereNextLevel();
-}
-//============================================================================
-/*
-* This function pass all the map and reset every object to the initial location
-* and state.
-*/
-//void Board::resetLvl() {
-//	for (int i = 0; i < this->m_map.size(); ++i)
-//		for (int j = 0; j < this->m_map[i].size(); ++j) {
-//			if (this->m_map[i][j].get() != nullptr)
-//				this->m_map[i][j]->reset();
-//		}
-//}
-////============================================================================
-//void Board::gameOver() {
-//	this->m_levelReader.resetRead();
-//	this->releaseMap();
-//	//this->m_door.release();
-//	this->m_player = nullptr;
-//}
-//============================================================================
-/*
-* This function load the background and the music of the current level.
-*/
-void Board::loadLevelEffects(int level) {
-	this->m_background.setTexture(&Resources::instance()
-		.getBackground(level));
-	//Resources::instance().playMusic(level);
-}
-//============================================================================
-void Board::resetLevel()
-{
-	for (auto& objects : m_map)
-		for (auto& object : objects)
-			if (object.get() != nullptr)
-				object.reset();
 }
 //============================== private section =============================
 /*this function all the details of the current level, release ptrs and
