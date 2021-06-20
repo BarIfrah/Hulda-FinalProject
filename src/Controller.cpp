@@ -18,17 +18,18 @@ Controller::Controller()
     m_world = new b2World(b2Vec2(0, 9.81));
     m_world->SetContactListener(&m_listener);
     m_listener.setCurrentBoard(m_board);
-    srand((unsigned int)time(NULL));
+    srand((unsigned int)time(nullptr));
 }
 
 //============================================================================
 
 void Controller::run() {
-    seperateGameObjects(m_board.loadNewLevel(*m_world));
+    separateGameObjects(m_board.loadNewLevel(*m_world));
     while (m_window.isOpen()) {
         m_world->Step(TIMESTEP, VELITER, POSITER);
         m_gameClock.restart();
         m_window.clear();
+        m_board.removePhysicsObjects(*m_world);
         drawObjects();
         m_window.display();
         handleGameEvents();
@@ -47,7 +48,7 @@ void Controller::drawObjects() {
 
 //============================================================================
 
-void Controller::seperateGameObjects(const vector<MovingObject*>& movingObjects)
+void Controller::separateGameObjects(const vector<MovingObject*>& movingObjects)
 {
     this->m_enemies.clear();
     for (auto& obj : movingObjects)

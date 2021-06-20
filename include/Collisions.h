@@ -37,7 +37,7 @@ namespace
 {
     void playerEnemy(GameObject& object1, GameObject& object2)
     {
-        Player& player = static_cast<Player&>(object1);
+        auto& player = dynamic_cast<Player&>(object1);
         player.setState(DIE, PLAYER_BOX_HEIGHT, PLAYER_BOX_WIDTH);
     }
     void enemyPlayer(GameObject& object1, GameObject& object2)
@@ -48,7 +48,7 @@ namespace
 
     void exterminatorTrash(GameObject& object1, GameObject& object2)
     {
-        Exterminator& enemy = static_cast<Exterminator&>(object1);
+        auto& enemy = dynamic_cast<Exterminator&>(object1);
         enemy.setCollision();
     }
     void trashExterminator(GameObject& object1, GameObject& object2)
@@ -61,12 +61,12 @@ namespace
     void scooterTrash(GameObject& object1, GameObject& object2)
     {
         b2Vec2 dirFromKey = b2Vec2(0, 0);
-        Scooter& enemy = static_cast<Scooter&>(object1);
-        if (enemy.getDirection() == RIGHT) 
+        auto& enemy = dynamic_cast<Scooter&>(object1);
+        if (enemy.getDirection() == RIGHT)
             enemy.setDirection(LEFT);
-        else 
+        else
             enemy.setDirection(RIGHT);
-        
+
         enemy.flipSprite(sf::Vector2f(-1.f, 1.f));
     }
     void trashScooter(GameObject& object1, GameObject& object2)
@@ -78,8 +78,9 @@ namespace
 
     void playerFood(GameObject& object1, GameObject& object2)
     {
-        Food& food = static_cast<Food&>(object2);
+        Food& food = dynamic_cast<Food&>(object2);
         food.collect();
+///        need to destroy food physics obj
     }
     void foodPlayer(GameObject& object1, GameObject& object2)
     {

@@ -1,11 +1,10 @@
 //============================= include section ==============================
 #include "Player.h" 
 #include "SFML/Graphics.hpp"
-#include "Utilities.h"
 #include "Macros.h"
 #include "Resources.h"
 //============================= public section ===============================
-//==================== Constructors & distructors section ====================
+//==================== Constructors & destructors section ====================
 Player::Player(b2World& world ,const sf::Vector2f& location,
 	const sf::Vector2f& size,int ID)
 	: MovingObject(world, location, size, PLAYER_T, ID){
@@ -22,7 +21,7 @@ void Player::move(const sf::Time& deltaTime,Board& CurrentLevel) {
         //TODO: resetLevel or gameOver
     }
     else {
-        int state = IDLE;
+        int state;
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {        ///Move Up
             dirFromKey = b2Vec2(getLinearVelocity().x, MUP.y);
             state = JUMP;
@@ -84,4 +83,8 @@ void Player::updateAnimation(const sf::Time &deltaTime ) {
         setOrigin();
         setIntRect(updatedRect);
     }
+}
+//============================================================================
+void Player::playerJump(const b2Vec2 &force) {
+    applyForce(force);
 }

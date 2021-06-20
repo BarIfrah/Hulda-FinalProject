@@ -50,8 +50,8 @@ void Resources::setBackgrounds() {
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
         (MENU_BACKGROUND, std::move(texturesCreator)));
 
-    if (!this->m_texture[MENU_BACKGROUND]->loadFromFile(MENU_BACKGROUND_PATH))
-        throw std::exception("Can't load background");
+    if (!m_texture[MENU_BACKGROUND]->loadFromFile(MENU_BACKGROUND_PATH))
+        throw std::exception();
 }
 //============================================================================
 void Resources::setObjects() {

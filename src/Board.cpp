@@ -57,7 +57,7 @@ void Board::draw(sf::RenderWindow& window, const sf::Time& deltaTime) {
 	window.draw(m_background);
 	for (auto& objects : m_map)
 		for (auto& obj : objects)
-			if (obj.get() != nullptr)
+			if (obj != nullptr)
 				obj->draw(window);
 }
 //============================================================================
@@ -194,7 +194,7 @@ void Board::resetLevel()
 {
 	for (auto& objects : m_map)
 		for (auto& object : objects)
-			if (object.get() != nullptr)
+			if (object != nullptr)
 				object.reset();
 }
 //============================== private section =============================
@@ -205,14 +205,22 @@ void Board::clearParameters() {
 	m_player = nullptr;
 }
 //============================================================================
-/*
-* This function called in load new level function to raffle the type of the
-* gift. The function return a ptr to the type of food it raffled.
-*/
-//Food* Board::raffleFood(const sf::Vector2f& boxSize, const sf::Vector2i& index) {
-//
-//}
-//============================================================================
 GameObject* Board::getObjWithId(const int id) {
 	return m_ObjWithID.find(id)->second;
+}
+//============================================================================
+
+void Board::removePhysicsObjects(b2World &world) {
+    for (auto &objects : m_map) {
+        for (auto &obj : objects) {
+            if (dynamic_cast<Food *>(obj.get())) {
+                if (dynamic_cast<Food *>(obj.get())->is_collected()) {
+                   // m_takenFood.emplace_back(dynamic_cast<Food *>(obj.get()));
+                   // world.DestroyBody(obj->getPhysicsObj().getBody());
+                    obj = nullptr;
+
+                }
+            }
+        }
+    }
 }
