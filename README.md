@@ -21,3 +21,6 @@ std::cout << "Hello, world!\n";
 ## Thanks
 
 shaked zahor
+
+
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
