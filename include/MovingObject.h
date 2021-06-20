@@ -12,7 +12,7 @@ class StaticObject;
 * handle collisions with static objects, manage animations, reset the objects,
 * update hte states of the objects & manage their movements.
  ============================================================================*/
-class MovingObject : public GameObject
+class MovingObject :virtual public GameObject
 {
 	//========================== public section ==============================
 public:
@@ -20,32 +20,22 @@ public:
 	explicit MovingObject(b2World&, const sf::Vector2f & = sf::Vector2f(0, 0),
 		const sf::Vector2f & = sf::Vector2f(0, 0),int objectType = NOTHING,int ID=0);
 	//============================ gets section ===============================
-//	int getLookState()const;
-	//sf::Vector2f getInitialLoc()const;
-	//	int getState()const;
+	sf::Time getAnimationTime() const;
+	int getState()const;
+	int getDirection()const;
+	sf::Vector2f getInitialLocation()const;
+	void reset()override;
 		//============================ sets section ===============================
-	//	virtual void setLocation(const sf::Vector2f&);
-	//	void setLookState(int);
+	void setAnimationTime(const sf::Time&);
+	void setState(int state, int height, int width, int regOffset, int specialOffset);
+	void setDirection(int);
 		//=========================== method section ==============================
     virtual void move(const sf::Time&, Board&) = 0;
     void resetAnimationTime();
-    void setAnimationTime(const sf::Time&);
-    sf::Time getAnimationTime() const;
 	virtual void updateAnimation(const sf::Time&) = 0;
-	void setState(int state, int height, int width, int regOffset, int specialOffset);
-	int getState()const;
-	void setDirection(int);
-	int getDirection()const;
-//	sf::Sprite getObjectSprite();
-	sf::Vector2f getInitialLocation()const;
-	void reset()override;
-		//========================= protected section ==============================
-protected:
-//	virtual void setState(int);
 	//========================= private section ===============================
 private:
 	//========================= members section ===============================
-	//general
 	sf::Sprite* m_objectSprite =nullptr;
 	int m_state;
 	int m_direction;

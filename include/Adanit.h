@@ -4,7 +4,7 @@
 //========================== forward declarations ============================
 class MovingObject;
 /*============================================================================*/
-class Adanit : public StaticObject
+class Adanit :virtual public StaticObject
 {
 public:
 	//========================== public section ==============================

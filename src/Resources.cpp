@@ -21,7 +21,7 @@ Resources& Resources::instance() {
 }
 //============================== gets section ================================
 //============================================================================
-const sf::Texture& Resources::getBackground(int textureKey) {
+const sf::Texture& Resources::getBackground() {
     return (*this->m_texture.find(MENU_BACKGROUND)->second);
 }
 //============================================================================
@@ -51,7 +51,7 @@ void Resources::setBackgrounds() {
         (MENU_BACKGROUND, std::move(texturesCreator)));
 
     if (!m_texture[MENU_BACKGROUND]->loadFromFile(MENU_BACKGROUND_PATH))
-        throw std::exception();
+        throw std::exception("Can't load background");
 }
 //============================================================================
 void Resources::setObjects() {

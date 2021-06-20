@@ -25,8 +25,17 @@ Controller::Controller()
 
 void Controller::run() {
     separateGameObjects(m_board.loadNewLevel(*m_world));
-    while (m_window.isOpen()) {
+     while (m_window.isOpen()) {
+        
         m_world->Step(TIMESTEP, VELITER, POSITER);
+        if (RegularFood::getFoodCounter() == 0) {
+            if (m_board.is_next_lvl_exist())
+                levelUp();
+            else {
+                //gameOver();
+                break;
+            }
+        }
         m_gameClock.restart();
         m_window.clear();
         
@@ -50,6 +59,19 @@ void Controller::drawObjects() {
     m_board.draw(m_window, m_gameClock.getElapsedTime());
     for (auto& enemy : m_enemies)
         enemy->draw(m_window);
+}
+
+//============================================================================
+
+void Controller::levelUp()
+{
+    //Resources::instance().pauseMusic();
+    m_board.levelUp();
+    srand((unsigned int)time(NULL));
+    separateGameObjects(m_board.loadNewLevel(*m_world));
+    //m_gameState.levelup(m_board.getLevelTime());
+    m_world->SetContactListener(&m_listener);
+    m_listener.setCurrentBoard(m_board);
 }
 
 //============================================================================
@@ -133,4 +155,15 @@ void Controller::playerDied()
     //Resources::instance().playSound(ENEMY_SOUND);
     m_board.resetObjects();
     //m_gameState.died();
+}
+
+//============================================================================
+
+void Controller::gameOver()
+{
+    //Resources::instance().pauseMusic();
+    this->m_player = nullptr;
+    this->m_enemies.clear();
+   // this->m_board.gameOver();
+   // this->m_gameState.gameOver();
 }

@@ -12,7 +12,10 @@ public:
 	RegularFood(b2World&, const sf::Vector2f & = sf::Vector2f(0, 0),
 		const sf::Vector2f & = sf::Vector2f(0, 0), int ID = 0);
 	//=========================== method section ==============================
+	static unsigned int getFoodCounter();
+	virtual void collect()override;
 	//========================= private section ===============================
 private:
+	static unsigned int m_foodCounter;
 	int raffleFood();
 };

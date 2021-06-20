@@ -11,7 +11,7 @@ public:
 	static Resources& instance();
 	//============================ gets section ===============================
 //	const sf::SoundBuffer& getSound(int) const;
-	const sf::Texture& getBackground(int);
+	const sf::Texture& getBackground();
 	const sf::Texture& getTexture(int)const;
 	//	const sf::Font& getFont(int)const;
 	const int getNumOfSprites(int)const;

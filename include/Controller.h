@@ -6,7 +6,6 @@
 //#include "GameState.h"
 #include <SFML/Graphics.hpp>
 //========================== forward declarations ============================
-//class MovingObject;
 class Player;
 /*============================================================================
 * Class: Controller. 
@@ -23,37 +22,34 @@ public:
 	Controller();
 	//=========================== method section =============================
 	void run();
-	void handleGameEvents();
-	void sideScroll();
-	void HandleCharacterCollisionWithWindow(MovingObject*);
-	void playerDied();
 	//========================= private section ==============================
 private:
 	//========================= members section ==============================
+	//SFML:
 	sf::RenderWindow m_window;
-	//view:
 	sf::Vector2f m_CurrViewPos;
 	sf::View m_screenView;
+	sf::Clock m_gameClock;
+	//Box2D:
 	b2World* m_world = nullptr;
-	Board m_board;
 	Listener m_listener;
+	//Other:
+	Board m_board;
+	Player* m_player;
 	std::vector <MovingObject*> m_enemies;
 	/*
 	Menu m_menu;
 	GameState m_gameState;
 	*/
-	Player* m_player;
-	sf::Clock m_gameClock;
 	//====================== privete methods section =========================
-	//void runGame();
 	//char runMenu();
 	void separateGameObjects(const vector<MovingObject*> &movingObjects);
 	void moveCharacters();
+	void handleGameEvents();
+	void sideScroll();
+	void HandleCharacterCollisionWithWindow(MovingObject*);
 	void drawObjects();
-	/*void enemiesTurns(const sf::Time&);
-	void play_turns(const sf::Time&);
+	void levelUp();
 	void playerDied();
-	void levelup();
-	void resetLvl();
-	void gameOver();*/
+	void gameOver();
 };

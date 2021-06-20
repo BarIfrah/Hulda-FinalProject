@@ -38,8 +38,9 @@ public:
 	void removeFood(b2World& world);
 	bool is_next_lvl_exist()const;
 	//void gameOver();
-	void loadLevelEffects(int);
+	void loadLevelEffects();
 	void resetObjects();
+	void levelUp();
 private:
 	//========================= members section ==============================
 	vector<vector<std::unique_ptr<GameObject>>> m_map;

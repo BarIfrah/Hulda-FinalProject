@@ -28,7 +28,7 @@ Board::Board(const sf::Vector2f& location,
 	m_player(nullptr){
 	this->m_background.setSize(size);
 	m_background.setPosition(m_location);
-	this->loadLevelEffects(0);
+	this->loadLevelEffects();
 	m_map.clear();
 }
 //================================ gets section ==============================
@@ -75,7 +75,7 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 	//initialiaze DS for the dynamic objects:
 	vector<MovingObject*> movingsVec = {};
 
-	loadLevelEffects(1);
+	loadLevelEffects();
 
 	//reset last load parameters:
 	clearParameters();
@@ -173,10 +173,10 @@ bool Board::is_next_lvl_exist() const {
 /*
 * This function load the background and the music of the current level.
 */
-void Board::loadLevelEffects(int level) {
+void Board::loadLevelEffects() {
 	this->m_background.setTexture(&Resources::instance()
-		.getBackground(level));
-	//Resources::instance().playMusic(level);
+		.getBackground());
+	//Resources::instance().playMusic();
 }
 //============================================================================
 void Board::resetObjects()
@@ -188,6 +188,14 @@ void Board::resetObjects()
 			if (dynamic_cast<Enemy*>(obj.get()))
 				dynamic_cast<Enemy*>(obj.get())->reset();
 		}
+}
+//============================================================================
+void Board::levelUp()
+{
+	for (auto& objects : m_map)
+		for (auto& obj : objects)
+			obj = nullptr;
+	m_map.clear();
 }
 //============================== private section =============================
 /*this function all the details of the current level, release ptrs and
