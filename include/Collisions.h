@@ -80,7 +80,6 @@ namespace
     {
         Food& food = dynamic_cast<Food&>(object2);
         food.collect();
-///        need to destroy food physics obj
     }
     void foodPlayer(GameObject& object1, GameObject& object2)
     {

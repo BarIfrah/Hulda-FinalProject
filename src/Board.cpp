@@ -91,7 +91,7 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 			case PLAYER: {
 				m_map[y].push_back(std::make_unique<Player>(world, sf::Vector2f
 				(boxSize.x * x, boxSize.y * y), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
-				movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
+				movingsVec.push_back((MovingObject*)m_map[y][x].get());
 				m_player = (Player*)m_map[y][x].get();
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
@@ -190,12 +190,25 @@ void Board::resetObjects()
 		}
 }
 //============================================================================
-void Board::levelUp()
+void Board::levelUp(b2World &world)
 {
+//    for (int i = 0; i < m_map.size(); ++i) {
+//        for (int j = 0; j < m_map[i].size(); ++j) {
+//            m_map[i][j].release();
+////            m_ObjWithID[i][j]
+//        }
+//    }
 	for (auto& objects : m_map)
-		for (auto& obj : objects)
-			obj = nullptr;
+		for (auto& obj : objects) {
+            if (obj != nullptr) {
+//                world.DestroyBody(obj->getPhysicsObj().getBody());
+//            }
+                GameObject *ptr = obj.release();
+                obj.get_deleter()(ptr);
+            }
+        }
 	m_map.clear();
+	m_ObjWithID.clear();
 }
 //============================== private section =============================
 /*this function all the details of the current level, release ptrs and

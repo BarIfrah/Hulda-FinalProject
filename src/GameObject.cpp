@@ -117,3 +117,5 @@ sf::FloatRect GameObject::getGlobalBounds() const
 {
 	return getSprite().getGlobalBounds();
 }
+
+GameObject::GameObject() {}

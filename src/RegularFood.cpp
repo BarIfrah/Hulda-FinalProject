@@ -15,8 +15,12 @@ unsigned int RegularFood::getFoodCounter() { return m_foodCounter; }
 //============================================================================
 void RegularFood::collect()
 {
+    /// doing this if/else because some unsigned variable bugs. when using '--' it
+    /// went to the top value possible of unsigned int.
 	Food::collect();
-	--m_foodCounter;
+	if (m_foodCounter-1 == 0 or m_foodCounter == 0) m_foodCounter = 0;
+	else
+	    --m_foodCounter;
 }
 //============================================================================
 int RegularFood::raffleFood()

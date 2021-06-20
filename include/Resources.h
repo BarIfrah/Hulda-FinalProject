@@ -14,7 +14,7 @@ public:
 	const sf::Texture& getBackground();
 	const sf::Texture& getTexture(int)const;
 	//	const sf::Font& getFont(int)const;
-	const int getNumOfSprites(int)const;
+	int getNumOfSprites(int)const;
 		//=========================== method section ==============================
 	//	void playSound(int key);
 	//	void playMusic(int);

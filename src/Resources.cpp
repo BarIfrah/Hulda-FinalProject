@@ -37,21 +37,22 @@ const sf::Texture& Resources::getTexture(int textureKey)const {
 //    return(*this->m_font.find(fontKey)->second);
 //}
 //============================================================================
-const int Resources::getNumOfSprites(int key)const {
+int Resources::getNumOfSprites(int key)const {
     return (this->m_NumOfSprites.find(key)->second);
 }
 //============================== sets section ================================
 void Resources::setBackgrounds() {
     std::unique_ptr<sf::Texture> texturesCreator;
     //adding game's backgrounds path
-    
+
     texturesCreator = std::make_unique<sf::Texture>();
 
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
         (MENU_BACKGROUND, std::move(texturesCreator)));
 
     if (!m_texture[MENU_BACKGROUND]->loadFromFile(MENU_BACKGROUND_PATH))
-        throw std::exception("Can't load background");
+//        throw std::exception("Can't load background");
+        throw std::exception();
 }
 //============================================================================
 void Resources::setObjects() {

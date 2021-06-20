@@ -15,10 +15,13 @@ class GameObject {
 public:
 	//================= constractors and destractors section =================
 	GameObject(
-		const bool, b2World&, const sf::Vector2f & = { 0, 0 },
+		bool, b2World&, const sf::Vector2f & = { 0, 0 },
 		const sf::Vector2f & = { 0, 0 },char objectType = NOTHING,
 		bool isAnimated = false, int ID=0);
-	virtual ~GameObject() = 0;
+
+    GameObject();
+
+    virtual ~GameObject() = 0;
 	//============================ gets section ===============================
 	const sf::Vector2f& getLocation()const;
 	sf::Vector2f getSize()const;
@@ -33,7 +36,7 @@ public:
 	void setIntRect(const sf::IntRect&);
 	void flipSprite(const sf::Vector2f&);
 	void updateLoc();
-	void setSize(const sf::Vector2u);
+	void setSize(sf::Vector2u);
 	void setOrigin();
 	virtual void reset();
 

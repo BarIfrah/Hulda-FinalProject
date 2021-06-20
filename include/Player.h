@@ -16,7 +16,7 @@ class Player : public MovingObject
 	//========================== public section ==============================
 public:
 	//================= constructors and destructors section =================
-	explicit Player(b2World&, const sf::Vector2f & = { 0,0 },
+	Player(b2World&, const sf::Vector2f & = { 0,0 },
 		const sf::Vector2f & = { 0,0 },int ID=0);
 	virtual void move(const sf::Time&,Board&) override;
 	void updateAnimation(const sf::Time&) override;

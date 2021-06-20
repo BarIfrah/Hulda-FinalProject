@@ -28,9 +28,11 @@ void Controller::run() {
      while (m_window.isOpen()) {
         
         m_world->Step(TIMESTEP, VELITER, POSITER);
+        std::cout << RegularFood::getFoodCounter() << std::endl;
         if (RegularFood::getFoodCounter() == 0) {
-            if (m_board.is_next_lvl_exist())
+            if (m_board.is_next_lvl_exist()) {
                 levelUp();
+            }
             else {
                 //gameOver();
                 break;
@@ -66,8 +68,10 @@ void Controller::drawObjects() {
 void Controller::levelUp()
 {
     //Resources::instance().pauseMusic();
-    m_board.levelUp();
-    srand((unsigned int)time(NULL));
+    m_board.levelUp(*m_world);
+    srand((unsigned int)time(nullptr));
+    delete m_world;
+    m_world = new b2World(b2Vec2(0, WORLD_GRAVITY));
     separateGameObjects(m_board.loadNewLevel(*m_world));
     //m_gameState.levelup(m_board.getLevelTime());
     m_world->SetContactListener(&m_listener);

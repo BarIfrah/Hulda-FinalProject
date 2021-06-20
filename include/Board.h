@@ -40,7 +40,7 @@ public:
 	//void gameOver();
 	void loadLevelEffects();
 	void resetObjects();
-	void levelUp();
+	void levelUp(b2World&);
 private:
 	//========================= members section ==============================
 	vector<vector<std::unique_ptr<GameObject>>> m_map;

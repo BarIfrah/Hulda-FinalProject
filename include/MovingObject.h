@@ -12,7 +12,7 @@ class StaticObject;
 * handle collisions with static objects, manage animations, reset the objects,
 * update hte states of the objects & manage their movements.
  ============================================================================*/
-class MovingObject :virtual public GameObject
+class MovingObject :public GameObject
 {
 	//========================== public section ==============================
 public:
@@ -36,7 +36,7 @@ public:
 	//========================= private section ===============================
 private:
 	//========================= members section ===============================
-	sf::Sprite* m_objectSprite =nullptr;
+	sf::Sprite* m_objectSprite = nullptr;
 	int m_state;
 	int m_direction;
 	sf::Time m_animationTime;
