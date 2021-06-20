@@ -1,31 +1,23 @@
 # Hulda-FinalProject
 OOP final project
-# Foobar
+# ABOUT
 
-Foobar is a Python library for dealing with word pluralization.
+Info regarding the project
 
-## Installation
+## Files and descriptions
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Info regarding thr files
 
-```bash
-pip install foobar
+## Implementation:
+
+a c++ code snippit:
+
+```c++
+std::cout << "Hello, world!\n";
 ```
 
-## Usage
+## GitHub Repository
 
-```python
-import foobar
+## Thanks
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+shaked zahor
