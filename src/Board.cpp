@@ -17,6 +17,7 @@
 #include "ToxicFood.h"
 #include "Exterminator.h"
 #include "Scooter.h"
+#include "Enemy.h"
 using std::vector;
 //====================== Constructors & distructors section ==================
 Board::Board(const sf::Vector2f& location,
@@ -29,7 +30,6 @@ Board::Board(const sf::Vector2f& location,
 	m_background.setPosition(m_location);
 	this->loadLevelEffects(0);
 	m_map.clear();
-	m_charactersMap.clear();
 }
 //================================ gets section ==============================
 //============================================================================
@@ -68,53 +68,25 @@ void Board::draw(sf::RenderWindow& window, const sf::Time& deltaTime) {
  */
 std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 	//read new level from file:
-	m_charactersMap = m_levelReader.readNextLevel();
-	//vector<vector<char>> map = m_levelReader.readNextLevel();
-	return resetLevel(world);
-}
-//============================================================================
-//the method isn't const because fstream's peek method isn't const
-bool Board::is_next_lvl_exist() const {
-	return m_levelReader.isThereNextLevel();
-}
-//============================================================================
-//void Board::gameOver() {
-//	this->m_levelReader.resetRead();
-//	this->releaseMap();
-//	//this->m_door.release();
-//	this->m_player = nullptr;
-//}
-//============================================================================
-/*
-* This function load the background and the music of the current level.
-*/
-void Board::loadLevelEffects(int level) {
-	this->m_background.setTexture(&Resources::instance()
-		.getBackground(level));
-	//Resources::instance().playMusic(level);
-}
-//============================================================================
-std::vector<MovingObject*> Board::resetLevel(b2World& world)
-{
+	vector<vector<char>> map = m_levelReader.readNextLevel();
 	//calculate the the size for each character in the board:
-	sf::Vector2f boxSize(getLevelSize().x / m_charactersMap[0].size(),
-		getLevelSize().y / m_charactersMap.size());
+	sf::Vector2f boxSize(getLevelSize().x / map[0].size(),
+		getLevelSize().y / map.size());
 	//initialiaze DS for the dynamic objects:
 	vector<MovingObject*> movingsVec = {};
 
 	loadLevelEffects(1);
 
 	//reset last load parameters:
-	removeAllPhysics();
 	clearParameters();
-	m_map.resize(m_charactersMap.size());
+	m_map.resize(map.size());
 
 	int ID = 0;
 
 	//allocating level's objects:
-	for (int y = 0; y < m_charactersMap.size(); y++) {
-		for (int x = 0; x < m_charactersMap[y].size(); x++) {
-			switch (m_charactersMap[y][x])
+	for (int y = 0; y < map.size(); y++) {
+		for (int x = 0; x < map[y].size(); x++) {
+			switch (map[y][x])
 			{
 			case PLAYER: {
 				m_map[y].push_back(std::make_unique<Player>(world, sf::Vector2f
@@ -185,6 +157,38 @@ std::vector<MovingObject*> Board::resetLevel(b2World& world)
 	}
 	return movingsVec;
 }
+//============================================================================
+//the method isn't const because fstream's peek method isn't const
+bool Board::is_next_lvl_exist() const {
+	return m_levelReader.isThereNextLevel();
+}
+//============================================================================
+//void Board::gameOver() {
+//	this->m_levelReader.resetRead();
+//	this->releaseMap();
+//	//this->m_door.release();
+//	this->m_player = nullptr;
+//}
+//============================================================================
+/*
+* This function load the background and the music of the current level.
+*/
+void Board::loadLevelEffects(int level) {
+	this->m_background.setTexture(&Resources::instance()
+		.getBackground(level));
+	//Resources::instance().playMusic(level);
+}
+//============================================================================
+void Board::resetObjects()
+{
+	for (auto& objects : m_map)
+		for (auto& obj : objects) {
+			if (dynamic_cast<Player*>(obj.get()))
+				dynamic_cast<Player*>(obj.get())->reset();
+			if (dynamic_cast<Enemy*>(obj.get()))
+				dynamic_cast<Enemy*>(obj.get())->reset();
+		}
+}
 //============================== private section =============================
 /*this function all the details of the current level, release ptrs and
 unique ptrs.*/
@@ -198,19 +202,10 @@ GameObject* Board::getObjWithId(const int id) {
 }
 //============================================================================
 
-void Board::removePhysicsObjects(b2World &world) {
+void Board::removeFood(b2World &world) {
     for (auto &objects : m_map) 
         for (auto &obj : objects) 
             if (dynamic_cast<Food *>(obj.get())) 
                 if (dynamic_cast<Food *>(obj.get())->is_collected()) 
-                   // m_takenFood.emplace_back(dynamic_cast<Food *>(obj.get()));
-                   // world.DestroyBody(obj->getPhysicsObj().getBody());
                     obj = nullptr;
-}
-
-void Board::removeAllPhysics()
-{
-	for (auto& objects : m_map)
-		for (auto& obj : objects)
-				obj = nullptr;
 }

@@ -7,12 +7,7 @@
 #include <unordered_map>
 #include "Collisions.h"
 //========================== forward declarations ============================
-//class MovingObject;
-//class GameObject;
-//class StaticObject;
-//class Enemy;
 class Player;
-//class Food;
 //============================== using section ===============================
 using std::vector;
 /*============================================================================
@@ -40,16 +35,14 @@ public:
 	//=========================== method section =============================
 	void draw(sf::RenderWindow& window, const sf::Time&);
 	std::vector<MovingObject*> loadNewLevel(b2World&);
-	void removePhysicsObjects(b2World& world);
-	void removeAllPhysics();
+	void removeFood(b2World& world);
 	bool is_next_lvl_exist()const;
 	//void gameOver();
 	void loadLevelEffects(int);
-	std::vector<MovingObject*> resetLevel(b2World&);
+	void resetObjects();
 private:
 	//========================= members section ==============================
 	vector<vector<std::unique_ptr<GameObject>>> m_map;
-	vector<vector<char>> m_charactersMap;
 	std::unordered_map<int, GameObject*> m_ObjWithID;
 	sf::Vector2f m_location;
 	DataReader m_levelReader;
@@ -57,8 +50,6 @@ private:
 	Player* m_player;
 	Collisions m_collision;
     vector<std::unique_ptr<Food>> m_takenFood;
-	//std::vector<std::unique_ptr<Food>> m_CollectedFood = {};
 	//====================== privete methods section =========================
-	void clearParameters();
-	//Food* raffleFood(const sf::Vector2f& boxSize,const sf::Vector2i& index);	
+	void clearParameters();	
 };

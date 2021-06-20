@@ -29,7 +29,13 @@ void Controller::run() {
         m_world->Step(TIMESTEP, VELITER, POSITER);
         m_gameClock.restart();
         m_window.clear();
-        m_board.removePhysicsObjects(*m_world);
+        
+        m_board.removeFood(*m_world);
+        
+        if (m_player->getState() == DIE) {
+            playerDied();
+        }
+       
         drawObjects();
         m_window.display();
         handleGameEvents();
@@ -79,10 +85,7 @@ void Controller::handleGameEvents() {
     }
     
     moveCharacters();
-    if (m_player->getState() == DIE) {
-        playerDied();
-        return;
-    }
+
     HandleCharacterCollisionWithWindow(m_player);
     for (auto& enemy : m_enemies)
         HandleCharacterCollisionWithWindow(enemy);
@@ -128,9 +131,6 @@ void Controller::HandleCharacterCollisionWithWindow(MovingObject* character)
 void Controller::playerDied()
 {
     //Resources::instance().playSound(ENEMY_SOUND);
-   /* delete m_world;
-    m_world = new b2World(b2Vec2(0, WORLD_GRAVITY));
-    m_world->SetContactListener(&m_listener);*/
-    separateGameObjects(m_board.resetLevel(*m_world));
+    m_board.resetObjects();
     //m_gameState.died();
 }
