@@ -1,9 +1,7 @@
 //============================= include section ==============================
 #include "GameObject.h"
 #include "Resources.h"
-#include "Board.h"
-#include "Utilities.h"
-#include <iostream>
+
 
 //============================= public section ===============================
 //==================== Constructors & distructors section ====================
@@ -79,6 +77,7 @@ PhysicsObject GameObject::getPhysicsObj() const
 //============================================================================
 void GameObject::setPhysicsObjectPos(sf::Vector2f newPos, b2Vec2 velocity)
 {
+
 	m_physicsObject.setPosition(newPos, velocity);
 	updateLoc();
 }
@@ -104,9 +103,10 @@ void GameObject::setSize(const sf::Vector2u size)
 	m_objectSprite.scale((size.x / m_objectSprite.getGlobalBounds().width),
 		(size.y / m_objectSprite.getGlobalBounds().height));
 }
+//============================================================================
 void GameObject::setOrigin()
 {
-	m_objectSprite.setOrigin(sf::Vector2f(m_intRect.width/2, m_intRect.height/2));
+	m_objectSprite.setOrigin(sf::Vector2f(float(m_intRect.width)/2, float(m_intRect.height)/2));
 }
 void GameObject::reset()
 {

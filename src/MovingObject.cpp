@@ -9,25 +9,7 @@ MovingObject::MovingObject(b2World& world, const sf::Vector2f& location,
 {
     m_objectSprite = getSpritePtr();
 }
-//===========================================================================
 
-//void MovingObject::updateAnimation(const sf::Time& deltaTime) {
-//	m_animationTime += deltaTime;
-//	int spritesNum = (int)(this->m_animationTime.asSeconds() / ANIMATIONS_RATE);
-//	if (Resources::instance().getNumOfSprites(this->m_state) <= spritesNum)
-//		resetAnimationTime();
-//	else {
-//		sf::IntRect updatedRect = getIntRect();
-//		updatedRect.left = spritesNum * PLAYER_BOX_WIDTH;
-//		if (updatedRect.width < 0)
-//			updatedRect.left += PLAYER_BOX_WIDTH;
-//		//m_objectSprite->setOrigin(float(x) / 2, float(y) / 2);
-//
-//	//	std::cout << m_objectSprite->getGlobalBounds().width << " " << m_objectSprite->getTextureRect().height << '\n';
-//        m_objectSprite->setOrigin(m_objectSprite->getTextureRect().width / 2, 0);
-//		setIntRect(updatedRect);
-//	}
-//}
 //===========================================================================
 void MovingObject::setState(int state, int height, int width) {
     int offset;

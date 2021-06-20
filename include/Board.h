@@ -40,6 +40,7 @@ public:
 	//=========================== method section =============================
 	void draw(sf::RenderWindow& window, const sf::Time&);
 	std::vector<MovingObject*> loadNewLevel(b2World&);
+	void removePhysicsObjects(b2World& world);
 	bool is_next_lvl_exist()const;
 	//void gameOver();
 	void loadLevelEffects(int);
@@ -54,6 +55,7 @@ private:
 	sf::RectangleShape m_background;
 	Player* m_player;
 	Collisions m_collision;
+    vector<std::unique_ptr<Food>> m_takenFood;
 	//std::vector<std::unique_ptr<Food>> m_CollectedFood = {};
 	//====================== privete methods section =========================
 	void clearParameters();

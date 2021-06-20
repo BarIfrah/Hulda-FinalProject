@@ -20,6 +20,7 @@ public:
 		const sf::Vector2f & = { 0,0 },int ID=0);
 	virtual void move(const sf::Time&,Board&) override;
 	void updateAnimation(const sf::Time&) override;
+	void playerJump(const b2Vec2&);
 //	void resetAnimationTime() override;
 //	sf::FloatRect getGlobalBounds()const;
 	//=========================== method section ==============================

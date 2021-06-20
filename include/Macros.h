@@ -35,7 +35,7 @@ constexpr auto NONE_CHOSEN = 'N';
 //MovingObject spritesheets consts
 //enum to define movement directions of all moving objects (Enemies will not use up/down)
 enum ANIMATION_DIRECTIONS { LEFT = 0, RIGHT = 1 };
-enum ANIMATION_STATE { IDLE = 0, RUN = 1, JUMP = 2, DIE = 3 };
+enum ANIMATION_STATE { IDLE = 0, RUN, JUMP, DIE, FALL};
 constexpr auto NUM_OF_IDLE_SPRITE = 11;
 constexpr auto NUM_OF_JUMP_SPRITE = 12;
 constexpr auto NUM_OF_RUNNING_SPRITE = 13;

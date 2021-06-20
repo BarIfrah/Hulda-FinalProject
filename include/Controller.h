@@ -47,7 +47,7 @@ private:
 	//====================== privete methods section =========================
 	//void runGame();
 	//char runMenu();
-	void seperateGameObjects(const vector<MovingObject*>&);
+	void separateGameObjects(const vector<MovingObject*> &movingObjects);
 	void moveCharacters();
 	void drawObjects();
 	/*void enemiesTurns(const sf::Time&);
