@@ -23,4 +23,5 @@ std::cout << "Hello, world!\n";
 shaked zahor
 
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+## Game ScreenShots:
+<img width="748" alt="Screen Shot 2021-06-20 at 18 32 30" src="https://user-images.githubusercontent.com/71547715/122680019-fc004180-d1f5-11eb-9425-8f5b9ab20e2b.png">
