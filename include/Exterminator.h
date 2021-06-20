@@ -14,6 +14,8 @@ public:
    
 //    void resetAnimationTime() override;
 	virtual void move(const sf::Time&,Board&) override;
+	void setCollision();
 	//========================= private section ===============================
 private:
+	bool m_collided = false;
 };

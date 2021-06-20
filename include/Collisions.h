@@ -48,9 +48,7 @@ namespace
     void exterminatorTrash(GameObject& object1, GameObject& object2)
     {
         Exterminator& enemy = static_cast<Exterminator&>(object1);
-        /*enemy.setPhysicsObjectPos(sf::Vector2f(enemy.getPhysicsObj().getPosition().x+MUP.x,
-            enemy.getPhysicsObj().getPosition().y + MUP.y), b2Vec2(MUP));*/
-        enemy.updateLoc();
+        enemy.setCollision();
     }
     void trashExterminator(GameObject& object1, GameObject& object2)
     {
@@ -63,18 +61,12 @@ namespace
     {
         b2Vec2 dirFromKey = b2Vec2(0, 0);
         Scooter& enemy = static_cast<Scooter&>(object1);
-        if (enemy.getDirection() == RIGHT) {
-            dirFromKey = MLEFT;
+        if (enemy.getDirection() == RIGHT) 
             enemy.setDirection(LEFT);
-        }
-        else {
-            dirFromKey = MLEFT;
+        else 
             enemy.setDirection(RIGHT);
-        }
+        
         enemy.flipSprite(sf::Vector2f(-1.f, 1.f));
-        enemy.setPhysicsObjectPos(sf::Vector2f(enemy.getPhysicsObj().getPosition().x + dirFromKey.x,
-            enemy.getPhysicsObj().getPosition().y + dirFromKey.y), dirFromKey);
-        enemy.updateLoc();
     }
     void trashScooter(GameObject& object1, GameObject& object2)
     {

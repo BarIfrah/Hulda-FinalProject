@@ -12,7 +12,6 @@ void Scooter::move(const sf::Time& deltaTime, Board& board) {
 	else 
 		dirFromKey = MLEFT;
 	
-	//updateAnimation(deltaTime);
 	setPhysicsObjectPos(sf::Vector2f(getLocation().x + dirFromKey.x, getLocation().y
 		+ dirFromKey.y), dirFromKey);
 	//flipSprite executed in the collision func

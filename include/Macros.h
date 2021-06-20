@@ -183,7 +183,3 @@ const b2Vec2 EMLEFT(-1, 0);
 const b2Vec2 EMDOWN(0, 4);
 
 const float ENEMY_DISTANCE_LIMIT = 20.f;
-
-
-
-
