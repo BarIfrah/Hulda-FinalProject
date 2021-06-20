@@ -36,9 +36,9 @@ public:
 	int getState()const;
 	void setDirection(int);
 	int getDirection()const;
-	void setObjectSpriteOrigin(const sf::Vector2f &);
 	sf::Sprite getObjectSprite();
 	sf::Vector2f getInitialLocation()const;
+	virtual void reset()override;
 		//========================= protected section ==============================
 protected:
 //	virtual void setState(int);

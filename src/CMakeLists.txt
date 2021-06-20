@@ -17,7 +17,7 @@ target_sources (Hulda PRIVATE "main.cpp"
 "RegularFood.cpp"
 "ToxicFood.cpp"
 "PhysicsObject.cpp"
-"CollisionsListener.cpp"
+"Listener.cpp"
 "Collisions.cpp"
 "Utilities.cpp"
 "Scooter.cpp")

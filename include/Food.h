@@ -21,6 +21,7 @@ public:
 	virtual void draw(sf::RenderWindow&)override;
 	//virtual void reset();
 	virtual void collect();
+	virtual void reset() override;
 	//====================== privete methods section =========================
 private:
 	//========================= members section ==============================

@@ -35,6 +35,7 @@ public:
 	void updateLoc();
 	void setSize(const sf::Vector2u);
 	void setOrigin();
+	virtual void reset();
 
     b2Vec2 getLinearVelocity();
     b2Vec2 getForceApplied();

@@ -41,6 +41,9 @@ void MovingObject::setState(int state, int height, int width) {
         /*case FALL: /// same operation but cant avoid this.
             offset = 2 * height + PLAYER_OFFSET + PLAYER_SPECIAL_OFFSET;
             break;*/
+        case DIE:
+            offset = DIE * height + PLAYER_OFFSET + PLAYER_SPECIAL_OFFSET;
+            break;
         default:
             offset = 0;
             break;
@@ -75,6 +78,12 @@ sf::Vector2f MovingObject::getInitialLocation() const
 	return m_initialLocation;
 }
 //===========================================================================
+void MovingObject::reset()
+{
+    setState(IDLE, PLAYER_BOX_HEIGHT, PLAYER_BOX_WIDTH);
+    setPhysicsObjectPos(getInitialLocation(), b2Vec2(0, 0));
+}
+//===========================================================================
 void MovingObject::resetAnimationTime() {
     m_animationTime = sf::seconds(0);
 }
@@ -82,15 +91,11 @@ void MovingObject::resetAnimationTime() {
 sf::Sprite MovingObject::getObjectSprite() {
     return *m_objectSprite;
 }
-
-void MovingObject::setObjectSpriteOrigin(const sf::Vector2f & origin) {
-    //m_objectSprite->setOrigin(origin);
-}
-
+//===========================================================================
 void MovingObject::setAnimationTime(const sf::Time & deltaTime) {
     m_animationTime += deltaTime;
 }
-
+//===========================================================================
 sf::Time MovingObject::getAnimationTime() const {
     return m_animationTime;
 }

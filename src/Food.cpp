@@ -17,13 +17,13 @@ void Food::draw(sf::RenderWindow& window) {
 	if (!m_is_collected)
 		GameObject::draw(window);
 }
-////============================================================================
-//void Food::reset() {
-//	this->GameObject::reset();
-//	this->m_is_collected = false;
-//}
-////============================================================================
-///*this method change the state of the food after the player collected it.*/
+//============================================================================
+/*this method change the state of the food after the player collected it.*/
 void Food::collect() { 
 	m_is_collected = true;
+}
+//============================================================================
+void Food::reset()
+{
+	m_is_collected = false;
 }

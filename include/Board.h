@@ -2,7 +2,6 @@
 //============================ include section ===============================
 #include <vector>
 #include "DataReader.h"
-#include <SFML/Graphics.hpp>
 #include "GameObject.h"
 #include "MovingObject.h"
 #include <unordered_map>
@@ -45,6 +44,7 @@ public:
 	//void resetLvl();
 	//void gameOver();
 	void loadLevelEffects(int);
+	void resetLevel();
 private:
 	//========================= members section ==============================
 	vector<vector<std::unique_ptr<GameObject>>> m_map;

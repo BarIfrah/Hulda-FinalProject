@@ -1,7 +1,8 @@
-#include "CollisionsListener.h"
+#include "Listener.h"
 #include <vector>
 #include <iostream>
-void CollisionsListener::PreSolve(b2Contact* contact, const b2Manifold* oldManifold) {
+
+void Listener::PreSolve(b2Contact* contact, const b2Manifold* oldManifold) {
 	
 	b2Fixture* f1 = contact->GetFixtureA();
 	b2Fixture* f2 = contact->GetFixtureB();
@@ -15,7 +16,7 @@ void CollisionsListener::PreSolve(b2Contact* contact, const b2Manifold* oldManif
 	m_board->getCollisionObj().HandleCollision(*obj1, *obj2);
 }
 
-void CollisionsListener::setCurrentBoard(Board& board)
+void Listener::setCurrentBoard(Board& board)
 {
 	m_board = &board;
 }

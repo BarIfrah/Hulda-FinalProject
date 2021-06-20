@@ -3,7 +3,6 @@
 */
 //============================= include section ==========================
 #include "Board.h"
-#include <SFML/Graphics.hpp>
 #include "MovingObject.h"
 #include "Macros.h"
 #include "Resources.h"
@@ -189,6 +188,14 @@ void Board::loadLevelEffects(int level) {
 	this->m_background.setTexture(&Resources::instance()
 		.getBackground(level));
 	//Resources::instance().playMusic(level);
+}
+//============================================================================
+void Board::resetLevel()
+{
+	for (auto& objects : m_map)
+		for (auto& object : objects)
+			if (object.get() != nullptr)
+				object.reset();
 }
 //============================== private section =============================
 /*this function all the details of the current level, release ptrs and

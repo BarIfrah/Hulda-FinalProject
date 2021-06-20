@@ -1,6 +1,5 @@
 //============================= include section ==============================
 #include "GameObject.h"
-#include <SFML/Graphics.hpp>
 #include "Resources.h"
 #include "Board.h"
 #include "Utilities.h"
@@ -108,6 +107,9 @@ void GameObject::setSize(const sf::Vector2u size)
 void GameObject::setOrigin()
 {
 	m_objectSprite.setOrigin(sf::Vector2f(m_intRect.width/2, m_intRect.height/2));
+}
+void GameObject::reset()
+{
 }
 //============================================================================
 

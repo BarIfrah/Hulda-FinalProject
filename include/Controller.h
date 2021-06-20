@@ -1,7 +1,7 @@
 #pragma once
 //============================ include section ===============================
 #include "Board.h"
-#include "CollisionsListener.h"
+#include "Listener.h"
 //#include "Menu.h"
 //#include "GameState.h"
 #include <SFML/Graphics.hpp>
@@ -26,6 +26,7 @@ public:
 	void handleGameEvents();
 	void sideScroll();
 	void HandleCharacterCollisionWithWindow(MovingObject*);
+	void playerDied();
 	//========================= private section ==============================
 private:
 	//========================= members section ==============================
@@ -35,7 +36,7 @@ private:
 	sf::View m_screenView;
 	b2World* m_world = nullptr;
 	Board m_board;
-	CollisionsListener m_listener;
+	Listener m_listener;
 	std::vector <MovingObject*> m_enemies;
 	/*
 	Menu m_menu;

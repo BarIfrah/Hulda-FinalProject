@@ -10,7 +10,7 @@ Controller::Controller()
         m_board(sf::Vector2f(0, 0),
             sf::Vector2f((float)BACKGROUND_WIDTH, (float)m_window.getSize().y)),
         m_player(nullptr),
-        m_listener(CollisionsListener()){
+        m_listener(Listener()){
     m_window.setFramerateLimit(60);
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
     m_screenView.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
@@ -106,7 +106,7 @@ void Controller::HandleCharacterCollisionWithWindow(MovingObject* character)
 {
     if (character->getGlobalBounds().top < 0) {
         character->setPhysicsObjectPos
-        (sf::Vector2f(character->getLocation().x, 0), MDOWN);
+        (sf::Vector2f(character->getLocation().x, character->getGlobalBounds().height), EMDOWN);
     }
     if (character->getGlobalBounds().left < 0) {
         character->setPhysicsObjectPos
@@ -117,4 +117,13 @@ void Controller::HandleCharacterCollisionWithWindow(MovingObject* character)
         (sf::Vector2f(m_board.getLevelSize().x- character->getGlobalBounds().width, character->getLocation().y), MDOWN + MLEFT);
     }
     character->updateLoc();
+}
+
+//============================================================================
+
+void Controller::playerDied()
+{
+    //Resources::instance().playSound(ENEMY_SOUND);
+    m_board.resetLevel();
+    //m_gameState.died();
 }
