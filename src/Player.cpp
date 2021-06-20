@@ -48,13 +48,13 @@ void Player::move(const sf::Time& deltaTime,Board& CurrentLevel) {
         }
         else {
             state = IDLE;
-            setState(IDLE, PLAYER_BOX_HEIGHT, PLAYER_BOX_WIDTH);
+            setState(IDLE, PLAYER_BOX_HEIGHT, PLAYER_BOX_WIDTH, PLAYER_OFFSET, PLAYER_SPECIAL_OFFSET);
             dirFromKey = b2Vec2(getLinearVelocity().x, MDOWN.y);
         }
 
 
         if (state != IDLE) { ///not IDLE
-            setState(state, PLAYER_BOX_HEIGHT, PLAYER_BOX_WIDTH);
+            setState(state, PLAYER_BOX_HEIGHT, PLAYER_BOX_WIDTH, PLAYER_OFFSET, PLAYER_SPECIAL_OFFSET);
             updateLoc();
             setPhysicsObjectPos(sf::Vector2f(getLocation().x + dirFromKey.x,
                 getLocation().y + dirFromKey.y), dirFromKey);

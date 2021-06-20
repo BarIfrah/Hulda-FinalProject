@@ -11,20 +11,20 @@ MovingObject::MovingObject(b2World& world, const sf::Vector2f& location,
 }
 
 //===========================================================================
-void MovingObject::setState(int state, int height, int width) {
+void MovingObject::setState(int state, int height, int width, int regOffset, int specialOffset) {
     int offset;
     switch (state) {
         case RUN:
-            offset = height + PLAYER_OFFSET;
+            offset = height + regOffset;
             break;
         case JUMP: /// Also applies to 'FALL' state
-            offset = 2 * height + PLAYER_OFFSET + PLAYER_SPECIAL_OFFSET;
+            offset = 2 * height + regOffset + specialOffset;
             break;
         /*case FALL: /// same operation but cant avoid this.
             offset = 2 * height + PLAYER_OFFSET + PLAYER_SPECIAL_OFFSET;
             break;*/
         case DIE:
-            offset = DIE * height + PLAYER_OFFSET + PLAYER_SPECIAL_OFFSET;
+            offset = DIE * height + regOffset + specialOffset;
             break;
         default:
             offset = 0;
@@ -62,7 +62,7 @@ sf::Vector2f MovingObject::getInitialLocation() const
 //===========================================================================
 void MovingObject::reset()
 {
-    setState(IDLE, PLAYER_BOX_HEIGHT, PLAYER_BOX_WIDTH);
+    setState(IDLE, PLAYER_BOX_HEIGHT, PLAYER_BOX_WIDTH, 0, 0);
     setPhysicsObjectPos(getInitialLocation(), b2Vec2(0, 0));
 }
 //===========================================================================
@@ -70,9 +70,9 @@ void MovingObject::resetAnimationTime() {
     m_animationTime = sf::seconds(0);
 }
 //===========================================================================
-sf::Sprite MovingObject::getObjectSprite() {
-    return *m_objectSprite;
-}
+//sf::Sprite MovingObject::getObjectSprite() {
+//    return *m_objectSprite;
+//}
 //===========================================================================
 void MovingObject::setAnimationTime(const sf::Time & deltaTime) {
     m_animationTime += deltaTime;
