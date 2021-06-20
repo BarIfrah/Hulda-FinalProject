@@ -15,7 +15,7 @@ Controller::Controller()
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
     m_screenView.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
     m_window.setView(m_screenView);
-    m_world = new b2World(b2Vec2(0, 9.81));
+    m_world = new b2World(b2Vec2(0, WORLD_GRAVITY));
     m_world->SetContactListener(&m_listener);
     m_listener.setCurrentBoard(m_board);
     srand((unsigned int)time(nullptr));
@@ -128,9 +128,9 @@ void Controller::HandleCharacterCollisionWithWindow(MovingObject* character)
 void Controller::playerDied()
 {
     //Resources::instance().playSound(ENEMY_SOUND);
-    delete m_world;
-    m_world = new b2World(b2Vec2(0, 9.81));
-    m_world->SetContactListener(&m_listener);
-  //  seperateGameObjects(m_board.resetLevel(*m_world));
+   /* delete m_world;
+    m_world = new b2World(b2Vec2(0, WORLD_GRAVITY));
+    m_world->SetContactListener(&m_listener);*/
+    separateGameObjects(m_board.resetLevel(*m_world));
     //m_gameState.died();
 }

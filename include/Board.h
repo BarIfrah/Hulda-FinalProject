@@ -41,6 +41,7 @@ public:
 	void draw(sf::RenderWindow& window, const sf::Time&);
 	std::vector<MovingObject*> loadNewLevel(b2World&);
 	void removePhysicsObjects(b2World& world);
+	void removeAllPhysics();
 	bool is_next_lvl_exist()const;
 	//void gameOver();
 	void loadLevelEffects(int);

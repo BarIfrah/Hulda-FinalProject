@@ -171,6 +171,7 @@ const int VELITER = 6;
 const int POSITER = 2;
 const bool STATIC = false;
 const bool DYNAMIC = true;
+const float WORLD_GRAVITY = 9.81;
 //player velocity
 const b2Vec2 MUP(0, -6);
 const b2Vec2 MRIGHT (2, 0);

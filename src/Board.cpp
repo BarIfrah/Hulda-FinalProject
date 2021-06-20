@@ -105,6 +105,7 @@ std::vector<MovingObject*> Board::resetLevel(b2World& world)
 	loadLevelEffects(1);
 
 	//reset last load parameters:
+	removeAllPhysics();
 	clearParameters();
 	m_map.resize(m_charactersMap.size());
 
@@ -198,16 +199,18 @@ GameObject* Board::getObjWithId(const int id) {
 //============================================================================
 
 void Board::removePhysicsObjects(b2World &world) {
-    for (auto &objects : m_map) {
-        for (auto &obj : objects) {
-            if (dynamic_cast<Food *>(obj.get())) {
-                if (dynamic_cast<Food *>(obj.get())->is_collected()) {
+    for (auto &objects : m_map) 
+        for (auto &obj : objects) 
+            if (dynamic_cast<Food *>(obj.get())) 
+                if (dynamic_cast<Food *>(obj.get())->is_collected()) 
                    // m_takenFood.emplace_back(dynamic_cast<Food *>(obj.get()));
                    // world.DestroyBody(obj->getPhysicsObj().getBody());
                     obj = nullptr;
+}
 
-                }
-            }
-        }
-    }
+void Board::removeAllPhysics()
+{
+	for (auto& objects : m_map)
+		for (auto& obj : objects)
+				obj = nullptr;
 }
