@@ -7,7 +7,7 @@
 Controller::Controller()
         : m_window(sf::VideoMode(WIN_WIDTH, WIN_HEIGHT), "Hulda", sf::Style::Titlebar | sf::Style::Close),
         m_board(sf::Vector2f(0, 0),
-            sf::Vector2f((float)BACKGROUND_SIZE, (float)m_window.getSize().y)),
+            sf::Vector2f((float)BACKGROUND_SIZE, (float)m_window.getSize().y - STAT_HEIGHT)),
         m_player(nullptr){
     m_window.setFramerateLimit(60);
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
@@ -26,7 +26,10 @@ void Controller::run() {
             while (m_window.isOpen()) {
                 m_world.get()->Step(TIMESTEP, VELITER, POSITER);
                 m_gameClock.restart();
+                m_stats.update(1, 100, 3);
+
                 m_window.clear();
+                m_stats.draw(m_window);
                 drawObjects();
                 m_window.display();
                 if (!handleGameEvents())
@@ -42,6 +45,7 @@ void Controller::run() {
 /*
 * this function draw all the dynamic objects in the game by the time clock.
 */
+
 void Controller::drawObjects() {
     this->m_board.draw(m_window, m_gameClock.getElapsedTime());
     this->m_player->draw(this->m_window);

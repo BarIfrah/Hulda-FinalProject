@@ -5,7 +5,7 @@
 
 Menu::Menu()
 {
-	m_backGround = sf::Sprite(Resources::instance().getTexture(MENU));
+	m_backGround = sf::Sprite(Resources::instance().getTexture(MENU_BACKGROUND));
 	m_backGround.setScale({ WIN_WIDTH / m_backGround.getGlobalBounds().width, WIN_HEIGHT / m_backGround.getGlobalBounds().height });
 
 	m_helpBackground = sf::Sprite(Resources::instance().getTexture(HELPMENU));
@@ -14,13 +14,24 @@ Menu::Menu()
 	m_highBackround = sf::Sprite(Resources::instance().getTexture(HIGHMENU));
 	m_highBackround.setScale({ WIN_WIDTH / m_highBackround.getGlobalBounds().width, WIN_HEIGHT / m_highBackround.getGlobalBounds().height });
 
-	setText(m_mainMsg, "THE HULDA", { MSG_WIDTH*5.7, MSG_HEIGHT/2.5 });
+	m_back2 = sf::Sprite(Resources::instance().getTexture(BACK_KEY));
+	m_hiScore2 = sf::Sprite(Resources::instance().getTexture(HI_SCORE_KEY));
+	m_info2 = sf::Sprite(Resources::instance().getTexture(INFO_KEY));
+	m_newGame2 = sf::Sprite(Resources::instance().getTexture(NEW_GAME_KEY));
+	m_back2.setPosition(800, 680);
+	m_hiScore2.setPosition(800, 300);
+	m_info2.setPosition(800, 480);
+	m_newGame2.setPosition(800, 100);
+
+
+	/*setText(m_mainMsg, "THE HULDA", { MSG_WIDTH*5.7, MSG_HEIGHT/2.5 });
 	setText(m_enter, "New Game", { MSG_WIDTH*6.5, MSG_HEIGHT*1.5 });
 	setText(m_exit, "Exit", { MSG_WIDTH*8, MSG_HEIGHT*4.5 });
 	setText(m_help, "Help", { MSG_WIDTH*8, MSG_HEIGHT*3.5 });
 	setText(m_highScoreBtn, "High Scores", { MSG_WIDTH*6, MSG_HEIGHT*2.5 });
-	setText(m_back, "Back", { 10, 10 });
+	setText(m_back, "Back", { 10, 10 });*/
 }
+
 //---------------------------------------------------------------------------------------------
 bool Menu::runMenu(sf::RenderWindow& window, bool finished, bool hasWon)
 {
@@ -41,21 +52,21 @@ bool Menu::runMenu(sf::RenderWindow& window, bool finished, bool hasWon)
 			case sf::Event::MouseButtonReleased:
 				auto location = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
 
-				if (isClickedOn(m_highScoreBtn, location))
+				if (isClickedOn(m_hiScore2, location))
 				{
 					if (!drawScoresWindow(window))
 						return false;
 				}
-				if (isClickedOn(m_help, location))
+				if (isClickedOn(m_info2, location))
 				{
 					if (!drawHelpWindow(window))
 						return false;
 				}
-				if (isClickedOn(m_enter, location))
+				if (isClickedOn(m_newGame2, location))
 				{
 					return true;
 				}
-				if (isClickedOn(m_exit, location))
+				if (isClickedOn(m_back2, location))
 				{
 					return false;
 				}
@@ -76,19 +87,25 @@ bool Menu::runMenu(sf::RenderWindow& window, bool finished, bool hasWon)
 //---------------------------------------------------------------------------------------------
 void Menu::drawMywindow(sf::RenderWindow& window) const
 {
-	window.draw(m_backGround);
+	/*window.draw(m_backGround);
 	window.draw(m_mainMsg);
 	window.draw(m_enter);
 	window.draw(m_exit);
 	window.draw(m_help);
-	window.draw(m_highScoreBtn);
+	window.draw(m_highScoreBtn);*/
+	window.draw(m_backGround);
+	window.draw(m_back2);
+	window.draw(m_hiScore2);
+	window.draw(m_info2);
+	window.draw(m_newGame2);
+
 }
 
 bool Menu::drawHelpWindow(sf::RenderWindow& window) const
 {
 	window.clear();
 	window.draw(m_helpBackground);
-	window.draw(m_back);
+	window.draw(m_back2);
 	window.display();
 	while (window.isOpen())
 		for (auto event = sf::Event{}; window.waitEvent(event);)
@@ -99,7 +116,7 @@ bool Menu::drawHelpWindow(sf::RenderWindow& window) const
 			case sf::Event::MouseButtonReleased:
 				auto location = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
 
-				if (isClickedOn(m_back, location))
+				if (isClickedOn(m_back2, location))
 				{
 					return true;
 				}
@@ -130,7 +147,7 @@ bool Menu::drawScoresWindow(sf::RenderWindow& window) const
 			case sf::Event::MouseButtonReleased:
 				auto location = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
 
-				if (isClickedOn(m_back, location))
+				if (isClickedOn(m_back2, location))
 				{
 					return true;
 				}
@@ -156,14 +173,7 @@ void Menu::setMyscreen(bool hasWon)
 }
 
 //---------------------------------------------------------------------------------------------
-void Menu::setText(sf::Text& message, std::string str, sf::Vector2f pos) const
-{
-	message.setFont(Resources::instance().getFont());
-	message.setString(str);
-	message.setPosition(pos);
-	message.setCharacterSize(WIN_WIDTH / 20);
-	message.setFillColor(sf::Color(255, 255, 0, 255));
-}
+
 //---------------------------------------------------------------------------------------------
 //void Menu::stopMusic()
 //{
@@ -174,7 +184,7 @@ void Menu::setText(sf::Text& message, std::string str, sf::Vector2f pos) const
 
 //---------------------------------------------------------------------------------------------
 //checks if the specific message sent has been clicked on or not
-bool Menu::isClickedOn(const sf::Text& text, const sf::Vector2f& pos) const
+bool Menu::isClickedOn(const sf::Sprite& text, const sf::Vector2f& pos) const
 {
 	return text.getGlobalBounds().contains(pos);
 }

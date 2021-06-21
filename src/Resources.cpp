@@ -13,7 +13,7 @@ Resources::Resources()
     this->setObjects();
     //this->setSounds();
     this->setNumOfSprites();
-    m_font.loadFromFile("CheeseAndMouse-g8P5.ttf");
+    m_font.loadFromFile("ARIALBD.TTF");
 }
 //============================================================================
 Resources& Resources::instance() {
@@ -82,8 +82,8 @@ void Resources::setBackgrounds() {
     //------------------------------------------------------------------------
     texturesCreator = std::make_unique<sf::Texture>();
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
-        (LEVEL_BACKGROUND, std::move(texturesCreator)));
-    this->m_texture[LEVEL_BACKGROUND]->loadFromFile(LEVEL1_BACKGROUND_PATH);
+        (MENU_BACKGROUND, std::move(texturesCreator)));
+    this->m_texture[MENU_BACKGROUND]->loadFromFile(MENU_BACKGROUND_PATH);
     //-----------------------------------------------------
     texturesCreator = std::make_unique<sf::Texture>();
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
@@ -99,6 +99,36 @@ void Resources::setBackgrounds() {
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
         (HELPMENU, std::move(texturesCreator)));
     this->m_texture[HELPMENU]->loadFromFile(HELPMENU_PATH);
+    //---------------------------------------------------------------
+    //-------
+     //------------------------------------------------------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (BACK_KEY, std::move(texturesCreator)));
+    this->m_texture[BACK_KEY]->loadFromFile(BACK);
+    //-------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (HI_SCORE_KEY, std::move(texturesCreator)));
+    this->m_texture[HI_SCORE_KEY]->loadFromFile(HI_SCORE);
+    //-------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (INFO_KEY, std::move(texturesCreator)));
+    this->m_texture[INFO_KEY]->loadFromFile(INFO);
+    //---------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (NEW_GAME_KEY, std::move(texturesCreator)));
+    this->m_texture[NEW_GAME_KEY]->loadFromFile(NEW_GAME);
+    //--------
+   
+    //---------------------------------------------------------------
+    //---------
+
+
+
+
     
     //adding levels background path
 }

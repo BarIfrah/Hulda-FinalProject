@@ -3,10 +3,10 @@
 #include "Board.h"
 #include "Menu.h"
 #include "CollisionsListener.h"
+#include "Stats.h"
 //#include "Menu.h"
 //#include "Enemy.h"
 //#include "GameState.h"
-#include <SFML/Graphics.hpp>
 //#include <vector>
 //========================== forward declarations ============================
 //class MovingObject;
@@ -40,6 +40,9 @@ private:
 	Board m_board;
 	CollisionsListener m_listener;
 	Menu m_menu;
+	Stats m_stats;
+	
+
 
 	/*
 	GameState m_gameState;

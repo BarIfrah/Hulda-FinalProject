@@ -16,4 +16,6 @@ target_sources (Hulda PRIVATE "main.cpp"
 "PhysicsObject.cpp"
 "Menu.cpp"
 "CollisionsListener.cpp"
-"Collisions.cpp")
+"Collisions.cpp"
+"Stats.cpp"
+"Utilities.cpp")

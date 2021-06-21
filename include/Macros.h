@@ -74,7 +74,7 @@ constexpr auto ARIEL_FONT_PATH = "ARIALBD.TTF";
 //---------------------------- picture section -------------------------------
 constexpr auto MENU_BACKGROUND_PATH = "MenuBackground.png";
 constexpr auto MENU_PATH = "RATBlack.jpg";
-constexpr auto HIGHMENU_PATH = "backgrounds.jpg";
+constexpr auto HIGHMENU_PATH = "High Score Menu.png";
 constexpr auto HELPMENU_PATH = "backgrounds.jpg";
 constexpr auto LEVEL1_BACKGROUND_PATH = "level1.jpeg";
 constexpr auto LEVEL2_BACKGROUND_PATH = "level2.png";
@@ -91,6 +91,11 @@ constexpr auto SPECIAL_FOOD_PATH = "specialfood.png";
 constexpr auto ROAD_PATH = "road.png";
 constexpr auto GAME_STATE_PATH = "game_state.jpg";
 constexpr auto TRASH_PATH = "trash.png";
+
+constexpr auto BACK = "Back.png";
+constexpr auto HI_SCORE = "Hi Score.png";
+constexpr auto INFO = "Info.png";
+constexpr auto NEW_GAME = "New Game.png";
 //--------------------------------- musics -----------------------------------
 constexpr auto MENU_MUSIC_PATH = "menuMusic.ogg";
 constexpr auto LEVEL1_MUSIC_PATH = "level1Music.ogg";
@@ -117,10 +122,23 @@ constexpr auto GAME_LOGO_PATH = "Logo.png";
 constexpr auto MENU_BACKGROUND = 1;
 constexpr auto LEVEL_BACKGROUND = 2;
 constexpr auto MENU = 3;
+constexpr auto LIVES = 3;
 constexpr auto HIGHMENU = 4;
 constexpr auto HELPMENU = 5;
 constexpr auto GAME_STATE = 9;
 constexpr auto BACKGROUND_SIZE = 7185; //pixels
+constexpr auto STAT_WIDTH = 0;
+constexpr auto STAT_HEIGHT = 60;
+//--
+constexpr auto BACK_KEY = 6;
+constexpr auto HI_SCORE_KEY = 7;
+constexpr auto INFO_KEY = 8;
+constexpr auto NEW_GAME_KEY = 9;
+constexpr auto HI_MENU_KEY = 10;
+
+//--
+const std::string STATS[] = {"Level: ","Score: ","Lives: "};
+
 //------------------------------- objects -------------------------------------
 constexpr auto PLAYER_T = 10;
 constexpr auto SCOOTER_T = 11;
@@ -165,9 +183,15 @@ const b2Vec2 MLEFT (-2, 0);
 const b2Vec2 MDOWN (0, 8);
 
 
-const int WIN_WIDTH = 1800;
-const int WIN_HEIGHT = 1080;
+const int WIN_WIDTH = 1600;
+const int WIN_HEIGHT = 760;
 
 const int MSG_WIDTH = 100;
 const int MSG_HEIGHT = 200;
 
+//
+const auto BACK_X_POS = 30;
+const auto HISCORE_X_POS = 160;
+const auto INFO_X_POS = 390;
+const auto STATS_Y_POS = 700;
+//

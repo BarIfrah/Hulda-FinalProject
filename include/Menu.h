@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Utilities.h"
 //-----------------------------------------------------------------------------
 
 class Menu
@@ -15,9 +16,9 @@ private:
 	bool drawHelpWindow(sf::RenderWindow& window) const;
 	bool drawScoresWindow(sf::RenderWindow& window) const;
 	void setMyscreen(bool hasWon);
-	void setText(sf::Text& message, std::string str, sf::Vector2f pos) const;
+	
 	//void stopMusic();
-	bool isClickedOn(const sf::Text&, const sf::Vector2f& pos) const;
+	bool isClickedOn(const sf::Sprite&, const sf::Vector2f& pos) const;
 	void readScores();
 	sf::Text m_mainMsg;
 	sf::Text m_enter;
@@ -29,4 +30,11 @@ private:
 	sf::Sprite m_highBackround;
 	sf::Sprite m_helpBackground;
 	std::vector < std::pair<std::string, std::string>> m_highScores;
+	//
+	sf::Sprite m_back2;
+	sf::Sprite m_hiScore2;
+	sf::Sprite m_info2;
+	sf::Sprite m_newGame2;
+
+
 };
