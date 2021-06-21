@@ -13,6 +13,7 @@ Resources::Resources()
     this->setObjects();
     //this->setSounds();
     this->setNumOfSprites();
+    m_font.loadFromFile("ARIALBD.TTF");
 }
 //============================================================================
 Resources& Resources::instance() {
@@ -33,9 +34,9 @@ const sf::Texture& Resources::getTexture(int textureKey)const {
 //    return(*this->m_soundBuffers.find(soundKey)->second);
 //}
 ////============================================================================
-//const sf::Font& Resources::getFont(int fontKey) const{
-//    return(*this->m_font.find(fontKey)->second);
-//}
+const sf::Font& Resources::getFont() const{
+    return m_font;
+}
 //============================================================================
 int Resources::getNumOfSprites(int key)const {
     return (this->m_NumOfSprites.find(key)->second);
@@ -53,6 +54,64 @@ void Resources::setBackgrounds() {
     if (!m_texture[MENU_BACKGROUND]->loadFromFile(MENU_BACKGROUND_PATH))
 //        throw std::exception("Can't load background");
         throw std::exception();
+        
+    //------------------------------------------------------------------------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (GAME_STATE, std::move(texturesCreator)));
+    this->m_texture[GAME_STATE]->loadFromFile(GAME_STATE_PATH);
+    //------------------------------------------------------------------------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (MENU_BACKGROUND, std::move(texturesCreator)));
+    this->m_texture[MENU_BACKGROUND]->loadFromFile(MENU_BACKGROUND_PATH);
+    //-----------------------------------------------------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (MENU, std::move(texturesCreator)));
+    this->m_texture[MENU]->loadFromFile(MENU_PATH);
+    //------------------------------------------------------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (HIGHMENU, std::move(texturesCreator)));
+    this->m_texture[HIGHMENU]->loadFromFile(HIGHMENU_PATH);
+    //--------------------------------------------------------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (HELPMENU, std::move(texturesCreator)));
+    this->m_texture[HELPMENU]->loadFromFile(HELPMENU_PATH);
+    //---------------------------------------------------------------
+    //-------
+     //------------------------------------------------------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (BACK_KEY, std::move(texturesCreator)));
+    this->m_texture[BACK_KEY]->loadFromFile(BACK);
+    //-------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (HI_SCORE_KEY, std::move(texturesCreator)));
+    this->m_texture[HI_SCORE_KEY]->loadFromFile(HI_SCORE);
+    //-------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (INFO_KEY, std::move(texturesCreator)));
+    this->m_texture[INFO_KEY]->loadFromFile(INFO);
+    //---------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (NEW_GAME_KEY, std::move(texturesCreator)));
+    this->m_texture[NEW_GAME_KEY]->loadFromFile(NEW_GAME);
+    //--------
+
+    //---------------------------------------------------------------
+    //---------
+
+
+
+
+
+    //adding levels background path
 }
 //============================================================================
 void Resources::setObjects() {
@@ -133,5 +192,6 @@ void Resources::setNumOfSprites() {
     this->m_NumOfSprites.insert(std::pair<int, int>(IDLE, NUM_OF_IDLE_SPRITE));
     this->m_NumOfSprites.insert(std::pair<int, int>(RUN, NUM_OF_RUNNING_SPRITE));
     this->m_NumOfSprites.insert(std::pair<int, int>(JUMP, NUM_OF_JUMP_SPRITE));
+    this->m_NumOfSprites.insert(std::pair<int, int>(FALL, NUM_OF_FALL_SPRITE));
     this->m_NumOfSprites.insert(std::pair<int, int>(DIE, NUM_OF_DIE_SPRITE));
 }

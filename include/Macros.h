@@ -67,6 +67,7 @@ constexpr auto NUM_OF_ENEMIES_TYPES = 3;
 constexpr auto BONUS_TIME = 20;
 constexpr auto BONUS_SCORE = 20;
 constexpr auto BONUS_LIFE = 1;
+
 //============================  map's file path ==============================
 //-------------------------- data files section ------------------------------
 constexpr auto BOARD_PATH = "Levels.txt";
@@ -76,6 +77,15 @@ constexpr auto ARIEL_FONT_PATH = "ARIALBD.TTF";
 
 //---------------------------- picture section -------------------------------
 constexpr auto MENU_BACKGROUND_PATH = "MenuBackground.png";
+
+constexpr auto MENU_PATH = "RATBlack.jpg";
+constexpr auto HIGHMENU_PATH = "High Score Menu.png";
+constexpr auto HELPMENU_PATH = "backgrounds.jpg";
+
+constexpr auto LEVEL1_BACKGROUND_PATH = "level1.jpeg";
+constexpr auto LEVEL2_BACKGROUND_PATH = "level2.png";
+constexpr auto LEVEL3_BACKGROUND_PATH = "level3.jpeg";
+constexpr auto LEVEL4_BACKGROUND_PATH = "level4.jpeg";
 
 constexpr auto PLAYER_PATH = "player.png";
 constexpr auto SCOOTER_PATH = "scooter.png";
@@ -125,9 +135,26 @@ constexpr auto PLAYER_SPECIAL_OFFSET = 320;
 //------------------------------- backgrounds --------------------------------
 constexpr auto MENU_BACKGROUND = 1;
 constexpr auto LEVEL_BACKGROUND = 2;
+constexpr auto MENU = 3;
+constexpr auto LIVES = 3;
+constexpr auto HIGHMENU = 4;
+constexpr auto HELPMENU = 5;
 constexpr auto GAME_STATE = 9;
 constexpr auto BACKGROUND_WIDTH = 7185; //pixels
 constexpr auto BACKGROUND_HEIGHT = 1582;
+
+///statboard
+constexpr auto STAT_WIDTH = 0;
+constexpr auto STAT_HEIGHT = 60;
+//--
+constexpr auto BACK_KEY = 6;
+constexpr auto HI_SCORE_KEY = 7;
+constexpr auto INFO_KEY = 8;
+constexpr auto NEW_GAME_KEY = 9;
+constexpr auto HI_MENU_KEY = 10;
+
+//--
+const std::string STATS[] = {"Level: ","Score: ","Lives: "};
 //------------------------------- objects -------------------------------------
 //characters
 constexpr auto PLAYER_T = 10;
@@ -184,3 +211,17 @@ const b2Vec2 EMLEFT(-1, 0);
 const b2Vec2 EMDOWN(0, 4);
 
 const float ENEMY_DISTANCE_LIMIT = 20.f;
+
+///for menu
+const int WIN_WIDTH = 1600;
+const int WIN_HEIGHT = 760;
+
+const int MSG_WIDTH = 100;
+const int MSG_HEIGHT = 200;
+
+//
+const auto BACK_X_POS = 30;
+const auto HISCORE_X_POS = 160;
+const auto INFO_X_POS = 390;
+const auto STATS_Y_POS = 700;
+//

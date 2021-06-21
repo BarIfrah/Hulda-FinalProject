@@ -2,10 +2,12 @@
 //============================ include section ===============================
 #include "Board.h"
 #include "Listener.h"
-//#include "Menu.h"
+#include "Menu.h"
+//#include "Enemy.h"
 //#include "GameState.h"
 #include <SFML/Graphics.hpp>
 //========================== forward declarations ============================
+//class MovingObject;
 class Player;
 /*============================================================================
 * Class: Controller. 
@@ -39,13 +41,18 @@ private:
 	std::vector <MovingObject*> m_enemies;
 	/*
 	Menu m_menu;
+	Stats m_stats;
+
+
+
+	/*
 	GameState m_gameState;
 	*/
 	//====================== privete methods section =========================
 	//char runMenu();
 	void separateGameObjects(const vector<MovingObject*> &movingObjects);
 	void moveCharacters();
-	void handleGameEvents();
+	bool handleGameEvents(); // changed to boolean func
 	void sideScroll();
 	void HandleCharacterCollisionWithWindow(MovingObject*);
 	void drawObjects();

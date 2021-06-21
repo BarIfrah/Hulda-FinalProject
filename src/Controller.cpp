@@ -20,37 +20,41 @@ Controller::Controller()
     m_listener.setCurrentBoard(m_board);
     srand((unsigned int)time(nullptr));
 }
-
 //============================================================================
 
 void Controller::run() {
     separateGameObjects(m_board.loadNewLevel(*m_world));
      while (m_window.isOpen()) {
-        
-        m_world->Step(TIMESTEP, VELITER, POSITER);
-        std::cout << RegularFood::getFoodCounter() << std::endl;
-        if (RegularFood::getFoodCounter() == 0) {
-            if (m_board.is_next_lvl_exist()) {
-                levelUp();
-            }
-            else {
-                //gameOver();
-                break;
+        if (m_menu.runMenu(m_window, false, false)) {
+            while (m_window.isOpen()) {
+                m_world->Step(TIMESTEP, VELITER, POSITER);
+                std::cout << RegularFood::getFoodCounter() << std::endl;
+                if (RegularFood::getFoodCounter() == 0) {
+                    if (m_board.is_next_lvl_exist()) {
+                        levelUp();
+                    }else {
+                        //gameOver();
+                        break;
+                    }
+                }
+
+
+                m_gameClock.restart();
+                m_window.clear();
+                m_stats.update(1, 100, 3);
+
+                m_board.removeFood(*m_world);
+
+                if (m_player->getState() == DIE) {
+                    playerDied();
+                }
+
+                drawObjects();
+                m_window.display();
+                handleGameEvents();
             }
         }
-        m_gameClock.restart();
-        m_window.clear();
-        
-        m_board.removeFood(*m_world);
-        
-        if (m_player->getState() == DIE) {
-            playerDied();
-        }
-       
-        drawObjects();
-        m_window.display();
-        handleGameEvents();
-    }
+     }
 }
 //============================================================================
 /*
@@ -101,11 +105,17 @@ void Controller::moveCharacters()
 
 //============================================================================
 
-void Controller::handleGameEvents() {
+
+bool Controller::handleGameEvents() {
     if (auto event = sf::Event{}; m_window.pollEvent(event)) {
-        switch (event.key.code) {
-            case sf::Keyboard::Escape:
+        switch (event.type) { //changed to type
+            case sf::Event::KeyPressed:
+                if (event.key.code == sf::Keyboard::Escape)
+                    return false;
+                break;
+            case sf::Event::Closed:
                 m_window.close();
+                return false;
             default:;
               }
     }
@@ -116,8 +126,8 @@ void Controller::handleGameEvents() {
     for (auto& enemy : m_enemies)
         HandleCharacterCollisionWithWindow(enemy);
     sideScroll();
+    return true;
 }
-
 //============================================================================
 
 void Controller::sideScroll() {
@@ -126,7 +136,7 @@ void Controller::sideScroll() {
         m_CurrViewPos.x = 0;
     if (m_CurrViewPos.y < 0)
         m_CurrViewPos.y = 0;
-    if (m_CurrViewPos.x > BACKGROUND_WIDTH - m_window.getSize().x)
+    if (m_CurrViewPos.x > BACKGROUND_WIDTH-m_window.getSize().x)
         m_CurrViewPos.x = BACKGROUND_WIDTH - m_window.getSize().x;
     m_screenView.reset(sf::FloatRect(m_CurrViewPos.x, m_CurrViewPos.y, m_window.getSize().x,
                                      m_window.getSize().y));
