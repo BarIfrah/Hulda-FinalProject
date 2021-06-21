@@ -40,7 +40,7 @@ configure_file ("level3Music.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 #configure_file ("level4Music.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("level4Music.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 
-configure_file ("level4.jpeg" ${CMAKE_BINARY_DIR} COPYONLY)
+#configure_file ("level4.jpeg" ${CMAKE_BINARY_DIR} COPYONLY)
 
 configure_file ("backgrounds.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("RATBlack.jpg" ${CMAKE_BINARY_DIR} COPYONLY)

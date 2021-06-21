@@ -1,4 +1,4 @@
-#include "..\include\Menu.h"
+#include "Menu.h"
 #include <Macros.h>
 #include "Resources.h"
 //-----------------------------------------------------------------------------
@@ -49,27 +49,26 @@ bool Menu::runMenu(sf::RenderWindow& window, bool finished, bool hasWon)
 			{
 			case sf::Event::Closed:
 				return false;
-			case sf::Event::MouseButtonReleased:
-				auto location = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
+			case sf::Event::MouseButtonReleased: {
+                auto location = window.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
 
-				if (isClickedOn(m_hiScore2, location))
-				{
-					if (!drawScoresWindow(window))
-						return false;
-				}
-				if (isClickedOn(m_info2, location))
-				{
-					if (!drawHelpWindow(window))
-						return false;
-				}
-				if (isClickedOn(m_newGame2, location))
-				{
-					return true;
-				}
-				if (isClickedOn(m_back2, location))
-				{
-					return false;
-				}
+                if (isClickedOn(m_hiScore2, location)) {
+                    if (!drawScoresWindow(window))
+                        return false;
+                }
+                if (isClickedOn(m_info2, location)) {
+                    if (!drawHelpWindow(window))
+                        return false;
+                }
+                if (isClickedOn(m_newGame2, location)) {
+                    return true;
+                }
+                if (isClickedOn(m_back2, location)) {
+                    return false;
+                }
+            }
+            default:
+                break;
 			}
 	}
 	return false;

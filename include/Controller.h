@@ -4,7 +4,7 @@
 #include "Listener.h"
 #include "Menu.h"
 //#include "Enemy.h"
-//#include "GameState.h"
+#include "Stats.h"
 #include <SFML/Graphics.hpp>
 //========================== forward declarations ============================
 //class MovingObject;
@@ -39,15 +39,13 @@ private:
 	Board m_board;
 	Player* m_player;
 	std::vector <MovingObject*> m_enemies;
-	/*
+
 	Menu m_menu;
 	Stats m_stats;
 
 
 
-	/*
-	GameState m_gameState;
-	*/
+	//GameState m_gameState;
 	//====================== privete methods section =========================
 	//char runMenu();
 	void separateGameObjects(const vector<MovingObject*> &movingObjects);

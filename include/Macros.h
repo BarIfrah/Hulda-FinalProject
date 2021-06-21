@@ -90,7 +90,6 @@ constexpr auto LEVEL4_BACKGROUND_PATH = "level4.jpeg";
 constexpr auto PLAYER_PATH = "player.png";
 constexpr auto SCOOTER_PATH = "scooter.png";
 constexpr auto EXTERMINATOR_PATH = "exterminator.png";
-constexpr auto OLD_WOMAN_PATH = "old_woman.png";
 constexpr auto BANANA_PATH = "banana.png";
 constexpr auto PIZZA_PATH = "pizza.png";
 constexpr auto WATERMELON_PATH = "watermelon.png";
@@ -103,6 +102,11 @@ constexpr auto ADANIT_KATOM_PATH = "adanitKatom.png";
 constexpr auto GAME_STATE_PATH = "game_state.jpg";
 constexpr auto TRASH_BLUE_PATH = "trashBlue.png";
 constexpr auto TRASH_RED_PATH = "trashRed.png";
+
+constexpr auto BACK = "Back.png";
+constexpr auto HI_SCORE = "Hi Score.png";
+constexpr auto INFO = "Info.png";
+constexpr auto NEW_GAME = "New Game.png";
 //--------------------------------- musics -----------------------------------
 constexpr auto MENU_MUSIC_PATH = "menuMusic.ogg";
 constexpr auto LEVEL1_MUSIC_PATH = "level1Music.ogg";

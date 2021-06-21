@@ -1,4 +1,4 @@
-#include "..\include\Stats.h"
+#include "Stats.h"
 
 Stats::Stats()
 {
