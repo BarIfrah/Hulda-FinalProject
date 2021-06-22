@@ -56,15 +56,15 @@ void Resources::setBackgrounds() {
         throw std::exception();
         
     //------------------------------------------------------------------------
-    texturesCreator = std::make_unique<sf::Texture>();
+  /*  texturesCreator = std::make_unique<sf::Texture>();
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
         (GAME_STATE, std::move(texturesCreator)));
-    this->m_texture[GAME_STATE]->loadFromFile(GAME_STATE_PATH);
+    this->m_texture[GAME_STATE]->loadFromFile(GAME_STATE_PATH);*/
     //------------------------------------------------------------------------
     texturesCreator = std::make_unique<sf::Texture>();
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
-        (MENU_BACKGROUND, std::move(texturesCreator)));
-    this->m_texture[MENU_BACKGROUND]->loadFromFile(MENU_BACKGROUND_PATH);
+        (MAIN_MENU_BACKGROUND, std::move(texturesCreator)));
+    this->m_texture[MAIN_MENU_BACKGROUND]->loadFromFile(MAIN_MENU_BACKGROUND_PATH);
     //-----------------------------------------------------
     texturesCreator = std::make_unique<sf::Texture>();
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
@@ -103,6 +103,10 @@ void Resources::setBackgrounds() {
         (NEW_GAME_KEY, std::move(texturesCreator)));
     this->m_texture[NEW_GAME_KEY]->loadFromFile(NEW_GAME);
     //--------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (LIFE_T, std::move(texturesCreator)));
+    this->m_texture[LIFE_T]->loadFromFile(LIFE_T_PATH);
 
     //---------------------------------------------------------------
     //---------

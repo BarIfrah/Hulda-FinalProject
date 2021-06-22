@@ -5,7 +5,7 @@
 
 Menu::Menu()
 {
-	m_backGround = sf::Sprite(Resources::instance().getTexture(MENU_BACKGROUND));
+	m_backGround = sf::Sprite(Resources::instance().getTexture(MAIN_MENU_BACKGROUND));
 	m_backGround.setScale({ WIN_WIDTH / m_backGround.getGlobalBounds().width, WIN_HEIGHT / m_backGround.getGlobalBounds().height });
 
 	m_helpBackground = sf::Sprite(Resources::instance().getTexture(HELPMENU));
@@ -18,24 +18,18 @@ Menu::Menu()
 	m_hiScore2 = sf::Sprite(Resources::instance().getTexture(HI_SCORE_KEY));
 	m_info2 = sf::Sprite(Resources::instance().getTexture(INFO_KEY));
 	m_newGame2 = sf::Sprite(Resources::instance().getTexture(NEW_GAME_KEY));
-	m_back2.setPosition(800, 680);
-	m_hiScore2.setPosition(800, 300);
-	m_info2.setPosition(800, 480);
-	m_newGame2.setPosition(800, 100);
+	m_back2.setPosition(1620, 980);
+	m_hiScore2.setPosition(100, 400);
+	m_info2.setPosition(85, 250);
+	m_newGame2.setPosition(100, 100);
 
-
-	/*setText(m_mainMsg, "THE HULDA", { MSG_WIDTH*5.7, MSG_HEIGHT/2.5 });
-	setText(m_enter, "New Game", { MSG_WIDTH*6.5, MSG_HEIGHT*1.5 });
-	setText(m_exit, "Exit", { MSG_WIDTH*8, MSG_HEIGHT*4.5 });
-	setText(m_help, "Help", { MSG_WIDTH*8, MSG_HEIGHT*3.5 });
-	setText(m_highScoreBtn, "High Scores", { MSG_WIDTH*6, MSG_HEIGHT*2.5 });
-	setText(m_back, "Back", { 10, 10 });*/
 }
 
 //---------------------------------------------------------------------------------------------
 bool Menu::runMenu(sf::RenderWindow& window, bool finished, bool hasWon)
 {
-	while (window.isOpen()) {
+	while (window.isOpen()) 
+	{
 		window.clear();
 		if (finished)
 		{
@@ -53,53 +47,45 @@ bool Menu::runMenu(sf::RenderWindow& window, bool finished, bool hasWon)
                 auto location = window.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
 
                 if (isClickedOn(m_hiScore2, location)) {
-                    if (!drawScoresWindow(window))
-                        return false;
+					Music::instance().stopMenu();
+					Music::instance().playHiScoreMenu();
+					if (!drawScoresWindow(window)) 
+						return false;
                 }
                 if (isClickedOn(m_info2, location)) {
+					Music::instance().stopMenu();
+					Music::instance().playInfoMenu();
                     if (!drawHelpWindow(window))
                         return false;
                 }
                 if (isClickedOn(m_newGame2, location)) {
+					Music::instance().stopMenu();
                     return true;
                 }
                 if (isClickedOn(m_back2, location)) {
+					Music::instance().stopMenu();
                     return false;
                 }
             }
             default:
                 break;
 			}
+		//right here could be for ex. when the user clicked the "back" button when he was at the HiScore screen
+		
 	}
 	return false;
 }
 
 //---------------------------------------------------------------------------------------------
-//void Menu::resetMainMenu(sf::RenderWindow& window)
-//{
-//	setText(m_mainMsg, "lode runner - star wars edition", { MAIN_MSG_WIDTH, MAIN_MSG_HEIGHT });
-//	setText(m_enter, "new game", { ENTER_WIDTH, ENTER_HEIGHT });
-//	m_backGround = sf::Sprite(Textures::instance().getTexture(8));
-//	m_backGround.setScale({ WIN_WIDTH / m_backGround.getGlobalBounds().width, WIN_HEIGHT / m_backGround.getGlobalBounds().height });
-//}
-
-//---------------------------------------------------------------------------------------------
 void Menu::drawMywindow(sf::RenderWindow& window) const
 {
-	/*window.draw(m_backGround);
-	window.draw(m_mainMsg);
-	window.draw(m_enter);
-	window.draw(m_exit);
-	window.draw(m_help);
-	window.draw(m_highScoreBtn);*/
 	window.draw(m_backGround);
 	window.draw(m_back2);
 	window.draw(m_hiScore2);
 	window.draw(m_info2);
 	window.draw(m_newGame2);
-
 }
-
+//------------------------------------------------------------------------
 bool Menu::drawHelpWindow(sf::RenderWindow& window) const
 {
 	window.clear();
@@ -117,15 +103,20 @@ bool Menu::drawHelpWindow(sf::RenderWindow& window) const
 
 				if (isClickedOn(m_back2, location))
 				{
+					Music::instance().stopInfoMenu();
+					Music::instance().playBack();
 					return true;
 				}
 			}
 }
 
+//------------------------------------------------------------------------
 bool Menu::drawScoresWindow(sf::RenderWindow& window) const
 {
+	sf::Vector2f backButtonPos = { 100, 550 };
 	window.clear();
 	window.draw(m_highBackround);
+	window.draw(m_back2);
 	sf::Text name;
 	sf::Text score;
 	for (int i = 0; i < m_highScores.size(); i++)
@@ -135,7 +126,7 @@ bool Menu::drawScoresWindow(sf::RenderWindow& window) const
 		window.draw(name);
 		window.draw(score);
 	}
-	window.draw(m_back);
+	//window.draw(m_back);
 	window.display();
 	while (window.isOpen())
 		for (auto event = sf::Event{}; window.waitEvent(event);)
@@ -148,11 +139,13 @@ bool Menu::drawScoresWindow(sf::RenderWindow& window) const
 
 				if (isClickedOn(m_back2, location))
 				{
+					Music::instance().stopHiScoreMenu();
+					Music::instance().playBack();
 					return true;
 				}
 			}
 }
-// change to enum to know what state we are in. depends what state we are in to print whicvh object and which object we need to find the clicks. by the enum and clicks we change the state
+//change to enum to know what state we are in. It depends on what state we're in to print what object we need to recognize the clicks. by the enum and clicks we change the state
 //
 //---------------------------------------------------------------------------------------------
 void Menu::setMyscreen(bool hasWon)

@@ -21,12 +21,18 @@ public:
 	virtual void move(const sf::Time&,Board&) override;
 	void updateAnimation(const sf::Time&) override;
 	void playerJump(const b2Vec2&);
+	int getScore() const;
+	void setScore(const int&);
+	int getLife() const;
+	void setLife(const int&);
 //	void resetAnimationTime() override;
 //	sf::FloatRect getGlobalBounds()const;
 	//=========================== method section ==============================
 
 	//========================= private section ===============================
 private:
+	int m_score = 0;
+	int m_life = 0;
 	//========================= members section ===============================
 	//====================== private methods section ==========================
 };

@@ -80,6 +80,13 @@ namespace
     {
         Food& food = dynamic_cast<Food&>(object2);
         food.collect();
+        if (dynamic_cast<SpecialFood*>(&object2))
+            dynamic_cast<Player&>(object1).setScore(20); ///in the future will add special force
+        else if (dynamic_cast<RegularFood*>(&object2))
+            dynamic_cast<Player&>(object1).setScore(10);
+        else if (dynamic_cast<ToxicFood*>(&object2))
+            dynamic_cast<Player&>(object1).setScore(-10);
+        std::cout << dynamic_cast<Player&>(object1).getScore() << std::endl;
     }
     void foodPlayer(GameObject& object1, GameObject& object2)
     {

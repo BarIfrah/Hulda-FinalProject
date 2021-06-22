@@ -88,3 +88,24 @@ void Player::updateAnimation(const sf::Time &deltaTime ) {
 void Player::playerJump(const b2Vec2 &force) {
     applyForce(force);
 }
+//============================================================================
+void Player::setScore(const int& scoreToAdd) {
+    m_score += scoreToAdd;
+    if (m_score < 0)
+        m_score = 0;
+}
+int Player::getLife() const
+{
+    return m_life;
+}
+void Player::setLife(const int& life)
+{
+    m_life += life;
+    if (m_life < 0)
+        m_life = 0;
+}
+//============================================================================
+
+int Player::getScore() const{
+    return m_score;
+}

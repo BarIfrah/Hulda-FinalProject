@@ -65,7 +65,7 @@ rule CXX_STATIC_LIBRARY_LINKER__box2d_Debug
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\sharonlevi\source\repos\Hulda-FinalProject -B"C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)"
+  command = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\holtz\OneDrive\Desktop\NEWEST_21.6_1520 -B"C:\Users\holtz\OneDrive\Desktop\NEWEST_21.6_1520\out\build\x64-Debug (default)"
   description = Re-running CMake...
   generator = 1
 

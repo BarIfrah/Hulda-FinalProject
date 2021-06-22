@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Utilities.h"
+#include "Music.h"
 //-----------------------------------------------------------------------------
 
 class Menu

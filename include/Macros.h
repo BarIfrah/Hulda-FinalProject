@@ -77,6 +77,8 @@ constexpr auto ARIEL_FONT_PATH = "ARIALBD.TTF";
 
 //---------------------------- picture section -------------------------------
 constexpr auto MENU_BACKGROUND_PATH = "MenuBackground.png";
+constexpr auto MAIN_MENU_BACKGROUND_PATH = "MainMenuBackground.png";
+constexpr auto LIFE_T_PATH = "life.png";
 
 constexpr auto MENU_PATH = "RATBlack.jpg";
 constexpr auto HIGHMENU_PATH = "High Score Menu.png";
@@ -144,6 +146,7 @@ constexpr auto LIVES = 3;
 constexpr auto HIGHMENU = 4;
 constexpr auto HELPMENU = 5;
 constexpr auto GAME_STATE = 9;
+constexpr auto MAIN_MENU_BACKGROUND = 27;
 constexpr auto BACKGROUND_WIDTH = 7185; //pixels
 constexpr auto BACKGROUND_HEIGHT = 1582;
 
@@ -217,8 +220,8 @@ const b2Vec2 EMDOWN(0, 4);
 const float ENEMY_DISTANCE_LIMIT = 20.f;
 
 ///for menu
-const int WIN_WIDTH = 1600;
-const int WIN_HEIGHT = 760;
+const int WIN_WIDTH = 1920;
+const int WIN_HEIGHT = 1080;
 
 const int MSG_WIDTH = 100;
 const int MSG_HEIGHT = 200;
@@ -228,4 +231,10 @@ const auto BACK_X_POS = 30;
 const auto HISCORE_X_POS = 160;
 const auto INFO_X_POS = 390;
 const auto STATS_Y_POS = 700;
+
+const auto HEART_WIDTH = 117;
+const auto LIFE_T = 29;
 //
+//for sounds
+const auto AUDIOS = 12;
+const auto VOL = 30;

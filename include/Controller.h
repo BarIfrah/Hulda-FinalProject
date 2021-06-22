@@ -39,7 +39,7 @@ private:
 	Board m_board;
 	Player* m_player;
 	std::vector <MovingObject*> m_enemies;
-
+	int m_level = 1;
 	Menu m_menu;
 	Stats m_stats;
 
