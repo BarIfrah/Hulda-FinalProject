@@ -37,7 +37,7 @@ constexpr auto NONE_CHOSEN = 'N';
 //enum to define movement directions of all moving objects (Enemies will not use up/down)
 enum ANIMATION_DIRECTIONS { LEFT = 0, RIGHT = 1 };
 enum ANIMATION_STATE { IDLE = 0, RUN, JUMP, DIE, FALL};
-enum EXTERMINATOR_COLLISION { NOT_COLLIDED=0, TRASH_C, ADANIT_C};
+enum EXTERMINATOR_COLLISION { NOT_COLLIDED=0, TRASH_C, ADANIT_C, ROAD_C};
 constexpr auto NUM_OF_IDLE_SPRITE = 11;
 constexpr auto NUM_OF_JUMP_SPRITE = 12;
 constexpr auto NUM_OF_RUNNING_SPRITE = 13;

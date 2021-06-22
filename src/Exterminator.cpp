@@ -15,57 +15,58 @@ void Exterminator::setCollision(int collisionState) { m_collided = collisionStat
 
 //=============================================================================
 
+void Exterminator::flipDirection(int direction)
+{
+	if (direction == LEFT) {
+		if (getDirection() == RIGHT) {
+			setDirection(LEFT);
+			flipSprite(sf::Vector2f(-1.f, 1.f));
+		}
+	}
+	else {
+		if (getDirection() == LEFT) {
+			setDirection(RIGHT);
+			flipSprite(sf::Vector2f(-1.f, 1.f));
+		}
+	}
+}
+
+//=============================================================================
+
 void Exterminator::move(const sf::Time& deltaTime, Board& currentLevel) {
 	sf::Vector2f playerLocation = currentLevel.getPlayerLoc();
+	int playerState = currentLevel.getPlayerState();
 	b2Vec2 dirFromKey = b2Vec2(0, 0);
+
 	switch (m_collided)
 	{
 	case TRASH_C:
 		if (getDirection() == RIGHT)
-			dirFromKey = b2Vec2(EMRIGHT.x, EMUP.y);
+			dirFromKey = b2Vec2(MRIGHT.x, MUP.y);
 		else
-			dirFromKey = b2Vec2(EMLEFT.x, EMUP.y);
+			dirFromKey = b2Vec2(MLEFT.x, MUP.y);
 		m_collided = NOT_COLLIDED;
 		break;
 	case ADANIT_C:
-		dirFromKey = b2Vec2(EMLEFT.x, EMDOWN.y);
+		dirFromKey = b2Vec2(0, getLinearVelocity().y);
+		m_collided = NOT_COLLIDED;
 		break;
-	default:
-		//the enemy is above & right to player:
-		if (this->getLocation().y < playerLocation.y && getLocation().x > playerLocation.x) {
-			dirFromKey = b2Vec2(MLEFT.x, 0);
-			//setState(JUMP);
+	default: //not collided
+		//the enemy is right to player:
+		if (getLocation().x > playerLocation.x) {
+			dirFromKey = b2Vec2(MLEFT.x, getLinearVelocity().y);
+			if(getLocation().x - playerLocation.x > 20)
+				flipDirection(LEFT);
 			//updateAnimation(deltaTime);
 			
-		} //enemy is above & left to player:
-		else if (this->getLocation().y < playerLocation.y && getLocation().x < playerLocation.x) {
-			dirFromKey = b2Vec2(MRIGHT.x, 0);
-			//setState(JUMP);
+		} //enemy is left to player:
+		else if (getLocation().x < playerLocation.x) {
+			dirFromKey = b2Vec2(MRIGHT.x, getLinearVelocity().y);
 			//updateAnimation(deltaTime);
-		}
-		//enemy is below & right to player:
-		else if (this->getLocation().y > playerLocation.y && getLocation().x - 1 > playerLocation.x) {
-				dirFromKey = b2Vec2(MLEFT.x, MUP.y);
-				//setState(RUN);
-				//updateAnimation(deltaTime);
-		}
-		//enemy is below & left to player:
-		else if (this->getLocation().y > playerLocation.y && getLocation().x + 1 < playerLocation.x) {
-			dirFromKey = b2Vec2(MRIGHT.x, MUP.y);
-			//setState(RUN);
-			//updateAnimation(deltaTime);
-		}
-		else {
-			//setState(IDLE);
-			//dirFromKey = b2Vec2(0, EMDOWN.y);
+			if (playerLocation.x - getLocation().x > 20)
+				flipDirection(RIGHT);
 		}
 		break;
 	}
-	if (getDirection() == RIGHT) {
-		setDirection(LEFT);
-		flipSprite(sf::Vector2f(-1.f, 1.f));
-	}
-	//if (getState() != IDLE) ///not IDLE
-		setPhysicsObjectPos(sf::Vector2f(getLocation().x + dirFromKey.x, getLocation().y
-			+ dirFromKey.y), dirFromKey);
+	setPhysicsObjectPos(sf::Vector2f(getLocation().x + dirFromKey.x, getLocation().y+ dirFromKey.y), dirFromKey);
 }

@@ -32,6 +32,7 @@ public:
 	GameObject* getObjWithId(int);
 	Collisions getCollisionObj() const { return m_collision; }
 	const sf::Vector2f& getPlayerLoc()const;
+	int getPlayerState()const;
 	//=========================== method section =============================
 	void draw(sf::RenderWindow& window, const sf::Time&);
 	std::vector<MovingObject*> loadNewLevel(b2World&);

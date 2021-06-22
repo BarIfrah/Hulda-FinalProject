@@ -50,6 +50,11 @@ const sf::Vector2f& Board::getPlayerLoc()const {
 	return this->m_player->getLocation();
 }
 //============================================================================
+int Board::getPlayerState() const
+{
+	return m_player->getState();
+}
+//============================================================================
 sf::Vector2f Board::getObjectSize()const {
 	return sf::Vector2f{getLevelSize().x / m_map[0].size(),
                          getLevelSize().y / m_map.size() };

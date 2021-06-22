@@ -15,9 +15,8 @@ public:
 //    void resetAnimationTime() override;
 	virtual void move(const sf::Time&,Board&) override;
 	void setCollision(int);
+	void flipDirection(int);
 	//========================= private section ===============================
 private:
 	int m_collided = NOT_COLLIDED;
-	bool m_getUP = true; //ready to the first jump
-	int m_jumpTime = 0;
 };

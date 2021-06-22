@@ -8,7 +8,7 @@
 //============================================================================
 
 Controller::Controller()
-        : m_window(sf::VideoMode(1920, 1080), "Hulda", sf::Style::Titlebar | sf::Style::Close),
+        : m_window(sf::VideoMode::getDesktopMode(), "Hulda", sf::Style::Fullscreen | sf::Style::Close),
         m_board(sf::Vector2f(0, 0),
             sf::Vector2f((float)BACKGROUND_WIDTH, (float)m_window.getSize().y)),
         m_player(nullptr),
@@ -22,6 +22,7 @@ Controller::Controller()
     m_world->SetContactListener(&m_listener);
     m_listener.setCurrentBoard(m_board);
     srand((unsigned int)time(nullptr));
+    
 }
 
 //============================================================================
@@ -32,6 +33,7 @@ void Controller::run() {
      while (playingGame)
      {
          Music::instance().playMenu(); //at start of main menu
+        
          if (m_menu.runMenu(m_window, false, false))
          {
              Music::instance().playGame(); //after pressing on new game -->runMenu returns true
@@ -48,7 +50,6 @@ void Controller::run() {
                          break;
                      }
                  }
-
                  m_gameClock.restart();
                  m_window.clear();
                  m_stats.update(m_level, m_player->getScore(), m_player->getLife());
@@ -57,7 +58,6 @@ void Controller::run() {
                  if (m_player->getState() == DIE) {
                      playerDied();
                  }
-
                  drawObjects();
                  m_stats.draw(m_window);
                  m_window.display();
@@ -95,7 +95,7 @@ void Controller::levelUp()
     delete m_world;
     m_world = new b2World(b2Vec2(0, WORLD_GRAVITY));
     separateGameObjects(m_board.loadNewLevel(*m_world));
-    //m_gameState.levelup(m_board.getLevelTime());
+    //m_Stats.levelup(m_board.getLevelTime());
     m_world->SetContactListener(&m_listener);
     m_listener.setCurrentBoard(m_board);
     m_player->setScore(playerScore);
