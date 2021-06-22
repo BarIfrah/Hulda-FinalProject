@@ -120,6 +120,6 @@ int Player::getScore() const{
 }
 
 void Player::resetScore() {
-    m_lifeAdder;
+    m_lifeAdder = 100;
     m_score = 0;
 }

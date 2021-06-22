@@ -208,6 +208,7 @@ void Controller::resetGame() {
     m_board.gameOver(*m_world);
     m_level = 0;
     m_player->resetLife(3);
+    m_player->resetScore();
     Music::instance().stopGame();
 }
 //============================================================================
