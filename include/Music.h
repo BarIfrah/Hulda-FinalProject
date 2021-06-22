@@ -20,7 +20,8 @@ public:
 		back,
 		hiScore,
 		gameTheme,
-		infoMenu
+		infoMenu,
+		SpecialFood
 	};
 
 	static Music& instance();
@@ -42,6 +43,7 @@ public:
 	void stopHiScoreMenu();
 	void playInfoMenu();
 	void stopInfoMenu();
+	void playSpecialFood();
 
 private:
 	Music();

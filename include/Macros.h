@@ -236,5 +236,5 @@ const auto HEART_WIDTH = 117;
 const auto LIFE_T = 29;
 //
 //for sounds
-const auto AUDIOS = 12;
+const auto AUDIOS = 13;
 const auto VOL = 30;
