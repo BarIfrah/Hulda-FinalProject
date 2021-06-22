@@ -1,5 +1,5 @@
 ﻿#game texturs
-configure_file ("ARIALBD.TTF" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("CooperBlackStd.otf" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("player.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("exterminator.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("scooter.png" ${CMAKE_BINARY_DIR} COPYONLY)
@@ -16,6 +16,7 @@ configure_file ("apple.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("trashBlue.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("trashRed.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("life.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Exit.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
 #game sounds

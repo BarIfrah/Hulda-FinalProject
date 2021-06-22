@@ -18,10 +18,12 @@ Menu::Menu()
 	m_hiScore2 = sf::Sprite(Resources::instance().getTexture(HI_SCORE_KEY));
 	m_info2 = sf::Sprite(Resources::instance().getTexture(INFO_KEY));
 	m_newGame2 = sf::Sprite(Resources::instance().getTexture(NEW_GAME_KEY));
+	m_exit = sf::Sprite(Resources::instance().getTexture(EXIT_KEY));
 	m_back2.setPosition(1620, 980);
 	m_hiScore2.setPosition(100, 400);
 	m_info2.setPosition(85, 250);
 	m_newGame2.setPosition(100, 100);
+	m_exit.setPosition(1620, 980);
 
 }
 
@@ -80,7 +82,7 @@ bool Menu::runMenu(sf::RenderWindow& window, bool finished, bool hasWon)
 void Menu::drawMywindow(sf::RenderWindow& window) const
 {
 	window.draw(m_backGround);
-	window.draw(m_back2);
+	window.draw(m_exit);
 	window.draw(m_hiScore2);
 	window.draw(m_info2);
 	window.draw(m_newGame2);

@@ -3,9 +3,7 @@
 #include "Board.h"
 #include "Listener.h"
 #include "Menu.h"
-//#include "Enemy.h"
 #include "Stats.h"
-#include <SFML/Graphics.hpp>
 //========================== forward declarations ============================
 //class MovingObject;
 class Player;
@@ -56,6 +54,7 @@ private:
 	void drawObjects();
 	void levelUp();
 	void playerDied();
-	void gameOver();
+	//void gameOver();
 	bool handleKeyPresses();
+	void resetGameView();
 };

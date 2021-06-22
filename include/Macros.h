@@ -111,6 +111,8 @@ constexpr auto BACK = "Back.png";
 constexpr auto HI_SCORE = "Hi Score.png";
 constexpr auto INFO = "Info.png";
 constexpr auto NEW_GAME = "New Game.png";
+
+constexpr auto EXIT = "Exit.png";
 //--------------------------------- musics -----------------------------------
 constexpr auto MENU_MUSIC_PATH = "menuMusic.ogg";
 constexpr auto LEVEL1_MUSIC_PATH = "level1Music.ogg";
@@ -161,6 +163,7 @@ constexpr auto HI_SCORE_KEY = 7;
 constexpr auto INFO_KEY = 8;
 constexpr auto NEW_GAME_KEY = 9;
 constexpr auto HI_MENU_KEY = 10;
+constexpr auto EXIT_KEY = 28;
 
 //--
 const std::string STATS[] = {"Level: ","Score: ","Lives: "};
@@ -195,7 +198,6 @@ constexpr auto EXTERMINATOR_SOUND = 6;
 constexpr auto SCOOTER_SOUND = 7;
 constexpr auto OLD_WOMAN_SOUND = 8;
 //--------------------------------- logos ------------------------------------
-constexpr auto GAME_LOGO = 26;
 
 //---------------------------------- fonts -----------------------------------
 constexpr auto ARIEL_FONT = 1;

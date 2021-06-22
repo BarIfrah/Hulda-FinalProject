@@ -40,8 +40,10 @@ namespace
 {
     void playerEnemy(GameObject& object1, GameObject& object2)
     {
+        Music::instance().playEnemyAte();
         auto& player = dynamic_cast<Player&>(object1);
         player.setState(DIE, PLAYER_BOX_HEIGHT, PLAYER_BOX_WIDTH, PLAYER_OFFSET, PLAYER_SPECIAL_OFFSET);
+        player.setLife(-1);
     }
     void enemyPlayer(GameObject& object1, GameObject& object2)
     {

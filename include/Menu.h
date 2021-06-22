@@ -23,19 +23,19 @@ private:
 	void readScores();
 	sf::Text m_mainMsg;
 	sf::Text m_enter;
+	/*
 	sf::Text m_exit;
 	sf::Text m_back;
 	sf::Text m_help;
-	sf::Text m_highScoreBtn;
+	sf::Text m_highScoreBtn;*/
 	sf::Sprite m_backGround;
 	sf::Sprite m_highBackround;
 	sf::Sprite m_helpBackground;
+	sf::Sprite m_exit;
 	std::vector < std::pair<std::string, std::string>> m_highScores;
 	//
 	sf::Sprite m_back2;
 	sf::Sprite m_hiScore2;
 	sf::Sprite m_info2;
 	sf::Sprite m_newGame2;
-
-
 };

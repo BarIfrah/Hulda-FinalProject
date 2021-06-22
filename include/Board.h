@@ -38,7 +38,7 @@ public:
 	std::vector<MovingObject*> loadNewLevel(b2World&);
 	void removeFood(b2World& world);
 	bool is_next_lvl_exist()const;
-	//void gameOver();
+	void gameOver(b2World&);
 	void loadLevelEffects();
 	void resetObjects();
 	void levelUp(b2World&);
