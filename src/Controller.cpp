@@ -13,7 +13,9 @@ Controller::Controller()
             sf::Vector2f((float)BACKGROUND_WIDTH, (float)m_window.getSize().y)),
         m_player(nullptr),
         m_listener(Listener()),
-        m_stats(Stats()){
+        m_stats(Stats()),
+        m_highScores(sf::Vector2f(0, 0), sf::Vector2f(m_window.getSize())),
+        m_menu(Menu(&m_highScores)){
     m_window.setFramerateLimit(60);
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
     m_screenView.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
@@ -22,7 +24,6 @@ Controller::Controller()
     m_world->SetContactListener(&m_listener);
     m_listener.setCurrentBoard(m_board);
     srand((unsigned int)time(nullptr));
-    
 }
 
 //============================================================================

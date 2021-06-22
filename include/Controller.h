@@ -3,7 +3,7 @@
 #include "Board.h"
 #include "Listener.h"
 #include "Menu.h"
-//#include "Enemy.h"
+#include "HighScores.h"
 #include "Stats.h"
 #include <SFML/Graphics.hpp>
 //========================== forward declarations ============================
@@ -44,8 +44,7 @@ private:
 	int m_level = 1;
 	Stats m_stats;
 	Menu m_menu;
-
-	//GameState m_gameState;
+	HighScores m_highScores;
 	//====================== privete methods section =========================
 	//char runMenu();
 	void separateGameObjects(const vector<MovingObject*> &movingObjects);

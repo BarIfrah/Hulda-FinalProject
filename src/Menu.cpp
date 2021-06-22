@@ -3,7 +3,7 @@
 #include "Resources.h"
 //-----------------------------------------------------------------------------
 
-Menu::Menu()
+Menu::Menu(HighScores* highScores) : m_highScores(highScores)
 {
 	m_backGround = sf::Sprite(Resources::instance().getTexture(MAIN_MENU_BACKGROUND));
 	m_backGround.setScale({ WIN_WIDTH / m_backGround.getGlobalBounds().width, WIN_HEIGHT / m_backGround.getGlobalBounds().height });
@@ -115,7 +115,8 @@ bool Menu::drawScoresWindow(sf::RenderWindow& window) const
 {
 	sf::Vector2f backButtonPos = { 100, 550 };
 	window.clear();
-	window.draw(m_highBackround);
+	m_highScores->draw(window);
+	/*window.draw(m_highBackround);
 	window.draw(m_back2);
 	sf::Text name;
 	sf::Text score;
@@ -125,7 +126,7 @@ bool Menu::drawScoresWindow(sf::RenderWindow& window) const
 		setText(score, m_highScores[i].second, sf::Vector2f( 450, 300 + 100 * i ));
 		window.draw(name);
 		window.draw(score);
-	}
+	}*/
 	//window.draw(m_back);
 	window.display();
 	while (window.isOpen())
@@ -183,7 +184,7 @@ bool Menu::isClickedOn(const sf::Sprite& text, const sf::Vector2f& pos) const
 
 void Menu::readScores()
 {
-	m_highScores.push_back(std::make_pair("Oren", "100"));
-	m_highScores.push_back(std::make_pair("fyfyn", "854"));
+	/*m_highScores.push_back(std::make_pair("Oren", "100"));
+	m_highScores.push_back(std::make_pair("fyfyn", "854"));*/
 }
 

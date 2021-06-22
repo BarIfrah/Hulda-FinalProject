@@ -2,12 +2,13 @@
 #include <SFML/Graphics.hpp>
 #include "Utilities.h"
 #include "Music.h"
+#include "HighScores.h"
 //-----------------------------------------------------------------------------
 
 class Menu
 {
 public:
-	Menu();
+	Menu(HighScores*);
 	//void resetMainMenu(sf::RenderWindow&);
 	bool runMenu(sf::RenderWindow& window, bool, bool);
 
@@ -30,12 +31,12 @@ private:
 	sf::Sprite m_backGround;
 	sf::Sprite m_highBackround;
 	sf::Sprite m_helpBackground;
-	std::vector < std::pair<std::string, std::string>> m_highScores;
+	//std::vector < std::pair<std::string, std::string>> m_highScores;
 	//
 	sf::Sprite m_back2;
 	sf::Sprite m_hiScore2;
 	sf::Sprite m_info2;
 	sf::Sprite m_newGame2;
 
-
+	HighScores* m_highScores;
 };
