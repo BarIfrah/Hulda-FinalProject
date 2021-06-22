@@ -57,4 +57,5 @@ private:
 	void levelUp();
 	void playerDied();
 	void gameOver();
+	bool handleKeyPresses();
 };

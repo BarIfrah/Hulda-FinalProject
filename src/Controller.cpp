@@ -28,7 +28,8 @@ Controller::Controller()
 
 void Controller::run() {
     separateGameObjects(m_board.loadNewLevel(*m_world));
-     while (m_window.isOpen())
+    bool playingGame = true;
+     while (playingGame)
      {
          Music::instance().playMenu(); //at start of main menu
          if (m_menu.runMenu(m_window, false, false))
@@ -60,8 +61,10 @@ void Controller::run() {
                  drawObjects();
                  m_stats.draw(m_window);
                  m_window.display();
-                 if (!handleGameEvents())
+                 if (!handleGameEvents()) {
+                     playingGame = false;
                      break;
+                 }
              }
              //Music::instance().playHiScoreMenu();//this is right AFTER when the user presses ESC key during playing game-->m_window.isOpen(line 34) returns false or line 61 is true so break
          }
