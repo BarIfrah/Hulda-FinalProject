@@ -6,7 +6,6 @@
 #include "MovingObject.h"
 #include "Macros.h"
 #include "Resources.h"
-#include <vector>
 #include "Utilities.h"
 #include "Player.h"
 #include "Road.h"
@@ -170,13 +169,14 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 bool Board::is_next_lvl_exist() const {
 	return m_levelReader.isThereNextLevel();
 }
+
 //============================================================================
-//void Board::gameOver() {
-//	this->m_levelReader.resetRead();
-//	this->releaseMap();
-//	//this->m_door.release();
-//	this->m_player = nullptr;
-//}
+void Board::gameOver(b2World& world) {
+	m_levelReader.resetRead();
+	m_player = nullptr;
+	levelUp(world);
+}
+
 //============================================================================
 /*
 * This function load the background and the music of the current level.

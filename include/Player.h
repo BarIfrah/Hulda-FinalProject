@@ -25,6 +25,7 @@ public:
 	void setScore(const int&);
 	int getLife() const;
 	void setLife(const int&);
+	void resetLife(const int& life);
 //	void resetAnimationTime() override;
 //	sf::FloatRect getGlobalBounds()const;
 	//=========================== method section ==============================
@@ -32,7 +33,8 @@ public:
 	//========================= private section ===============================
 private:
 	int m_score = 0;
-	int m_life = 0;
+	int m_life = 3;
+	int m_lifeAdder = 100;
 	//========================= members section ===============================
 	//====================== private methods section ==========================
 };

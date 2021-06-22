@@ -44,7 +44,10 @@ void Controller::run() {
                          levelUp();
                      }
                      else {
-                         //gameOver();
+                         resetGameView();
+                         m_board.gameOver(*m_world);
+                         m_level = 0;
+                         m_player->resetLife(3);
                          break;
                      }
                  }
@@ -66,11 +69,10 @@ void Controller::run() {
                      break;
                  }
              }
-             //Music::instance().playHiScoreMenu();//this is right AFTER when the user presses ESC key during playing game-->m_window.isOpen(line 34) returns false or line 61 is true so break
+             //this is right AFTER when the user presses ESC key during playing game-->m_window.isOpen(line 34) returns false or line 61 is true so break
          }
-         //Music::instance().playBack();//this is when the user doesn't click on new game on main menu --> the function runMenu (line 31) returns false
+         //this is when the user doesn't click on new game on main menu --> the function runMenu (line 31) returns false
      }
-     Music::instance().playEnemyAte();
 }
 //============================================================================
 /*
@@ -90,15 +92,18 @@ void Controller::levelUp()
     //Resources::instance().pauseMusic();
     m_level++;
     int playerScore = m_player->getScore();
+    int playerLife = m_player->getLife();
     m_board.levelUp(*m_world);
     srand((unsigned int)time(nullptr));
     delete m_world;
     m_world = new b2World(b2Vec2(0, WORLD_GRAVITY));
     separateGameObjects(m_board.loadNewLevel(*m_world));
-    //m_gameState.levelup(m_board.getLevelTime());
+    m_stats.levelup(m_board.getLevelTime());
+
     m_world->SetContactListener(&m_listener);
     m_listener.setCurrentBoard(m_board);
     m_player->setScore(playerScore);
+    m_player->resetLife(playerLife);
 }
 
 //============================================================================
@@ -199,11 +204,20 @@ void Controller::playerDied()
 
 //============================================================================
 
-void Controller::gameOver()
+//void Controller::gameOver()
+//{
+//    //Resources::instance().pauseMusic();
+//    this->m_player = nullptr;
+//    this->m_enemies.clear();
+//    delete m_world;
+//    m_board
+//    m_level = 1;
+//    //this->m_board.gameOver();
+//   // this->m_gameState.gameOver();
+//}
+
+void Controller::resetGameView()
 {
-    //Resources::instance().pauseMusic();
-    this->m_player = nullptr;
-    this->m_enemies.clear();
-   // this->m_board.gameOver();
-   // this->m_gameState.gameOver();
+    m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
+    m_window.setView(m_screenView);
 }

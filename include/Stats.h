@@ -15,7 +15,7 @@ public:
 	void update(int, int, int);
 	void setPosition(const sf::Vector2f &);
 	bool isTimeUp();
-	void levelup(int);
+	void levelup(float);
 
 private:
 

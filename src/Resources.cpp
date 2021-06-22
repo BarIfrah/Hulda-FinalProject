@@ -13,7 +13,7 @@ Resources::Resources()
     this->setObjects();
     //this->setSounds();
     this->setNumOfSprites();
-    m_font.loadFromFile("ARIALBD.TTF");
+    m_font.loadFromFile("CooperBlackStd.otf");
 }
 //============================================================================
 Resources& Resources::instance() {
@@ -107,6 +107,12 @@ void Resources::setBackgrounds() {
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
         (LIFE_T, std::move(texturesCreator)));
     this->m_texture[LIFE_T]->loadFromFile(LIFE_T_PATH);
+    //--------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (EXIT_KEY, std::move(texturesCreator)));
+    this->m_texture[EXIT_KEY]->loadFromFile(EXIT);
+
 
     //---------------------------------------------------------------
     //---------
