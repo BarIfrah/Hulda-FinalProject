@@ -16,6 +16,8 @@
 #include "SpecialFood.h"
 #include "ToxicFood.h"
 #include "RegularFood.h"
+#include "DynamicFloor.h"
+#include "Adanit.h"
 #include "Music.h"
 #include <iostream> //for debug
 //============================== using section ===============================
@@ -47,10 +49,41 @@ namespace
     }
     //-------------------------------------------------------------------------
 
+    void playerDynamicFloor(GameObject& object1, GameObject& object2)
+    {
+        /*auto& floor = dynamic_cast<DynamicFloor&>(object2);
+        b2Vec2 dirFromKey = b2Vec2(0, 0);
+        if (floor.getDirection() == RIGHT)
+            floor.setDirection(LEFT);
+        else
+            floor.setDirection(RIGHT);*/
+    }
+    void dynamicFloorPlayer(GameObject& object1, GameObject& object2)
+    {
+        playerDynamicFloor(object2, object1);
+    }
+    //-------------------------------------------------------------------------
+
+    void adanitDynamicFloor(GameObject& object1, GameObject& object2)
+    {
+        auto& floor = dynamic_cast<DynamicFloor&>(object2);
+        b2Vec2 dirFromKey = b2Vec2(0, 0);
+        if (floor.getDirection() == RIGHT)
+            floor.setDirection(LEFT);
+        else
+            floor.setDirection(RIGHT);
+    }
+    void dynamicFloorAdanit(GameObject& object1, GameObject& object2)
+    {
+        adanitDynamicFloor(object2, object1);
+    }
+
+    //-------------------------------------------------------------------------
+
     void exterminatorTrash(GameObject& object1, GameObject& object2)
     {
         auto& enemy = dynamic_cast<Exterminator&>(object1);
-        enemy.setCollision();
+        enemy.setCollision(TRASH_C);
     }
     void trashExterminator(GameObject& object1, GameObject& object2)
     {
@@ -59,9 +92,20 @@ namespace
 
     //-------------------------------------------------------------------------
 
+    void exterminatorAdanit(GameObject& object1, GameObject& object2)
+    {
+        auto& enemy = dynamic_cast<Exterminator&>(object1);
+        enemy.setCollision(ADANIT_C);
+    }
+    void adanitExterminator(GameObject& object1, GameObject& object2)
+    {
+        exterminatorAdanit(object2, object1);
+    }
+
+    //-------------------------------------------------------------------------
+
     void scooterTrash(GameObject& object1, GameObject& object2)
     {
-        b2Vec2 dirFromKey = b2Vec2(0, 0);
         auto& enemy = dynamic_cast<Scooter&>(object1);
         if (enemy.getDirection() == RIGHT)
             enemy.setDirection(LEFT);
@@ -81,7 +125,7 @@ namespace
     {
         Food& food = dynamic_cast<Food&>(object2);
         food.collect();
-        
+
         if (dynamic_cast<SpecialFood*>(&object2)) {
             Music::instance().playSpecialFood();
             dynamic_cast<Player&>(object1).setScore(20); ///in the future will add special force

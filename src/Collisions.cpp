@@ -9,6 +9,12 @@ HitMap Collisions::initializeCollisionMap()
     map[Key(typeid(Player), typeid(Exterminator))] = &playerEnemy;
     map[Key(typeid(Exterminator), typeid(Player))] = &enemyPlayer;
 
+    map[Key(typeid(Player), typeid(DynamicFloor))] = &playerDynamicFloor;
+    map[Key(typeid(DynamicFloor), typeid(Player))] = &dynamicFloorPlayer;
+
+    map[Key(typeid(Adanit), typeid(DynamicFloor))] = &adanitDynamicFloor;
+    map[Key(typeid(DynamicFloor), typeid(Adanit))] = &dynamicFloorAdanit;
+
     map[Key(typeid(Player), typeid(Scooter))] = &playerEnemy;
     map[Key(typeid(Scooter), typeid(Player))] = &enemyPlayer;
 
@@ -23,6 +29,18 @@ HitMap Collisions::initializeCollisionMap()
 
     map[Key(typeid(Exterminator), typeid(Trash))] = &exterminatorTrash;
     map[Key(typeid(Trash), typeid(Exterminator))] = &trashExterminator;
+
+    map[Key(typeid(Exterminator), typeid(RegularFood))] = &exterminatorTrash;
+    map[Key(typeid(RegularFood), typeid(Exterminator))] = &trashExterminator;
+
+    map[Key(typeid(Exterminator), typeid(ToxicFood))] = &exterminatorTrash;
+    map[Key(typeid(ToxicFood), typeid(Exterminator))] = &trashExterminator;
+
+    map[Key(typeid(Exterminator), typeid(SpecialFood))] = &exterminatorTrash;
+    map[Key(typeid(SpecialFood), typeid(Exterminator))] = &trashExterminator;
+
+    map[Key(typeid(Exterminator), typeid(Adanit))] = &exterminatorAdanit;
+    map[Key(typeid(Adanit), typeid(Exterminator))] = &adanitExterminator;
 
     map[Key(typeid(Scooter), typeid(Trash))] = &scooterTrash;
     map[Key(typeid(Trash), typeid(Scooter))] = &trashScooter;

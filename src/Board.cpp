@@ -18,6 +18,7 @@
 #include "Exterminator.h"
 #include "Scooter.h"
 #include "Enemy.h"
+#include "DynamicFloor.h"
 using std::vector;
 //====================== Constructors & distructors section ==================
 Board::Board(const sf::Vector2f& location,
@@ -91,8 +92,8 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 			case PLAYER: {
 				m_map[y].push_back(std::make_unique<Player>(world, sf::Vector2f
 				(boxSize.x * x, boxSize.y * y), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
-				movingsVec.push_back((MovingObject*)m_map[y][x].get());
-				m_player = (Player*)m_map[y][x].get();
+				movingsVec.push_back(dynamic_cast<MovingObject*>(m_map[y][x].get()));
+				m_player = dynamic_cast<Player*>(m_map[y][x].get());
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
@@ -100,7 +101,7 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 			case EXTERMINATOR: {
 				m_map[y].push_back(std::make_unique<Exterminator>(ENEMY_DISTANCE_LIMIT, world, sf::Vector2f
 				(boxSize.x * x, boxSize.y * y), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
-				movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
+				movingsVec.push_back(dynamic_cast<MovingObject*>(m_map[y][x].get()));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
@@ -108,7 +109,7 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 			case SCOOTER: {
 				m_map[y].push_back(std::make_unique<Scooter>(ENEMY_DISTANCE_LIMIT, world, sf::Vector2f
 				(boxSize.x * x, boxSize.y * y), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
-				movingsVec.push_back((MovingObject*)this->m_map[y][x].get());
+				movingsVec.push_back(dynamic_cast<MovingObject*>(m_map[y][x].get()));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
@@ -122,6 +123,13 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 			case ADANIT:
 				m_map[y].push_back(std::make_unique <Adanit>(world, sf::Vector2f
 				(boxSize.x * x, boxSize.y * y), sf::Vector2f(boxSize.x, boxSize.y), ID));
+				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
+				ID++;
+				break;
+			case DYNAMIC_FLOOR:
+				m_map[y].push_back(std::make_unique <DynamicFloor>(world, sf::Vector2f
+				(boxSize.x * x, boxSize.y * y), sf::Vector2f(boxSize.x, boxSize.y), ID));
+				movingsVec.push_back(dynamic_cast<MovingObject*>(m_map[y][x].get()));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
@@ -192,12 +200,6 @@ void Board::resetObjects()
 //============================================================================
 void Board::levelUp(b2World &world)
 {
-//    for (int i = 0; i < m_map.size(); ++i) {
-//        for (int j = 0; j < m_map[i].size(); ++j) {
-//            m_map[i][j].release();
-////            m_ObjWithID[i][j]
-//        }
-//    }
 	for (auto& objects : m_map)
 		for (auto& obj : objects) {
             if (obj != nullptr) {

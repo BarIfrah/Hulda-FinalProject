@@ -98,6 +98,10 @@ vector<vector<char>> DataReader::readNextLevel() {
                         row.push_back(TRASH);
                         break;
                     }
+                    case DYNAMIC_FLOOR: {
+                        row.push_back(DYNAMIC_FLOOR);
+                        break;
+                    }
                     default: {
                         row.push_back(NOTHING); // inputed ' '
                         break;

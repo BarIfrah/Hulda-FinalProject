@@ -9,6 +9,7 @@
 //========================== forward declarations ============================
 //class MovingObject;
 class Player;
+class DynamicFloor;
 /*============================================================================
 * Class: Controller. 
 * This class manage the game. handle all the cases that happen in the game.
@@ -39,11 +40,10 @@ private:
 	Board m_board;
 	Player* m_player;
 	std::vector <MovingObject*> m_enemies;
+	std::vector <MovingObject*> m_floors;
 	int m_level = 1;
-	Menu m_menu;
 	Stats m_stats;
-
-
+	Menu m_menu;
 
 	//GameState m_gameState;
 	//====================== privete methods section =========================

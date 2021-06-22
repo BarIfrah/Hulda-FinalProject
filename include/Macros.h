@@ -23,6 +23,7 @@ constexpr auto REGULAR_FOOD = 'o';
 constexpr auto TOXIC_FOOD = '*';
 constexpr auto ROAD = '#';
 constexpr auto ADANIT = '-';
+constexpr auto DYNAMIC_FLOOR = '_';
 constexpr auto NOTHING = ' ';
 constexpr auto TRASH = 'T';
 
@@ -101,6 +102,7 @@ constexpr auto ROAD_PATH = "road.png";
 constexpr auto ADANIT_KAHOL_PATH = "adanitKahol.png";
 constexpr auto ADANIT_SAGOL_PATH = "adanitSagol.png";
 constexpr auto ADANIT_KATOM_PATH = "adanitKatom.png";
+constexpr auto DYNAMIC_FLOOR_PATH = "dynamicFloor.png";
 constexpr auto GAME_STATE_PATH = "game_state.jpg";
 constexpr auto TRASH_BLUE_PATH = "trashBlue.png";
 constexpr auto TRASH_RED_PATH = "trashRed.png";
@@ -181,6 +183,7 @@ constexpr auto TRASH_BLUE_T = 19;
 constexpr auto ADANIT_KAHOL_T = 20;
 constexpr auto ADANIT_SAGOL_T = 21;
 constexpr auto ADANIT_KATOM_T = 22;
+constexpr auto DYNAMIC_FLOOR_T = 26;
 //--------------------------------- sounds -----------------------------------
 constexpr auto REGULAR_FOOD_SOUND = 0;
 constexpr auto TOXIC_FOOD_SOUND = 1;
@@ -206,6 +209,8 @@ const int POSITER = 2;
 const bool STATIC = false;
 const bool DYNAMIC = true;
 const float WORLD_GRAVITY = 9.81;
+const float MAX_JUMP = 50;
+const float ON_GROUND = 0;
 //player velocity
 const b2Vec2 MUP(0, -6);
 const b2Vec2 MRIGHT (2, 0);

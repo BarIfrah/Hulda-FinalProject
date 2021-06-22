@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Music.h"
 #include <iostream>
+
 //============================================================================
 
 Controller::Controller()
@@ -22,17 +23,18 @@ Controller::Controller()
     m_listener.setCurrentBoard(m_board);
     srand((unsigned int)time(nullptr));
 }
+
 //============================================================================
 
 void Controller::run() {
     separateGameObjects(m_board.loadNewLevel(*m_world));
-     while (m_window.isOpen()) 
+     while (m_window.isOpen())
      {
          Music::instance().playMenu(); //at start of main menu
          if (m_menu.runMenu(m_window, false, false))
          {
              Music::instance().playGame(); //after pressing on new game -->runMenu returns true
-             while (m_window.isOpen()) 
+             while (m_window.isOpen())
              {
                  m_world->Step(TIMESTEP, VELITER, POSITER);
                  std::cout << RegularFood::getFoodCounter() << std::endl;
@@ -61,7 +63,7 @@ void Controller::run() {
                  if (!handleGameEvents())
                      break;
              }
-             //Music::instance().playHiScoreMenu();//this is right AFTER when the user presses ESC key during playing game-->m_window.isOpen(line 34) returns false or line 61 is true so break 
+             //Music::instance().playHiScoreMenu();//this is right AFTER when the user presses ESC key during playing game-->m_window.isOpen(line 34) returns false or line 61 is true so break
          }
          //Music::instance().playBack();//this is when the user doesn't click on new game on main menu --> the function runMenu (line 31) returns false
      }
@@ -100,10 +102,13 @@ void Controller::levelUp()
 
 void Controller::separateGameObjects(const vector<MovingObject*>& movingObjects)
 {
-    this->m_enemies.clear();
+    m_enemies.clear();
+    m_floors.clear();
     for (auto& obj : movingObjects)
         if (dynamic_cast<Player*>(obj))
             m_player = (Player*)obj;
+        else if (dynamic_cast<DynamicFloor*>(obj))
+            m_floors.push_back(obj);
         else
             m_enemies.push_back(obj);
 }
@@ -115,6 +120,8 @@ void Controller::moveCharacters()
     m_player->move(m_gameClock.getElapsedTime(), m_board);
     for (auto& enemy : m_enemies)
         enemy->move(m_gameClock.getElapsedTime(), m_board);
+    for (auto& floor : m_floors)
+            floor->move(m_gameClock.getElapsedTime(), m_board);
 }
 
 //============================================================================
@@ -142,6 +149,7 @@ bool Controller::handleGameEvents() {
     sideScroll();
     return true;
 }
+
 //============================================================================
 
 void Controller::sideScroll() {
