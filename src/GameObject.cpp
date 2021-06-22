@@ -93,7 +93,7 @@ void GameObject::setSize(const sf::Vector2u size)
 //============================================================================
 void GameObject::setOrigin()
 {
-	m_objectSprite.setOrigin(sf::Vector2f(float(m_intRect.width)/2, float(m_intRect.height)/2));
+	m_objectSprite.setOrigin(sf::Vector2f(float(m_intRect.width)/2, float(m_intRect.height)/2 -50));
 }
 void GameObject::reset()
 {

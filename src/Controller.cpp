@@ -205,18 +205,6 @@ void Controller::playerDied()
 
 //============================================================================
 
-//void Controller::gameOver()
-//{
-//    //Resources::instance().pauseMusic();
-//    this->m_player = nullptr;
-//    this->m_enemies.clear();
-//    delete m_world;
-//    m_board
-//    m_level = 1;
-//    //this->m_board.gameOver();
-//   // this->m_gameState.gameOver();
-//}
-
 void Controller::resetGameView()
 {
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
