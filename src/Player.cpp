@@ -118,3 +118,8 @@ void Player::resetLife(const int& life)
 int Player::getScore() const{
     return m_score;
 }
+
+void Player::resetScore() {
+    m_lifeAdder;
+    m_score = 0;
+}

@@ -28,51 +28,52 @@ Controller::Controller()
 
 void Controller::run() {
     separateGameObjects(m_board.loadNewLevel(*m_world));
-    bool playingGame = true;
-     while (playingGame)
-     {
-         Music::instance().playMenu(); //at start of main menu
-         if (m_menu.runMenu(m_window, false, false))
-         {
-             Music::instance().playGame(); //after pressing on new game -->runMenu returns true
-             while (m_window.isOpen())
-             {
-                 m_world->Step(TIMESTEP, VELITER, POSITER);
-                 std::cout << RegularFood::getFoodCounter() << std::endl;
-                 if (RegularFood::getFoodCounter() == 0) {
-                     if (m_board.is_next_lvl_exist()) {
-                         levelUp();
-                     }
-                     else {
-                         resetGameView();
-                         m_board.gameOver(*m_world);
-                         m_level = 0;
-                         m_player->resetLife(3);
-                         break;
-                     }
-                 }
+    while (m_window.isOpen())
+    {
+//        separateGameObjects(m_board.loadNewLevel(*m_world));
+        Music::instance().playMenu(); //at start of main menu
+        if (m_menu.runMenu(m_window, false, false))
+        {
+            Music::instance().playGame(); //after pressing on new game -->runMenu returns true
+            while (m_window.isOpen())
+            {
+                m_world->Step(TIMESTEP, VELITER, POSITER);
+                if (RegularFood::getFoodCounter() == 0) {
+                    if (m_board.is_next_lvl_exist()) {
+                        levelUp();
+                    }
+                    else {
+                        m_board.gameOver(*m_world);
+                        resetGameView();
+                        m_level = 0;
+                        m_player->resetLife(3);
+                        m_player->resetScore();
+                        Music::instance().stopGame();
+                        break;
+                    }
+                }
 
-                 m_gameClock.restart();
-                 m_window.clear();
-                 m_stats.update(m_level, m_player->getScore(), m_player->getLife());
-                 m_board.removeFood(*m_world);
+                m_gameClock.restart();
+                m_window.clear();
+                m_stats.update(m_level, m_player->getScore(), m_player->getLife());
+                m_board.removeFood(*m_world);
 
-                 if (m_player->getState() == DIE) {
-                     playerDied();
-                 }
+                if (m_player->getState() == DIE) {
+                    playerDied();
+                }
 
-                 drawObjects();
-                 m_stats.draw(m_window);
-                 m_window.display();
-                 if (!handleGameEvents()) {
-                     playingGame = false;
-                     break;
-                 }
-             }
-             //this is right AFTER when the user presses ESC key during playing game-->m_window.isOpen(line 34) returns false or line 61 is true so break
-         }
-         //this is when the user doesn't click on new game on main menu --> the function runMenu (line 31) returns false
-     }
+                drawObjects();
+                m_stats.draw(m_window);
+                m_window.display();
+                if (!handleGameEvents()) {
+                    resetGameView();
+                    break;
+                }
+            }
+            //this is right AFTER when the user presses ESC key during playing game-->m_window.isOpen(line 34) returns false or line 61 is true so break
+        }
+        //this is when the user doesn't click on new game on main menu --> the function runMenu (line 31) returns false
+    }
 }
 //============================================================================
 /*

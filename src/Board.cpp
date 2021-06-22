@@ -180,6 +180,7 @@ void Board::gameOver(b2World& world) {
 	m_levelReader.resetRead();
 	m_player = nullptr;
 	levelUp(world);
+
 }
 
 //============================================================================

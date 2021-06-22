@@ -26,6 +26,7 @@ public:
 	int getLife() const;
 	void setLife(const int&);
 	void resetLife(const int& life);
+	void resetScore();
 //	void resetAnimationTime() override;
 //	sf::FloatRect getGlobalBounds()const;
 	//=========================== method section ==============================
