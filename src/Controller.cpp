@@ -3,10 +3,11 @@
 #include "Macros.h"
 #include "Player.h"
 #include <iostream>
+
 //============================================================================
 
 Controller::Controller()
-        : m_window(sf::VideoMode(1500, 1000), "Hulda", sf::Style::Titlebar | sf::Style::Close),
+        : m_window(sf::VideoMode::getDesktopMode(), "Ratata Game", sf::Style::Fullscreen | sf::Style::Close),
         m_board(sf::Vector2f(0, 0),
             sf::Vector2f((float)BACKGROUND_WIDTH, (float)m_window.getSize().y)),
         m_player(nullptr),
@@ -78,10 +79,13 @@ void Controller::levelUp()
 
 void Controller::separateGameObjects(const vector<MovingObject*>& movingObjects)
 {
-    this->m_enemies.clear();
+    m_enemies.clear();
+    m_floors.clear();
     for (auto& obj : movingObjects)
         if (dynamic_cast<Player*>(obj))
             m_player = (Player*)obj;
+        else if (dynamic_cast<DynamicFloor*>(obj))
+            m_floors.push_back(obj);
         else
             m_enemies.push_back(obj);
 }
@@ -93,6 +97,8 @@ void Controller::moveCharacters()
     m_player->move(m_gameClock.getElapsedTime(), m_board);
     for (auto& enemy : m_enemies)
         enemy->move(m_gameClock.getElapsedTime(), m_board);
+    for (auto& floor : m_floors)
+            floor->move(m_gameClock.getElapsedTime(), m_board);
 }
 
 //============================================================================

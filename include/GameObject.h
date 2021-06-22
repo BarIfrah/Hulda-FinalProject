@@ -14,6 +14,7 @@ class GameObject {
 	//========================== public section ==============================
 public:
 	//================= constractors and destractors section =================
+	//GameObject() = default;
 	GameObject(
 		const bool, b2World&, const sf::Vector2f & = { 0, 0 },
 		const sf::Vector2f & = { 0, 0 },char objectType = NOTHING,
@@ -29,21 +30,20 @@ public:
 	int getID()const { return m_ID; }
 	int getType()const { return m_objType; }
 	sf::FloatRect getGlobalBounds()const;
+	b2Vec2 getLinearVelocity();
+	b2Vec2 getForceApplied();
+	//============================ sets section ===============================
 	void setPhysicsObjectPos(sf::Vector2f, b2Vec2);
 	void setIntRect(const sf::IntRect&);
-	void flipSprite(const sf::Vector2f&);
-	void updateLoc();
 	void setSize(const sf::Vector2u);
 	void setOrigin();
-	virtual void reset();
-
-    b2Vec2 getLinearVelocity();
-    b2Vec2 getForceApplied();
-    void setForceApplied();
-    void applyForce(b2Vec2);
+	void setForceApplied();
 	//=========================== method section ==============================
-	//bool CollidesWith(const GameObject&)const;
 	virtual void draw(sf::RenderWindow&);
+	void flipSprite(const sf::Vector2f&);
+	void updateLoc();
+	virtual void reset();
+	void applyForce(b2Vec2);
 	//========================= protected section ==============================
 protected:
 	virtual void setLocation(const sf::Vector2f&);

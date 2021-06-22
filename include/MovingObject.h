@@ -12,7 +12,7 @@ class StaticObject;
 * handle collisions with static objects, manage animations, reset the objects,
 * update hte states of the objects & manage their movements.
  ============================================================================*/
-class MovingObject :virtual public GameObject
+class MovingObject :public GameObject
 {
 	//========================== public section ==============================
 public:

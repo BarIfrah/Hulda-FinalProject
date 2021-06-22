@@ -1,0 +1,259 @@
+{
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "out/build/x64-Debug (default)/CMakeFiles/3.18.20081302-MSVC_2/CMakeSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "out/build/x64-Debug (default)/CMakeFiles/3.18.20081302-MSVC_2/CMakeCCompiler.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "out/build/x64-Debug (default)/CMakeFiles/3.18.20081302-MSVC_2/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/Platform/Windows.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/Platform/WindowsPaths.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/CMakeCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/Compiler/MSVC-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/Platform/Windows-MSVC-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/Platform/Windows-MSVC.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "out/build/x64-Debug (default)/CMakeFiles/3.18.20081302-MSVC_2/CMakeRCCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/CMakeRCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/Compiler/MSVC-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/Platform/Windows-MSVC-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/Platform/Windows-MSVC.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.18/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/SFML/SFML-2.5.1/lib/cmake/SFML/SFMLConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/SFML/SFML-2.5.1/lib/cmake/SFML/SFMLConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/SFML/SFML-2.5.1/lib/cmake/SFML/SFMLStaticTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/SFML/SFML-2.5.1/lib/cmake/SFML/SFMLStaticTargets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/SFML/SFML-2.5.1/lib/cmake/SFML/SFMLStaticTargets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/SFML/SFML-2.5.1/lib/cmake/SFML/SFMLConfigDependencies.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/SFML/SFML-2.5.1/bin/openal32.dll"
+		},
+		{
+			"path" : "include/CMakeLists.txt"
+		},
+		{
+			"path" : "src/CMakeLists.txt"
+		},
+		{
+			"path" : "resources/CMakeLists.txt"
+		},
+		{
+			"path" : "resources/ARIALBD.TTF"
+		},
+		{
+			"path" : "resources/player.png"
+		},
+		{
+			"path" : "resources/Exterminator.png"
+		},
+		{
+			"path" : "resources/scooter.png"
+		},
+		{
+			"path" : "resources/dynamicFloor.png"
+		},
+		{
+			"path" : "resources/road.png"
+		},
+		{
+			"path" : "resources/adanitKahol.png"
+		},
+		{
+			"path" : "resources/adanitSagol.png"
+		},
+		{
+			"path" : "resources/adanitKatom.png"
+		},
+		{
+			"path" : "resources/burger.png"
+		},
+		{
+			"path" : "resources/banana.png"
+		},
+		{
+			"path" : "resources/pizza.png"
+		},
+		{
+			"path" : "resources/watermelon.png"
+		},
+		{
+			"path" : "resources/apple.png"
+		},
+		{
+			"path" : "resources/trashBlue.png"
+		},
+		{
+			"path" : "resources/trashRed.png"
+		},
+		{
+			"path" : "resources/life.png"
+		},
+		{
+			"path" : "resources/fallingSound.wav"
+		},
+		{
+			"path" : "resources/stepSound.wav"
+		},
+		{
+			"path" : "resources/enemySound.wav"
+		},
+		{
+			"path" : "resources/Levels.txt"
+		},
+		{
+			"path" : "resources/MenuBackground.png"
+		},
+		{
+			"path" : "resources/menuMusic.ogg"
+		},
+		{
+			"path" : "resources/level1Music.ogg"
+		},
+		{
+			"path" : "resources/level2Music.ogg"
+		},
+		{
+			"path" : "resources/level3Music.ogg"
+		},
+		{
+			"path" : "resources/level4Music.ogg"
+		},
+		{
+			"path" : "Box2D/include/CMakeLists.txt"
+		},
+		{
+			"path" : "Box2D/src/CMakeLists.txt"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "C:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/build/x64-Debug (default)",
+		"source" : "C:/Users/sharonlevi/source/repos/Hulda-FinalProject"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

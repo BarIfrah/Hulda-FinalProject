@@ -7,6 +7,7 @@
 #include <SFML/Graphics.hpp>
 //========================== forward declarations ============================
 class Player;
+class DynamicFloor;
 /*============================================================================
 * Class: Controller. 
 * This class manage the game. handle all the cases that happen in the game.
@@ -37,6 +38,7 @@ private:
 	Board m_board;
 	Player* m_player;
 	std::vector <MovingObject*> m_enemies;
+	std::vector <MovingObject*> m_floors;
 	/*
 	Menu m_menu;
 	GameState m_gameState;

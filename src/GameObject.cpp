@@ -1,8 +1,6 @@
 //============================= include section ==============================
 #include "GameObject.h"
 #include "Resources.h"
-
-
 //============================= public section ===============================
 //==================== Constructors & distructors section ====================
 GameObject::GameObject(const bool isDynamic, b2World& world ,const sf::Vector2f& location,
@@ -67,7 +65,6 @@ PhysicsObject GameObject::getPhysicsObj() const
 //============================================================================
 void GameObject::setPhysicsObjectPos(sf::Vector2f newPos, b2Vec2 velocity)
 {
-
 	m_physicsObject.setPosition(newPos, velocity);
 	updateLoc();
 }

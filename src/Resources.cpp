@@ -84,6 +84,11 @@ void Resources::setObjects() {
 
     texturesCreator = std::make_unique<sf::Texture>();
     this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>
+        (DYNAMIC_FLOOR_T, std::move(texturesCreator)));
+    this->m_texture[DYNAMIC_FLOOR_T]->loadFromFile(DYNAMIC_FLOOR_PATH);
+
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>
         (TRASH_BLUE_T, std::move(texturesCreator)));
     this->m_texture[TRASH_BLUE_T]->loadFromFile(TRASH_BLUE_PATH);
 
