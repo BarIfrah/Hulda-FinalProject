@@ -14,15 +14,15 @@ Menu::Menu()
 	m_highBackround = sf::Sprite(Resources::instance().getTexture(HIGHMENU));
 	m_highBackround.setScale({ WIN_WIDTH / m_highBackround.getGlobalBounds().width, WIN_HEIGHT / m_highBackround.getGlobalBounds().height });
 
-	m_back2 = sf::Sprite(Resources::instance().getTexture(BACK_KEY));
-	m_hiScore2 = sf::Sprite(Resources::instance().getTexture(HI_SCORE_KEY));
-	m_info2 = sf::Sprite(Resources::instance().getTexture(INFO_KEY));
-	m_newGame2 = sf::Sprite(Resources::instance().getTexture(NEW_GAME_KEY));
+	m_back = sf::Sprite(Resources::instance().getTexture(BACK_KEY));
+	m_hiScore = sf::Sprite(Resources::instance().getTexture(HI_SCORE_KEY));
+	m_info = sf::Sprite(Resources::instance().getTexture(INFO_KEY));
+	m_newGame = sf::Sprite(Resources::instance().getTexture(NEW_GAME_KEY));
 	m_exit = sf::Sprite(Resources::instance().getTexture(EXIT_KEY));
-	m_back2.setPosition(1620, 980);
-	m_hiScore2.setPosition(100, 400);
-	m_info2.setPosition(85, 250);
-	m_newGame2.setPosition(100, 100);
+	m_back.setPosition(1620, 980);
+	m_hiScore.setPosition(100, 400);
+	m_info.setPosition(85, 250);
+	m_newGame.setPosition(100, 100);
 	m_exit.setPosition(1620, 980);
 
 }
@@ -48,23 +48,23 @@ bool Menu::runMenu(sf::RenderWindow& window, bool finished, bool hasWon)
 			case sf::Event::MouseButtonReleased: {
                 auto location = window.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
 
-                if (isClickedOn(m_hiScore2, location)) {
+                if (isClickedOn(m_hiScore, location)) {
 					Music::instance().stopMenu();
 					Music::instance().playHiScoreMenu();
 					if (!drawScoresWindow(window)) 
 						return false;
                 }
-                if (isClickedOn(m_info2, location)) {
+                if (isClickedOn(m_info, location)) {
 					Music::instance().stopMenu();
 					Music::instance().playInfoMenu();
                     if (!drawHelpWindow(window))
                         return false;
                 }
-                if (isClickedOn(m_newGame2, location)) {
+                if (isClickedOn(m_newGame, location)) {
 					Music::instance().stopMenu();
                     return true;
                 }
-                if (isClickedOn(m_back2, location)) {
+                if (isClickedOn(m_back, location)) {
 					Music::instance().stopMenu();
                     return false;
                 }
@@ -83,16 +83,16 @@ void Menu::drawMywindow(sf::RenderWindow& window) const
 {
 	window.draw(m_backGround);
 	window.draw(m_exit);
-	window.draw(m_hiScore2);
-	window.draw(m_info2);
-	window.draw(m_newGame2);
+	window.draw(m_hiScore);
+	window.draw(m_info);
+	window.draw(m_newGame);
 }
 //------------------------------------------------------------------------
 bool Menu::drawHelpWindow(sf::RenderWindow& window) const
 {
 	window.clear();
 	window.draw(m_helpBackground);
-	window.draw(m_back2);
+	window.draw(m_back);
 	window.display();
 	while (window.isOpen())
 		for (auto event = sf::Event{}; window.waitEvent(event);)
@@ -103,7 +103,7 @@ bool Menu::drawHelpWindow(sf::RenderWindow& window) const
 			case sf::Event::MouseButtonReleased:
 				auto location = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
 
-				if (isClickedOn(m_back2, location))
+				if (isClickedOn(m_back, location))
 				{
 					Music::instance().stopInfoMenu();
 					Music::instance().playBack();
@@ -118,7 +118,7 @@ bool Menu::drawScoresWindow(sf::RenderWindow& window) const
 	sf::Vector2f backButtonPos = { 100, 550 };
 	window.clear();
 	window.draw(m_highBackround);
-	window.draw(m_back2);
+	window.draw(m_back);
 	sf::Text name;
 	sf::Text score;
 	for (int i = 0; i < m_highScores.size(); i++)
@@ -139,7 +139,7 @@ bool Menu::drawScoresWindow(sf::RenderWindow& window) const
 			case sf::Event::MouseButtonReleased:
 				auto location = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
 
-				if (isClickedOn(m_back2, location))
+				if (isClickedOn(m_back, location))
 				{
 					Music::instance().stopHiScoreMenu();
 					Music::instance().playBack();

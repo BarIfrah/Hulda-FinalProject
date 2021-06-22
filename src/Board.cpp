@@ -33,20 +33,20 @@ Board::Board(const sf::Vector2f& location,
 }
 //================================ gets section ==============================
 //============================================================================
-const sf::Vector2f& Board::getLevelSize()const {
+const sf::Vector2f& Board::getLevelSize() const {
     return m_background.getSize();
 }
 //============================================================================
 const sf::Vector2f& Board::getLocation() const {
-	return this->m_location;
+	return m_location;
 }
 //============================================================================
-int Board::getLevelTime()const {
-	return this->m_levelReader.getLevelTime();
+int Board::getLevelTime() const {
+	return m_levelReader.getLevelTime();
 }
 //============================================================================
 const sf::Vector2f& Board::getPlayerLoc()const {
-	return this->m_player->getLocation();
+	return m_player->getLocation();
 }
 //============================================================================
 sf::Vector2f Board::getObjectSize()const {

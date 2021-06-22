@@ -54,7 +54,7 @@ private:
 	void drawObjects();
 	void levelUp();
 	void playerDied();
-	//void gameOver();
+	void resetGame();
 	bool handleKeyPresses();
 	void resetGameView();
 };

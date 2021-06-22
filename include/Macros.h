@@ -166,7 +166,7 @@ constexpr auto HI_MENU_KEY = 10;
 constexpr auto EXIT_KEY = 28;
 
 //--
-const std::string STATS[] = {"Level: ","Score: ","Lives: "};
+const std::string STATS[] = {"Level: ","Score: ","Lives: ", "Time: "};
 //------------------------------- objects -------------------------------------
 //characters
 constexpr auto PLAYER_T = 10;

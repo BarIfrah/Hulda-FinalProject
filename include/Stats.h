@@ -10,12 +10,13 @@ class Stats
 {
 public:
 
-	Stats();
+	Stats(const int&);
 	void draw(sf::RenderWindow&);
-	void update(int, int, int);
+	void update(int, int, int, int);
 	void setPosition(const sf::Vector2f &);
 	bool isTimeUp();
-	void levelup(float);
+	void levelup(int);
+	int getTimeLeft();
 
 private:
 
@@ -24,6 +25,7 @@ private:
 	int m_level;
 	int m_score;
 	int m_lives;
+	int m_time;
 	sf::IntRect m_lifeRec;
 	sf::Time m_levelTime;
 	sf::Clock m_clock;

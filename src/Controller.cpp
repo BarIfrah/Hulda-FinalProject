@@ -13,7 +13,8 @@ Controller::Controller()
             sf::Vector2f((float)BACKGROUND_WIDTH, (float)m_window.getSize().y)),
         m_player(nullptr),
         m_listener(Listener()),
-        m_stats(Stats()){
+        m_stats(Stats(m_board.getLevelTime())){
+    std::cout << m_board.getLevelTime();
     m_window.setFramerateLimit(60);
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
     m_screenView.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
@@ -22,6 +23,9 @@ Controller::Controller()
     m_world->SetContactListener(&m_listener);
     m_listener.setCurrentBoard(m_board);
     srand((unsigned int)time(nullptr));
+    m_stats = Stats(m_board.getLevelTime());
+    std::cout << m_board.getLevelTime();
+
 }
 
 //============================================================================
@@ -32,9 +36,11 @@ void Controller::run() {
      while (playingGame)
      {
          Music::instance().playMenu(); //at start of main menu
+
          if (m_menu.runMenu(m_window, false, false))
          {
              Music::instance().playGame(); //after pressing on new game -->runMenu returns true
+             m_stats.levelup(m_board.getLevelTime());
              while (m_window.isOpen())
              {
                  m_world->Step(TIMESTEP, VELITER, POSITER);
@@ -44,17 +50,14 @@ void Controller::run() {
                          levelUp();
                      }
                      else {
-                         resetGameView();
-                         m_board.gameOver(*m_world);
-                         m_level = 0;
-                         m_player->resetLife(3);
+                         resetGame();
                          break;
                      }
                  }
 
                  m_gameClock.restart();
                  m_window.clear();
-                 m_stats.update(m_level, m_player->getScore(), m_player->getLife());
+                 m_stats.update(m_level, m_player->getScore(), m_player->getLife(), m_stats.getTimeLeft());
                  m_board.removeFood(*m_world);
 
                  if (m_player->getState() == DIE) {
@@ -66,6 +69,7 @@ void Controller::run() {
                  m_window.display();
                  if (!handleGameEvents()) {
                      playingGame = false;
+                     Music::instance().stopGame();
                      break;
                  }
              }
@@ -204,17 +208,14 @@ void Controller::playerDied()
 
 //============================================================================
 
-//void Controller::gameOver()
-//{
-//    //Resources::instance().pauseMusic();
-//    this->m_player = nullptr;
-//    this->m_enemies.clear();
-//    delete m_world;
-//    m_board
-//    m_level = 1;
-//    //this->m_board.gameOver();
-//   // this->m_gameState.gameOver();
-//}
+void Controller::resetGame() {
+    resetGameView();
+    m_board.gameOver(*m_world);
+    m_level = 0;
+    m_player->resetLife(3);
+    Music::instance().stopGame();
+}
+//============================================================================
 
 void Controller::resetGameView()
 {

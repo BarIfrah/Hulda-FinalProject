@@ -34,8 +34,8 @@ private:
 	sf::Sprite m_exit;
 	std::vector < std::pair<std::string, std::string>> m_highScores;
 	//
-	sf::Sprite m_back2;
-	sf::Sprite m_hiScore2;
-	sf::Sprite m_info2;
-	sf::Sprite m_newGame2;
+	sf::Sprite m_back;
+	sf::Sprite m_hiScore;
+	sf::Sprite m_info;
+	sf::Sprite m_newGame;
 };

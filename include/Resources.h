@@ -26,5 +26,4 @@ private:
 	void setBackgrounds();
 	void setObjects();
 	void setNumOfSprites();
-
 };
