@@ -130,7 +130,7 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 				break;
 			case DYNAMIC_FLOOR:
 				m_map[y].push_back(std::make_unique <DynamicFloor>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y + 50 ), sf::Vector2f(2 * boxSize.x, 3 * boxSize.y), ID));
+				(boxSize.x * x, boxSize.y * y + 50 ), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
 				movingsVec.push_back(dynamic_cast<MovingObject*>(m_map[y][x].get()));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
@@ -143,7 +143,7 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 				break;
 			case PORTAL_TRASH:
 				m_map[y].push_back(std::make_unique <PortalTrash>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y - 30), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y) , ID, true));
+				(boxSize.x * x -50, boxSize.y * y - 30), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y) , ID, true));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
