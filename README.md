@@ -10,7 +10,8 @@ looking for food to survive. But, there are mant dangers in the city, such as: g
 eating poison and having the city exterminator on your tail.\
 To survive- Hulda needs:\
 Hulda needs to avoid all enemies:\
-<img width="538" alt="Screen Shot 2021-06-21 at 22 29 44" src="https://user-images.githubusercontent.com/71547715/122817427-8d4be280-d2e0-11eb-8f54-5e81737dbb60.png">\
+![Screen Shot 2021-06-24 at 0 44 52 (2)](https://user-images.githubusercontent.com/71547715/123172253-8d391780-d485-11eb-940f-cd2525a10e5a.png)
+
 and avoid the poisonous apples:\
 <img width="159" alt="Screen Shot 2021-06-21 at 22 30 23" src="https://user-images.githubusercontent.com/71547715/122817594-c5532580-d2e0-11eb-906f-e15e614d3660.png">\
 
@@ -21,7 +22,11 @@ to gain some points, Hulda needs to eat pizza, watermelon and bananas:\
 <img width="163" alt="Screen Shot 2021-06-21 at 22 45 48" src="https://user-images.githubusercontent.com/71547715/122818976-7c03d580-d2e2-11eb-80fd-2d0cd2b59922.png">
 <img width="172" alt="Screen Shot 2021-06-21 at 22 44 02" src="https://user-images.githubusercontent.com/71547715/122818987-7f975c80-d2e2-11eb-8ab2-204013790784.png">
 <img width="172" alt="Screen Shot 2021-06-21 at 22 44 42" src="https://user-images.githubusercontent.com/71547715/122818988-7f975c80-d2e2-11eb-97ed-62d9d566f9d6.png">\
-*to move to the next level - needs to be added*\
+
+To move to the next level, Hulda needs to go inside the 'teleport' trash can:\
+https://user-images.githubusercontent.com/71547715/123173160-d8075f00-d486-11eb-88b8-25e6bdda1965.mov
+
+
 Hulda starts with 3 lives. Every 100 points collected- hulda gets an extra life.\
 Hulda can gain lives from the 'special force' burgers. no more than 6 lives can be collected.
 
