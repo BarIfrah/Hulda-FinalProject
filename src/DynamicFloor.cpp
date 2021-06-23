@@ -4,7 +4,7 @@ DynamicFloor::DynamicFloor(b2World& world, const sf::Vector2f& location,
 	const sf::Vector2f& size, int ID)
 	: MovingObject(world, sf::Vector2f(location.x,location.y+30), size, DYNAMIC_FLOOR_T, ID){}
 
-void DynamicFloor::move(const sf::Time& deltaTime, Board& board) {
+void DynamicFloor::move(const sf::Time &deltaTime, Board &board) {
 	b2Vec2 dirFromKey = b2Vec2(0, 0);
 	if (getDirection() == RIGHT)
 		dirFromKey = MRIGHT;

@@ -5,7 +5,7 @@ Scooter::Scooter(float distanceLim, b2World& world, const sf::Vector2f& location
 	const sf::Vector2f& size, int ID)
 	: Enemy(distanceLim, world, location, size, SCOOTER_T, ID) {}
 
-void Scooter::move(const sf::Time& deltaTime, Board& board) {
+void Scooter::move(const sf::Time &deltaTime, Board &board) {
 	b2Vec2 dirFromKey = b2Vec2(0, 0);
 	if (getDirection() == RIGHT) 
 		dirFromKey = MRIGHT;

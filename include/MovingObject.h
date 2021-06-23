@@ -30,7 +30,7 @@ public:
 	void setState(int state, int height, int width, int regOffset, int specialOffset);
 	void setDirection(int);
 		//=========================== method section ==============================
-    virtual void move(const sf::Time&, Board&) = 0;
+    virtual void move(const sf::Time &, Board &) = 0;
     void resetAnimationTime();
 	virtual void updateAnimation(const sf::Time&) = 0;
 	//========================= private section ===============================

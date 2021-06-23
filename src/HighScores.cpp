@@ -72,7 +72,7 @@ void HighScores::getNewScore(Player* player, sf::RenderWindow& window)
 	nameText.setColor(sf::Color::Black);
 	nameText.setPosition(sf::Vector2f(0, window.getSize().y / 3 + 180));
 
-	std::string name = "";
+	std::string name;
 
 	while (window.isOpen() && name.size() < 10)
 	{
@@ -87,12 +87,12 @@ void HighScores::getNewScore(Player* player, sf::RenderWindow& window)
 		{
 			switch (event.type)
 			{
-			case sf::Event::Closed:
-				window.close();
-				break;
+                case sf::Event::Closed:
+                    window.close();
+                    break;
 
-			case sf::Keyboard::Enter:
-				break;
+                case sf::Keyboard::Enter:
+                    break;
 
 			case sf::Event::TextEntered:
 			{
@@ -107,15 +107,15 @@ void HighScores::getNewScore(Player* player, sf::RenderWindow& window)
 						name.pop_back();
 					nameText.setString(name);
 
-				}
-				else if (event.text.unicode < 128)
-				{
-					char a = char(event.text.unicode);
-					name.append(1, a);
-					nameText.setString(name);
+                    }
+                    else if (event.text.unicode < 128)
+                    {
+                        char a = char(event.text.unicode);
+                        name.append(1, a);
+                        nameText.setString(name);
 
-				}
-			}
+                    }
+                }
 			}
 		}
 	}
