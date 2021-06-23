@@ -31,7 +31,7 @@ To move to the next level, Hulda needs to go inside the 'teleport' trash can:\
 Hulda starts with 3 lives. Every 100 points collected- hulda gets an extra life.\
 Hulda can gain lives from the 'special force' burgers. no more than 6 lives can be collected.
 
-#####Create levels:
+##### Create levels:
 creating new levels by editing the 'Levels.txt' file.\
 level format is 20 rows height, 100 columns width. (can be seen inside 'Levels.txt' file.\
 symbols are defined in "macros.h" file.\
