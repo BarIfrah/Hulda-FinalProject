@@ -26,7 +26,8 @@ Board::Board(const sf::Vector2f& location,
 	: m_levelReader(DataReader()),
 	m_background(sf::RectangleShape()),
 	m_location(location),
-	m_player(nullptr){
+	m_player(nullptr)
+{
 	this->m_background.setSize(size);
 	m_background.setPosition(m_location);
 	this->loadLevelEffects();

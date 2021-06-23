@@ -1,6 +1,7 @@
 //============================ include section ===============================
 #pragma once
 #include "MovingObject.h"
+#include "Stats.h"
 #include <vector>
 /*============================================================================
 * Class: Player.
@@ -29,10 +30,13 @@ public:
 	void resetLife(const int& life);
 	void resetScore();
 	void setLevelUp();
+	void setStatsPtr(Stats*);
+	void ChangeTime(int);
 	//========================= private section ===============================
 private:
 	int m_score = 0;
-	int m_life = 3;
+	int m_life = NUM_OF_LIFE;
 	int m_lifeAdder = 100;
 	bool m_canLevelUP=false;
+	Stats* m_StatsPtr = nullptr;
 };

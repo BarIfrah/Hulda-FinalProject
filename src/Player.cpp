@@ -146,7 +146,23 @@ void Player::resetScore() {
     m_score = 0;
 }
 
+//============================================================================
+
 void Player::setLevelUp()
 {
     m_canLevelUP = true;
+}
+
+//============================================================================
+
+void Player::setStatsPtr(Stats* statsPtr)
+{
+    m_StatsPtr = statsPtr;
+}
+
+//============================================================================
+
+void Player::ChangeTime(int time)
+{
+    m_StatsPtr->addTimeBonus(time);
 }

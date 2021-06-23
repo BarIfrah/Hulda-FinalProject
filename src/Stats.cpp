@@ -71,6 +71,11 @@ int Stats::getTimeLeft()
 	return m_time - m_clock.getElapsedTime().asSeconds();
 }
 
+void Stats::addTimeBonus(int time)
+{
+	m_time += time;
+}
+
 
 
 

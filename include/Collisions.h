@@ -19,6 +19,7 @@
 #include "Adanit.h"
 #include "Music.h"
 #include "PortalTrash.h"
+#include "Stats.h"
 #include <iostream> //for debug
 //============================== using section ===============================
 using HitFunctionPtr = void (*)(GameObject&, GameObject&);
@@ -124,19 +125,27 @@ namespace
     void playerFood(GameObject& object1, GameObject& object2)
     {
         Food& food = dynamic_cast<Food&>(object2);
+        Player& player = dynamic_cast<Player&>(object1);
         food.collect();
+        int type = rand() % 2;
 
         if (dynamic_cast<SpecialFood*>(&object2)) {
             Music::instance().playSpecialFood();
-            dynamic_cast<Player&>(object1).setScore(20); 
+            if (type == TIME)
+                player.ChangeTime(BONUS_TIME);
+            else
+                player.setScore(BONUS_SCORE);
         }
         else if (dynamic_cast<RegularFood*>(&object2)) {
             Music::instance().playFood();
-            dynamic_cast<Player&>(object1).setScore(10);
+            player.setScore(10);
         }
         else if (dynamic_cast<ToxicFood*>(&object2)) {
             Music::instance().playToxicFood();
-            dynamic_cast<Player&>(object1).setScore(-10);
+            if (type == TIME)
+                player.ChangeTime(LESS_TIME);
+            else
+                player.setScore(LESS_SCORE);
         }
     }
     void foodPlayer(GameObject& object1, GameObject& object2)

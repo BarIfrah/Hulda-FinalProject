@@ -39,11 +39,10 @@ constexpr auto NUM_OF_RUNNING_SPRITE = 13;
 constexpr auto NUM_OF_DIE_SPRITE = 5;
 
 constexpr auto ANIMATIONS_RATE = 0.1f;
-//special food
-constexpr auto TIME_BONUS = 0;
-constexpr auto ADD_SCORE = 1;
-constexpr auto ADD_LIFE = 2;
-constexpr auto INVISIBLE = 3;
+// food
+constexpr auto TIME = 0;
+constexpr auto SCORE = 1;
+
 //=============================== game rules =================================
 
 constexpr auto NUM_OF_LIFE = 3;
@@ -53,7 +52,8 @@ constexpr auto NO_LEVEL_TIME = -1;
 constexpr auto BONUS_TIME = 20;
 constexpr auto BONUS_SCORE = 20;
 constexpr auto BONUS_LIFE = 1;
-
+constexpr auto LESS_TIME = -10;
+constexpr auto LESS_SCORE = -10;
 //============================  map's file path ==============================
 //-------------------------- data files section ------------------------------
 constexpr auto BOARD_PATH = "Levels.txt";

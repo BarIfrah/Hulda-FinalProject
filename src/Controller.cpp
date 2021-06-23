@@ -15,7 +15,8 @@ Controller::Controller()
           m_listener(Listener()),
           m_highScore({0, 0}, sf::Vector2f(m_window.getSize())),
           m_menu(Menu(&m_highScore)),
-          m_stats(Stats(m_board.getLevelTime())) {
+            m_stats(Stats(m_board.getLevelTime()))
+{
     m_window.setFramerateLimit(60);
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
     m_screenView.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
@@ -124,6 +125,7 @@ void Controller::separateGameObjects(const vector<MovingObject*>& movingObjects)
             m_floors.push_back(obj);
         else
             m_enemies.push_back(obj);
+    m_player->setStatsPtr(&m_stats);
 }
 
 //============================================================================
