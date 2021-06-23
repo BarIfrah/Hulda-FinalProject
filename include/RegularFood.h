@@ -13,7 +13,8 @@ public:
 		const sf::Vector2f & = sf::Vector2f(0, 0), int ID = 0);
 	//=========================== method section ==============================
 	static unsigned int getFoodCounter();
-	virtual void collect()override;
+	void collect() override;
+	static void resetFoodCounter();
 	//========================= private section ===============================
 private:
 	static unsigned int m_foodCounter;

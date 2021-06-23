@@ -40,8 +40,10 @@ void Controller::run() {
             while (m_window.isOpen())
             {
                 m_world->Step(TIMESTEP, VELITER, POSITER);
+//                std::cout <<RegularFood::getFoodCounter() << std::endl;
                 if (RegularFood::getFoodCounter() == 0) {
-                    if (m_board.is_next_lvl_exist()) {
+
+                    if (m_board.isNextLvlExist()) {
                         levelUp();
                     }
                     else {
@@ -56,6 +58,13 @@ void Controller::run() {
                  m_board.removeFood(*m_world);
 
                 if (m_player->getState() == DIE) {
+                    if (m_player->getLife() == 0){
+                        /// need to add high score option here
+                        resetGame();
+//                        separateGameObjects(m_board.loadNewLevel(*m_world));
+                        break;
+                    }
+                    ///reset timer
                     playerDied();
                 }
 
@@ -92,13 +101,12 @@ void Controller::levelUp()
     m_level++;
     int playerScore = m_player->getScore();
     int playerLife = m_player->getLife();
-    m_board.levelUp(*m_world);
     srand((unsigned int)time(nullptr));
+    m_board.levelUp(*m_world);
     delete m_world;
     m_world = new b2World(b2Vec2(0, WORLD_GRAVITY));
     separateGameObjects(m_board.loadNewLevel(*m_world));
     m_stats.levelup(m_board.getLevelTime());
-
     m_world->SetContactListener(&m_listener);
     m_listener.setCurrentBoard(m_board);
     m_player->setScore(playerScore);
@@ -209,7 +217,9 @@ void Controller::resetGame() {
     m_level = 0;
     m_player->resetLife(3);
     m_player->resetScore();
+    RegularFood::resetFoodCounter();
     Music::instance().stopGame();
+    levelUp();
 }
 //============================================================================
 

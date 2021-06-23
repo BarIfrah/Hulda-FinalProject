@@ -8,11 +8,6 @@
   #4. states of the game objects.
 */
 //========================== game const parameters ===========================
-//games parameters
-constexpr auto MOVEMENT_SPEED = 10.f;
-constexpr auto MUSIC_VOLUME = 50;
-constexpr auto RAND_ENEMY_TIME = 1;
-
 // game objects symbols
 constexpr auto PLAYER = '@';
 constexpr auto EXTERMINATOR = 'E';
@@ -38,9 +33,6 @@ constexpr auto NUM_OF_JUMP_SPRITE = 12;
 constexpr auto NUM_OF_RUNNING_SPRITE = 13;
 constexpr auto NUM_OF_DIE_SPRITE = 5;
 
-constexpr auto CHARACTER_HEIGHT = 732;
-constexpr auto CHARACTER_WIDTH = 648.6153846154;
-
 constexpr auto ANIMATIONS_RATE = 0.1f;
 
 //food
@@ -56,8 +48,6 @@ constexpr auto INVISIBLE = 3;
 
 constexpr auto NUM_OF_LIFE = 3;
 constexpr auto NO_LEVEL_TIME = -1;
-constexpr auto NUM_OF_FOOD_TYPES = 3;
-constexpr auto NUM_OF_ENEMIES_TYPES = 3;
 
 //============================== special food bonuses ================================
 constexpr auto BONUS_TIME = 20;
@@ -69,7 +59,6 @@ constexpr auto BONUS_LIFE = 1;
 constexpr auto BOARD_PATH = "Levels.txt";
 
 //---------------------------------- fonts -----------------------------------
-constexpr auto ARIEL_FONT_PATH = "ARIALBD.TTF";
 
 //---------------------------- picture section -------------------------------
 constexpr auto MENU_BACKGROUND_PATH = "MenuBackground.png";
@@ -80,10 +69,6 @@ constexpr auto MENU_PATH = "RATBlack.jpg";
 constexpr auto HIGHMENU_PATH = "High Score Menu.png";
 constexpr auto HELPMENU_PATH = "backgrounds.jpg";
 
-constexpr auto LEVEL1_BACKGROUND_PATH = "level1.jpeg";
-constexpr auto LEVEL2_BACKGROUND_PATH = "level2.png";
-constexpr auto LEVEL3_BACKGROUND_PATH = "level3.jpeg";
-constexpr auto LEVEL4_BACKGROUND_PATH = "level4.jpeg";
 
 constexpr auto PLAYER_PATH = "player.png";
 constexpr auto SCOOTER_PATH = "scooter.png";
@@ -110,24 +95,7 @@ constexpr auto NEW_GAME = "New Game.png";
 
 constexpr auto EXIT = "Exit.png";
 //--------------------------------- musics -----------------------------------
-constexpr auto MENU_MUSIC_PATH = "menuMusic.ogg";
-constexpr auto LEVEL1_MUSIC_PATH = "level1Music.ogg";
-constexpr auto LEVEL2_MUSIC_PATH = "level2Music.ogg";
-constexpr auto LEVEL3_MUSIC_PATH = "level3Music.ogg";
-constexpr auto LEVEL4_MUSIC_PATH = "level4Music.ogg";
 
-//--------------------------------- sounds -----------------------------------
-constexpr auto REGULAR_FOOD_SOUND_PATH = "regular_foodSound.wav";
-constexpr auto TOXIC_FOOD_SOUND_PATH = "toxic_foodSound.wav";
-constexpr auto SPECIAL_FOOD_SOUND_PATH = "special_foodSound.wav";
-constexpr auto JUMP_SOUND_PATH = "jumpSound.wav";
-constexpr auto FALLING_SOUND_PATH = "fallingSound.wav";
-constexpr auto STEP_SOUND_PATH = "stepSound.wav";
-constexpr auto EXTERMINATOR_SOUND_PATH = "exterminatorSound.wav";
-constexpr auto SCOOTER_SOUND_PATH = "scooterSound.wav";
-constexpr auto OLD_WOMAN_SOUND_PATH = "old_womanSound.wav";
-//---------------------------------- logos -----------------------------------
-constexpr auto GAME_LOGO_PATH = "Logo.png";
 
 //============================ game files consts =============================
 //---------------------------- sprite sheet control --------------------------
@@ -138,43 +106,28 @@ constexpr auto PLAYER_OFFSET = 230;
 constexpr auto PLAYER_SPECIAL_OFFSET = 320;
 
 //-------------------------------- textures ----------------------------------
-//------------------------------- backgrounds --------------------------------
+//------------------------------- KEYS ---------------------------------------
 constexpr auto MENU_BACKGROUND = 1;
 constexpr auto LEVEL_BACKGROUND = 2;
 constexpr auto MENU = 3;
-constexpr auto LIVES = 3;
 constexpr auto HIGHMENU = 4;
 constexpr auto HELPMENU = 5;
-constexpr auto GAME_STATE = 9;
-constexpr auto MAIN_MENU_BACKGROUND = 27;
-constexpr auto BACKGROUND_WIDTH = 7185; //pixels
-constexpr auto BACKGROUND_HEIGHT = 1582;
-
-///statboard
-constexpr auto STAT_WIDTH = 0;
-constexpr auto STAT_HEIGHT = 60;
-//--
 constexpr auto BACK_KEY = 6;
 constexpr auto HI_SCORE_KEY = 7;
 constexpr auto INFO_KEY = 8;
 constexpr auto NEW_GAME_KEY = 9;
-constexpr auto HI_MENU_KEY = 10;
-constexpr auto EXIT_KEY = 28;
 
-//--
-const std::string STATS[] = {"Level: ","Score: ","Lives: ", "Time: "};
-//------------------------------- objects -------------------------------------
 //characters
 constexpr auto PLAYER_T = 10;
 constexpr auto SCOOTER_T = 11;
 constexpr auto EXTERMINATOR_T = 12;
-constexpr auto OLD_WOMAN_T = 13;
 //food
 constexpr auto APPLE_T = 15;
 constexpr auto BURGER_T = 16;
 constexpr auto WATERMELON_T = 23;
 constexpr auto BANANA_T = 24;
 constexpr auto PIZZA_T = 25;
+
 //statics
 constexpr auto ROAD_T = 17;
 constexpr auto TRASH_RED_T = 18;
@@ -184,6 +137,26 @@ constexpr auto ADANIT_SAGOL_T = 21;
 constexpr auto ADANIT_KATOM_T = 22;
 constexpr auto DYNAMIC_FLOOR_T = 26;
 constexpr auto PORTAL_TRASH_T = 30;
+constexpr auto MAIN_MENU_BACKGROUND = 27;
+constexpr auto EXIT_KEY = 28;
+const auto LIFE_T = 29;
+
+constexpr auto BACKGROUND_WIDTH = 7185; //pixels
+constexpr auto BACKGROUND_HEIGHT = 1582;
+
+///statboard
+constexpr auto STAT_WIDTH = 0;
+constexpr auto STAT_HEIGHT = 60;
+//--
+
+
+constexpr auto HI_MENU_KEY = 10;
+
+
+//--
+const std::string STATS[] = {"Level: ","Score: ","Lives: ", "Time: "};
+//------------------------------- objects -------------------------------------
+
 //--------------------------------- sounds -----------------------------------
 constexpr auto REGULAR_FOOD_SOUND = 0;
 constexpr auto TOXIC_FOOD_SOUND = 1;
@@ -208,8 +181,7 @@ const int POSITER = 2;
 const bool STATIC = false;
 const bool DYNAMIC = true;
 const float WORLD_GRAVITY = 9.81;
-const float MAX_JUMP = 50;
-const float ON_GROUND = 0;
+
 //player velocity
 const b2Vec2 MUP(0, -6);
 const b2Vec2 MRIGHT (2, 0);
@@ -237,7 +209,7 @@ const auto INFO_X_POS = 390;
 const auto STATS_Y_POS = 700;
 
 const auto HEART_WIDTH = 117;
-const auto LIFE_T = 29;
+
 //
 //for sounds
 const auto AUDIOS = 13;

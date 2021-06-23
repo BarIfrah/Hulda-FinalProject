@@ -28,3 +28,7 @@ int RegularFood::raffleFood()
 	return (rand() % 3) + WATERMELON_T;
 }
 //============================================================================
+void RegularFood::resetFoodCounter() {
+    m_foodCounter = 0;
+}
+//============================================================================
