@@ -9,11 +9,13 @@
 
 Controller::Controller()
         : m_window(sf::VideoMode(1920, 1080), "Hulda", sf::Style::Titlebar | sf::Style::Close),
-        m_board(sf::Vector2f(0, 0),
+          m_board(sf::Vector2f(0, 0),
             sf::Vector2f((float)BACKGROUND_WIDTH, (float)m_window.getSize().y)),
-        m_player(nullptr),
-        m_listener(Listener()),
-        m_stats(Stats(m_board.getLevelTime())){
+          m_player(nullptr),
+          m_listener(Listener()),
+          m_highScore({0, 0}, sf::Vector2f(m_window.getSize())),
+          m_menu(Menu(&m_highScore)),
+          m_stats(Stats(m_board.getLevelTime())) {
     std::cout << m_board.getLevelTime();
     m_window.setFramerateLimit(60);
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
@@ -220,6 +222,7 @@ void Controller::resetGame() {
     RegularFood::resetFoodCounter();
     Music::instance().stopGame();
     levelUp();
+    m_highScore.getNewScore(m_player, m_window);
 }
 //============================================================================
 

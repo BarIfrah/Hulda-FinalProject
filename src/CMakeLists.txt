@@ -26,4 +26,5 @@ target_sources (Hulda PRIVATE "main.cpp"
 "Scooter.cpp"
 "DynamicFloor.cpp"
 "Music.cpp"
-"PortalTrash.cpp")
+"PortalTrash.cpp"
+"HighScores.cpp")

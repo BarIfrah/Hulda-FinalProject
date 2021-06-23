@@ -2,12 +2,13 @@
 #include <SFML/Graphics.hpp>
 #include "Utilities.h"
 #include "Music.h"
+#include "HighScores.h"
 //-----------------------------------------------------------------------------
 
 class Menu
 {
 public:
-	Menu();
+	Menu(HighScores *highScores);
 	//void resetMainMenu(sf::RenderWindow&);
 	bool runMenu(sf::RenderWindow& window, bool, bool);
 
@@ -19,7 +20,7 @@ private:
 	void setMyscreen(bool hasWon);
 	
 	//void stopMusic();
-	bool isClickedOn(const sf::Sprite&, const sf::Vector2f& pos) const;
+	static bool isClickedOn(const sf::Sprite&, const sf::Vector2f& pos) ;
 	void readScores();
 	sf::Text m_mainMsg;
 	sf::Text m_enter;
@@ -32,10 +33,11 @@ private:
 	sf::Sprite m_highBackround;
 	sf::Sprite m_helpBackground;
 	sf::Sprite m_exit;
-	std::vector < std::pair<std::string, std::string>> m_highScores;
-	//
+//	std::vector < std::pair<std::string, std::string>> m_highScores;
 	sf::Sprite m_back;
 	sf::Sprite m_hiScore;
 	sf::Sprite m_info;
 	sf::Sprite m_newGame;
+
+	HighScores *m_highScores;
 };
