@@ -137,7 +137,7 @@ void Controller::moveCharacters()
     for (auto& enemy : m_enemies)
         enemy->move(m_gameClock.getElapsedTime(), m_board);
     for (auto& floor : m_floors)
-            floor->move(m_gameClock.getElapsedTime(), m_board);
+        floor->move(m_gameClock.getElapsedTime(), m_board);
 }
 
 //============================================================================

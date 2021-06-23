@@ -46,7 +46,7 @@ private:
 	Menu m_menu;
     HighScores m_highScore;
 	//GameState m_gameState;
-	//====================== privete methods section =========================
+	//====================== private methods section =========================
 	//char runMenu();
 	void separateGameObjects(const vector<MovingObject*> &movingObjects);
 	void moveCharacters();
@@ -58,4 +58,5 @@ private:
 	void playerDied();
 	void resetGame();
 	void resetGameView();
+
 };

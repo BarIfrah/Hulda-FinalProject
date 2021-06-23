@@ -53,22 +53,22 @@ void HighScores::getNewScore(Player* player, sf::RenderWindow& window)
 
 	scoreT.setString("Your final score is: " + std::to_string(score));
 
-	scoreT.setColor(sf::Color::Red);
-	scoreT.setPosition(sf::Vector2f(0, window.getSize().y / 2));
+	scoreT.setFillColor(sf::Color::Red);
+	scoreT.setPosition(sf::Vector2f(0, int(window.getSize().y / 2)));
 
 	enterName.setFont(Resources::instance().getFont());
 	enterName.setCharacterSize(20);
 	enterName.setString("Whats your name? (press enter to finish)");
-	enterName.setColor(sf::Color::Green);
-	enterName.setPosition(sf::Vector2f(0, window.getSize().y / 2 + 100));
+	enterName.setFillColor(sf::Color::Green);
+	enterName.setPosition(sf::Vector2f(0, int(window.getSize().y / 2) + 100));
 
 	nameText.setFont(Resources::instance().getFont());
 	nameText.setCharacterSize(20);
 	nameText.setString("");
-	nameText.setColor(sf::Color::Green);
-	nameText.setPosition(sf::Vector2f(0, window.getSize().y / 2 + 120));
+	nameText.setFillColor(sf::Color::Green);
+	nameText.setPosition(sf::Vector2f(0, int(window.getSize().y / 2) + 120));
 
-	std::string name = "";
+	std::string name;
 
 	while (window.isOpen() && name.size() < 10)
 	{
@@ -82,35 +82,35 @@ void HighScores::getNewScore(Player* player, sf::RenderWindow& window)
 		{
 			switch (event.type)
 			{
-			case sf::Event::Closed:
-				window.close();
-				break;
+                case sf::Event::Closed:
+                    window.close();
+                    break;
 
-			case sf::Keyboard::Enter:
-				break;
+                case sf::Keyboard::Enter:
+                    break;
 
-			case sf::Event::TextEntered:
-			{
-				if (event.text.unicode == 13) //enter
-					goto out;
+                case sf::Event::TextEntered:
+                {
+                    if (event.text.unicode == 13) //enter
+                        goto out;
 
-				else if (event.text.unicode == 32); //space
+                    else if (event.text.unicode == 32); //space
 
-				else if (event.text.unicode == 8) //delete
-				{
-					if (name.size() > 0)
-						name.pop_back();
-					nameText.setString(name);
+                    else if (event.text.unicode == 8) //delete
+                    {
+                        if (name.size() > 0)
+                            name.pop_back();
+                        nameText.setString(name);
 
-				}
-				else if (event.text.unicode < 128)
-				{
-					char a = char(event.text.unicode);
-					name.append(1, a);
-					nameText.setString(name);
+                    }
+                    else if (event.text.unicode < 128)
+                    {
+                        char a = char(event.text.unicode);
+                        name.append(1, a);
+                        nameText.setString(name);
 
-				}
-			}
+                    }
+                }
 			}
 		}
 	}
