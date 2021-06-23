@@ -8,7 +8,7 @@
 //============================================================================
 
 Controller::Controller()
-        : m_window(sf::VideoMode(1920, 1080), "Hulda", sf::Style::Titlebar | sf::Style::Close),
+        : m_window(sf::VideoMode(1920, 1080), "Ratata Game", sf::Style::Titlebar | sf::Style::Close),
           m_board(sf::Vector2f(0, 0),
             sf::Vector2f((float)BACKGROUND_WIDTH, (float)m_window.getSize().y)),
           m_player(nullptr),
@@ -32,7 +32,6 @@ void Controller::run() {
     separateGameObjects(m_board.loadNewLevel(*m_world));
     while (m_window.isOpen())
     {
-//        separateGameObjects(m_board.loadNewLevel(*m_world));
         Music::instance().playMenu(); //at start of main menu
         m_stats.levelup(m_board.getLevelTime());
         if (m_menu.runMenu(m_window, false, false))
@@ -41,7 +40,6 @@ void Controller::run() {
             while (m_window.isOpen())
             {
                 m_world->Step(TIMESTEP, VELITER, POSITER);
-//                std::cout <<RegularFood::getFoodCounter() << std::endl;
                 if (m_player->canLevelUP()) {
 
                     if (m_board.isNextLvlExist()) {
@@ -62,7 +60,6 @@ void Controller::run() {
                     if (m_player->getLife() == 0){
                         /// need to add high score option here
                         resetGame();
-//                        separateGameObjects(m_board.loadNewLevel(*m_world));
                         break;
                     }
                     ///reset timer
@@ -214,6 +211,7 @@ void Controller::playerDied()
 
 void Controller::resetGame() {
     resetGameView();
+    m_highScore.getNewScore(m_player, m_window);
     m_board.gameOver(*m_world);
     m_level = 0;
     m_player->resetLife(3);
@@ -221,7 +219,6 @@ void Controller::resetGame() {
     RegularFood::resetFoodCounter();
     Music::instance().stopGame();
     levelUp();
-    m_highScore.getNewScore(m_player, m_window);
 }
 //============================================================================
 

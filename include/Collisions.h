@@ -4,7 +4,6 @@
 #include <typeinfo>
 #include <typeindex>
 
-//#include "Controller.h"
 #include "GameObject.h"
 #include "Player.h"
 #include "Enemy.h"
@@ -129,7 +128,7 @@ namespace
 
         if (dynamic_cast<SpecialFood*>(&object2)) {
             Music::instance().playSpecialFood();
-            dynamic_cast<Player&>(object1).setScore(20); ///in the future will add special force
+            dynamic_cast<Player&>(object1).setScore(20); 
         }
         else if (dynamic_cast<RegularFood*>(&object2)) {
             Music::instance().playFood();
