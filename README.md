@@ -34,7 +34,7 @@ Hulda can gain lives from the 'special force' burgers. no more than 6 lives can 
 ##### Create levels:
 creating new levels by editing the 'Levels.txt' file.\
 level format is 20 rows height, 100 columns width. (can be seen inside 'Levels.txt' file.\
-symbols are defined in "macros.h" file.\
+symbols are defined in "macros.h" file.
 
 
 
@@ -94,7 +94,7 @@ Game design:\
 [Shaked 'Keti' Zahor (instagram)](https://www.instagram.com/shaketi___/?hl=en)
 
 Physics:\
-[Box2D](https://box2d.org) Physical engine:\
+[Box2D](https://box2d.org) Physical engine:
 
 Graphic implementation:
 [SFML](https://www.sfml-dev.org)
