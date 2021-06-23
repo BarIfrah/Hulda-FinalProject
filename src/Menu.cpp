@@ -3,7 +3,7 @@
 #include "Resources.h"
 //-----------------------------------------------------------------------------
 
-Menu::Menu()
+Menu::Menu(HighScores *highScores) : m_highScores(highScores)
 {
 	m_backGround = sf::Sprite(Resources::instance().getTexture(MAIN_MENU_BACKGROUND));
 	m_backGround.setScale({ WIN_WIDTH / m_backGround.getGlobalBounds().width, WIN_HEIGHT / m_backGround.getGlobalBounds().height });
@@ -98,54 +98,61 @@ bool Menu::drawHelpWindow(sf::RenderWindow& window) const
 		for (auto event = sf::Event{}; window.waitEvent(event);)
 			switch (event.type)
 			{
-			case sf::Event::Closed:
-				return false;
-			case sf::Event::MouseButtonReleased:
-				auto location = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
+			case sf::Event::Closed: {
+                return false;
+            }
+			case sf::Event::MouseButtonReleased: {
+                auto location = window.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
 
-				if (isClickedOn(m_back, location))
-				{
-					Music::instance().stopInfoMenu();
-					Music::instance().playBack();
-					return true;
-				}
+                if (isClickedOn(m_back, location)) {
+                    Music::instance().stopInfoMenu();
+                    Music::instance().playBack();
+                    return true;
+                }
+            }
+            default:
+                break;
 			}
+    return false;
 }
 
 //------------------------------------------------------------------------
 bool Menu::drawScoresWindow(sf::RenderWindow& window) const
 {
-	sf::Vector2f backButtonPos = { 100, 550 };
+//	sf::Vector2f backButtonPos = { 100, 550 };
 	window.clear();
-	window.draw(m_highBackround);
-	window.draw(m_back);
-	sf::Text name;
-	sf::Text score;
-	for (int i = 0; i < m_highScores.size(); i++)
-	{
-		setText(name, m_highScores[i].first, sf::Vector2f( 250, 300 + 100 * i ));
-		setText(score, m_highScores[i].second, sf::Vector2f( 450, 300 + 100 * i ));
-		window.draw(name);
-		window.draw(score);
-	}
-	//window.draw(m_back);
-	window.display();
-	while (window.isOpen())
-		for (auto event = sf::Event{}; window.waitEvent(event);)
-			switch (event.type)
-			{
-			case sf::Event::Closed:
-				return false;
-			case sf::Event::MouseButtonReleased:
-				auto location = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
+	m_highScores->draw(window);
+//	window.draw(m_highBackround);
+//	window.draw(m_back);
+//	sf::Text name;
+//	sf::Text score;
+//	for (int i = 0; i < m_highScores.size(); i++)
+//	{
+//		setText(name, m_highScores[i].first, sf::Vector2f( 250, 300 + 100 * i ));
+//		setText(score, m_highScores[i].second, sf::Vector2f( 450, 300 + 100 * i ));
+//		window.draw(name);
+//		window.draw(score);
+//	}
+    window.draw(m_back);
+    window.display();
+    while (window.isOpen())
+        for (auto event = sf::Event{}; window.waitEvent(event);)
+            switch (event.type)
+            {
+                case sf::Event::Closed:
+                    return false;
+                case sf::Event::MouseButtonReleased: {
+                    auto location = window.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
 
-				if (isClickedOn(m_back, location))
-				{
-					Music::instance().stopHiScoreMenu();
-					Music::instance().playBack();
-					return true;
-				}
-			}
+                    if (isClickedOn(m_back, location)) {
+                        Music::instance().stopHiScoreMenu();
+                        Music::instance().playBack();
+                        return true;
+                    }
+                }
+                default:;
+            }
+    return false;
 }
 //change to enum to know what state we are in. It depends on what state we're in to print what object we need to recognize the clicks. by the enum and clicks we change the state
 //
@@ -178,14 +185,14 @@ void Menu::setMyscreen(bool hasWon)
 
 //---------------------------------------------------------------------------------------------
 //checks if the specific message sent has been clicked on or not
-bool Menu::isClickedOn(const sf::Sprite& text, const sf::Vector2f& pos) const
+bool Menu::isClickedOn(const sf::Sprite& text, const sf::Vector2f& pos)
 {
 	return text.getGlobalBounds().contains(pos);
 }
 
 void Menu::readScores()
 {
-	m_highScores.push_back(std::make_pair("Oren", "100"));
-	m_highScores.push_back(std::make_pair("fyfyn", "854"));
+//	m_highScores.push_back(std::make_pair("Oren", "100"));
+//	m_highScores.push_back(std::make_pair("fyfyn", "854"));
 }
 

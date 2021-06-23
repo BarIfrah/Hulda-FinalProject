@@ -4,10 +4,12 @@
 #include "Listener.h"
 #include "Menu.h"
 #include "Stats.h"
+#include "HighScores.h"
 //========================== forward declarations ============================
 //class MovingObject;
 class Player;
 class DynamicFloor;
+
 /*============================================================================
 * Class: Controller. 
 * This class manage the game. handle all the cases that happen in the game.
@@ -42,7 +44,7 @@ private:
 	int m_level = 1;
 	Stats m_stats;
 	Menu m_menu;
-
+    HighScores m_highScore;
 	//GameState m_gameState;
 	//====================== privete methods section =========================
 	//char runMenu();
@@ -55,6 +57,5 @@ private:
 	void levelUp();
 	void playerDied();
 	void resetGame();
-	bool handleKeyPresses();
 	void resetGameView();
 };
