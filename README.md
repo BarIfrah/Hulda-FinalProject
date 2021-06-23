@@ -24,7 +24,6 @@ to gain some points, Hulda needs to eat pizza, watermelon and bananas:\
 <img width="172" alt="Screen Shot 2021-06-21 at 22 44 42" src="https://user-images.githubusercontent.com/71547715/122818988-7f975c80-d2e2-11eb-97ed-62d9d566f9d6.png">\
 
 To move to the next level, Hulda needs to go inside the 'teleport' trash can:\
-https://user-images.githubusercontent.com/71547715/123173160-d8075f00-d486-11eb-88b8-25e6bdda1965.mov
 ![huldaTrash](https://user-images.githubusercontent.com/71547715/123173460-4ea45c80-d487-11eb-8b22-6390ee88953b.gif)
 
 
@@ -32,62 +31,63 @@ https://user-images.githubusercontent.com/71547715/123173160-d8075f00-d486-11eb-
 Hulda starts with 3 lives. Every 100 points collected- hulda gets an extra life.\
 Hulda can gain lives from the 'special force' burgers. no more than 6 lives can be collected.
 
-@Create levels:
-creating new levels by editing the 'Levels.txt' file.
-
-
+#####Create levels:
+creating new levels by editing the 'Levels.txt' file.\
+level format is 20 rows height, 100 columns width. (can be seen inside 'Levels.txt' file.\
+symbols are defined in "macros.h" file.\
 
 
 
 ## Files and descriptions
-Headers:
-
-CPP's:\
+CPP's + Headers:\
 To build a game object:\
-PhysicsObject.cpp\
-GameObject.cpp
+PhysicsObject.h/cpp\
+GameObject.h/cpp
 
 Static Game Objects inherit from 'StaticObject.cpp':\
-Adanit.cpp\
-Food.cpp\
-ToxicFood.cpp
-
-Trash.cpp\
-RegularFood.cpp\
-SpecialFood.cpp\
-Road.cpp
+Adanit.h/cpp\
+Food.h/cpp\
+ToxicFood.h/cpp
+PortalTrash.h/cpp
+Trash.h/cpp\
+RegularFood.h/cpp\
+SpecialFood.h/cpp\
+Road.h/cpp
 
 Dynamic Game Objects inherit from 'MovingObject.cpp'\
-Enemy.cpp\
--Exterminator.cpp\
--Scooter.cpp\
-Player.cpp\
-DynamicFloor.cpp
+Enemy.h/cpp\
+-Exterminator.h/cpp\
+-Scooter.h/cpp\
+Player.h/cpp\
+DynamicFloor.h/cpp
 
 Game controlling classes:\
-Controller.cpp\
-Stats.cpp\
-Board.cpp\
-DataReader.cpp\
-Resources.cpp
+Controller.h/cpp\
+Stats.h/cpp\
+Board.h/cpp\
+DataReader.h/cpp\
+Resources.h/cpp\
+HighScores.h/cpp
 
 Collision management:				
-Collisions.cpp
-Listener.cpp
-Utilities.cpp
-Menu.cpp
+Collisions.h/cpp
+Listener.h/cpp
+Utilities.h/cpp
+Menu.h/cpp
 main.cpp
 	
 
 ## Implementation:
+Algorithms we used:\
+A 'chaser'- the exterminator- chased Hulda in the X axis.\
 
-a c++ code snippit:
-
-```c++
-std::cout << "Hello, world!\n";
-```
+Data structures we used:\
+Unordered map- in 'Resources' class- to control the resources and extract them in O(1) time comlexity.
+Used unordered map to keep track of objects in the board, and assign them with unique ID's.
+Used vector of (string, int) pairs- for names and scores in 'HighScores' class.
 
 ## GitHub Repository
+https://github.com/BarIfrah/Hulda-FinalProject
 
 ## Credits
 Game design:\
