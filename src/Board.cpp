@@ -92,7 +92,7 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 			{
 			case PLAYER: {
 				m_map[y].push_back(std::make_unique<Player>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
+				(boxSize.x * x, boxSize.y * y), sf::Vector2f(2.5 * boxSize.x, 2.5 * boxSize.y), ID));
 				movingsVec.push_back(dynamic_cast<MovingObject*>(m_map[y][x].get()));
 				m_player = dynamic_cast<Player*>(m_map[y][x].get());
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
@@ -109,7 +109,7 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 			}
 			case SCOOTER: {
 				m_map[y].push_back(std::make_unique<Scooter>(ENEMY_DISTANCE_LIMIT, world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y), ID));
+				(boxSize.x * x, boxSize.y * y), sf::Vector2f(2.5 * boxSize.x, 2.5 * boxSize.y), ID));
 				movingsVec.push_back(dynamic_cast<MovingObject*>(m_map[y][x].get()));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
@@ -117,7 +117,7 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 			}
 			case ROAD:
 				m_map[y].push_back(std::make_unique <Road>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y), sf::Vector2f(boxSize.x, boxSize.y), ID));
+				(boxSize.x * x, boxSize.y * y + 10), sf::Vector2f(1.015 * boxSize.x,1.5 *  boxSize.y), ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
@@ -129,38 +129,38 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 				break;
 			case DYNAMIC_FLOOR:
 				m_map[y].push_back(std::make_unique <DynamicFloor>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y), sf::Vector2f(boxSize.x, boxSize.y), ID));
+				(boxSize.x * x, boxSize.y * y), sf::Vector2f(boxSize.x, 2 * boxSize.y), ID));
 				movingsVec.push_back(dynamic_cast<MovingObject*>(m_map[y][x].get()));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
 			case TRASH:
 				m_map[y].push_back(std::make_unique <Trash>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y), boxSize, ID));
+				(boxSize.x * x  , boxSize.y * y - 2), boxSize, ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
 			case PORTAL_TRASH:
 				m_map[y].push_back(std::make_unique <PortalTrash>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y), boxSize, ID, true));
+				(boxSize.x * x, boxSize.y * y - 30), sf::Vector2f(2 * boxSize.x, 2 * boxSize.y) , ID, true));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
 			case SPECIAL_FOOD:
 				m_map[y].push_back(std::make_unique <SpecialFood>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y), boxSize, ID));
+				(boxSize.x * x, boxSize.y * y - 10), boxSize, ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
 			case REGULAR_FOOD:
 				m_map[y].push_back(std::make_unique <RegularFood>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y), boxSize, ID));
+				(boxSize.x * x, boxSize.y * y - 10), boxSize, ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;
 			case TOXIC_FOOD:
 				m_map[y].push_back(std::make_unique <ToxicFood>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y), boxSize, ID));
+				(boxSize.x * x, boxSize.y * y - 10), boxSize, ID));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;

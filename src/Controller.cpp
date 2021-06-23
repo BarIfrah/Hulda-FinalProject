@@ -185,13 +185,13 @@ void Controller::sideScroll() {
 
 void Controller::HandleCharacterCollisionWithWindow(MovingObject* character)
 {
-    if (character->getGlobalBounds().top < STAT_HEIGHT) {
+    if (character->getGlobalBounds().top < STAT_HEIGHT) { ///collision with top
         character->setPhysicsObjectPos
         (sf::Vector2f(character->getLocation().x, character->getGlobalBounds().height + STAT_HEIGHT), EMDOWN);
     }
-    if (character->getGlobalBounds().left < 0) {
+    if (character->getGlobalBounds().left < 0) { ///collision with left
         character->setPhysicsObjectPos
-        (sf::Vector2f( 70, character->getLocation().y),MDOWN+MRIGHT);
+        (sf::Vector2f( 80, character->getLocation().y),MDOWN+MRIGHT);
     }
     if (character->getGlobalBounds().left+ character->getGlobalBounds().width > m_board.getLevelSize().x) {
         character->setPhysicsObjectPos
