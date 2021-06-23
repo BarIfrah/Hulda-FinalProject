@@ -14,6 +14,7 @@ configure_file ("pizza.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("watermelon.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("apple.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("trashBlue.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("portalTrash.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("trashRed.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("life.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Exit.png" ${CMAKE_BINARY_DIR} COPYONLY)
@@ -44,7 +45,7 @@ configure_file ("level4Music.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 #configure_file ("level4.jpeg" ${CMAKE_BINARY_DIR} COPYONLY)
 
 configure_file ("backgrounds.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("RATBlack.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+
 
 configure_file ("Back.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Hi Score.png" ${CMAKE_BINARY_DIR} COPYONLY)

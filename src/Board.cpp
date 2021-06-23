@@ -18,6 +18,7 @@
 #include "Scooter.h"
 #include "Enemy.h"
 #include "DynamicFloor.h"
+#include "PortalTrash.h"
 using std::vector;
 //====================== Constructors & distructors section ==================
 Board::Board(const sf::Vector2f& location,
@@ -140,6 +141,12 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 			case TRASH:
 				m_map[y].push_back(std::make_unique <Trash>(world, sf::Vector2f
 				(boxSize.x * x, boxSize.y * y), boxSize, ID));
+				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
+				ID++;
+				break;
+			case PORTAL_TRASH:
+				m_map[y].push_back(std::make_unique <PortalTrash>(world, sf::Vector2f
+				(boxSize.x * x, boxSize.y * y), boxSize, ID, true));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;
 				break;

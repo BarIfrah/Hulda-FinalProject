@@ -26,16 +26,11 @@ constexpr auto ADANIT = '-';
 constexpr auto DYNAMIC_FLOOR = '_';
 constexpr auto NOTHING = ' ';
 constexpr auto TRASH = 'T';
-
-//menu answers
-constexpr auto QUIT_GAME = 'Q';
-constexpr auto PLAY_GAME = 'P';
-constexpr auto NONE_CHOSEN = 'N';
-
+constexpr auto PORTAL_TRASH = 't';
 //========================== game objects states ============================
 //MovingObject spritesheets consts
 //enum to define movement directions of all moving objects (Enemies will not use up/down)
-enum ANIMATION_DIRECTIONS { LEFT = 0, RIGHT = 1 };
+enum ANIMATION_DIRECTIONS { LEFT = 0, RIGHT};
 enum ANIMATION_STATE { IDLE = 0, RUN, JUMP, DIE, FALL};
 enum EXTERMINATOR_COLLISION { NOT_COLLIDED=0, TRASH_C, ADANIT_C, ROAD_C};
 constexpr auto NUM_OF_IDLE_SPRITE = 11;
@@ -106,6 +101,7 @@ constexpr auto DYNAMIC_FLOOR_PATH = "dynamicFloor.png";
 constexpr auto GAME_STATE_PATH = "game_state.jpg";
 constexpr auto TRASH_BLUE_PATH = "trashBlue.png";
 constexpr auto TRASH_RED_PATH = "trashRed.png";
+constexpr auto PORTAL_TRASH_PATH = "portalTrash.png";
 
 constexpr auto BACK = "Back.png";
 constexpr auto HI_SCORE = "Hi Score.png";
@@ -187,6 +183,7 @@ constexpr auto ADANIT_KAHOL_T = 20;
 constexpr auto ADANIT_SAGOL_T = 21;
 constexpr auto ADANIT_KATOM_T = 22;
 constexpr auto DYNAMIC_FLOOR_T = 26;
+constexpr auto PORTAL_TRASH_T = 30;
 //--------------------------------- sounds -----------------------------------
 constexpr auto REGULAR_FOOD_SOUND = 0;
 constexpr auto TOXIC_FOOD_SOUND = 1;

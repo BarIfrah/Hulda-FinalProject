@@ -30,10 +30,6 @@ const sf::Texture& Resources::getTexture(int textureKey)const {
     return (*this->m_texture.find(textureKey)->second);
 }
 ////============================================================================
-//const sf::SoundBuffer& Resources::getSound(int soundKey) const{
-//    return(*this->m_soundBuffers.find(soundKey)->second);
-//}
-////============================================================================
 const sf::Font& Resources::getFont() const{
     return m_font;
 }
@@ -55,11 +51,6 @@ void Resources::setBackgrounds() {
 //        throw std::exception("Can't load background");
         throw std::exception();
         
-    //------------------------------------------------------------------------
-  /*  texturesCreator = std::make_unique<sf::Texture>();
-    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
-        (GAME_STATE, std::move(texturesCreator)));
-    this->m_texture[GAME_STATE]->loadFromFile(GAME_STATE_PATH);*/
     //------------------------------------------------------------------------
     texturesCreator = std::make_unique<sf::Texture>();
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
@@ -201,6 +192,11 @@ void Resources::setObjects() {
     this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>
         (SCOOTER_T, std::move(texturesCreator)));
     this->m_texture[SCOOTER_T]->loadFromFile(SCOOTER_PATH);
+
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr<sf::Texture>>
+        (PORTAL_TRASH_T, std::move(texturesCreator)));
+    this->m_texture[PORTAL_TRASH_T]->loadFromFile(PORTAL_TRASH_PATH);
 }
 //============================================================================
 void Resources::setNumOfSprites() {

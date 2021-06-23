@@ -68,6 +68,7 @@ void Player::move(const sf::Time& deltaTime,Board& CurrentLevel) {
 }
 
 //===========================================================================
+
 void Player::updateAnimation(const sf::Time &deltaTime ) {
     setAnimationTime(deltaTime);
     int spritesNum = (int)(getAnimationTime().asSeconds() / ANIMATIONS_RATE);
@@ -89,6 +90,7 @@ void Player::playerJump(const b2Vec2 &force) {
     applyForce(force);
 }
 //============================================================================
+
 void Player::setScore(const int& scoreToAdd) {
     m_score += scoreToAdd;
     if (m_score < 0)
@@ -98,10 +100,15 @@ void Player::setScore(const int& scoreToAdd) {
         m_lifeAdder += 100;
     }
 }
+//============================================================================
+
 int Player::getLife() const
 {
     return m_life;
 }
+
+//============================================================================
+
 void Player::setLife(const int& life)
 {
     m_life += life;
@@ -109,15 +116,20 @@ void Player::setLife(const int& life)
         m_life = 0;
 }
 
+//============================================================================
+
 void Player::resetLife(const int& life)
 {
     m_life = life;
 }
+
 //============================================================================
 
 int Player::getScore() const{
     return m_score;
 }
+
+//============================================================================
 
 void Player::resetScore() {
     m_lifeAdder = 100;

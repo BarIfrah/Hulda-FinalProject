@@ -102,6 +102,10 @@ vector<vector<char>> DataReader::readNextLevel() {
                         row.push_back(DYNAMIC_FLOOR);
                         break;
                     }
+                    case PORTAL_TRASH: {
+                        row.push_back(PORTAL_TRASH);
+                        break;
+                    }
                     default: {
                         row.push_back(NOTHING); // inputed ' '
                         break;
