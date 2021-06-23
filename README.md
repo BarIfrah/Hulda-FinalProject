@@ -25,6 +25,8 @@ to gain some points, Hulda needs to eat pizza, watermelon and bananas:\
 
 To move to the next level, Hulda needs to go inside the 'teleport' trash can:\
 https://user-images.githubusercontent.com/71547715/123173160-d8075f00-d486-11eb-88b8-25e6bdda1965.mov
+![huldaTrash](https://user-images.githubusercontent.com/71547715/123173245-fb320e80-d486-11eb-8944-d9cc3edfef2d.gif)
+
 
 
 Hulda starts with 3 lives. Every 100 points collected- hulda gets an extra life.\
