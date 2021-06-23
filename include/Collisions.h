@@ -139,7 +139,6 @@ namespace
             Music::instance().playToxicFood();
             dynamic_cast<Player&>(object1).setScore(-10);
         }
-        std::cout << dynamic_cast<Player&>(object1).getScore() << std::endl;
     }
     void foodPlayer(GameObject& object1, GameObject& object2)
     {

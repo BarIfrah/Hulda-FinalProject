@@ -121,6 +121,8 @@ void Player::setLife(const int& life)
     m_life += life;
     if (m_life < 0)
         m_life = 0;
+    if (m_life >= 6)
+        m_life = 6;
 }
 
 //============================================================================
