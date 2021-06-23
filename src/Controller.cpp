@@ -8,14 +8,15 @@
 //============================================================================
 
 Controller::Controller()
-        : m_window(sf::VideoMode(1920, 1080), "Hulda", sf::Style::Titlebar | sf::Style::Close),
+        : m_window(sf::VideoMode(1920, 1080), "Ratata Game", sf::Style::Titlebar | sf::Style::Close),
           m_board(sf::Vector2f(0, 0),
             sf::Vector2f((float)BACKGROUND_WIDTH, (float)m_window.getSize().y)),
           m_player(nullptr),
           m_listener(Listener()),
           m_highScore({0, 0}, sf::Vector2f(m_window.getSize())),
           m_menu(Menu(&m_highScore)),
-          m_stats(Stats(m_board.getLevelTime())) {
+            m_stats(Stats(m_board.getLevelTime()))
+{
     m_window.setFramerateLimit(60);
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
     m_screenView.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
@@ -32,7 +33,6 @@ void Controller::run() {
     separateGameObjects(m_board.loadNewLevel(*m_world));
     while (m_window.isOpen() and !m_menu.getExitClicked())
     {
-//        separateGameObjects(m_board.loadNewLevel(*m_world));
         Music::instance().playMenu(); //at start of main menu
         m_stats.levelup(m_board.getLevelTime());
 
@@ -42,7 +42,6 @@ void Controller::run() {
             while (m_window.isOpen())
             {
                 m_world->Step(TIMESTEP, VELITER, POSITER);
-//                std::cout <<RegularFood::getFoodCounter() << std::endl;
                 if (m_player->canLevelUP()) {
 
                     if (m_board.isNextLvlExist()) {
@@ -65,7 +64,6 @@ void Controller::run() {
                         /// need to add high score option here
                         m_menu.drawLostWindow(m_window);
                         resetGame();
-//                        separateGameObjects(m_board.loadNewLevel(*m_world));
                         break;
                     }
                     ///reset timer
@@ -130,6 +128,7 @@ void Controller::separateGameObjects(const vector<MovingObject*>& movingObjects)
             m_floors.push_back(obj);
         else
             m_enemies.push_back(obj);
+    m_player->setStatsPtr(&m_stats);
 }
 
 //============================================================================
@@ -140,7 +139,7 @@ void Controller::moveCharacters()
     for (auto& enemy : m_enemies)
         enemy->move(m_gameClock.getElapsedTime(), m_board);
     for (auto& floor : m_floors)
-            floor->move(m_gameClock.getElapsedTime(), m_board);
+        floor->move(m_gameClock.getElapsedTime(), m_board);
 }
 
 //============================================================================
@@ -217,6 +216,7 @@ void Controller::playerDied()
 
 void Controller::resetGame() {
     resetGameView();
+    m_highScore.getNewScore(m_player, m_window);
     m_board.gameOver(*m_world);
     m_level = 0;
     m_player->resetLife(3);
@@ -224,7 +224,6 @@ void Controller::resetGame() {
     RegularFood::resetFoodCounter();
     Music::instance().stopGame();
     levelUp();
-    m_highScore.getNewScore(m_player, m_window);
 }
 //============================================================================
 
@@ -232,9 +231,4 @@ void Controller::resetGameView()
 {
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
     m_window.setView(m_screenView);
-}
-
-void Controller::wonGame()
-{
-    m_menu.drawWonWindow(m_window);
 }

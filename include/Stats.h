@@ -17,6 +17,7 @@ public:
 	bool isTimeUp();
 	void levelup(int);
 	int getTimeLeft();
+	void addTimeBonus(int);
 
 private:
 

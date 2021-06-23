@@ -26,7 +26,8 @@ Board::Board(const sf::Vector2f& location,
 	: m_levelReader(DataReader()),
 	m_background(sf::RectangleShape()),
 	m_location(location),
-	m_player(nullptr){
+	m_player(nullptr)
+{
 	this->m_background.setSize(size);
 	m_background.setPosition(m_location);
 	this->loadLevelEffects();
@@ -129,7 +130,7 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 				break;
 			case DYNAMIC_FLOOR:
 				m_map[y].push_back(std::make_unique <DynamicFloor>(world, sf::Vector2f
-				(boxSize.x * x, boxSize.y * y), sf::Vector2f(boxSize.x, 2 * boxSize.y), ID));
+				(boxSize.x * x, boxSize.y * y + 50 ), sf::Vector2f(2 * boxSize.x, 3 * boxSize.y), ID));
 				movingsVec.push_back(dynamic_cast<MovingObject*>(m_map[y][x].get()));
 				m_ObjWithID.insert(std::pair<int, GameObject*>(ID, m_map[y][x].get()));
 				ID++;

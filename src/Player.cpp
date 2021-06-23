@@ -3,6 +3,7 @@
 #include "SFML/Graphics.hpp"
 #include "Macros.h"
 #include "Resources.h"
+#include "Controller.h"
 //============================= public section ===============================
 //==================== Constructors & destructors section ====================
 Player::Player(b2World& world ,const sf::Vector2f& location,
@@ -14,7 +15,7 @@ Player::Player(b2World& world ,const sf::Vector2f& location,
 /*this method manage the movements of the player. the method realize if the
 user pressed on key and speedUpPhysicsObject the player by the key that user pressed if the
 speedUp is possible.*/
-void Player::move(const sf::Time& deltaTime,Board& CurrentLevel) {
+void Player::move(const sf::Time &deltaTime, Board &CurrentLevel) {
     b2Vec2 dirFromKey = b2Vec2(0, 0);
     if (getState() == DIE) {
         //updateAnimation(deltaTime);
@@ -145,7 +146,23 @@ void Player::resetScore() {
     m_score = 0;
 }
 
+//============================================================================
+
 void Player::setLevelUp()
 {
     m_canLevelUP = true;
+}
+
+//============================================================================
+
+void Player::setStatsPtr(Stats* statsPtr)
+{
+    m_StatsPtr = statsPtr;
+}
+
+//============================================================================
+
+void Player::ChangeTime(int time)
+{
+    m_StatsPtr->addTimeBonus(time);
 }

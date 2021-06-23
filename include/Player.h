@@ -1,6 +1,7 @@
 //============================ include section ===============================
 #pragma once
 #include "MovingObject.h"
+#include "Stats.h"
 #include <vector>
 /*============================================================================
 * Class: Player.
@@ -23,16 +24,19 @@ public:
 	void setScore(const int&);
 	void setLife(const int&);
 	//=========================== method section ==============================
-	virtual void move(const sf::Time&, Board&) override;
+    void move(const sf::Time &, Board &) override;
 	void updateAnimation(const sf::Time&) override;
 	void playerJump(const b2Vec2&);
 	void resetLife(const int& life);
 	void resetScore();
 	void setLevelUp();
+	void setStatsPtr(Stats*);
+	void ChangeTime(int);
 	//========================= private section ===============================
 private:
 	int m_score = 0;
-	int m_life = 3;
+	int m_life = NUM_OF_LIFE;
 	int m_lifeAdder = 100;
 	bool m_canLevelUP=false;
+	Stats* m_StatsPtr = nullptr;
 };

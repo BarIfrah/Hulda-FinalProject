@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <iostream>
 #include "Exterminator.h"
-#include "OldWoman.h"
 #include "Scooter.h"
 #include "Enemy.h"
 #include <cmath>

@@ -7,6 +7,10 @@
   #3. macros of windows sizes.
   #4. states of the game objects.
 */
+//=============================== general ====================================
+constexpr auto ENTER = 13;
+constexpr auto SPACE = 32;
+constexpr auto DELETE = 8;
 //========================== game const parameters ===========================
 // game objects symbols
 constexpr auto PLAYER = '@';
@@ -28,32 +32,28 @@ constexpr auto PORTAL_TRASH = 't';
 enum ANIMATION_DIRECTIONS { LEFT = 0, RIGHT};
 enum ANIMATION_STATE { IDLE = 0, RUN, JUMP, DIE, FALL};
 enum EXTERMINATOR_COLLISION { NOT_COLLIDED=0, TRASH_C, ADANIT_C, ROAD_C};
+
 constexpr auto NUM_OF_IDLE_SPRITE = 11;
 constexpr auto NUM_OF_JUMP_SPRITE = 12;
 constexpr auto NUM_OF_RUNNING_SPRITE = 13;
 constexpr auto NUM_OF_DIE_SPRITE = 5;
 
 constexpr auto ANIMATIONS_RATE = 0.1f;
+// food
+constexpr auto TIME = 0;
+constexpr auto SCORE = 1;
 
-//food
-constexpr auto NOT_COLLECTED = 6;
-constexpr auto COLLECTED = 7;
-
-//special food
-constexpr auto TIME_BONUS = 0;
-constexpr auto ADD_SCORE = 1;
-constexpr auto ADD_LIFE = 2;
-constexpr auto INVISIBLE = 3;
 //=============================== game rules =================================
 
 constexpr auto NUM_OF_LIFE = 3;
 constexpr auto NO_LEVEL_TIME = -1;
 
-//============================== special food bonuses ================================
+//============================== special food bonuses ========================
 constexpr auto BONUS_TIME = 20;
 constexpr auto BONUS_SCORE = 20;
 constexpr auto BONUS_LIFE = 1;
-
+constexpr auto LESS_TIME = -10;
+constexpr auto LESS_SCORE = -10;
 //============================  map's file path ==============================
 //-------------------------- data files section ------------------------------
 constexpr auto BOARD_PATH = "Levels.txt";
@@ -64,12 +64,8 @@ constexpr auto BOARD_PATH = "Levels.txt";
 constexpr auto MENU_BACKGROUND_PATH = "MenuBackground.png";
 constexpr auto MAIN_MENU_BACKGROUND_PATH = "MainMenuBackground.png";
 constexpr auto LIFE_T_PATH = "life.png";
-
-constexpr auto MENU_PATH = "RATBlack.jpg";
 constexpr auto HIGHMENU_PATH = "High Score Menu.png";
 constexpr auto HELPMENU_PATH = "backgrounds.jpg";
-
-
 constexpr auto PLAYER_PATH = "player.png";
 constexpr auto SCOOTER_PATH = "scooter.png";
 constexpr auto EXTERMINATOR_PATH = "exterminator.png";
