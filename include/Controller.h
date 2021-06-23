@@ -58,4 +58,5 @@ private:
 	void playerDied();
 	void resetGame();
 	void resetGameView();
+	void wonGame();
 };

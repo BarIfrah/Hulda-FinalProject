@@ -103,11 +103,37 @@ void Resources::setBackgrounds() {
     this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
         (EXIT_KEY, std::move(texturesCreator)));
     this->m_texture[EXIT_KEY]->loadFromFile(EXIT);
-
-
+    //--------
+    
+    //--------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (CREDITS_KEY, std::move(texturesCreator)));
+    this->m_texture[CREDITS_KEY]->loadFromFile(CREDITS_PATH);
+    //--------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (HELP_KEY, std::move(texturesCreator)));
+    this->m_texture[HELP_KEY]->loadFromFile(HELP_PATH);
     //---------------------------------------------------------------
     //---------
+     //--------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (WON_KEY, std::move(texturesCreator)));
+    this->m_texture[WON_KEY]->loadFromFile(WON_PATH);
 
+    //-------------------------------------------------------------------------------
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (NEW_WON_KEY, std::move(texturesCreator)));
+    this->m_texture[NEW_WON_KEY]->loadFromFile(NEW_WON_PATH);
+    //-----------------------------------------------------------------------------
+
+    texturesCreator = std::make_unique<sf::Texture>();
+    this->m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
+        (LOST_KEY, std::move(texturesCreator)));
+    this->m_texture[LOST_KEY]->loadFromFile(LOST_PATH);
 
 
 
