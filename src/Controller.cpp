@@ -31,10 +31,11 @@ Controller::Controller()
 
 void Controller::run() {
     separateGameObjects(m_board.loadNewLevel(*m_world));
-    while (m_window.isOpen())
+    while (m_window.isOpen() and !m_menu.getExitClicked())
     {
         Music::instance().playMenu(); //at start of main menu
         m_stats.levelup(m_board.getLevelTime());
+
         if (m_menu.runMenu(m_window, false, false))
         {
             Music::instance().playGame(); //after pressing on new game -->runMenu returns true
@@ -46,7 +47,7 @@ void Controller::run() {
                     if (m_board.isNextLvlExist()) {
                         levelUp();
                     }else {
-
+                        m_menu.drawWonWindow(m_window);
                         resetGame();
                         break;
                     }
@@ -58,6 +59,8 @@ void Controller::run() {
 
                 if (m_player->getState() == DIE) {
                     if (m_player->getLife() == 0){
+                        /// need to add high score option here
+                        m_menu.drawLostWindow(m_window);
                         resetGame();
                         break;
                     }

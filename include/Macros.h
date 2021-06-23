@@ -84,12 +84,20 @@ constexpr auto TRASH_BLUE_PATH = "trashBlue.png";
 constexpr auto TRASH_RED_PATH = "trashRed.png";
 constexpr auto PORTAL_TRASH_PATH = "portalTrash.png";
 
+//BUTTONS FOR MENU
 constexpr auto BACK = "Back.png";
 constexpr auto HI_SCORE = "Hi Score.png";
 constexpr auto INFO = "Info.png";
 constexpr auto NEW_GAME = "New Game.png";
-
 constexpr auto EXIT = "Exit.png";
+//
+constexpr auto HELP_PATH = "Help.jpg";
+constexpr auto CREDITS_PATH = "Credits.jpg";
+
+constexpr auto WON_PATH = "winGame.png";
+constexpr auto NEW_WON_PATH = "screem no bootens2.png";
+constexpr auto LOST_PATH = "loseGame.png";
+
 //--------------------------------- musics -----------------------------------
 
 
@@ -112,6 +120,15 @@ constexpr auto BACK_KEY = 6;
 constexpr auto HI_SCORE_KEY = 7;
 constexpr auto INFO_KEY = 8;
 constexpr auto NEW_GAME_KEY = 9;
+
+
+constexpr auto NEW_WON_KEY = 32;
+
+constexpr auto HELP_KEY = 57;
+constexpr auto CREDITS_KEY = 58;
+
+constexpr auto WON_KEY = 31;
+constexpr auto LOST_KEY = 60;
 
 //characters
 constexpr auto PLAYER_T = 10;

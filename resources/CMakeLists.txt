@@ -19,6 +19,10 @@ configure_file ("trashRed.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("life.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Exit.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
+configure_file ("winGame.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("loseGame.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("screem no bootens2.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
 
 #game sounds
 configure_file ("fallingSound.wav" ${CMAKE_BINARY_DIR} COPYONLY)
@@ -53,6 +57,9 @@ configure_file ("Info.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("New Game.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("High Score Menu.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("MainMenuBackground.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+configure_file ("Credits.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Help.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 
 #music files
 configure_file ("Back.wav" ${CMAKE_BINARY_DIR} COPYONLY)
