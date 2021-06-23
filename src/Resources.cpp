@@ -35,7 +35,7 @@ const sf::Font& Resources::getFont() const{
 }
 //============================================================================
 int Resources::getNumOfSprites(int key)const {
-    return (this->m_NumOfSprites.find(key)->second);
+    return (m_NumOfSprites.find(key)->second);
 }
 //============================== sets section ================================
 void Resources::setBackgrounds() {
@@ -99,15 +99,6 @@ void Resources::setBackgrounds() {
         (EXIT_KEY, std::move(texturesCreator)));
     this->m_texture[EXIT_KEY]->loadFromFile(EXIT);
 
-
-    //---------------------------------------------------------------
-    //---------
-
-
-
-
-
-    //adding levels background path
 }
 //============================================================================
 void Resources::setObjects() {
@@ -195,9 +186,10 @@ void Resources::setObjects() {
 }
 //============================================================================
 void Resources::setNumOfSprites() {
-    this->m_NumOfSprites.insert(std::pair<int, int>(IDLE, NUM_OF_IDLE_SPRITE));
-    this->m_NumOfSprites.insert(std::pair<int, int>(RUN, NUM_OF_RUNNING_SPRITE));
-    this->m_NumOfSprites.insert(std::pair<int, int>(JUMP, NUM_OF_JUMP_SPRITE));
-///    this->m_NumOfSprites.insert(std::pair<int, int>(FALL, NUM_OF_FALL_SPRITE));
-    this->m_NumOfSprites.insert(std::pair<int, int>(DIE, NUM_OF_DIE_SPRITE));
+    m_NumOfSprites.insert(std::pair<int, int>(IDLE, NUM_OF_IDLE_SPRITE));
+    m_NumOfSprites.insert(std::pair<int, int>(RUN, NUM_OF_RUNNING_SPRITE));
+    m_NumOfSprites.insert(std::pair<int, int>(JUMP, NUM_OF_JUMP_SPRITE));
+    m_NumOfSprites.insert(std::pair<int, int>(DIE, NUM_OF_DIE_SPRITE));
+    m_NumOfSprites.insert(std::pair<int, int>(ENEMY, 4));
+
 }

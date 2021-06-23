@@ -13,7 +13,7 @@ public:
 	//=========================== method section ==============================
    
 //    void resetAnimationTime() override;
-	virtual void move(const sf::Time&,Board&) override;
+	void move(const sf::Time&,Board&) override;
 	void setCollision(int);
 	void flipDirection(int);
 	//========================= private section ===============================

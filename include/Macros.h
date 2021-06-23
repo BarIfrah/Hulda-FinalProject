@@ -30,7 +30,7 @@ constexpr auto PORTAL_TRASH = 't';
 //MovingObject spritesheets consts
 //enum to define movement directions of all moving objects (Enemies will not use up/down)
 enum ANIMATION_DIRECTIONS { LEFT = 0, RIGHT};
-enum ANIMATION_STATE { IDLE = 0, RUN, JUMP, DIE, FALL};
+enum ANIMATION_STATE { IDLE = 0, RUN, JUMP, DIE, ENEMY};
 enum EXTERMINATOR_COLLISION { NOT_COLLIDED=0, TRASH_C, ADANIT_C, ROAD_C};
 
 constexpr auto NUM_OF_IDLE_SPRITE = 11;
@@ -209,4 +209,4 @@ const auto HEART_WIDTH = 117;
 //
 //for sounds
 const auto AUDIOS = 13;
-const auto VOL = 30;
+const auto VOL = 0;

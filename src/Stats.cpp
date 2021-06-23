@@ -54,9 +54,9 @@ void Stats::setPosition(const sf::Vector2f& newPos)
 
 bool Stats::isTimeUp()
 {
-	if (m_time - m_clock.getElapsedTime().asSeconds() <= 0)
+	if (m_time - int(m_clock.getElapsedTime().asSeconds() <= 0))
 		return false;
-	return m_clock.getElapsedTime().asSeconds() == m_time;
+	return int(m_clock.getElapsedTime().asSeconds()) == m_time;
 }
 
 void Stats::levelup(int newLevelTime)
@@ -68,7 +68,7 @@ void Stats::levelup(int newLevelTime)
 
 int Stats::getTimeLeft()
 {
-	return m_time - m_clock.getElapsedTime().asSeconds();
+	return m_time - int(m_clock.getElapsedTime().asSeconds());
 }
 
 void Stats::addTimeBonus(int time)

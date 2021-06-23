@@ -5,7 +5,7 @@
 //==================== Constructors & distructors section ====================
 GameObject::GameObject(const bool isDynamic, b2World& world ,const sf::Vector2f& location,
                        const sf::Vector2f& size, char objectType, bool isAnimated, int ID)
-        : m_intRect(0, 0, 768, 768),
+        : m_intRect(0, 0, 600, 600),
           m_objectSprite(Resources::instance().getTexture(objectType),m_intRect),
           m_isAnimated(isAnimated), 
 		  m_physicsObject(world, location, isDynamic, size),

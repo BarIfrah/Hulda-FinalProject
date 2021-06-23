@@ -90,10 +90,10 @@ void HighScores::getNewScore(Player* player, sf::RenderWindow& window)
                 case sf::Event::Closed:
                     window.close();
                     break;
-
-                case sf::Keyboard::Enter:
-                    break;
-
+			    case sf::Event::KeyPressed: {
+                    if (event.key.code == sf::Keyboard::Enter)
+                        break;
+                }
 			case sf::Event::TextEntered:
 			{
 				if (event.text.unicode == ENTER) 

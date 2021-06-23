@@ -44,7 +44,7 @@ void MovingObject::setState(int state, int height, int width, int regOffset, int
 }
 //===========================================================================
 int MovingObject::getState()const {
-    return this->m_state;
+    return m_state;
 }
 //===========================================================================
 void MovingObject::setDirection(int direction) {

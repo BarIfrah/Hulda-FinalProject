@@ -38,20 +38,19 @@ void Controller::run() {
         if (m_menu.runMenu(m_window, false, false))
         {
             Music::instance().playGame(); //after pressing on new game -->runMenu returns true
+            m_gameClock.restart();
             while (m_window.isOpen())
             {
                 m_world->Step(TIMESTEP, VELITER, POSITER);
                 if (m_player->canLevelUP()) {
-
                     if (m_board.isNextLvlExist()) {
                         levelUp();
-                    }
-                    else {
+                    }else {
+
                         resetGame();
                         break;
                     }
                 }
-
                  m_gameClock.restart();
                  m_window.clear();
                  m_stats.update(m_level, m_player->getScore(), m_player->getLife(), m_stats.getTimeLeft());
@@ -59,14 +58,12 @@ void Controller::run() {
 
                 if (m_player->getState() == DIE) {
                     if (m_player->getLife() == 0){
-                        /// need to add high score option here
                         resetGame();
                         break;
                     }
-                    ///reset timer
+                    m_gameClock.restart();
                     playerDied();
                 }
-
                 drawObjects();
                 m_stats.draw(m_window);
                 m_window.display();
@@ -76,9 +73,9 @@ void Controller::run() {
                     break;
                 }
             }
-            //this is right AFTER when the user presses ESC key during playing game-->m_window.isOpen(line 34) returns false or line 61 is true so break
+            ///this is right AFTER when the user presses ESC key during playing game-->m_window.isOpen(line 34) returns false or line 61 is true so break
         }
-        //this is when the user doesn't click on new game on main menu --> the function runMenu (line 31) returns false
+        ///this is when the user doesn't click on new game on main menu --> the function runMenu (line 31) returns false
     }
 }
 //============================================================================
@@ -204,9 +201,7 @@ void Controller::HandleCharacterCollisionWithWindow(MovingObject* character)
 
 void Controller::playerDied()
 {
-    //Resources::instance().playSound(ENEMY_SOUND);
     m_board.resetObjects();
-    //m_gameState.died();
 }
 
 //============================================================================
