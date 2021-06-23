@@ -37,7 +37,7 @@ public:
 	void draw(sf::RenderWindow& window, const sf::Time&);
 	std::vector<MovingObject*> loadNewLevel(b2World&);
 	void removeFood(b2World& world);
-	bool is_next_lvl_exist()const;
+	bool isNextLvlExist()const;
 	void gameOver(b2World&);
 	void loadLevelEffects();
 	void resetObjects();

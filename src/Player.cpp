@@ -98,17 +98,19 @@ void Player::setScore(const int& scoreToAdd) {
         m_lifeAdder += 100;
     }
 }
+//============================================================================
 int Player::getLife() const
 {
     return m_life;
 }
+//============================================================================
 void Player::setLife(const int& life)
 {
     m_life += life;
     if (m_life < 0)
         m_life = 0;
 }
-
+//============================================================================
 void Player::resetLife(const int& life)
 {
     m_life = life;
@@ -118,7 +120,7 @@ void Player::resetLife(const int& life)
 int Player::getScore() const{
     return m_score;
 }
-
+//============================================================================
 void Player::resetScore() {
     m_lifeAdder = 100;
     m_score = 0;

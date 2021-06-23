@@ -171,7 +171,7 @@ std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 }
 //============================================================================
 //the method isn't const because fstream's peek method isn't const
-bool Board::is_next_lvl_exist() const {
+bool Board::isNextLvlExist() const {
 	return m_levelReader.isThereNextLevel();
 }
 
@@ -180,7 +180,6 @@ void Board::gameOver(b2World& world) {
 	m_levelReader.resetRead();
 	m_player = nullptr;
 	levelUp(world);
-
 }
 
 //============================================================================
