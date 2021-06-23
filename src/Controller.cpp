@@ -41,7 +41,7 @@ void Controller::run() {
             {
                 m_world->Step(TIMESTEP, VELITER, POSITER);
 //                std::cout <<RegularFood::getFoodCounter() << std::endl;
-                if (RegularFood::getFoodCounter() == 0) {
+                if (m_player->canLevelUP()) {
 
                     if (m_board.isNextLvlExist()) {
                         levelUp();

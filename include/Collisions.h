@@ -19,6 +19,7 @@
 #include "DynamicFloor.h"
 #include "Adanit.h"
 #include "Music.h"
+#include "PortalTrash.h"
 #include <iostream> //for debug
 //============================== using section ===============================
 using HitFunctionPtr = void (*)(GameObject&, GameObject&);
@@ -51,18 +52,16 @@ namespace
     }
     //-------------------------------------------------------------------------
 
-    void playerDynamicFloor(GameObject& object1, GameObject& object2)
+    void playerPortalTrash(GameObject& object1, GameObject& object2)
     {
-        /*auto& floor = dynamic_cast<DynamicFloor&>(object2);
-        b2Vec2 dirFromKey = b2Vec2(0, 0);
-        if (floor.getDirection() == RIGHT)
-            floor.setDirection(LEFT);
-        else
-            floor.setDirection(RIGHT);*/
+        if (RegularFood::getFoodCounter() == 0) {
+            auto& player = dynamic_cast<Player&>(object1);
+            player.setLevelUp();
+        }
     }
-    void dynamicFloorPlayer(GameObject& object1, GameObject& object2)
+    void portalTrashPlayer(GameObject& object1, GameObject& object2)
     {
-        playerDynamicFloor(object2, object1);
+        playerPortalTrash(object2, object1);
     }
     //-------------------------------------------------------------------------
 

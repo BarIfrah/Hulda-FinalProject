@@ -75,20 +75,16 @@ void Board::draw(sf::RenderWindow& window, const sf::Time& deltaTime) {
 std::vector<MovingObject*> Board::loadNewLevel(b2World& world) {
 	//read new level from file:
 	vector<vector<char>> map = m_levelReader.readNextLevel();
-	//calculate the the size for each character in the board:
+	//calculate the size for each character in the board:
 	sf::Vector2f boxSize(getLevelSize().x / map[0].size(),
 		getLevelSize().y / map.size());
 	//initialiaze DS for the dynamic objects:
 	vector<MovingObject*> movingsVec = {};
-
 	loadLevelEffects();
-
 	//reset last load parameters:
 	clearParameters();
 	m_map.resize(map.size());
-
 	int ID = 0;
-
 	//allocating level's objects:
 	for (int y = 0; y < map.size(); y++) {
 		for (int x = 0; x < map[y].size(); x++) {

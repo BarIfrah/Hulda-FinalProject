@@ -9,8 +9,8 @@ HitMap Collisions::initializeCollisionMap()
     map[Key(typeid(Player), typeid(Exterminator))] = &playerEnemy;
     map[Key(typeid(Exterminator), typeid(Player))] = &enemyPlayer;
 
-    map[Key(typeid(Player), typeid(DynamicFloor))] = &playerDynamicFloor;
-    map[Key(typeid(DynamicFloor), typeid(Player))] = &dynamicFloorPlayer;
+    map[Key(typeid(Player), typeid(PortalTrash))] = &playerPortalTrash;
+    map[Key(typeid(PortalTrash), typeid(Player))] = &portalTrashPlayer;
 
     map[Key(typeid(Adanit), typeid(DynamicFloor))] = &adanitDynamicFloor;
     map[Key(typeid(DynamicFloor), typeid(Adanit))] = &dynamicFloorAdanit;

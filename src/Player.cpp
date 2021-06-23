@@ -109,6 +109,13 @@ int Player::getLife() const
 
 //============================================================================
 
+bool Player::canLevelUP() const
+{
+    return m_canLevelUP;
+}
+
+//============================================================================
+
 void Player::setLife(const int& life)
 {
     m_life += life;
@@ -134,4 +141,9 @@ int Player::getScore() const{
 void Player::resetScore() {
     m_lifeAdder = 100;
     m_score = 0;
+}
+
+void Player::setLevelUp()
+{
+    m_canLevelUP = true;
 }
