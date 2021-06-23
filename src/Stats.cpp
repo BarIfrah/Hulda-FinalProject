@@ -1,4 +1,5 @@
 #include "Stats.h"
+#include "iostream"
 
 Stats::Stats(const int& levelTime): m_time(levelTime)
 {
@@ -54,9 +55,12 @@ void Stats::setPosition(const sf::Vector2f& newPos)
 
 bool Stats::isTimeUp()
 {
-	if (m_time - int(m_clock.getElapsedTime().asSeconds() <= 0))
-		return false;
-	return int(m_clock.getElapsedTime().asSeconds()) == m_time;
+
+	if (int (m_time - int(m_clock.getElapsedTime().asSeconds())) > 0) {
+        return false;
+    }
+    std::cout << "TIME IS UP!\n";
+	return true;
 }
 
 void Stats::levelup(int newLevelTime)
@@ -74,6 +78,10 @@ int Stats::getTimeLeft()
 void Stats::addTimeBonus(int time)
 {
 	m_time += time;
+}
+
+void Stats::resetClock() {
+    m_clock.restart();
 }
 
 

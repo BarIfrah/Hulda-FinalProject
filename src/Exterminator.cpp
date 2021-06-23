@@ -38,8 +38,7 @@ void Exterminator::move(const sf::Time& deltaTime, Board& currentLevel) {
 	int playerState = currentLevel.getPlayerState();
 	b2Vec2 dirFromKey = b2Vec2(0, 0);
 
-    if (std::abs(playerLocation.x - getLocation().x) < 200)
-        updateAnimation(deltaTime);
+	updateAnimation(deltaTime);
 	switch (m_collided)
 	{
 	case TRASH_C:
