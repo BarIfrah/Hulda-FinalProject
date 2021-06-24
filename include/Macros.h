@@ -66,7 +66,6 @@ constexpr auto MENU_BACKGROUND_PATH = "MenuBackground.png";
 constexpr auto MAIN_MENU_BACKGROUND_PATH = "MainMenuBackground.png";
 constexpr auto LIFE_T_PATH = "life.png";
 constexpr auto HIGHMENU_PATH = "High Score Menu.png";
-constexpr auto HELPMENU_PATH = "backgrounds.jpg";
 constexpr auto PLAYER_PATH = "player.png";
 constexpr auto SCOOTER_PATH = "scooter.png";
 constexpr auto EXTERMINATOR_PATH = "exterminator.png";

@@ -78,12 +78,6 @@ void Music::stopHiScoreMenu()
 
 //-----------------------------------------------------------------------------
 
-void Music::playLifeBonus()
-{
-	m_sounds[(int)Sound::life1up].play();
-}
-//-----------------------------------------------------------------------------
-
 void Music::playWonGame()
 {
 	m_sounds[(int)Sound::wonGame].play();
@@ -118,22 +112,6 @@ void Music::stopCredits()
 {
 	m_sounds[(int)Sound::credits].stop();
 }
-void Music::playLevelTwo()
-{
-	m_sounds[(int)Sound::level2].play();
-}
-void Music::playLevelThree()
-{
-	m_sounds[(int)Sound::level3].play();
-}
-void Music::playLevelFour()
-{
-	m_sounds[(int)Sound::level4].play();
-}
-void Music::playLevelFive()
-{
-	m_sounds[(int)Sound::level5].play();
-}
 void Music::stopLevelMusic(const int& level)
 {
 	switch (level)
@@ -165,15 +143,7 @@ void Music::playLostGame()
 	m_sounds[(int)Sound::lostGame].play();
 }
 //-----------------------------------------------------------------------------
-void Music::stopLostGame()
-{
-	m_sounds[(int)Sound::lostGame].stop();
-}
-//-----------------------------------------------------------------------------
-void Music::playTimeEnd()
-{
-	m_sounds[(int)Sound::timeEnd].play();
-}
+
 void Music::playBack()
 {
 	m_sounds[(int)Sound::back].play();
@@ -190,7 +160,7 @@ const sf::SoundBuffer& Music::getSound(const Sound name)  const
 //-----------------------------------------------------------------------------
 void Music::loadSounds()
 {
-	loadSound("MainMenu.wav");
+	loadSound("MainMenu.ogg");
 	loadSound("EatFood.wav");
 	loadSound("EatToxic.wav");
 	loadSound("EnemyEat.wav");
@@ -200,14 +170,14 @@ void Music::loadSounds()
 	loadSound("TimeEnd.wav");
 	loadSound("Back.wav");
 	loadSound("HiScore.wav");
-	loadSound("GameTheme.wav");
-	loadSound("InfoMenu.wav");
+	loadSound("GameTheme.ogg");
+	loadSound("InfoMenu.ogg");
 	loadSound("EatSpecialFood.wav");
 	loadSound("Credits.wav");
-	loadSound("Level2Music.wav");
-	loadSound("Level3Music.wav");
-	loadSound("Level4Music.wav");
-	loadSound("Level5Music.wav");
+	loadSound("Level2Music.ogg");
+	loadSound("Level3Music.ogg");
+	loadSound("Level4Music.ogg");
+	loadSound("Level5Music.ogg");
 }
 
 //-----------------------------------------------------------------------------

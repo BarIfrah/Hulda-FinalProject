@@ -64,13 +64,6 @@ void Resources::setBackgrounds() {
     //--------------------------------------------------------
     texturesCreator = std::make_unique<sf::Texture>();
     m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
-        (HELPMENU, std::move(texturesCreator)));
-    m_texture[HELPMENU]->loadFromFile(HELPMENU_PATH);
-    //---------------------------------------------------------------
-    //-------
-     //------------------------------------------------------
-    texturesCreator = std::make_unique<sf::Texture>();
-    m_texture.insert(std::pair<int, std::unique_ptr <sf::Texture>>
         (BACK_KEY, std::move(texturesCreator)));
     m_texture[BACK_KEY]->loadFromFile(BACK);
     //-------
