@@ -33,18 +33,7 @@ configure_file ("Levels.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 #menu files
 configure_file ("MenuBackground.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("menuMusic.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
-#level1 files
-configure_file ("level1Music.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 
-#level1 files
-configure_file ("level2Music.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
-
-#level1 files
-configure_file ("level3Music.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
-
-#level1 files
-#configure_file ("level4Music.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("level4Music.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 
 #configure_file ("level4.jpeg" ${CMAKE_BINARY_DIR} COPYONLY)
 
@@ -78,3 +67,8 @@ configure_file ("LostGame.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("InfoMenu.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("EatSpecialFood.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Credits.wav" ${CMAKE_BINARY_DIR} COPYONLY)
+
+configure_file ("Level2Music.wav" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Level3Music.wav" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Level4Music.wav" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Level5Music.wav" ${CMAKE_BINARY_DIR} COPYONLY)
