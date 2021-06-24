@@ -80,11 +80,17 @@ main.cpp
 ## Implementation:
 Algorithms we used:\
 A 'chaser'- the exterminator- chased Hulda in the X axis.\
+std::sort from STL.
 
 Data structures we used:\
-Unordered map- in 'Resources' class- to control the resources and extract them in O(1) time comlexity.
-Used unordered map to keep track of objects in the board, and assign them with unique ID's.
+2D vector for storing the current level objects.\
+Unordered maps- in 'Resources' class- to control the resources and extract them in O(1) time complexity.\
+Used unordered map to keep track of objects in the board, and assign them with unique ID's.\
 Used vector of (string, int) pairs- for names and scores in 'HighScores' class.
+
+Design Patterns:
+Resources & Music - Singelton classes. \
+Used MultiMethods for manage collisions between objects. 
 
 ## Compile and run:
 #### With IDE's:
@@ -106,6 +112,10 @@ Double click Hulda.exe and play!
 ## GitHub Repository
 https://github.com/BarIfrah/Hulda-FinalProject
 
+## LinkedIn
+[Sharon Levi](https://www.linkedin.com/in/sharon-levy-8434471a5/)\
+[Bar Ifrah](https://www.linkedin.com/in/bar-ifrah-660878203/)\
+[Oren Holtzman](https://www.linkedin.com/in/oren-holtzman-923b04206/)
 ## Credits
 Game design:\
 [Shaked 'Keti' Zahor (instagram)](https://www.instagram.com/shaketi___/?hl=en)
