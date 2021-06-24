@@ -18,6 +18,7 @@ public:
 	void levelup(int);
 	int getTimeLeft();
 	void addTimeBonus(int);
+	void resetClock();
 
 private:
 

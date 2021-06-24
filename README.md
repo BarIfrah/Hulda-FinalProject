@@ -10,7 +10,8 @@ looking for food to survive. But, there are mant dangers in the city, such as: g
 eating poison and having the city exterminator on your tail.\
 To survive- Hulda needs:\
 Hulda needs to avoid all enemies:\
-<img width="538" alt="Screen Shot 2021-06-21 at 22 29 44" src="https://user-images.githubusercontent.com/71547715/122817427-8d4be280-d2e0-11eb-8f54-5e81737dbb60.png">\
+![Screen Shot 2021-06-24 at 0 44 52 (2)](https://user-images.githubusercontent.com/71547715/123172253-8d391780-d485-11eb-940f-cd2525a10e5a.png)
+
 and avoid the poisonous apples:\
 <img width="159" alt="Screen Shot 2021-06-21 at 22 30 23" src="https://user-images.githubusercontent.com/71547715/122817594-c5532580-d2e0-11eb-906f-e15e614d3660.png">\
 
@@ -21,73 +22,79 @@ to gain some points, Hulda needs to eat pizza, watermelon and bananas:\
 <img width="163" alt="Screen Shot 2021-06-21 at 22 45 48" src="https://user-images.githubusercontent.com/71547715/122818976-7c03d580-d2e2-11eb-80fd-2d0cd2b59922.png">
 <img width="172" alt="Screen Shot 2021-06-21 at 22 44 02" src="https://user-images.githubusercontent.com/71547715/122818987-7f975c80-d2e2-11eb-8ab2-204013790784.png">
 <img width="172" alt="Screen Shot 2021-06-21 at 22 44 42" src="https://user-images.githubusercontent.com/71547715/122818988-7f975c80-d2e2-11eb-97ed-62d9d566f9d6.png">\
-*to move to the next level - needs to be added*\
+
+To move to the next level, Hulda needs to go inside the 'teleport' trash can:\
+![huldaTrash](https://user-images.githubusercontent.com/71547715/123173460-4ea45c80-d487-11eb-8b22-6390ee88953b.gif)
+
+
+
 Hulda starts with 3 lives. Every 100 points collected- hulda gets an extra life.\
 Hulda can gain lives from the 'special force' burgers. no more than 6 lives can be collected.
 
-@Create levels:
-creating new levels by editing the 'Levels.txt' file.
-
-
+##### Create levels:
+creating new levels by editing the 'Levels.txt' file.\
+level format is 20 rows height, 100 columns width. (can be seen inside 'Levels.txt' file.\
+symbols are defined in "macros.h" file.
 
 
 
 ## Files and descriptions
-Headers:
-
-CPP's:\
+CPP's + Headers:\
 To build a game object:\
-PhysicsObject.cpp\
-GameObject.cpp
+PhysicsObject.h/cpp\
+GameObject.h/cpp
 
 Static Game Objects inherit from 'StaticObject.cpp':\
-Adanit.cpp\
-Food.cpp\
-ToxicFood.cpp
-
-Trash.cpp\
-RegularFood.cpp\
-SpecialFood.cpp\
-Road.cpp
+Adanit.h/cpp\
+Food.h/cpp\
+ToxicFood.h/cpp
+PortalTrash.h/cpp
+Trash.h/cpp\
+RegularFood.h/cpp\
+SpecialFood.h/cpp\
+Road.h/cpp
 
 Dynamic Game Objects inherit from 'MovingObject.cpp'\
-Enemy.cpp\
--Exterminator.cpp\
--Scooter.cpp\
-Player.cpp\
-DynamicFloor.cpp
+Enemy.h/cpp\
+-Exterminator.h/cpp\
+-Scooter.h/cpp\
+Player.h/cpp\
+DynamicFloor.h/cpp
 
 Game controlling classes:\
-Controller.cpp\
-Stats.cpp\
-Board.cpp\
-DataReader.cpp\
-Resources.cpp
+Controller.h/cpp\
+Stats.h/cpp\
+Board.h/cpp\
+DataReader.h/cpp\
+Resources.h/cpp\
+HighScores.h/cpp
 
 Collision management:				
-Collisions.cpp
-Listener.cpp
-Utilities.cpp
-Menu.cpp
+Collisions.h/cpp
+Listener.h/cpp
+Utilities.h/cpp
+Menu.h/cpp
 main.cpp
 	
 
 ## Implementation:
+Algorithms we used:\
+A 'chaser'- the exterminator- chased Hulda in the X axis.\
 
-a c++ code snippit:
-
-```c++
-std::cout << "Hello, world!\n";
-```
+Data structures we used:\
+Unordered map- in 'Resources' class- to control the resources and extract them in O(1) time comlexity.
+Used unordered map to keep track of objects in the board, and assign them with unique ID's.
+Used vector of (string, int) pairs- for names and scores in 'HighScores' class.
 
 ## GitHub Repository
+https://github.com/BarIfrah/Hulda-FinalProject
 
 ## Credits
 Game design:\
 [Shaked 'Keti' Zahor (instagram)](https://www.instagram.com/shaketi___/?hl=en)
 
 Physics:\
-[Box2D](https://box2d.org) Physical engine:\
+[Box2D](https://box2d.org) Physical engine:
 
 Graphic implementation:
 [SFML](https://www.sfml-dev.org)

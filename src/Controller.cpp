@@ -10,12 +10,12 @@
 Controller::Controller()
         : m_window(sf::VideoMode(1920, 1080), "Ratata Game", sf::Style::Titlebar | sf::Style::Close),
           m_board(sf::Vector2f(0, 0),
-            sf::Vector2f((float)BACKGROUND_WIDTH, (float)m_window.getSize().y)),
+                  sf::Vector2f((float)BACKGROUND_WIDTH, (float)m_window.getSize().y)),
           m_player(nullptr),
           m_listener(Listener()),
           m_highScore({0, 0}, sf::Vector2f(m_window.getSize())),
           m_menu(Menu(&m_highScore)),
-            m_stats(Stats(m_board.getLevelTime()))
+          m_stats(Stats(m_board.getLevelTime()))
 {
     m_window.setFramerateLimit(60);
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
@@ -43,21 +43,15 @@ void Controller::run() {
             while (m_window.isOpen())
             {
                 m_world->Step(TIMESTEP, VELITER, POSITER);
-                if (m_player->canLevelUP()) {
-                    if (m_board.isNextLvlExist()) {
-                        levelUp();
-                    }else {
-                        resetGameView();
-                        m_menu.drawWonWindow(m_window);
-                        resetGame();
-                        break;
-                    }
-                }
-                 m_gameClock.restart();
-                 m_window.clear();
-                 m_stats.update(m_level, m_player->getScore(), m_player->getLife(), m_stats.getTimeLeft());
-                 m_board.removeFood(*m_world);
+                if(!shouldMoveToNextLevel()) break; ///means theres no more levels to move on to
+                m_gameClock.restart();
+                m_window.clear();
+                m_stats.update(m_level, m_player->getScore(), m_player->getLife(), m_stats.getTimeLeft());
+                m_board.removeFood(*m_world);
 
+                if (m_stats.isTimeUp()){
+                    timesUp();
+                }
                 if (m_player->getState() == DIE) {
                     if (m_player->getLife() == 0){
                         resetGameView();
@@ -65,8 +59,9 @@ void Controller::run() {
                         resetGame();
                         break;
                     }
-                    m_gameClock.restart();
+
                     playerDied();
+                    continue;
                 }
                 drawObjects();
                 m_stats.draw(m_window);
@@ -154,11 +149,10 @@ bool Controller::handleGameEvents() {
                 m_window.close();
                 return false;
             default:;
-              }
+        }
     }
-    
-    moveCharacters();
 
+    moveCharacters();
     HandleCharacterCollisionWithWindow(m_player);
     for (auto& enemy : m_enemies)
         HandleCharacterCollisionWithWindow(enemy);
@@ -188,15 +182,15 @@ void Controller::HandleCharacterCollisionWithWindow(MovingObject* character)
 {
     if (character->getGlobalBounds().top < STAT_HEIGHT) { ///collision with top
         character->setPhysicsObjectPos
-        (sf::Vector2f(character->getLocation().x, character->getGlobalBounds().height + STAT_HEIGHT), EMDOWN);
+                (sf::Vector2f(character->getLocation().x, character->getGlobalBounds().height + STAT_HEIGHT), EMDOWN);
     }
     if (character->getGlobalBounds().left < 0) { ///collision with left
         character->setPhysicsObjectPos
-        (sf::Vector2f( 80, character->getLocation().y),MDOWN+MRIGHT);
+                (sf::Vector2f( 80, character->getLocation().y),MDOWN+MRIGHT);
     }
     if (character->getGlobalBounds().left+ character->getGlobalBounds().width > m_board.getLevelSize().x) {
         character->setPhysicsObjectPos
-        (sf::Vector2f(m_board.getLevelSize().x- character->getGlobalBounds().width, character->getLocation().y), MDOWN + MLEFT);
+                (sf::Vector2f(m_board.getLevelSize().x- character->getGlobalBounds().width, character->getLocation().y), MDOWN + MLEFT);
     }
     character->updateLoc();
 }
@@ -220,11 +214,32 @@ void Controller::resetGame() {
     RegularFood::resetFoodCounter();
     Music::instance().stopGame();
     levelUp();
+    m_gameClock.restart();
 }
 //============================================================================
-
 void Controller::resetGameView()
 {
     m_screenView.reset(sf::FloatRect(0, 0, m_window.getSize().x, m_window.getSize().y));
     m_window.setView(m_screenView);
+}
+//============================================================================
+/// checks if theres another level when current level ends.
+bool Controller::shouldMoveToNextLevel() {
+    if (m_player->canLevelUP()) {
+        if (m_board.isNextLvlExist()) {
+            levelUp();
+        }else {
+            m_menu.drawWonWindow(m_window);
+            resetGame();
+            return false;
+        }
+    }
+    return true;
+}
+//============================================================================
+/// resets clock, resets level and takes one life.
+void Controller::timesUp() {
+    m_player->setState(DIE, PLAYER_BOX_WIDTH, PLAYER_BOX_HEIGHT, PLAYER_OFFSET, PLAYER_SPECIAL_OFFSET);
+    m_player->setLife(-1);
+    m_stats.resetClock();
 }
