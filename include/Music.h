@@ -21,7 +21,8 @@ public:
 		hiScore,
 		gameTheme,
 		infoMenu,
-		SpecialFood
+		SpecialFood,
+		credits
 	};
 
 	static Music& instance();
@@ -44,6 +45,8 @@ public:
 	void playInfoMenu();
 	void stopInfoMenu();
 	void playSpecialFood();
+	void playCredits();
+	void stopCredits();
 
 private:
 	Music();

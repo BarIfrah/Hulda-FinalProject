@@ -91,6 +91,14 @@ void Music::playSpecialFood()
 {
 	m_sounds[(int)Sound::SpecialFood].play();
 }
+void Music::playCredits()
+{
+	m_sounds[(int)Sound::credits].play();
+}
+void Music::stopCredits()
+{
+	m_sounds[(int)Sound::credits].stop();
+}
 //-----------------------------------------------------------------------------
 void Music::playLostGame()
 {
@@ -135,6 +143,7 @@ void Music::loadSounds()
 	loadSound("GameTheme.wav");
 	loadSound("InfoMenu.wav");
 	loadSound("EatSpecialFood.wav");
+	loadSound("Credits.wav");
 }
 
 //-----------------------------------------------------------------------------

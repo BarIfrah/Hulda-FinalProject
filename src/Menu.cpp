@@ -20,21 +20,23 @@ Menu::Menu(HighScores *highScores) : m_highScores(highScores)
 	m_lostBackground = sf::Sprite(Resources::instance().getTexture(LOST_KEY));
 	m_lostBackground.setScale({ WIN_WIDTH / m_lostBackground.getGlobalBounds().width, WIN_HEIGHT / m_lostBackground.getGlobalBounds().height });
 
+	m_creditsBackground = sf::Sprite(Resources::instance().getTexture(CREDITS_KEY));
+	m_creditsBackground.setScale({ WIN_WIDTH / m_creditsBackground.getGlobalBounds().width, WIN_HEIGHT / m_creditsBackground.getGlobalBounds().height });
+
 	m_backButton = sf::Sprite(Resources::instance().getTexture(BACK_KEY));
 	m_hiScoreButton = sf::Sprite(Resources::instance().getTexture(HI_SCORE_KEY));
 	m_infoButton = sf::Sprite(Resources::instance().getTexture(INFO_KEY));
 	m_newGameButton = sf::Sprite(Resources::instance().getTexture(NEW_GAME_KEY));
 	m_exitButton = sf::Sprite(Resources::instance().getTexture(EXIT_KEY));
+	m_creditsButton = sf::Sprite(Resources::instance().getTexture(CREDIT_BUTTON_KEY));
+	m_creditsButton.setScale(.8,.8);
 
-	m_creditsBackground = sf::Sprite(Resources::instance().getTexture(CREDITS_KEY));
-
-
-	m_backButton.setPosition(1620, 980);
-	m_hiScoreButton.setPosition(100, 400);
-	m_infoButton.setPosition(85, 250);
 	m_newGameButton.setPosition(100, 100);
+	m_infoButton.setPosition(85, 250);
+	m_hiScoreButton.setPosition(100, 400);
+	m_creditsButton.setPosition(100, 550);
+	m_backButton.setPosition(1620, 980);
 	m_exitButton.setPosition(1620, 980);
-
 }
 
 //---------------------------------------------------------------------------------------------
@@ -74,6 +76,12 @@ bool Menu::runMenu(sf::RenderWindow& window, bool finished, bool hasWon)
 					Music::instance().stopMenu();
                     return true;
                 }
+				if (isClickedOn(m_creditsButton, location)) {
+					Music::instance().stopMenu();
+					Music::instance().playCredits();
+					if (!drawCreditsWindow(window))
+						return false;
+				}
                 if (isClickedOn(m_exitButton, location)) {
 					m_exitClicked = true;
 					Music::instance().stopMenu();
@@ -102,6 +110,7 @@ void Menu::drawMywindow(sf::RenderWindow& window) const
 	window.draw(m_hiScoreButton);
 	window.draw(m_infoButton);
 	window.draw(m_newGameButton);
+	window.draw(m_creditsButton);
 }
 //------------------------------------------------------------------------
 bool Menu::drawHelpWindow(sf::RenderWindow& window) const
@@ -202,9 +211,30 @@ void Menu::readScores()
 //	m_highScores.push_back(std::make_pair("fyfyn", "854"));
 }
 
-void Menu::drawCreditsWindow(sf::RenderWindow& window) const
+bool Menu::drawCreditsWindow(sf::RenderWindow& window) const
 {
-	
+	window.clear();
+	window.draw(m_creditsBackground);
+	window.draw(m_backButton);
+	window.display();
+	while (window.isOpen())
+		for (auto event = sf::Event{}; window.waitEvent(event);)
+			switch (event.type)
+			{
+			case sf::Event::Closed:
+				return false;
+			case sf::Event::MouseButtonReleased: {
+				auto location = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
+
+				if (isClickedOn(m_backButton, location)) {
+					Music::instance().stopCredits();
+					Music::instance().playBack();
+					return true;
+				}
+			}
+			default:;
+			}
+	return false;
 }
 
 void Menu::drawLostWindow(sf::RenderWindow& window) const

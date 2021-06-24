@@ -57,6 +57,8 @@ configure_file ("Info.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("New Game.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("High Score Menu.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("MainMenuBackground.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("CreditsButton.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
 
 configure_file ("Credits.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("Help.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
@@ -75,3 +77,4 @@ configure_file ("Life1up.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("LostGame.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("InfoMenu.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("EatSpecialFood.wav" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("Credits.wav" ${CMAKE_BINARY_DIR} COPYONLY)
