@@ -80,17 +80,17 @@ main.cpp
 ## Implementation:
 Algorithms we used:\
 A 'chaser'- the exterminator- chased Hulda in the X axis.\
-std::sort from STL.\
+std::sort from STL.
 
 Data structures we used:\
 2D vector for storing the current level objects.\
 Unordered maps- in 'Resources' class- to control the resources and extract them in O(1) time complexity.\
 Used unordered map to keep track of objects in the board, and assign them with unique ID's.\
-Used vector of (string, int) pairs- for names and scores in 'HighScores' class.\
+Used vector of (string, int) pairs- for names and scores in 'HighScores' class.
 
 Design Patterns:
 Resources & Music - Singelton classes. \
-Used MultiMethods for manage collisions between objects. \
+Used MultiMethods for manage collisions between objects. 
 
 ## GitHub Repository
 https://github.com/BarIfrah/Hulda-FinalProject 
