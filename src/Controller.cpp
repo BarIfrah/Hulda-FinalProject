@@ -237,6 +237,7 @@ bool Controller::shouldMoveToNextLevel() {
         }else {
             Music::instance().stopLevelMusic(m_level);
             Music::instance().playWonGame();
+            resetGameView();
             m_menu.drawWonWindow(m_window);
             resetGame();
             return false;
