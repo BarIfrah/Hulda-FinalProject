@@ -109,7 +109,7 @@ void HighScores::getNewScore(Player* player, sf::RenderWindow& window)
 					nameText.setString(name);
 
                     }
-                    else if (event.text.unicode < 128)
+                    else if (event.text.unicode < 123 && event.text.unicode > 64)
                     {
                         char a = char(event.text.unicode);
                         name.append(1, a);
