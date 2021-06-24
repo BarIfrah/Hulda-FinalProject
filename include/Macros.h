@@ -99,6 +99,8 @@ constexpr auto WON_PATH = "winGame.png";
 constexpr auto NEW_WON_PATH = "screem no bootens2.png";
 constexpr auto LOST_PATH = "loseGame.png";
 
+constexpr auto CREDITS_BUTTON_PATH = "CreditsButton.png";
+
 //--------------------------------- musics -----------------------------------
 
 
@@ -121,6 +123,7 @@ constexpr auto BACK_KEY = 6;
 constexpr auto HI_SCORE_KEY = 7;
 constexpr auto INFO_KEY = 8;
 constexpr auto NEW_GAME_KEY = 9;
+constexpr auto CREDIT_BUTTON_KEY = 39;
 
 
 constexpr auto NEW_WON_KEY = 32;
@@ -225,5 +228,5 @@ const auto HEART_WIDTH = 117;
 
 //
 //for sounds
-const auto AUDIOS = 13;
-const auto VOL = 0;
+const auto AUDIOS = 14;
+const auto VOL = 30;

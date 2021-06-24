@@ -20,7 +20,7 @@ private:
 	//void drawHighScoreWindow(sf::RenderWindow& window) const;
 	bool drawHelpWindow(sf::RenderWindow& window) const;
 	bool drawScoresWindow(sf::RenderWindow& window) const;
-	void drawCreditsWindow(sf::RenderWindow& window) const;
+	bool drawCreditsWindow(sf::RenderWindow& window) const;
 
 	
 
@@ -46,6 +46,7 @@ private:
 	sf::Sprite m_hiScoreButton;
 	sf::Sprite m_infoButton;
 	sf::Sprite m_newGameButton;
+	sf::Sprite m_creditsButton;
 
 	HighScores *m_highScores;
 
