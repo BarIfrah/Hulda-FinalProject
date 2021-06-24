@@ -11,8 +11,8 @@ Menu::Menu(HighScores *highScores) : m_highScores(highScores)
 	m_helpBackground = sf::Sprite(Resources::instance().getTexture(HELP_KEY));
 	m_helpBackground.setScale({ WIN_WIDTH / m_helpBackground.getGlobalBounds().width, WIN_HEIGHT / m_helpBackground.getGlobalBounds().height });
 	readScores();
-	m_highBackround = sf::Sprite(Resources::instance().getTexture(HIGHMENU));
-	m_highBackround.setScale({ WIN_WIDTH / m_highBackround.getGlobalBounds().width, WIN_HEIGHT / m_highBackround.getGlobalBounds().height });
+    m_highBackground = sf::Sprite(Resources::instance().getTexture(HIGHMENU));
+	m_highBackground.setScale({WIN_WIDTH / m_highBackground.getGlobalBounds().width, WIN_HEIGHT / m_highBackground.getGlobalBounds().height });
 
 	m_wonBackground = sf::Sprite(Resources::instance().getTexture(NEW_WON_KEY));
 	m_wonBackground.setScale({ WIN_WIDTH / m_wonBackground.getGlobalBounds().width, WIN_HEIGHT / m_wonBackground.getGlobalBounds().height });
@@ -239,7 +239,6 @@ bool Menu::drawCreditsWindow(sf::RenderWindow& window) const
 
 void Menu::drawLostWindow(sf::RenderWindow& window) const
 {
-	//window.clear();
 	window.draw(m_lostBackground);
 	window.display();
 	while (window.isOpen())
@@ -255,17 +254,16 @@ void Menu::drawLostWindow(sf::RenderWindow& window) const
 
 void Menu::drawWonWindow(sf::RenderWindow& window) const
 {
-	//window.clear();
 	window.draw(m_wonBackground);
 	window.display();
-	while (window.isOpen())
-		for (auto event = sf::Event{}; window.waitEvent(event);)
-			switch (event.type)
-			{
-			case sf::Event::KeyPressed: 
-				return;
-			default:
-				break;
-			}
+	while (window.isOpen()) {
+        for (auto event = sf::Event{}; window.waitEvent(event);)
+            switch (event.type) {
+                case sf::Event::KeyPressed:
+                    return;
+                default:
+                    break;
+            }
+    }
 }
 

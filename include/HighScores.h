@@ -12,7 +12,7 @@ public:
 	void draw(sf::RenderWindow& window);
 	void getNewScore(Player*, sf::RenderWindow&);
 	void readFromFile();
-	std::fstream createFile();
+	static std::fstream createFile();
 private:
 
 	sf::Vector2f m_size;

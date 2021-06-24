@@ -8,7 +8,7 @@
 class Menu
 {
 public:
-	Menu(HighScores *highScores);
+	explicit Menu(HighScores *highScores);
 	//void resetMainMenu(sf::RenderWindow&);
 	bool runMenu(sf::RenderWindow& window, bool, bool);
 	bool getExitClicked();
@@ -33,14 +33,13 @@ private:
 	sf::Text m_enter;
 	
 	sf::Sprite m_menuBackGround;
-	sf::Sprite m_highBackround;
+	sf::Sprite m_highBackground;
 	sf::Sprite m_helpBackground;
 	sf::Sprite m_creditsBackground;
 
 	sf::Sprite m_wonBackground;
 	sf::Sprite m_lostBackground;
 
-//	std::vector < std::pair<std::string, std::string>> m_highScores;
 	sf::Sprite m_exitButton;
 	sf::Sprite m_backButton;
 	sf::Sprite m_hiScoreButton;

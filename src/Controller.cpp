@@ -39,7 +39,7 @@ void Controller::run() {
         if (m_menu.runMenu(m_window, false, false))
         {
             Music::instance().playLevelMusic(m_level); //after pressing on new game -->runMenu returns true
-            m_gameClock.restart();
+            m_stats.resetClock(); /// restarts the game clock when re-entering the game
             while (m_window.isOpen())
             {
                 m_world->Step(TIMESTEP, VELITER, POSITER);
@@ -55,11 +55,13 @@ void Controller::run() {
                 if (m_player->getState() == DIE) {
                     if (m_player->getLife() == 0){
                         resetGameView();
+                        Music::instance().stopLevelMusic(m_level);
+                        Music::instance().playLostGame();
                         m_menu.drawLostWindow(m_window);
                         resetGame();
                         break;
                     }
-
+                    /// if still has lives
                     playerDied();
                     continue;
                 }
@@ -93,7 +95,6 @@ void Controller::drawObjects() {
 
 void Controller::levelUp()
 {
-
     Music::instance().stopLevelMusic(m_level);
     m_level++;
     int playerScore = m_player->getScore();
@@ -140,7 +141,6 @@ void Controller::moveCharacters()
 
 //============================================================================
 
-
 bool Controller::handleGameEvents() {
     if (auto event = sf::Event{}; m_window.pollEvent(event)) {
         switch (event.type) { //changed to type
@@ -183,7 +183,7 @@ void Controller::sideScroll() {
 
 void Controller::HandleCharacterCollisionWithWindow(MovingObject* character)
 {
-    if (character->getGlobalBounds().top < STAT_HEIGHT) { ///collision with top
+    if (character->getGlobalBounds().top < STAT_HEIGHT - 10) { ///collision with top
         character->setPhysicsObjectPos
                 (sf::Vector2f(character->getLocation().x, character->getGlobalBounds().height + STAT_HEIGHT), EMDOWN);
     }
@@ -195,7 +195,7 @@ void Controller::HandleCharacterCollisionWithWindow(MovingObject* character)
         character->setPhysicsObjectPos
                 (sf::Vector2f(m_board.getLevelSize().x- character->getGlobalBounds().width, character->getLocation().y), MDOWN + MLEFT);
     }
-    if (dynamic_cast<Player*>(character)){
+    if (dynamic_cast<Player*>(character)){ ///fall to the Abyss
         if (m_player->getGlobalBounds().top + PLAYER_BOX_HEIGHT > WIN_WIDTH)
             killPlayer();
     }
@@ -236,6 +236,8 @@ bool Controller::shouldMoveToNextLevel() {
         if (m_board.isNextLvlExist()) {
             levelUp();
         }else {
+            Music::instance().stopLevelMusic(m_level);
+            Music::instance().playWonGame();
             m_menu.drawWonWindow(m_window);
             resetGame();
             return false;

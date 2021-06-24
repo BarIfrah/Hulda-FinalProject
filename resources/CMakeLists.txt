@@ -21,7 +21,7 @@ configure_file ("Exit.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 configure_file ("winGame.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("loseGame.png" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("screem no bootens2.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("winPage.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
 #game sounds

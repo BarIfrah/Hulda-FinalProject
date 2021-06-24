@@ -12,10 +12,10 @@ HighScores::HighScores(const sf::Vector2f& location, const sf::Vector2f& size)
 	m_background.setPosition(location);
 	m_background.setSize(size);
 	//
-	m_locations.push_back({ 570,420 });
-	m_locations.push_back({ 570,550 });
-	m_locations.push_back({ 570,690 });
-	m_locations.push_back({ 570,830 });
+	m_locations.emplace_back( 570,420 );
+	m_locations.emplace_back( 570,550 );
+	m_locations.emplace_back( 570,690 );
+	m_locations.emplace_back( 570,830 );
 
 	readFromFile();
 }
@@ -58,70 +58,62 @@ void HighScores::getNewScore(Player* player, sf::RenderWindow& window)
 
 	scoreT.setString("Your final score is: " + std::to_string(score));
 
-	scoreT.setColor(sf::Color::Red);
+	scoreT.setFillColor(sf::Color::Red);
 	scoreT.setPosition(sf::Vector2f(0, window.getSize().y / 3));
 
 	enterName.setFont(Resources::instance().getFont());
 	enterName.setCharacterSize(80);
 	enterName.setString("Whats your name? (press enter to finish)");
-	enterName.setColor(sf::Color::Black);
+	enterName.setFillColor(sf::Color::Black);
 	enterName.setPosition(sf::Vector2f(0, window.getSize().y / 3 + 100));
 
 	nameText.setFont(Resources::instance().getFont());
 	nameText.setCharacterSize(80);
 	nameText.setString("");
-	nameText.setColor(sf::Color::Black);
+	nameText.setFillColor(sf::Color::Black);
 	nameText.setPosition(sf::Vector2f(0, window.getSize().y / 3 + 180));
 
 	std::string name;
 
-	while (window.isOpen() && name.size() < 10)
-	{
-		window.clear();
-		window.draw(background);
-		window.draw(scoreT);
-		window.draw(enterName);
-		window.draw(nameText);
-		window.display();
+	while (window.isOpen() && name.size() < 10) {
+        window.clear();
+        window.draw(background);
+        window.draw(scoreT);
+        window.draw(enterName);
+        window.draw(nameText);
+        window.display();
 
-		if (auto event = sf::Event{}; window.pollEvent(event))
-		{
-			switch (event.type)
-			{
-                case sf::Event::Closed:
+        if (auto event = sf::Event{}; window.pollEvent(event)) {
+            switch (event.type) {
+                case sf::Event::Closed: {
                     window.close();
                     break;
-			    case sf::Event::KeyPressed: {
+                }
+                case sf::Event::KeyPressed: {
                     if (event.key.code == sf::Keyboard::Enter)
                         break;
                 }
-			case sf::Event::TextEntered:
-			{
-				if (event.text.unicode == ENTER) 
-					goto out;
-
-				else if (event.text.unicode == SPACE); 
-
-				else if (event.text.unicode == DELETE) 
-				{
-					if (name.size() > 0)
-						name.pop_back();
-					nameText.setString(name);
-
-                    }
-                    else if (event.text.unicode < 123 && event.text.unicode > 64)
-                    {
+                case sf::Event::TextEntered: {
+                    if (event.text.unicode == ENTER)
+                        goto out;
+                    else if (event.text.unicode == DELETE) {
+                        if (!name.empty()) {
+                            name.pop_back();
+                            nameText.setString(name);
+                        }
+                    } else if (event.text.unicode < 123 && event.text.unicode > 64) {
                         char a = char(event.text.unicode);
                         name.append(1, a);
                         nameText.setString(name);
                     }
                 }
-			}
-		}
-	}
-
-	out:
-	if (name.size() == 0)
+                default:
+                    break;
+            }
+        }
+    }
+    out:
+	if (name.empty())
 		name.append("NONAME");
 
 	m_scoresMap.insert(std::pair<int, std::string>(score, name));
@@ -157,15 +149,12 @@ void HighScores::readFromFile()
 std::fstream HighScores::createFile()
 {
 	std::fstream newFile;
-
 	newFile.open("highscores.txt", std::ios::in | std::ios::out | std::ios::app);
-
 	if (!newFile)
 	{
 		//std::cout << "could not create file" << std::endl;
 		exit(EXIT_FAILURE);
 	}
-
 	return newFile;
 }
 

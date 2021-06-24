@@ -96,7 +96,7 @@ constexpr auto HELP_PATH = "Help.jpg";
 constexpr auto CREDITS_PATH = "Credits.jpg";
 
 constexpr auto WON_PATH = "winGame.png";
-constexpr auto NEW_WON_PATH = "screem no bootens2.png";
+constexpr auto NEW_WON_PATH = "winPage.png";
 constexpr auto LOST_PATH = "loseGame.png";
 
 constexpr auto CREDITS_BUTTON_PATH = "CreditsButton.png";
