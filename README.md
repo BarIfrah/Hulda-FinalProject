@@ -6,7 +6,7 @@ Oren Holtzman
 ## About
 #### This is a story of 'Hulda', a Tel-Avivian sewer rat.
 Being kicked out of her home due to Metro train construction in Tel Aviv, Hulda went out on the streets,\
-looking for food to survive. But, there are mant dangers in the city, such as: getting run over by a scooter,\
+looking for food to survive. But, there are many dangers in the city, such as: getting run over by a scooter,\
 eating poison and having the city exterminator on your tail.\
 To survive- Hulda needs:\
 Hulda needs to avoid all enemies:\
@@ -121,7 +121,7 @@ Game design:\
 [Shaked 'Keti' Zahor (instagram)](https://www.instagram.com/shaketi___/?hl=en)
 
 Physics:\
-[Box2D](https://box2d.org) Physical engine:
+[Box2D](https://box2d.org) Physical engine
 
 Graphic implementation:
 [SFML](https://www.sfml-dev.org)
