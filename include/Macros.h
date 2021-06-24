@@ -226,4 +226,4 @@ const auto HEART_WIDTH = 117;
 //
 //for sounds
 const auto AUDIOS = 13;
-const auto VOL = 0;
+const auto VOL = 30;
