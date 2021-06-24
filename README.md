@@ -32,7 +32,7 @@ Hulda starts with 3 lives. Every 100 points collected- hulda gets an extra life.
 Hulda can gain lives from the 'special force' burgers. no more than 6 lives can be collected.
 
 ##### Create levels:
-creating new levels by editing the 'Levels.txt' file.\
+creating new levels by editing the 'Levels.txt' file in the "resources" directory.\
 level format is 20 rows height, 100 columns width. (can be seen inside 'Levels.txt' file.\
 symbols are defined in "macros.h" file.
 
