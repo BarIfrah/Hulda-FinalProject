@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <SFML/Audio.hpp>
+#include <unordered_map>
 //-----------------------------------------------------------------------------
 
 
@@ -19,10 +20,14 @@ public:
 		timeEnd,
 		back,
 		hiScore,
-		gameTheme,
+		level1,
 		infoMenu,
 		SpecialFood,
-		credits
+		credits,
+		level2,
+		level3,
+		level4,
+		level5
 	};
 
 	static Music& instance();
@@ -30,7 +35,7 @@ public:
 	void playFood();
 	void playToxicFood();
 	void playMenu();
-	void playGame();
+	void playLevelMusic(const int&);
 	void stopMenu();
 	void stopGame();
 	void playLifeBonus();
@@ -47,6 +52,12 @@ public:
 	void playSpecialFood();
 	void playCredits();
 	void stopCredits();
+	void playLevelTwo();
+	void playLevelThree();
+	void playLevelFour();
+	void playLevelFive();
+	void stopLevelMusic(const int& level);
+	
 
 private:
 	Music();
@@ -57,3 +68,14 @@ private:
 	std::vector <sf::Sound> m_sounds;
 	void loadSounds();
 };
+
+
+
+
+
+
+
+
+
+
+

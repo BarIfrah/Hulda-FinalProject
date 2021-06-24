@@ -35,10 +35,31 @@ void Music::playMenu()
 	m_sounds[(int)Sound::menu].play();
 }
 //-----------------------------------------------------------------------------
-void Music::playGame()
+void Music::playLevelMusic(const int & level)
 {
-	m_sounds[(int)Sound::gameTheme].play();
+	switch (level)
+	{
+	case 1:
+		m_sounds[(int)Sound::level1].play();
+		break;
+	case 2:
+		m_sounds[(int)Sound::level2].play();
+		break;
+	case 3:
+		m_sounds[(int)Sound::level3].play();
+		break;
+	case 4:
+		m_sounds[(int)Sound::level4].play();
+		break;
+	case 5:
+		m_sounds[(int)Sound::level5].play();
+		break;
+	default:
+		break;
+	}
 }
+//-----------------------------------------------------------------------------
+
 //-----------------------------------------------------------------------------
 void Music::stopMenu()
 {
@@ -47,15 +68,13 @@ void Music::stopMenu()
 //-----------------------------------------------------------------------------
 void Music::stopGame()
 {
-	m_sounds[(int)Sound::gameTheme].stop();
+	m_sounds[(int)Sound::level1].stop();
 }
 
 void Music::stopHiScoreMenu()
 {
 	m_sounds[(int)Sound::hiScore].stop();
 }
-
-
 
 //-----------------------------------------------------------------------------
 
@@ -99,6 +118,47 @@ void Music::stopCredits()
 {
 	m_sounds[(int)Sound::credits].stop();
 }
+void Music::playLevelTwo()
+{
+	m_sounds[(int)Sound::level2].play();
+}
+void Music::playLevelThree()
+{
+	m_sounds[(int)Sound::level3].play();
+}
+void Music::playLevelFour()
+{
+	m_sounds[(int)Sound::level4].play();
+}
+void Music::playLevelFive()
+{
+	m_sounds[(int)Sound::level5].play();
+}
+void Music::stopLevelMusic(const int& level)
+{
+	switch (level)
+	{
+	case 1:
+		m_sounds[(int)Sound::level1].stop();
+		break;
+	case 2:
+		m_sounds[(int)Sound::level2].stop();
+		break;
+	case 3:
+		m_sounds[(int)Sound::level3].stop();
+		break;
+	case 4:
+		m_sounds[(int)Sound::level4].stop();
+		break;
+	case 5:
+		m_sounds[(int)Sound::level5].stop();
+		break;
+	default:
+		break;
+	}
+}
+//----------------------------------------------------------------------
+
 //-----------------------------------------------------------------------------
 void Music::playLostGame()
 {
@@ -144,6 +204,10 @@ void Music::loadSounds()
 	loadSound("InfoMenu.wav");
 	loadSound("EatSpecialFood.wav");
 	loadSound("Credits.wav");
+	loadSound("Level2Music.wav");
+	loadSound("Level3Music.wav");
+	loadSound("Level4Music.wav");
+	loadSound("Level5Music.wav");
 }
 
 //-----------------------------------------------------------------------------

@@ -38,7 +38,7 @@ void Controller::run() {
 
         if (m_menu.runMenu(m_window, false, false))
         {
-            Music::instance().playGame(); //after pressing on new game -->runMenu returns true
+            Music::instance().playLevelMusic(m_level); //after pressing on new game -->runMenu returns true
             m_gameClock.restart();
             while (m_window.isOpen())
             {
@@ -72,6 +72,7 @@ void Controller::run() {
                     break;
                 }
             }
+            Music::instance().stopLevelMusic(m_level);
             ///this is right AFTER when the user presses ESC key during playing game-->m_window.isOpen(line 34) returns false or line 61 is true so break
         }
         ///this is when the user doesn't click on new game on main menu --> the function runMenu (line 31) returns false
@@ -92,7 +93,8 @@ void Controller::drawObjects() {
 
 void Controller::levelUp()
 {
-    //Resources::instance().pauseMusic();
+
+    Music::instance().stopLevelMusic(m_level);
     m_level++;
     int playerScore = m_player->getScore();
     int playerLife = m_player->getLife();
@@ -106,6 +108,7 @@ void Controller::levelUp()
     m_listener.setCurrentBoard(m_board);
     m_player->setScore(playerScore);
     m_player->resetLife(playerLife);
+    Music::instance().playLevelMusic(m_level);
 }
 
 //============================================================================
