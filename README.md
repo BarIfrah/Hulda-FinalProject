@@ -92,11 +92,29 @@ Design Patterns:
 Resources & Music - Singelton classes. \
 Used MultiMethods for manage collisions between objects. 
 
+## Compile and run:
+#### With IDE's:
+Import all source code to your favorite IDE (works cross platform).\
+Compile and run.\
+
+If you choose to run via CMD or Terminal:
+#### Unix machines:
+Go to either *Cmake-Build-Debug/Hulda* or to *out/build/x64-Debug (default)/Hulda.exe*\
+Open Terminal window.\
+Run:
+ ```
+ % ./Hulda
+ ```
+Enjoy!
+#### Windows Machines:
+Go to either *Cmake-Build-Debug/Hulda* or to *out/build/x64-Debug (default)/Hulda.exe*\
+Double click Hulda.exe and play!
 ## GitHub Repository
-https://github.com/BarIfrah/Hulda-FinalProject 
+https://github.com/BarIfrah/Hulda-FinalProject
+
 ## LinkedIn
-https://www.linkedin.com/in/sharon-levy-8434471a5/ \
-https://www.linkedin.com/in/bar-ifrah-660878203/ 
+[Sharon Levi](https://www.linkedin.com/in/sharon-levy-8434471a5/) \
+[Bar Ifrah](https://www.linkedin.com/in/bar-ifrah-660878203/) 
 
 ## Credits
 Game design:\
