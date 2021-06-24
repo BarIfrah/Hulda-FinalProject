@@ -13,9 +13,9 @@ HighScores::HighScores(const sf::Vector2f& location, const sf::Vector2f& size)
 	m_background.setSize(size);
 	//
 	m_locations.push_back({ 570,420 });
-	m_locations.push_back({ 570,560 });
-	m_locations.push_back({ 570,700 });
-	m_locations.push_back({ 570,840 });
+	m_locations.push_back({ 570,550 });
+	m_locations.push_back({ 570,690 });
+	m_locations.push_back({ 570,830 });
 
 	readFromFile();
 }
@@ -26,10 +26,11 @@ void HighScores::draw(sf::RenderWindow& window) {
 	window.draw(m_background);
 
 	sf::Text score;
-
-	for (int i = 0; i < m_scores.size() && i < 4; i++)
+	int iLoc = 0;
+	for (int i = std::min(NUM_OF_SCORES-1, int(m_scores.size())-1); i >=0; i--)
 	{
-		setText(score, m_scores[i].first + " - " + std::to_string(m_scores[i].second), m_locations[i]);
+		setText(score, std::to_string(m_scores[i]) + " - " + m_scoresMap.find(m_scores[i])->second, m_locations[iLoc]);
+		iLoc++;
 		window.draw(score);
 	}
 }
@@ -113,7 +114,6 @@ void HighScores::getNewScore(Player* player, sf::RenderWindow& window)
                         char a = char(event.text.unicode);
                         name.append(1, a);
                         nameText.setString(name);
-
                     }
                 }
 			}
@@ -124,7 +124,8 @@ void HighScores::getNewScore(Player* player, sf::RenderWindow& window)
 	if (name.size() == 0)
 		name.append("NONAME");
 
-	m_scores.push_back(std::make_pair(name, score));
+	m_scoresMap.insert(std::pair<int, std::string>(score, name));
+	m_scores.push_back(score);
 	std::sort(m_scores.begin(), m_scores.end());
 }
 
@@ -146,7 +147,8 @@ void HighScores::readFromFile()
 	{
 		if (!(m_filePointer >> name >> score))
 			break;
-		m_scores.push_back(std::make_pair(name, std::stoi(score)));
+		m_scoresMap.insert(std::pair<int, std::string>(std::stoi(score), name));
+		m_scores.push_back(std::stoi(score));
 	}
 }
 

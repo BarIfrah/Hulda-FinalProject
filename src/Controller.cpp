@@ -47,6 +47,7 @@ void Controller::run() {
                     if (m_board.isNextLvlExist()) {
                         levelUp();
                     }else {
+                        resetGameView();
                         m_menu.drawWonWindow(m_window);
                         resetGame();
                         break;
@@ -59,7 +60,7 @@ void Controller::run() {
 
                 if (m_player->getState() == DIE) {
                     if (m_player->getLife() == 0){
-                        /// need to add high score option here
+                        resetGameView();
                         m_menu.drawLostWindow(m_window);
                         resetGame();
                         break;

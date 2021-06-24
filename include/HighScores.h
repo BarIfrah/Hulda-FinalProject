@@ -2,6 +2,8 @@
 #include "Player.h"
 #include <fstream>
 #include <vector>
+#include <unordered_map>
+
 class HighScores
 {
 public:
@@ -19,7 +21,8 @@ private:
 	std::fstream m_filePointer;
 	std::ofstream m_writer;
 	//
-	std::vector<std::pair<std::string, int>> m_scores;
+	std::unordered_map<int, std::string> m_scoresMap;
+	std::vector<int> m_scores;
 	std::vector<sf::Vector2f> m_locations;
 };
 

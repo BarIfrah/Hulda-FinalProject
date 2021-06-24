@@ -39,7 +39,7 @@ include CMakeFiles\rules.ninja
 # Utility command for rebuild_cache
 
 build CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -S"C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm" -B"C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\sharonlevi\source\repos\Hulda-FinalProject -B"C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)""
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -341,7 +341,7 @@ build Hulda.exe: CXX_EXECUTABLE_LINKER__Hulda_Debug CMakeFiles\Hulda.dir\src\mai
 # Utility command for edit_cache
 
 build CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -349,7 +349,7 @@ build edit_cache: phony CMakeFiles\edit_cache.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/holtz/OneDrive/Desktop/22.6 newest 1251pm/CMakeLists.txt
+# C:/Users/sharonlevi/source/repos/Hulda-FinalProject/CMakeLists.txt
 # =============================================================================
 
 
@@ -357,7 +357,7 @@ build edit_cache: phony CMakeFiles\edit_cache.util
 # Utility command for edit_cache
 
 build include\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)\include" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)\include" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -368,7 +368,7 @@ build include\edit_cache: phony include\CMakeFiles\edit_cache.util
 # Utility command for rebuild_cache
 
 build include\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)\include" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -S"C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm" -B"C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)\include" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\sharonlevi\source\repos\Hulda-FinalProject -B"C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)""
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -377,7 +377,7 @@ build include\rebuild_cache: phony include\CMakeFiles\rebuild_cache.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/holtz/OneDrive/Desktop/22.6 newest 1251pm/CMakeLists.txt
+# C:/Users/sharonlevi/source/repos/Hulda-FinalProject/CMakeLists.txt
 # =============================================================================
 
 
@@ -385,7 +385,7 @@ build include\rebuild_cache: phony include\CMakeFiles\rebuild_cache.util
 # Utility command for edit_cache
 
 build src\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)\src" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)\src" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -396,7 +396,7 @@ build src\edit_cache: phony src\CMakeFiles\edit_cache.util
 # Utility command for rebuild_cache
 
 build src\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)\src" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -S"C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm" -B"C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)\src" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\sharonlevi\source\repos\Hulda-FinalProject -B"C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)""
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -405,7 +405,7 @@ build src\rebuild_cache: phony src\CMakeFiles\rebuild_cache.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/holtz/OneDrive/Desktop/22.6 newest 1251pm/CMakeLists.txt
+# C:/Users/sharonlevi/source/repos/Hulda-FinalProject/CMakeLists.txt
 # =============================================================================
 
 
@@ -413,7 +413,7 @@ build src\rebuild_cache: phony src\CMakeFiles\rebuild_cache.util
 # Utility command for edit_cache
 
 build resources\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)\resources" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)\resources" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -424,7 +424,7 @@ build resources\edit_cache: phony resources\CMakeFiles\edit_cache.util
 # Utility command for rebuild_cache
 
 build resources\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)\resources" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -S"C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm" -B"C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)\resources" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\sharonlevi\source\repos\Hulda-FinalProject -B"C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)""
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -433,7 +433,7 @@ build resources\rebuild_cache: phony resources\CMakeFiles\rebuild_cache.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/holtz/OneDrive/Desktop/22.6 newest 1251pm/CMakeLists.txt
+# C:/Users/sharonlevi/source/repos/Hulda-FinalProject/CMakeLists.txt
 # =============================================================================
 
 
@@ -441,7 +441,7 @@ build resources\rebuild_cache: phony resources\CMakeFiles\rebuild_cache.util
 # Utility command for edit_cache
 
 build Box2D\include\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)\Box2D\include" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)\Box2D\include" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -452,7 +452,7 @@ build Box2D\include\edit_cache: phony Box2D\include\CMakeFiles\edit_cache.util
 # Utility command for rebuild_cache
 
 build Box2D\include\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)\Box2D\include" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -S"C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm" -B"C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)\Box2D\include" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\sharonlevi\source\repos\Hulda-FinalProject -B"C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)""
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -461,7 +461,7 @@ build Box2D\include\rebuild_cache: phony Box2D\include\CMakeFiles\rebuild_cache.
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/holtz/OneDrive/Desktop/22.6 newest 1251pm/CMakeLists.txt
+# C:/Users/sharonlevi/source/repos/Hulda-FinalProject/CMakeLists.txt
 # =============================================================================
 
 # =============================================================================
@@ -864,7 +864,7 @@ build Box2D\src\box2d.lib: CXX_STATIC_LIBRARY_LINKER__box2d_Debug Box2D\src\CMak
 # Utility command for edit_cache
 
 build Box2D\src\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)\Box2D\src" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)\Box2D\src" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -875,7 +875,7 @@ build Box2D\src\edit_cache: phony Box2D\src\CMakeFiles\edit_cache.util
 # Utility command for rebuild_cache
 
 build Box2D\src\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)\Box2D\src" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -S"C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm" -B"C:\Users\holtz\OneDrive\Desktop\22.6 newest 1251pm\out\build\x64-Debug (default)""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)\Box2D\src" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\sharonlevi\source\repos\Hulda-FinalProject -B"C:\Users\sharonlevi\source\repos\Hulda-FinalProject\out\build\x64-Debug (default)""
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -897,42 +897,42 @@ build box2d.lib: phony Box2D\src\box2d.lib
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/holtz/OneDrive/Desktop/22.6 newest 1251pm/out/build/x64-Debug (default)
+# Folder: C:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/build/x64-Debug (default)
 
 build all: phony Hulda.exe include\all src\all resources\all Box2D\include\all Box2D\src\all
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/holtz/OneDrive/Desktop/22.6 newest 1251pm/out/build/x64-Debug (default)/Box2D/include
+# Folder: C:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/build/x64-Debug (default)/Box2D/include
 
 build Box2D\include\all: phony
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/holtz/OneDrive/Desktop/22.6 newest 1251pm/out/build/x64-Debug (default)/Box2D/src
+# Folder: C:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/build/x64-Debug (default)/Box2D/src
 
 build Box2D\src\all: phony Box2D\src\box2d.lib
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/holtz/OneDrive/Desktop/22.6 newest 1251pm/out/build/x64-Debug (default)/include
+# Folder: C:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/build/x64-Debug (default)/include
 
 build include\all: phony
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/holtz/OneDrive/Desktop/22.6 newest 1251pm/out/build/x64-Debug (default)/resources
+# Folder: C:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/build/x64-Debug (default)/resources
 
 build resources\all: phony
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/holtz/OneDrive/Desktop/22.6 newest 1251pm/out/build/x64-Debug (default)/src
+# Folder: C:/Users/sharonlevi/source/repos/Hulda-FinalProject/out/build/x64-Debug (default)/src
 
 build src\all: phony
 

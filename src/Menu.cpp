@@ -16,11 +16,6 @@ Menu::Menu(HighScores *highScores) : m_highScores(highScores)
 
 	m_wonBackground = sf::Sprite(Resources::instance().getTexture(NEW_WON_KEY));
 	m_wonBackground.setScale({ WIN_WIDTH / m_wonBackground.getGlobalBounds().width, WIN_HEIGHT / m_wonBackground.getGlobalBounds().height });
-	/*m_wonBackground = sf::RectangleShape();
-	m_wonBackground.setTexture(&Resources::instance().getTexture(WON_KEY));
-	m_wonBackground.setPosition(sf::Vector2f(0, 0));
-	m_wonBackground.setSize({ 1920, 1080 });*/
-	//m_wonBackground.setScale({ WIN_WIDTH / m_wonBackground.getGlobalBounds().width, WIN_HEIGHT / m_wonBackground.getGlobalBounds().height });
 
 	m_lostBackground = sf::Sprite(Resources::instance().getTexture(LOST_KEY));
 	m_lostBackground.setScale({ WIN_WIDTH / m_lostBackground.getGlobalBounds().width, WIN_HEIGHT / m_lostBackground.getGlobalBounds().height });
@@ -140,20 +135,8 @@ bool Menu::drawHelpWindow(sf::RenderWindow& window) const
 //------------------------------------------------------------------------
 bool Menu::drawScoresWindow(sf::RenderWindow& window) const
 {
-//	sf::Vector2f backButtonPos = { 100, 550 };
 	window.clear();
 	m_highScores->draw(window);
-//	window.draw(m_highBackround);
-//	window.draw(m_back);
-//	sf::Text name;
-//	sf::Text score;
-//	for (int i = 0; i < m_highScores.size(); i++)
-//	{
-//		setText(name, m_highScores[i].first, sf::Vector2f( 250, 300 + 100 * i ));
-//		setText(score, m_highScores[i].second, sf::Vector2f( 450, 300 + 100 * i ));
-//		window.draw(name);
-//		window.draw(score);
-//	}
     window.draw(m_backButton);
     window.display();
     while (window.isOpen())

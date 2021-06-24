@@ -11,6 +11,7 @@
 constexpr auto ENTER = 13;
 constexpr auto SPACE = 32;
 constexpr auto DELETE = 8;
+constexpr auto NUM_OF_SCORES = 4;
 //========================== game const parameters ===========================
 // game objects symbols
 constexpr auto PLAYER = '@';
@@ -179,7 +180,6 @@ constexpr auto FALLING_SOUND = 4;
 constexpr auto STEP_SOUND = 5;
 constexpr auto EXTERMINATOR_SOUND = 6;
 constexpr auto SCOOTER_SOUND = 7;
-constexpr auto OLD_WOMAN_SOUND = 8;
 //--------------------------------- logos ------------------------------------
 
 //---------------------------------- fonts -----------------------------------
@@ -226,4 +226,4 @@ const auto HEART_WIDTH = 117;
 //
 //for sounds
 const auto AUDIOS = 13;
-const auto VOL = 0;
+const auto VOL = 30;
