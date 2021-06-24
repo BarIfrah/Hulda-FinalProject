@@ -113,9 +113,9 @@ Double click Hulda.exe and play!
 https://github.com/BarIfrah/Hulda-FinalProject
 
 ## LinkedIn
-[Sharon Levi](https://www.linkedin.com/in/sharon-levy-8434471a5/) \
-[Bar Ifrah](https://www.linkedin.com/in/bar-ifrah-660878203/) 
-
+[Sharon Levi](https://www.linkedin.com/in/sharon-levy-8434471a5/)\
+[Bar Ifrah](https://www.linkedin.com/in/bar-ifrah-660878203/)\
+[Oren Holtzman](https://www.linkedin.com/in/oren-holtzman-923b04206/)
 ## Credits
 Game design:\
 [Shaked 'Keti' Zahor (instagram)](https://www.instagram.com/shaketi___/?hl=en)
