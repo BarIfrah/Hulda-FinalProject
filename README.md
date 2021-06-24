@@ -86,6 +86,23 @@ Unordered map- in 'Resources' class- to control the resources and extract them i
 Used unordered map to keep track of objects in the board, and assign them with unique ID's.
 Used vector of (string, int) pairs- for names and scores in 'HighScores' class.
 
+## Compile and run:
+#### With IDE's:
+Import all source code to your favorite IDE (works cross platform).\
+Compile and run.\
+
+If you choose to run via CMD or Terminal:
+#### Unix machines:
+Go to either *Cmake-Build-Debug/Hulda* or to *out/build/x64-Debug (default)/Hulda.exe*\
+Open Terminal window.\
+Run:
+ ```
+ % ./Hulda
+ ```
+Enjoy!
+#### Windows Machines:
+Go to either *Cmake-Build-Debug/Hulda* or to *out/build/x64-Debug (default)/Hulda.exe*\
+Double click Hulda.exe and play!
 ## GitHub Repository
 https://github.com/BarIfrah/Hulda-FinalProject
 

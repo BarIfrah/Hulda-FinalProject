@@ -58,7 +58,7 @@ void Player::move(const sf::Time &deltaTime, Board &CurrentLevel) {
             setState(state, PLAYER_BOX_HEIGHT, PLAYER_BOX_WIDTH, PLAYER_OFFSET, PLAYER_SPECIAL_OFFSET);
             updateLoc();
             setPhysicsObjectPos(sf::Vector2f(getLocation().x + dirFromKey.x,
-                getLocation().y + dirFromKey.y), dirFromKey);
+                                             getLocation().y + dirFromKey.y), dirFromKey);
             updateAnimation(deltaTime);
         }
         else {
@@ -72,19 +72,24 @@ void Player::move(const sf::Time &deltaTime, Board &CurrentLevel) {
 
 void Player::updateAnimation(const sf::Time &deltaTime ) {
     setAnimationTime(deltaTime);
-    int spritesNum = (int)(getAnimationTime().asSeconds() / ANIMATIONS_RATE);
-    if (Resources::instance().getNumOfSprites(getState()) <= spritesNum)
-        resetAnimationTime();
-    else {
+    if (getAnimationTime().asSeconds() >= ANIMATIONS_RATE) {
+        int spritesNum = Resources::instance().getNumOfSprites(getState());
         sf::IntRect updatedRect = getIntRect();
-        updatedRect.left = spritesNum * PLAYER_BOX_WIDTH;
-        if (updatedRect.width < 0) {
-            updatedRect.left += PLAYER_BOX_WIDTH;
-
+        updatedRect.left += PLAYER_BOX_WIDTH;
+        if (getState() == JUMP) {
+            if (updatedRect.left >= (4 * PLAYER_BOX_WIDTH)) {
+                updatedRect.left = 3 * PLAYER_BOX_WIDTH;
+            }
+        } else{
+            if (updatedRect.left >= (spritesNum * PLAYER_BOX_WIDTH)) {
+            updatedRect.left = 0;
+           }
         }
+        resetAnimationTime();
         setOrigin();
         setIntRect(updatedRect);
     }
+
 }
 //============================================================================
 void Player::playerJump(const b2Vec2 &force) {

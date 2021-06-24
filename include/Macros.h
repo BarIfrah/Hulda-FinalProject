@@ -204,7 +204,7 @@ const b2Vec2 MDOWN (0, 8);
 const b2Vec2 EMUP(0, -3);
 const b2Vec2 EMRIGHT(1, 0);
 const b2Vec2 EMLEFT(-1, 0);
-const b2Vec2 EMDOWN(0, 4);
+const b2Vec2 EMDOWN(0, 3);
 
 const float ENEMY_DISTANCE_LIMIT = 20.f;
 
@@ -226,4 +226,4 @@ const auto HEART_WIDTH = 117;
 //
 //for sounds
 const auto AUDIOS = 13;
-const auto VOL = 30;
+const auto VOL = 0;

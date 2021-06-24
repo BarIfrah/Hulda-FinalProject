@@ -105,7 +105,7 @@ namespace
 
     //-------------------------------------------------------------------------
 
-    void scooterTrash(GameObject& object1, GameObject& object2)
+    void scooterObstacle(GameObject& object1, GameObject& object2)
     {
         auto& enemy = dynamic_cast<Scooter&>(object1);
         if (enemy.getDirection() == RIGHT)
@@ -115,9 +115,9 @@ namespace
 
         enemy.flipSprite(sf::Vector2f(-1.f, 1.f));
     }
-    void trashScooter(GameObject& object1, GameObject& object2)
+    void obstacleScooter(GameObject& object1, GameObject& object2)
     {
-        scooterTrash(object2, object1);
+        scooterObstacle(object2, object1);
     }
 
      ////-------------------------------------------------------------------------

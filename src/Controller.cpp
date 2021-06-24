@@ -50,7 +50,7 @@ void Controller::run() {
                 m_board.removeFood(*m_world);
 
                 if (m_stats.isTimeUp()){
-                    timesUp();
+                    killPlayer();
                 }
                 if (m_player->getState() == DIE) {
                     if (m_player->getLife() == 0){
@@ -192,18 +192,22 @@ void Controller::HandleCharacterCollisionWithWindow(MovingObject* character)
         character->setPhysicsObjectPos
                 (sf::Vector2f(m_board.getLevelSize().x- character->getGlobalBounds().width, character->getLocation().y), MDOWN + MLEFT);
     }
+    if (dynamic_cast<Player*>(character)){
+        if (m_player->getGlobalBounds().top + PLAYER_BOX_HEIGHT > WIN_WIDTH)
+            killPlayer();
+    }
     character->updateLoc();
 }
 
 //============================================================================
-
+/// resets level
 void Controller::playerDied()
 {
     m_board.resetObjects();
 }
 
 //============================================================================
-
+/// resets read from file, score, lives etc.
 void Controller::resetGame() {
     resetGameView();
     m_highScore.getNewScore(m_player, m_window);
@@ -238,7 +242,7 @@ bool Controller::shouldMoveToNextLevel() {
 }
 //============================================================================
 /// resets clock, resets level and takes one life.
-void Controller::timesUp() {
+void Controller::killPlayer() {
     m_player->setState(DIE, PLAYER_BOX_WIDTH, PLAYER_BOX_HEIGHT, PLAYER_OFFSET, PLAYER_SPECIAL_OFFSET);
     m_player->setLife(-1);
     m_stats.resetClock();

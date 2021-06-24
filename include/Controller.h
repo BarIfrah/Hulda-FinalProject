@@ -59,6 +59,6 @@ private:
 	void resetGame();
 	void resetGameView();
 	bool shouldMoveToNextLevel();
-	void timesUp();
+	void killPlayer();
 
 };

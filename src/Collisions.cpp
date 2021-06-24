@@ -42,8 +42,11 @@ HitMap Collisions::initializeCollisionMap()
     map[Key(typeid(Exterminator), typeid(Adanit))] = &exterminatorAdanit;
     map[Key(typeid(Adanit), typeid(Exterminator))] = &adanitExterminator;
 
-    map[Key(typeid(Scooter), typeid(Trash))] = &scooterTrash;
-    map[Key(typeid(Trash), typeid(Scooter))] = &trashScooter;
+    map[Key(typeid(Scooter), typeid(Trash))] = &scooterObstacle;
+    map[Key(typeid(Trash), typeid(Scooter))] = &obstacleScooter;
+
+    map[Key(typeid(Scooter), typeid(Adanit))] = &scooterObstacle;
+    map[Key(typeid(Adanit), typeid(Scooter))] = &obstacleScooter;
 
     return map;
 }
