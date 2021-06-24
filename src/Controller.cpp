@@ -48,7 +48,6 @@ void Controller::run() {
                 m_window.clear();
                 m_stats.update(m_level, m_player->getScore(), m_player->getLife(), m_stats.getTimeLeft());
                 m_board.removeFood(*m_world);
-
                 if (m_stats.isTimeUp()){
                     killPlayer();
                 }
@@ -68,11 +67,7 @@ void Controller::run() {
                 drawObjects();
                 m_stats.draw(m_window);
                 m_window.display();
-                if (!handleGameEvents()) {
-                    resetGameView();
-                    Music::instance().stopGame();
-                    break;
-                }
+                if (!handleGameEvents()) break;
             }
             Music::instance().stopLevelMusic(m_level);
             ///this is right AFTER when the user presses ESC key during playing game-->m_window.isOpen(line 34) returns false or line 61 is true so break
@@ -145,13 +140,17 @@ bool Controller::handleGameEvents() {
     if (auto event = sf::Event{}; m_window.pollEvent(event)) {
         switch (event.type) { //changed to type
             case sf::Event::KeyPressed:
-                if (event.key.code == sf::Keyboard::Escape)
+                if (event.key.code == sf::Keyboard::Escape) {
+                    resetGameView();
+                    Music::instance().stopGame();
                     return false;
+                }
                 break;
             case sf::Event::Closed:
                 m_window.close();
                 return false;
-            default:;
+            default:
+                break;
         }
     }
 
