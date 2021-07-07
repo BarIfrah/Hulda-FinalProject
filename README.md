@@ -97,9 +97,15 @@ Used MultiMethods for manage collisions between objects.
 #### With IDE's:
 Import all source code to your favorite IDE (works cross platform).\
 Compile and run.\
+VERY IMPORTANT! You need SFML library on your machine to play the game.\
+[SFML Download:](https://www.sfml-dev.org/download.php) \
 
 If you choose to run via CMD or Terminal:
 #### Unix machines:
+If you don't have SFML on your machine- run this first:
+```
+% brew install sfml
+```
 Go to either *Cmake-Build-Debug/Hulda* or to *out/build/x64-Debug (default)/Hulda.exe*\
 Open Terminal window.\
 Run:
